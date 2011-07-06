@@ -3,11 +3,15 @@
 one:
   name: MyString
   email: MyString
+  zipcode: 90909
+  industry: Shop
   hashed_password: MyString
   salt: MyString
 
 two:
   name: MyString
   email: MyString
+  zipcode: 90909
+  industry: Shop
   hashed_password: MyString
   salt: MyString
