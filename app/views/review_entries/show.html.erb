@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Service:</b>
+  <%= @review_entry.service %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @review_entry.email %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @review_entry.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_review_entry_path(@review_entry) %> |
+<%= link_to 'Back', review_entries_path %>

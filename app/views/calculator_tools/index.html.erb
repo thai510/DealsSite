@@ -1,0 +1,21 @@
+<h1>Listing calculator_tools</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @calculator_tools.each do |calculator_tool| %>
+  <tr>
+    <td><%= link_to 'Show', calculator_tool %></td>
+    <td><%= link_to 'Edit', edit_calculator_tool_path(calculator_tool) %></td>
+    <td><%= link_to 'Destroy', calculator_tool, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Calculator tool', new_calculator_tool_path %>
