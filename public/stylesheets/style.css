@@ -3,6 +3,7 @@
   padding-top: 4ex;
   padding-left: 2em;
   background: white;
+  padding-bottom: 30px;
 }
 
 #side {
@@ -17,4 +18,37 @@
 #side a {
   color: #bfb;
   font-size: small;
+}
+
+#banner {
+  background: #9c9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner a {
+  color: #bfb;
+  font-size: small;
+  text-decoration:none;
+}
+
+#footer {
+position: absolute;
+bottom:0;
+background-color: #9c9;
+margin-top: -30px;
+margin-left:79%;
+text-align: center;
+height: 30px;
+width:20%;
+}
+
+#footer a {
+  color: #bfb;
+  font-size: small;
+  text-decoration:none;
 }

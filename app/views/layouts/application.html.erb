@@ -8,21 +8,22 @@
 </head>
 <body>
 
-<div id="side">
-  <%= link_to 'Home', home_index_path %><br />
-  <%= link_to 'EULA', eula_index_path %><br />
-  <%= link_to 'Contact Us', contact_contact_us_path %><br />
+<div id="banner">
+  <%= link_to 'Home', home_index_path %>
   <% unless current_user then %>
   <%= link_to "LOGIN", login_index_path %>
   <% else %>
-  <%= link_to 'Resources', resources_index_path %><br />
-  <%= link_to 'Reviews', reviews_index_path %><br />
-  <%= link_to 'Sign Up', sign_up_index_path %><br />
+  <%= link_to 'Resources ', resources_index_path %>
+  <%= link_to 'Reviews ', reviews_index_path %>
   <%= link_to "LOGOUT", logout_path, :method => :delete %>
   <%   end %>
 </div>
 <div id="main">
 <%= yield %>
+</div>
+<div id="footer">
+  <%= link_to 'EULA', eula_index_path %>
+  <%= link_to 'Contact Us', contact_contact_us_path %>
 </div>
 
 </body>
