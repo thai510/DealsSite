@@ -1,7 +1,18 @@
 LocalAdResource::Application.routes.draw do
+  get "admin/index"
+
+
+  controller :sessions do
+
+  get "login/index" => :new
+  post "login/index" => :create
+  delete "logout" => :destroy
+  end
+
   get "login/index"
 
   resources :users
+  #resources :sessions
 
   get "sign_up/index"
 

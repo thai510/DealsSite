@@ -15,6 +15,15 @@ class User < ActiveRecord::Base
 
    validate :password_must_be_present
 
+     def User.authenticate(email, password)
+       if user = find_by_email(email)
+         if user.hashed_password == encrypt_password(password, user.salt)
+           return user
+         end
+       end
+       return nil
+     end
+
      def User.encrypt_password(password, salt)
        Digest::SHA2.hexdigest(password + "offerglass" + salt)
      end
