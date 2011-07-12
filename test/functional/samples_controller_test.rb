@@ -3,8 +3,14 @@ require 'test_helper'
 class SamplesControllerTest < ActionController::TestCase
   setup do
     @sample = samples(:one)
-  end
+    if session[:users_id]
+      @logged_in = true
+    else
+      @logged_in = false
+    end
 
+  end
+if @logged_in then
   test "should get index" do
     get :index
     assert_response :success
@@ -46,4 +52,21 @@ class SamplesControllerTest < ActionController::TestCase
 
     assert_redirected_to samples_path
   end
+else
+   test "logged out,index" do
+    get :index
+    assert_redirected_to home_path
+  end
+
+  test "logged out,new" do
+    get :new
+    assert_redirected_to home_path
+  end
+
+
+  #when samples are added, need to add tests for
+  #create,edit,show,update,destroy
+  #when not logged in, all should redirect to home_path
+
+end
 end

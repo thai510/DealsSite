@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :admin_authorize
   skip_before_filter :authorize
   # GET /users
   # GET /users.xml
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    skip_before_filter :admin_authorize
     @user = User.new
 
     respond_to do |format|
@@ -41,6 +43,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
+    skip_before_filter :admin_authorize
     @user = User.new(params[:user])
 
     respond_to do |format|

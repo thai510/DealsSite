@@ -3,8 +3,17 @@ require 'test_helper'
 class TutorialsControllerTest < ActionController::TestCase
   setup do
     @tutorial = tutorials(:one)
+    @update  = {
+      :topic => "MoreStuff",
+      :content => "Blaha yeah bliah bliajwerjkflili"
+    }
+    if session[:users_id]
+      @logged_in = true
+    else
+      @logged_in = false
+    end
   end
-
+if @logged_in then
   test "should get index" do
     get :index
     assert_response :success
@@ -17,11 +26,11 @@ class TutorialsControllerTest < ActionController::TestCase
   end
 
   test "should create tutorial" do
-    assert_difference('Tutorial.count') do
-      post :create, :tutorial => @tutorial.attributes
-    end
-
-    assert_redirected_to tutorial_path(assigns(:tutorial))
+      assert_difference('Tutorial.count') do
+        post :create, :tutorial => {:topic => "a", :content => "b"} 
+      end
+ 
+      assert_redirected_to tutorials_path(assigns(:tutorial))
   end
 
   test "should show tutorial" do
@@ -46,4 +55,21 @@ class TutorialsControllerTest < ActionController::TestCase
 
     assert_redirected_to tutorials_path
   end
+else
+  test "logged out,index" do
+    get :index
+    assert_redirected_to home_path
+  end
+
+  test "logged out,new" do
+    get :new
+    assert_redirected_to home_path
+  end
+
+
+  #when tutorials are added, need to add tests for
+  #create,edit,show,update,destroy
+  #when not logged in, all should redirect to home_path
+end
+
 end

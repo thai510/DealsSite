@@ -3,7 +3,11 @@ require 'test_helper'
 class ReviewsControllerTest < ActionController::TestCase
   test "should get index" do
     get :index
-    assert_response :success
+    if session[:users_id]
+      assert_response :success
+    else
+      assert_redirected_to home_path
+    end
   end
 
 end

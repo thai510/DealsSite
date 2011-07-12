@@ -3,12 +3,19 @@ require 'test_helper'
 class DealBuildersControllerTest < ActionController::TestCase
   setup do
     @deal_builder = deal_builders(:one)
-  end
 
+    if session[:users_id]
+      @logged_in = true
+    else
+      @logged_in = false
+    end
+
+  end
+if @logged_in then
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:deal_builders)
+      assert_response :success
+      assert_not_nil assigns(:deal_builders)
   end
 
   test "should get new" do
@@ -46,4 +53,21 @@ class DealBuildersControllerTest < ActionController::TestCase
 
     assert_redirected_to deal_builders_path
   end
+else
+  test "logged out,index" do
+    get :index
+    assert_redirected_to home_path
+  end
+
+  test "logged out,new" do
+    get :new
+    assert_redirected_to home_path
+  end
+
+
+  #when dealbuilders are added, need to add tests for
+  #create,edit,show,update,destroy
+  #when not logged in, all should redirect to home_path
+
+end
 end

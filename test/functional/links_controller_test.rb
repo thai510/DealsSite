@@ -3,12 +3,22 @@ require 'test_helper'
 class LinksControllerTest < ActionController::TestCase
   setup do
     @link = links(:one)
-  end
 
+    if session[:users_id]
+      @logged_in = true
+    else
+      @logged_in = false
+    end
+  end
+if @logged_in then
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:links)
+    if session[:users_id] 
+      assert_response :success
+      assert_not_nil assigns(:links)
+    else
+      assert_redirected_to home_path
+    end
   end
 
   test "should get new" do
@@ -46,4 +56,21 @@ class LinksControllerTest < ActionController::TestCase
 
     assert_redirected_to links_path
   end
+else
+   test "logged out,index" do
+    get :index
+    assert_redirected_to home_path
+  end
+
+  test "logged out,new" do
+    get :new
+    assert_redirected_to home_path
+  end
+
+
+  #when links are added, need to add tests for
+  #create,edit,show,update,destroy
+  #when not logged in, all should redirect to home_path
+
+end
 end

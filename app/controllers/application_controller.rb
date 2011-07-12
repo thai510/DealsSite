@@ -24,5 +24,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def admin_authorize
+    if current_user
+      unless (User.find_by_id(session[:users_id])).email == "stephencharlesb@gmail.com" 
+        redirect_to home_url
+      end
+    else
+      redirect_to home_url
+    end
+  end
+
 
 end

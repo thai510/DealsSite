@@ -3,12 +3,22 @@ require 'test_helper'
 class MarketingPlansControllerTest < ActionController::TestCase
   setup do
     @marketing_plan = marketing_plans(:one)
-  end
+    if session[:users_id]
+      @logged_in = true
+    else
+      @logged_in = false
+    end
 
+  end
+if @logged_in then
   test "should get index" do
     get :index
-    assert_response :success
-    assert_not_nil assigns(:marketing_plans)
+    if session[:users_id] 
+      assert_response :success
+      assert_not_nil assigns(:marketing_plans)
+    else
+      assert_redirected_to home_path
+    end
   end
 
   test "should get new" do
@@ -46,4 +56,21 @@ class MarketingPlansControllerTest < ActionController::TestCase
 
     assert_redirected_to marketing_plans_path
   end
+else
+   test "logged out,index" do
+    get :index
+    assert_redirected_to home_path
+  end
+
+  test "logged out,new" do
+    get :new
+    assert_redirected_to home_path
+  end
+
+
+  #when marketing plans are added, need to add tests for
+  #create,edit,show,update,destroy
+  #when not logged in, all should redirect to home_path
+
+end
 end

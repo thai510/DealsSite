@@ -13,7 +13,11 @@ class SessionsControllerTest < ActionController::TestCase
 
   test "should get destroy" do
     get :destroy
-    assert_response :success
+    if session[:users_id] 
+      assert_response :success
+    else
+      assert_redirected_to home_path
+    end
   end
 
 end

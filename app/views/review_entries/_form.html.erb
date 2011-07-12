@@ -13,15 +13,59 @@
 
   <div class="field">
     <%= f.label :service %><br />
-    <%= f.text_field :service %>
+    <%= f.select :service, ["fakeservice1","fakeservice2"],
+                        :prompt => 'Select a Service' %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :number_of_vouchers %><br />
+    <%= f.text_field :number_of_vouchers, :size => 10 %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
-    <%= f.text_area :content %>
+    <%= f.label :offer %><br />
+    <%= f.text_area :offer, :size => "40x2" %>
+  </div>
+  <div class="field">
+    <%= f.label :level_of_new_business %>
+    <%= f.radio_button :level_of_new_business, '1' %>
+    <%= f.label '1' %>
+    <%= f.radio_button :level_of_new_business, '2' %>
+    <%= f.label '2' %>
+    <%= f.radio_button :level_of_new_business, '3' %>
+    <%= f.label '3' %>
+    <%= f.radio_button :level_of_new_business, '4' %>
+    <%= f.label '4' %>
+    <%= f.radio_button :level_of_new_business, '5' %>
+    <%= f.label '5' %>
+  </div>
+  <div class="field">
+    <%= f.label :returning_new_customers %>
+    <%= f.radio_button :returning_new_customers, '1' %>
+    <%= f.label '1' %>
+    <%= f.radio_button :returning_new_customers, '2' %>
+    <%= f.label '2' %>
+    <%= f.radio_button :returning_new_customers, '3' %>
+    <%= f.label '3' %>
+    <%= f.radio_button :returning_new_customers, '4' %>
+    <%= f.label '4' %>
+    <%= f.radio_button :returning_new_customers, '5' %>
+    <%= f.label '5' %>
+  </div>
+  <div class="field">
+    <%= f.label :overall_experience %>
+    <%= f.radio_button :overall_experience, '1' %>
+    <%= f.label '1' %>
+    <%= f.radio_button :overall_experience, '2' %>
+    <%= f.label '2' %>
+    <%= f.radio_button :overall_experience, '3' %>
+    <%= f.label '3' %>
+    <%= f.radio_button :overall_experience, '4' %>
+    <%= f.label '4' %>
+    <%= f.radio_button :overall_experience, '5' %>
+    <%= f.label '5' %>
+  </div>
+  <div class="field">
+    <%= f.label 'Additional Comments (optional):' %><br />
+    <%= f.text_area :content,:size => "40x5" %>
   </div>
   <div class="actions">
     <%= f.submit %>
