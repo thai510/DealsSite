@@ -3,7 +3,6 @@
 <table>
   <tr>
     <th>Service</th>
-    <th>Email</th>
     <th>Content</th>
     <th></th>
     <th></th>
@@ -13,7 +12,6 @@
 <% @review_entries.each do |review_entry| %>
   <tr>
     <td><%= review_entry.service %></td>
-    <td><%= review_entry.email %></td>
     <td><%= review_entry.content %></td>
     <td><%= link_to 'Show', review_entry %></td>
     <td><%= link_to 'Edit', edit_review_entry_path(review_entry) %></td>

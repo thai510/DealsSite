@@ -2,10 +2,8 @@
 
 one:
   service: MyString
-  email: MyString
   content: MyText
 
 two:
   service: MyString
-  email: MyString
   content: MyText
