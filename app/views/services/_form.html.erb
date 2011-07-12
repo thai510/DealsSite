@@ -1,0 +1,92 @@
+<%= form_for(@service) do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+      <ul>
+      <% @service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :deal_site_name %><br />
+    <%= f.text_field :deal_site_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_name %><br />
+    <%= f.text_field :contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_email %><br />
+    <%= f.text_field :contact_email %>
+  </div>
+  <div class="field">
+    <%= f.label :contact_phone %><br />
+    (<%= phone_field_tag :phone_area,@phone_area,:size =>2, :maxlength => 3 %>)
+    <%= phone_field_tag :phone_num1,@phone_num1, :size => 2, :maxlength => 3 %>-
+    <%= phone_field_tag :phone_num2,@phone_num2, :size => 3, :maxlength => 4 %>
+  </div>
+  <div class="field">
+    <%= f.label :product_name %><br />
+    <%= f.text_field :product_name %>
+  </div>
+  <div class="field">
+    <%= f.label :locations_served %><br />
+    <%= f.select :locations_served, Service::LOCATIONS,
+                        :prompt => 'Select a Location' %>
+  </div>
+  <div class="field">
+    <%= f.label :industries_served %><br />
+    <%= f.select :industries_served, User::INDUSTRIES,
+                        :prompt => 'Select an Industry' %>
+  </div>
+  <div class="field">
+    <%= f.label 'Self-serve product?' %><br />
+    <%= f.radio_button :self_serve_product, 'Yes' %>
+    <%= f.label 'Yes' %>
+    <%= f.radio_button :self_serve_product, 'No' %>
+    <%= f.label 'No' %>
+  </div>
+  <div class="field">
+    <%= f.label :minimum_required_discount %><br />
+    <%= f.text_field :minimum_required_discount %>
+  </div>
+  <div class="field">
+    <%= f.label :revenue_share %><br />
+    <%= f.text_area :revenue_share %>
+  </div>
+  <div class="field">
+    <%= f.label :minimum_number_of_vouchers %><br />
+    <%= f.text_field :minimum_number_of_vouchers %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_terms %><br />
+    <%= f.text_area :payment_terms %>
+  </div>
+  <div class="field">
+    <%= f.label :time_length_standard_promo %><br />
+    <%= f.text_field :time_length_standard_promo %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity_credit_card_fee %><br />
+    <%= f.text_field :quantity_credit_card_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :payer_credit_card_fee %><br />
+    <%= f.text_area :payer_credit_card_fee %>
+  </div>
+  <div class="field">
+    <%= f.label :restrictions %><br />
+    <%= f.text_area :restrictions %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_info %><br />
+    <%= f.text_area :additional_info %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

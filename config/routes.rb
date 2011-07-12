@@ -1,4 +1,6 @@
 LocalAdResource::Application.routes.draw do
+  resources :services
+
   get "admin/index"
 
 
@@ -19,6 +21,8 @@ LocalAdResource::Application.routes.draw do
   get "eula/index"
 
   resources :review_entries
+
+  get "review_entries/new"
 
   get "reviews/index"
 

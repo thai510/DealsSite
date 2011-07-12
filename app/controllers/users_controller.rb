@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :admin_authorize
-  skip_before_filter :authorize
+  before_filter :authorize, :except => [:create, :new]
   # GET /users
   # GET /users.xml
   def index
@@ -26,7 +25,6 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
-    skip_before_filter :admin_authorize
     @user = User.new
 
     respond_to do |format|
@@ -43,16 +41,15 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.xml
   def create
-    skip_before_filter :admin_authorize
     @user = User.new(params[:user])
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to(home_index_path, :notice => "Your account" +
+        format.html { redirect_to(home_path, :notice => "Your account" +
                        " was successfully created. Please Login.") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => 'new' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end

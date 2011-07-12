@@ -1,7 +1,7 @@
 <%= form_for(@review_entry) do |f| %>
   <% if @review_entry.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@review_entry.errors.count, "error") %> prohibited this review_entry from being saved:</h2>
+      <h2>Please fix the following errors:</h2>
 
       <ul>
       <% @review_entry.errors.full_messages.each do |msg| %>
@@ -17,12 +17,12 @@
                         :prompt => 'Select a Service' %>
   </div>
   <div class="field">
-    <%= f.label :number_of_vouchers %><br />
-    <%= f.text_field :number_of_vouchers, :size => 10 %>
-  </div>
-  <div class="field">
     <%= f.label :offer %><br />
     <%= f.text_area :offer, :size => "40x2" %>
+  </div>
+  <div class="field">
+    <%= f.label 'Number of vouchers sold' %><br />
+    <%= f.text_field :number_of_vouchers, :size => 10 %>
   </div>
   <div class="field">
     <%= f.label :level_of_new_business %>
@@ -67,6 +67,7 @@
     <%= f.label 'Additional Comments (optional):' %><br />
     <%= f.text_area :content,:size => "40x5" %>
   </div>
+    <%=f.hidden_field :email,:value=>(User.find_by_id(session[:users_id])).email%>
   <div class="actions">
     <%= f.submit %>
   </div>

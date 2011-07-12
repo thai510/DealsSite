@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
 
    validates :name, :email,:zipcode,:industry,:password, :presence => true 
    validates :email , :uniqueness => true
-   #validates :email, :format => { 
-    #  :with => %r{[a-z 0-9 ! # $ % & ' * + / = ? ^ _ ` { | } ~ - [ + ( ? : \ . [ a-z 0 - 9}i,
-      #:message => 'must be valid email'}
    validates :password, :length => {:minimum => 6, :maximum => 20}
    validates :password, :confirmation => true
    validates  :zipcode, :length => {:is => 5}
