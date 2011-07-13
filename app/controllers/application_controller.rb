@@ -17,10 +17,10 @@ class ApplicationController < ActionController::Base
   end
 
   protected 
-  
+
   def authorize
     unless User.find_by_id(session[:users_id])
-      redirect_to home_url, :notice => "Please log in"
+      redirect_to login_index_url, :notice => "Please log in"
     end
   end
 

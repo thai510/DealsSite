@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20110712180733) do
     t.integer  "level_of_new_business"
     t.integer  "returning_new_customers"
     t.integer  "overall_experience"
-    t.string   "email"
   end
 
   create_table "samples", :force => true do |t|

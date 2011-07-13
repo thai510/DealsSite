@@ -6,7 +6,7 @@ LocalAdResource::Application.routes.draw do
 
   controller :sessions do
 
-  get "login/index" => :new
+  #get "login/index" => :new
   post "login/index" => :create
   delete "logout" => :destroy
   end

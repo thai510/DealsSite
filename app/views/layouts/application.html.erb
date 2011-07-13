@@ -1,31 +1,82 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-  <title>LocalAdResource</title>
-  <%= stylesheet_link_tag :all %>
+  <title>OfferGlass</title>
+  <%= #stylesheet_link_tag :all 
+       stylesheet_link_tag 'style.css'
+%>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
+
 <body>
-
-<div id="banner">
-  <%= link_to 'Home', home_index_path %>
-  <% unless current_user then %>
-  <%= link_to "LOGIN", login_index_path %>
+  <% unless current_user then  %>
+  <%= yield %>
   <% else %>
-  <%= link_to 'Resources ', resources_index_path %>
-  <%= link_to 'Reviews ', reviews_index_path %>
-  <%= link_to "LOGOUT", logout_path, :method => :delete %>
-  <%   end %>
-</div>
-<div id="main">
-<%= yield %>
-</div>
-<div id="footer">
-  <%= link_to 'DealSite Sign Up', services_path %>
-  <%= link_to 'EULA', eula_index_path %>
-  <%= link_to 'Contact Us', contact_contact_us_path %>
-</div>
+	<div id="container">
+		<div id="bgwrap">
+			<div id="primary_left">
+        
+				<div id="logo">
+				  <%= link_to image_tag("theme/logo.png"), home_path %>
+         
+				</div> <!-- logo end -->
+        <div id="button_left">
+         <%= button_to 'ACCOUNT', logout_path,
+                    :method => :delete, :class => 'dashboard' %>
+        </div>
+        <div id="button_right">
+          <%= button_to 'LOGOUT', logout_path,
+                    :method => :delete, :class => 'dashboard' %>
+        </div>
+				<div id="menu"> <!-- navigation menu -->
+					<ul>
+						<li>
+              <a href=<%= home_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons_3/dashboard.png") %>
+                <span>Portfolio</span>
+              </a>
+            </li>
+            <li>
+              <a href=<%= learning_center_index_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons_3/Chalkboard Green.png") %>
+                <span>Learn</span>
+              </a>
+            </li> 
+            <li>
+              <a href=<%= resources_index_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons/Diagram.png") %>
+                <span>Tools</span>
+              </a>
+            </li>
+            <li>
+              <a href=<%= reviews_index_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons/Comment.png") %>
+                <span>Reviews</span>
+              </a>
+            </li>  
+            <li>
+              <a href=<%= contact_contact_us_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons/Users.png") %>
+                <span>Contact Us</span>
+              </a>
+            </li>
+     
+       
+           
+            
+					</ul>
+				</div> <!-- navigation menu end -->
+			</div> <!-- sidebar end -->
 
+			<div id="primary_right">
+				<div class="inner">					
+					<%= yield %>
+				</div> <!-- inner -->
+			</div> <!-- primary_right -->
+		</div> <!-- bgwrap -->
+	</div> <!-- container -->
+<% end %>
 </body>
 </html>
