@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @subindustry.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @subindustry.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_subindustry_path(@subindustry) %> |
+<%= link_to 'Back', industries_path %>

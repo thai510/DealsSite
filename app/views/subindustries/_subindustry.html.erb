@@ -1,0 +1,20 @@
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <tr>
+    <td><%= subindustry.title %></td>
+    <td><%= subindustry.description %></td>
+    <td><%= link_to 'Show', subindustry %></td>
+    <td><%= link_to 'Edit', edit_subindustry_path(subindustry) %></td>
+    <td><%= link_to 'Destroy', subindustry, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+</table>
+
+<br />

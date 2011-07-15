@@ -27,12 +27,12 @@ body {
 	width:600px;
 	margin:0 auto;
 	text-align:center;
-	margin-bottom:50px;
+	margin-bottom:300px;
 }
 
 #box {
-	padding:30px 30px 100px 30px;
-	width:560px;
+	padding:15px 0px 40px 20px;
+	width:500px;
 	border:1px solid #fff;
 	margin:0 auto;
 	border-radius: 5px;
@@ -43,9 +43,9 @@ body {
 	-webkit-box-shadow: 1px 1px 0px #333;
 	box-shadow: 1px 1px 0px #333;
 	
-	background:#fbfbfb;
+	/*background:#fbfbfb;
 	background: -moz-linear-gradient(top,#fbfbfb,#f5f5f5);
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#f5f5f5));
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#f5f5f5));*/
 }
 
 
@@ -55,22 +55,49 @@ body {
 	width:215px;
 }
 
+#box div.one_half, div.one_half_last {
+  font-size:13px;
+  color:orange;
+}
+
 div.signup {
-  float: right;
-  padding-top: 10px;
-  padding-right: 30px;
+  padding-top: 40px;
+  padding-left: 0px;
+}
+
+div.signup a {
+  text-decoration:none;
+  color: teal;
+}
+
+div.signup a:hover {
+  text-decoration:none;
+  color: orange;
 }
 
 div.login {
-  padding-top: 40px;
-  padding-right: 40px;
-  padding-bottom: 0px;
-  padding-left: 453px;
+  float:right;
+  padding-top: 20px;
+  padding-right: 8px;
+  padding-bottom: 10px;
+  float:right;
+  /*padding-left: 435px;*/
 }
 
 
 
 #box label.fix {
 	top:-5px;
+}
+
+#wrapper {
+  min-height:100%; 
+  height: auto !important;
+  height:100%;
+  margin: 0 -4em;
+}
+
+#footer, #push {
+  height: 4em;
 }
 

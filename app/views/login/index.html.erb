@@ -6,15 +6,22 @@
 <div id="line">
 <!-- -->
 </div>
+<div id="wrapper">
 <div id="background">
   <div id="container">
     <div id="logo">
       <%= image_tag("theme/logologin.png") %>
     </div>
     <%= render :partial => 'sessions/login' %>         
-    <div class="signup">
-      <%= link_to 'Sign Up', sign_up_index_path %> 
-    </div>    
+  <div class="signup">
+    <b><%= link_to 'Sign Up', sign_up_index_path %></b> 
+  </div>    
+
+  </div>
+</div>
+  <div id="push"></div>
+  <div id="footer">
+    <b><%= link_to 'Deal Sites Click Here', new_service_path %></b> 
   </div>
 </div>
 

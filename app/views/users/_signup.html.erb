@@ -1,7 +1,5 @@
-
 <%= form_for(@user) do |f| %>
   <% if @user.errors.any? %>
-    <div id="error_explanation">
       <h2> Please fix the following errors</h2>
 
       <ul>
@@ -9,35 +7,34 @@
         <li><%= msg %></li>
       <% end %>
       </ul>
-    </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <div class="entry">
+    <b><%= f.label 'Name:' %>
+    <%= f.text_field :name %></b>
   </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
+  <div class="entry">
+    <b><%= f.label 'Email:' %>
+    <%= f.email_field :email %></b>
   </div>
-  <div class="field">
-    <%= f.label :password, 'Password'%><br />
-    <%= f.password_field :password %>
+  <div class="entry">
+    <b><%= f.label  'Password:'%>
+    <%= f.password_field :password %></b>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation, 'Confirm'%><br />
-    <%= f.password_field :password_confirmation %>
+  <div class="entry">
+    <b><%= f.label :password_confirmation, 'Confirm:'%>
+    <%= f.password_field :password_confirmation %></b>
   </div>
-  <div class="field">
-    <%= f.label :zipcode%><br />
-    <%= f.text_field :zipcode %>
+  <div class="entry">
+    <b><%= f.label 'Zipcode:'%>
+    <%= f.text_field :zipcode %></b>
   </div>
-  <div class="field">
-    <%= f.label :industry%><br />
-    <%= f.select :industry, User::INDUSTRIES,
-                       :prompt => 'Select an Industry' %>
+  <div class="entry">
+  <%= f.label 'Industry:' %>
+  <%= f.select :industry,["stuff"],
+            :prompt => 'Select an Industry'%>
   </div>
-  <div class="actions">
+  <div class="button">
     <%= f.submit %>
   </div>
 <% end %>

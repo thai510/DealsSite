@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_filter :authorize, :except => [:create, :new]
+  before_filter :admin_authorize, :except => [:create, :new, :edit, :update]
   # GET /users
   # GET /users.xml
   def index
@@ -25,6 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    @industries = Industry.all
     @user = User.new
 
     respond_to do |format|
@@ -49,7 +51,7 @@ class UsersController < ApplicationController
                        " was successfully created. Please Login.") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
-        format.html { render :action => 'new' }
+        format.html { render :action => 'sign_up/index' }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
     end

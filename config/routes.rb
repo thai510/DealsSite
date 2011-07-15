@@ -1,4 +1,8 @@
 LocalAdResource::Application.routes.draw do
+  resources :subindustries
+
+  resources :industries
+
   resources :services
 
   get "admin/index"

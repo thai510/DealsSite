@@ -23,8 +23,8 @@
          
 				</div> <!-- logo end -->
         <div id="button_left">
-         <%= button_to 'ACCOUNT', logout_path,
-                    :method => :delete, :class => 'dashboard' %>
+         <%= button_to 'ACCOUNT', edit_user_path(current_user),
+                     :class => 'dashboard', :method => :get %>
         </div>
         <div id="button_right">
           <%= button_to 'LOGOUT', logout_path,

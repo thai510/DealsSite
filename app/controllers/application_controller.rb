@@ -1,8 +1,12 @@
 class ApplicationController < ActionController::Base
   before_filter :authorize
   helper_method :current_user
+  helper_method :back_to_home
+  helper_method :set_current_industry
+  helper_method :get_current_industry
   protect_from_forgery
-
+ 
+  @current_industry
   private
 
   def current_sign_up
@@ -15,6 +19,25 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:users_id]) if session[:users_id]
   end
+  
+  def set_current_industry(industry)
+     @current_industry = Industry.find_by_id(industry)
+  end
+
+  def get_current_industry
+     @current_industry
+  end
+
+def industry (somevar)
+
+    render :partial => 'users/industry' 
+    #{render :partial => 'users/industry'}
+    #while params[:industry] != nil
+    #  somevar << params[:industry]
+     # render :partial => 'users/industry'
+    #end
+  end
+ 
 
   protected 
 
@@ -33,6 +56,7 @@ class ApplicationController < ActionController::Base
       redirect_to home_url
     end
   end
+
 
 
 end

@@ -5,11 +5,11 @@
 <%= form_tag do %>   
   <div id="box">
     <div class="one_half">
-      <label for="name">Email:</label>
-      <%= text_field_tag :email, params[:email] %>
+      <b><label for="email">Email:</label></b>
+      <%= text_field_tag :email, params[:email]%>
     </div>
     <div class="one_half last">  
-      <label for="password">Password:</label>      
+      <b><label for="password">Password:</label></b>      
       <%= password_field_tag :password, params[:password] %>
     </div>
     <div class="login">                    

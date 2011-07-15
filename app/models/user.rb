@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
-   INDUSTRIES = ["Restaurant", "Construction", "Shop", "Wrestling"]
+   INDUSTRIES = ["Dining and Nightlife" => ["Fine dining","Casual dining", 
+                                            "Bar","Club"],
+                 "Health and Beauty" => ["Massage", "Hair Salon", "Hair REmoval",
+                                         "Mani/Pedi", "Tanning", "Makeup"]]
 
    validates :name, :email,:zipcode,:industry,:password, :presence => true 
    validates :email , :uniqueness => true

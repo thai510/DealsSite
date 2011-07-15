@@ -1,5 +1,17 @@
-<h1>SignUp#index</h1>
-<p>Find me in app/views/sign_up/index.html.erb</p>
+<head>
+<%= stylesheet_link_tag 'login.css' %>
+<%= stylesheet_link_tag 'signup.css' %>
+
+</head>
+
 <% unless current_user then %>
-<%= render(:partial => "users/signup",:object => @user) %>
+<div id='background'>
+  <div id='contatiner'>
+    <div id='logo'>
+      <%= render(:partial => "users/signup",:object => @user) %>
+    </div>
+  </div>
+</div>
+<% else %>
+<%= back_to_home %>
 <% end %>
