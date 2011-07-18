@@ -1,5 +1,8 @@
+<head>
+    <%= javascript_include_tag 'jquery', 'jquery-ui', 'application' %>
 
-  <tr id="currentIndustry">
-  <%= check_box_tag "user[subindustry_ids][]", subindustry.id, @user.subindustries.include?(subindustry), :remote => :true %>
+</head>
+<div id="subindustrycheckbox">
+  <%= check_box_tag "user[subindustry_ids][]", subindustry.id, @user.subindustries.include?(subindustry)%>
   <%= subindustry.title %>
-  </tr>
+</div>

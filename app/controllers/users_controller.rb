@@ -1,20 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authorize, :except => [:create, :new]
   before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
-  helper_method :update_or_new_industry
   # GET /users
   # GET /users.xml
-
-
-
-  def update_subi_div
-    @subindustries = Subindustry.find(:all, :conditions => ["industry_id =?",
-                                 params[:user_subindustry]])
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
 
   def index
     @users = User.order(:name)
