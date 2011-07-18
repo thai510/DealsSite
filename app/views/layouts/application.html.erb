@@ -31,14 +31,8 @@
                     :method => :delete, :class => 'dashboard' %>
         </div>
 				<div id="menu"> <!-- navigation menu -->
-					<ul>
-						<li>
-              <a href=<%= home_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons/chart.png") %>
-                <span>Portfolio</span>
-              </a>
-            </li>
-            <li>
+           <ul>
+             <li>
               <a href=<%= learning_center_index_path %> class="dashboard">
                 <%= image_tag("theme/icons/small_icons_3/Chalkboard Green.png") %>
                 <span>Learn</span>
@@ -56,6 +50,12 @@
                 <span>Reviews</span>
               </a>
             </li>  
+            <li>
+              <a href=<%= home_path %> class="dashboard">
+                <%= image_tag("theme/icons/small_icons/chart.png") %>
+                <span>Portfolio</span>
+              </a>
+            </li>
             <li>
               <a href=<%= contact_contact_us_path %> class="dashboard">
                 <%= image_tag("theme/icons/small_icons/Users.png") %>
