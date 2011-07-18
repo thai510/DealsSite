@@ -7,7 +7,10 @@ gem 'rails', '3.0.7'
 
 gem 'sqlite3'
 
-#group :production do
+
+#adds old functions from rails 2.0 to rails 3.0, such as observe_field and remote_to_function
+#gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
+#group p''roduction do
  #  gem 'mysql'
 #end
 

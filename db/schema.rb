@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110714172801) do
+ActiveRecord::Schema.define(:version => 20110718190444) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(:version => 20110714172801) do
     t.string   "title"
   end
 
+  create_table "industries_users", :id => false, :force => true do |t|
+    t.integer "industry_id"
+    t.integer "user_id"
+  end
+
+  add_index "industries_users", ["industry_id", "user_id"], :name => "index_industries_users_on_industry_id_and_user_id"
+  add_index "industries_users", ["user_id", "industry_id"], :name => "index_industries_users_on_user_id_and_industry_id"
+
   create_table "links", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,7 +75,6 @@ ActiveRecord::Schema.define(:version => 20110714172801) do
     t.integer  "level_of_new_business"
     t.integer  "returning_new_customers"
     t.integer  "overall_experience"
-    t.string   "email"
   end
 
   create_table "samples", :force => true do |t|
@@ -105,6 +112,14 @@ ActiveRecord::Schema.define(:version => 20110714172801) do
     t.integer  "industry_id"
   end
 
+  create_table "subindustries_users", :id => false, :force => true do |t|
+    t.integer "subindustry_id"
+    t.integer "user_id"
+  end
+
+  add_index "subindustries_users", ["subindustry_id", "user_id"], :name => "index_subindustries_users_on_subindustry_id_and_user_id"
+  add_index "subindustries_users", ["user_id", "subindustry_id"], :name => "index_subindustries_users_on_user_id_and_subindustry_id"
+
   create_table "tutorials", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -120,7 +135,6 @@ ActiveRecord::Schema.define(:version => 20110714172801) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zipcode"
-    t.string   "industry"
   end
 
 end

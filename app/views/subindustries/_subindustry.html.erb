@@ -1,20 +1,5 @@
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
+  <tr id="currentIndustry">
+  <%= check_box_tag "user[subindustry_ids][]", subindustry.id, @user.subindustries.include?(subindustry), :remote => :true %>
+  <%= subindustry.title %>
   </tr>
-
-  <tr>
-    <td><%= subindustry.title %></td>
-    <td><%= subindustry.description %></td>
-    <td><%= link_to 'Show', subindustry %></td>
-    <td><%= link_to 'Edit', edit_subindustry_path(subindustry) %></td>
-    <td><%= link_to 'Destroy', subindustry, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-</table>
-
-<br />

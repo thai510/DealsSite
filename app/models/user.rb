@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
-   INDUSTRIES = ["Dining and Nightlife" => ["Fine dining","Casual dining", 
-                                            "Bar","Club"],
-                 "Health and Beauty" => ["Massage", "Hair Salon", "Hair REmoval",
-                                         "Mani/Pedi", "Tanning", "Makeup"]]
-
-   validates :name, :email,:zipcode,:industry,:password, :presence => true 
+   has_and_belongs_to_many :industries
+   has_and_belongs_to_many :subindustries
+   validates :name, :email,:zipcode,:password, :presence => true 
+   validates :industry_ids, :presence => { 
+             :message => 'Please choose at least one industry'}
+                          
    validates :email , :uniqueness => true
    validates :password, :length => {:minimum => 6, :maximum => 20}
    validates :password, :confirmation => true

@@ -19,6 +19,7 @@ class SubindustriesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js {@currentIndustry = Industry.find(@subindustry.industry_id)}
       format.xml  { render :xml => @subindustry }
     end
   end

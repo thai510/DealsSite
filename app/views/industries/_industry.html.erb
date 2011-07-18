@@ -1,0 +1,9 @@
+
+<%= check_box_tag "user[industry_ids][]", industry.id, @user.industries.include?(industry) %>
+<%= industry.title %>
+<br />
+<% if @user.industries.include?(industry) then %>
+<%= render industry.subindustries %>
+<% end %>
+<br />
+

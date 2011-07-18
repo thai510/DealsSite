@@ -30,10 +30,9 @@
     <%= f.text_field :zipcode %></b>
   </div>
   <div class="entry">
-  <%= f.label 'Industry:' %>
-  <%= f.select :industry,["stuff"],
-            :prompt => 'Select an Industry'%>
-  </div>
+      <%= f.label 'Industry:' %>
+      <%= render Industry.all %>
+</div>
   <div class="button">
     <%= f.submit %>
   </div>

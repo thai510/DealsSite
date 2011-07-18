@@ -1,8 +1,21 @@
 class UsersController < ApplicationController
-  #before_filter :authorize, :except => [:create, :new]
-  #before_filter :admin_authorize, :except => [:create, :new, :edit, :update]
+  before_filter :authorize, :except => [:create, :new]
+  before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
+  helper_method :update_or_new_industry
   # GET /users
   # GET /users.xml
+
+
+
+  def update_subi_div
+    @subindustries = Subindustry.find(:all, :conditions => ["industry_id =?",
+                                 params[:user_subindustry]])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def index
     @users = User.order(:name)
 
@@ -46,6 +59,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        #when multiple industries are possible make this a loop
         format.html { redirect_to(home_path, :notice => "Your account" +
                        " was successfully created. Please Login.") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
