@@ -12,62 +12,81 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :service %><br />
+    <%= f.label :service, 'Select Daily Deal Service to review' %><br />
     <%= f.select :service, ["fakeservice1","fakeservice2"],
                         :prompt => 'Select a Service' %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :offer %><br />
+    <%= f.label :offer, 'Describe the promotion you ran' %><br />
     <%= f.text_area :offer, :size => "40x2" %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label 'Number of vouchers sold' %><br />
+    <%= f.label 'How many vouchers did you sell?' %><br />
     <%= f.text_field :number_of_vouchers, :size => 10 %>
   </div>
+  <br />
   <div class="field">
-    <%= f.label :level_of_new_business %>
+    <%= f.label :level_of_new_business, 'Rate the percentage of new customers generated from promotion' %>
+    <br />
     <%= f.radio_button :level_of_new_business, '1' %>
-    <%= f.label '1' %>
+    <%= f.label '20% - 40%' %><br />
     <%= f.radio_button :level_of_new_business, '2' %>
-    <%= f.label '2' %>
+    <%= f.label '40% - 60%' %><br />
     <%= f.radio_button :level_of_new_business, '3' %>
-    <%= f.label '3' %>
+    <%= f.label '60% - 80%' %><br />
     <%= f.radio_button :level_of_new_business, '4' %>
-    <%= f.label '4' %>
+    <%= f.label '80% - 90%' %><br />
     <%= f.radio_button :level_of_new_business, '5' %>
-    <%= f.label '5' %>
-  </div>
+    <%= f.label '90%+' %><br />
+  </div><br />
   <div class="field">
-    <%= f.label :returning_new_customers %>
+    <%= f.label :returning_new_customers, 'How likely do think the new business generated from the promotion is to return' %><br />
     <%= f.radio_button :returning_new_customers, '1' %>
-    <%= f.label '1' %>
+    <%= f.label '<5%' %><br />
     <%= f.radio_button :returning_new_customers, '2' %>
-    <%= f.label '2' %>
+    <%= f.label '5% - 15%' %><br />
     <%= f.radio_button :returning_new_customers, '3' %>
-    <%= f.label '3' %>
+    <%= f.label '15% - 25%' %><br />
     <%= f.radio_button :returning_new_customers, '4' %>
-    <%= f.label '4' %>
+    <%= f.label '25% - 35%' %><br />
     <%= f.radio_button :returning_new_customers, '5' %>
-    <%= f.label '5' %>
-  </div>
+    <%= f.label '35%+' %><br />
+  </div><br />
   <div class="field">
-    <%= f.label :overall_experience %>
-    <%= f.radio_button :overall_experience, '1' %>
-    <%= f.label '1' %>
+    <%= f.label :customer_service, 'Please rate the customer service the service provided you' %><br />
+    <%= f.radio_button :customer_service, '1' %>
+    <%= f.label 'Below expectations' %><br />
+    <%= f.radio_button :customer_service, '2' %>
+    <%= f.label 'Met expectations' %><br />
+    <%= f.radio_button :customer_service, '3' %>
+    <%= f.label 'Exceeded expectations' %><br />
+  </div><br />
+  <div class="field">
+    <%= f.label :overall_experience, 'Please rate your overall experience' %>
+    <br />
+    <%= f.radio_button :overall_experience,'1' %>
+    <%= f.label 'Will never use this service again' %>
+    <br />
     <%= f.radio_button :overall_experience, '2' %>
-    <%= f.label '2' %>
+    <%= f.label 'Below expectations' %>
+    <br />
     <%= f.radio_button :overall_experience, '3' %>
-    <%= f.label '3' %>
+    <%= f.label 'Satisfactory' %>
+    <br />
     <%= f.radio_button :overall_experience, '4' %>
-    <%= f.label '4' %>
+    <%= f.label 'Exceeded expectations' %>
+    <br />
     <%= f.radio_button :overall_experience, '5' %>
-    <%= f.label '5' %>
-  </div>
+    <%= f.label 'Great experience, would strongly recommend.' %>
+    <br />
+  </div><br />
   <div class="field">
     <%= f.label 'Additional Comments (optional):' %><br />
     <%= f.text_area :content,:size => "40x5" %>
-  </div>
-    <%=f.hidden_field :email,:value=>(User.find_by_id(session[:users_id])).email%>
+  </div><br />
+    <%=f.hidden_field :email,:value=>(User.find_by_id(session[:users_id])).email%><br />
   <div class="actions">
     <%= f.submit %>
   </div>
