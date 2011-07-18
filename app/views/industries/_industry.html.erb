@@ -1,9 +1,12 @@
-
-<%= check_box_tag "user[industry_ids][]", industry.id, @user.industries.include?(industry) %>
+<head>
+     <%= javascript_include_tag 'jquery', 'jquery-ui', 'application' %>
+</head>
+<%= check_box_tag "user[industry_ids][]", industry.id, @user.industries.include?(industry),:class => 'icheckbox'%>
 <%= industry.title %>
-<br />
-<% if @user.industries.include?(industry) then %>
-<%= render industry.subindustries %>
-<% end %>
-<br />
 
+
+<br />
+<div class="scheckbox">
+<%= render industry.subindustries %>
+</div>
+<br />
