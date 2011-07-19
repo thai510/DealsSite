@@ -640,11 +640,13 @@ table.normal td {
 }
 
 table.normal thead th {
-	background: -moz-linear-gradient(top,#fbfbfb,#f5f5f5);
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#f5f5f5));
+	background: -moz-linear-gradient(top,#f4f9fe,#f4f9fe);
+	background: -webkit-gradient(linear, left top, left bottom, from(#f4f9fe), to(#f4f9fe));
 	text-transform:uppercase;
 	font-size:10px;
-	font-weight:normal;
+        text-align:center;
+	font:bold;
+        color:#66a3d3;
 	border-bottom:1px solid #ccc;
 	text-shadow:-1px -1px #fff;
 	padding:5px 15px;
@@ -662,7 +664,7 @@ table.normal tbody {
 }
 
 table.normal tbody tr.odd td {
-	background:#fafafa;
+	background:#f7fbff;
 }
 
 table.normal tbody td {
@@ -690,7 +692,8 @@ fieldset {
 }
 
 table tfoot {
-	background:#fafafa;
+	background:#f4f9fe;
+        text-align:center;
 }
 
 table tfoot td {
@@ -989,4 +992,9 @@ ul.paginator li a.current {
 
 table {
 	border-spacing:0;
+        width:90%;
+	border-top:1px solid #e5eff8;
+	border-right:1px solid #e5eff8;
+	margin:1em auto;
+	border-collapse:collapse;
 }
