@@ -1,16 +1,6 @@
-<h1>Listing subindustries</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @subindustries.each do |subindustry| %>
   <tr>
+    <td></td>
     <td><%= subindustry.title %></td>
     <td><%= subindustry.description %></td>
     <td><%= link_to 'Show', subindustry %></td>
@@ -18,8 +8,5 @@
     <td><%= link_to 'Destroy', subindustry, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
-</table>
-
-<br />
 
 <%= link_to 'New Subindustry', new_subindustry_path %>

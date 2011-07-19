@@ -2,9 +2,10 @@ class User < ActiveRecord::Base
    has_and_belongs_to_many :industries
    has_and_belongs_to_many :subindustries
    validates :name, :email,:zipcode,:password, :presence => true 
-   validates :industry_ids, :presence => { 
-             :message => 'Please choose at least one industry'}
-                          
+   
+   #  validates :industry_ids, :presence => { 
+    #         :message => 'Please choose at least one industry'}
+                        
    validates :email , :uniqueness => true
    validates :password, :length => {:minimum => 6, :maximum => 20}
    validates :password, :confirmation => true
