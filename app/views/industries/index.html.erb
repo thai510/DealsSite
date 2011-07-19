@@ -1,28 +1,20 @@
 <h1>Listing industries</h1>
-
 <table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @industries.each do |industry| %>
   <tr>
     <td><%= industry.title %></td>
-    <td><%= industry.description %></td>
-    <td><%= link_to 'Add SubIndustry', new_subindustry_path(:industry_id => industry), :method => :get%></td>
+    <td><%= link_to 'Add SubIndustry', new_subindustry_path(:industry_id => industry)%></td>
     <td><%= link_to 'Edit', edit_industry_path(industry) %></td>
-    <td><%= link_to 'Remove', industry, :confirm => "Are you sure? This will remove all of #{industry.title}'s 
-                             subindustries as well!", :method => :delete %></td>
-       
-        <%= render (industry.subindustries) %>
-  </tr>
+    <td><%=link_to 'Remove',industry,:confirm => "Are you sure? This will remove all of #{industry.title}'s subindustries as well!", :method => :delete %></td>
+ </tr>
+ <tr>   
+    <% if industry.subindustries.count > 0 %>
+    <td><b>Subindutries:</b></td>
+    <% end %>
+      <%= render (industry.subindustries) %>
+    </tr>
 <% end %>
 </table>
 
-<br />
 
 <%= link_to 'New Industry', new_industry_path %>

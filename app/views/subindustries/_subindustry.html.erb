@@ -2,5 +2,15 @@
     <%= javascript_include_tag 'jquery', 'jquery-ui', 'application' %>
 
 </head>
-  <%= check_box_tag "user[subindustry_ids][]", subindustry.id, current_user.subindustries.include?(subindustry)%>
-  <%= subindustry.title %>
+   <% if current_user then %>
+   <td>   <%= subindustry.title%> </td>
+    <td>  <%= link_to 'Show', subindustry %>
+    <%= link_to 'Edit', edit_subindustry_path(subindustry) %>
+    <%= link_to 'Destroy', subindustry, :confirm => 'Are you sure?', :method => :delete %>
+   </td>
+   <%else %>
+  <%= check_box_tag "user[subindustry_ids][]", subindustry.id,
+     @user.subindustries.include?(subindustry) %>
+   <%= subindustry.title %>
+  <% end %>
+
