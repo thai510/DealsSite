@@ -9,3 +9,22 @@ div.entry {
 div.button {
    padding-top:90px;
 }
+
+div.industriesSignup {
+  display:inline;
+}
+div.industrylink a {
+  text-decoration:none;
+  color: teal;
+}
+
+div.industrylink {
+  display:inline;
+}
+
+div.industrylink a:hover {
+  text-decoration:none;
+  color: orange;
+  display:inline;
+}
+

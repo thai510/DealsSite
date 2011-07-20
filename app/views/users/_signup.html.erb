@@ -30,10 +30,20 @@
     <%= f.text_field :zipcode %></b>
   </div>
   <div class="entry">
-      <%= f.label 'Industry:' %>
-      <div id="industrycheckbox">
-      <%= render Industry.all %>
-      </div>
+      <b><%= f.label 'Industry:' %></b>
+       <div class="industriesSignup">
+         <%= f.collection_select  :industry_ids, Industry.all,:id,
+                                        :title,{:prompt => 'Please Select an Industry'},
+                                {:name => 'user[industry_ids][]'}%>
+       <br />
+       </div>
+       <div class="industrylink">                         
+       <b><%=link_to_function 'Add Another Industry',
+		  "$('#{escape_javascript(
+		     f.collection_select :industry_ids, Industry.all, :id,:title,{:prompt => 'Please Select an Industry'},
+                {:name => 'user[industry_ids][]'})}<br />').hide().appendTo('.industriesSignup').fadeIn('slow')" %>
+       </b>
+       </div>
 </div>
   <div class="button">
     <%= f.submit %>
