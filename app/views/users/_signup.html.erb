@@ -1,4 +1,4 @@
-<%= form_for(@user) do |f| %>
+<%= form_for @user,:html => {:multipart => true}  do |f| %>
   <% if @user.errors.any? %>
       <h2> Please fix the following errors</h2>
 
@@ -31,20 +31,16 @@
   </div>
   <div class="entry">
       <b><%= f.label 'Industry:' %></b>
-       <div class="industriesSignup">
-         <%= f.collection_select  :industry_ids, Industry.all,:id,
-                                        :title,{:prompt => 'Please Select an Industry'},
-                                {:name => 'user[industry_ids][]'}%>
+         <% Industry.all.each do |industry| %>
+         <%= check_box_tag  'user[industry_ids][]',industry.id,@user.industries.include?(industry) %>
+         <%= industry.title %>
+         <% end %>
        <br />
-       </div>
-       <div class="industrylink">                         
-       <b><%=link_to_function 'Add Another Industry',
-		  "$('#{escape_javascript(
-		     f.collection_select :industry_ids, Industry.all, :id,:title,{:prompt => 'Please Select an Industry'},
-                {:name => 'user[industry_ids][]'})}<br />').hide().appendTo('.industriesSignup').fadeIn('slow')" %>
-       </b>
-       </div>
 </div>
+  <div class="entry">
+     <b><%= f.label 'Company Logo:' %></b>
+        <%= f.file_field :logo %>
+  </div>
   <div class="button">
     <%= f.submit %>
   </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110719022142) do
+ActiveRecord::Schema.define(:version => 20110720202832) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -137,6 +137,10 @@ ActiveRecord::Schema.define(:version => 20110719022142) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "zipcode"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
 end

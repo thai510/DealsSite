@@ -25,9 +25,8 @@
   </div>
   <div class="field">
     <%= f.label :contact_phone %><br />
-    (<%= phone_field_tag :phone_area,@phone_area,:size =>2, :maxlength => 3 %>)
-    <%= phone_field_tag :phone_num1,@phone_num1, :size => 2, :maxlength => 3 %>-
-    <%= phone_field_tag :phone_num2,@phone_num2, :size => 3, :maxlength => 4 %>
+    (<%= f.phone_field :phone_area,:size =>2, :maxlength => 3 %>) -
+    <%= f.phone_field :phone_num1,:size => 6, :maxlength => 7 %>
   </div>
   <div class="field">
     <%= f.label :product_name %><br />
@@ -40,7 +39,7 @@
   </div>
   <div class="field">
     <%= f.label :industries_served %><br />
-    <%= f.select :industries_served, User::INDUSTRIES,
+    <%= f.select :industries_served, Industry.all,
                         :prompt => 'Select an Industry' %>
   </div>
   <div class="field">
