@@ -47,7 +47,6 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        #when multiple industries are possible make this a loop
         format.html { redirect_to(home_path, :notice => "Your account" +
                        " was successfully created. Please Login.") }
         format.xml  { render :xml => @user, :status => :created, :location => @user }

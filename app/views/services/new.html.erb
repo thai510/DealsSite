@@ -1,5 +1,14 @@
+<head>
+<%= stylesheet_link_tag 'login.css' %>
+<%= stylesheet_link_tag 'signup.css' %>
+</head>
 <h1>New service</h1>
-
-<%= render 'form' %>
+<div id='background'>
+  <div id='contatiner'>
+    <div id='logo'>
+    <%= render 'form' %>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Back', services_path %>
