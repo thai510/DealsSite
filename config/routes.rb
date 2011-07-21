@@ -54,6 +54,20 @@ LocalAdResource::Application.routes.draw do
 
   get "contact/contact_us"
 
+  get "learning_center/run_a_deal"
+ 
+  get "learning_center/getting_started"
+  
+  get "learning_center/which_provider"
+
+  get "learning_center/profit_drivers"
+
+  get "learning_center/offer_structure"
+
+  get "learning_center/before_and_during"
+
+  get "learning_center/follow_up"
+
   get "home/index"
 
   # The priority is based upon order of creation:
