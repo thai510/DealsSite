@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
    has_and_belongs_to_many :industries
    has_and_belongs_to_many :subindustries
+   has_attached_file :logo, :styles => { :medium => "300x300",
+                                         :thumb => "100x100" }
    validates :name, :email,:zipcode,:password, :presence => true 
    
    #  validates :industry_ids, :presence => { 
