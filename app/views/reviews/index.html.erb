@@ -1,5 +1,14 @@
-
-
-<p><%= link_to 'View Reviews', review_entries_path %> </p>
-<p><%= link_to 'Write A Review', review_entries_new_path %> </p>
-
+<ul class="dash">
+  <li class="fade_over_tooltip" title="Find a Review">
+    <a href="<%= review_entries_path %>">
+      <%= image_tag("theme/icons/dashboard/10.png") %>
+      <span>Find a Review</span>
+    </a>
+  </li>
+  <li class="fade_over_tooltip" title="Write a Review">
+    <a href="<%= review_entries_path %>">
+      <%= image_tag("theme/icons/dashboard/2.png") %>
+      <span>Write a Review</span>
+    </a>
+  </li>
+</ul>
