@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
    #  validates :industry_ids, :presence => { 
     #         :message => 'Please choose at least one industry'}
                         
-   validates :email , :uniqueness => true
+   validates :email , :uniqueness => true, :email => true #custom validator
    validates :password, :length => {:minimum => 6, :maximum => 20}
    validates :password, :confirmation => true
    validates  :zipcode, :length => {:is => 5}

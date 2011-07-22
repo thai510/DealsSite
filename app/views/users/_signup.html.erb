@@ -11,23 +11,23 @@
 
   <div class="entry">
     <b><%= f.label 'Name:' %>
-    <%= f.text_field :name %></b>
+    <%= f.text_field :name, :size => 22 %></b>
   </div>
   <div class="entry">
     <b><%= f.label 'Email:' %>
-    <%= f.email_field :email %></b>
+    <%= f.text_field :email, :size => 22 %></b>
   </div>
   <div class="entry">
     <b><%= f.label  'Password:'%>
-    <%= f.password_field :password %></b>
+    <%= f.password_field :password, :size => 22 %></b>
   </div>
   <div class="entry">
     <b><%= f.label :password_confirmation, 'Confirm:'%>
-    <%= f.password_field :password_confirmation %></b>
+    <%= f.password_field :password_confirmation, :size => 22 %></b>
   </div>
   <div class="entry">
     <b><%= f.label 'Zipcode:'%>
-    <%= f.text_field :zipcode %></b>
+    <%= f.text_field :zipcode, :size => 22 %></b>
   </div>
   <div class="entry">
       <b><%= f.label 'Industry:' %></b>
