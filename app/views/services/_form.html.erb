@@ -14,33 +14,33 @@
   <div id="overallService">
   <div class="firstServicePage">
   <div class="entry">
-    <%= f.label :deal_site_name %><br />
+    <%= f.label :deal_site_name %>
     <%= f.text_field :deal_site_name %>
   </div>
   <div class="entry">
-    <%= f.label :contact_name %><br />
+    <%= f.label :contact_name %>
     <%= f.text_field :contact_name %>
   </div>
   <div class="entry">
-    <%= f.label :contact_email %><br />
+    <%= f.label :contact_email %>
     <%= f.text_field :contact_email %>
   </div>
   <div class="entry">
-    <%= f.label :contact_phone %><br />
+    <%= f.label :contact_phone %>
     <%= f.phone_field :contact_phone,:size =>17, :maxlength => 10, :placeholder => 'Area code and number' %>
     <br /> 
   </div>
   <div class="entry">
-    <%= f.label :product_name %><br />
+    <%= f.label :product_name %>
     <%= f.text_field :product_name %>
   </div>
   <div class="entry">
-    <%= f.label :locations_served %><br />
+    <%= f.label :locations_served %>
     <%= f.select :locations_served, Service::LOCATIONS,
                         :prompt => 'Select a Location' %>
   </div>
   <div class="entry">
-    <%= f.label :industries_served %><br />
+    <%= f.label :industries_served %>
     <%= f.select :industries_served, Industry.all,
                         :prompt => 'Select an Industry' %>
   </div>
@@ -49,49 +49,49 @@
 
   <div class="secondServicePage">
   <div class="entry">
-    <%= f.label 'Self-serve product?' %><br />
+    <%= f.label 'Self-serve product?' %>
     <%= f.radio_button :self_serve_product, 'Yes' %>
     <%= f.label 'Yes' %>
     <%= f.radio_button :self_serve_product, 'No' %>
     <%= f.label 'No' %>
   </div>
   <div class="entry">
-    <%= f.label :minimum_required_discount %><br />
+    <%= f.label :minimum_required_discount %>
     <%= f.text_field :minimum_required_discount %>
   </div>
   <div class="entry">
-    <%= f.label :revenue_share %><br />
+    <%= f.label :revenue_share %>
     <%= f.text_area :revenue_share, :size => "40x3" %>
   </div>
   <div class="entry">
-    <%= f.label :minimum_number_of_vouchers %><br />
+    <%= f.label :minimum_number_of_vouchers %>
     <%= f.text_field :minimum_number_of_vouchers %>
   </div>
   <div class="entry">
-    <%= f.label :payment_terms %><br />
+    <%= f.label :payment_terms %>
     <%= f.text_area :payment_terms, :size => "40x3" %>
   </div>
   </div>
 
   <div class="thirdServicePage">
   <div class="entry">
-    <%= f.label :time_length_standard_promo %><br />
+    <%= f.label :time_length_standard_promo %>
     <%= f.text_field :time_length_standard_promo %>
   </div>
   <div class="entry">
-    <%= f.label :quantity_credit_card_fee %><br />
+    <%= f.label :quantity_credit_card_fee %>
     <%= f.text_field :quantity_credit_card_fee %>
   </div>
   <div class="entry">
-    <%= f.label :payer_credit_card_fee %><br />
+    <%= f.label :payer_credit_card_fee %>
     <%= f.text_area :payer_credit_card_fee, :size => "40x3" %>
   </div>
   <div class="entry">
-    <%= f.label :restrictions %><br />
+    <%= f.label :restrictions %>
     <%= f.text_area :restrictions, :size => "40x3" %>
   </div>
   <div class="entry">
-    <%= f.label :additional_info %><br />
+    <%= f.label :additional_info %>
     <%= f.text_area :additional_info, :size => "40x3" %>
   </div>
   <div class="actions">
