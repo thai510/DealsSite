@@ -72,6 +72,10 @@ LocalAdResource::Application.routes.draw do
 
   get "home/index"
 
+  get "contact/about_us"
+
+  get "contact/blog"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

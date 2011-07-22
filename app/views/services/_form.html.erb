@@ -14,36 +14,43 @@
   <div id="overallService">
   <div class="firstServicePage">
   <div class="entry">
-    <%= f.label :deal_site_name %>
+    <%= f.label :deal_site_name, 'Name of Service' %>
     <%= f.text_field :deal_site_name %>
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :contact_name %>
+    <%= f.label :contact_name, 'Your Name' %>
     <%= f.text_field :contact_name %>
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :contact_email %>
+    <%= f.label :contact_email, 'Email' %>
     <%= f.text_field :contact_email %>
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :contact_phone %>
+    <%= f.label :contact_phone, 'Phone Number' %>
     <%= f.text_field :contact_phone,:size =>17, :maxlength => 10, :placeholder => 'Area code and number' %>
     <br /> 
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :product_name %>
+    <%= f.label :product_name, 'Name of Product' %>
     <%= f.text_field :product_name %>
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :locations_served %>
+    <%= f.label :locations_served, 'Locations Served' %>
     <%= f.select :locations_served, Service::LOCATIONS,
                         :prompt => 'Select a Location' %>
   </div>
+  <br />
   <div class="entry">
-    <%= f.label :industries_served %>
+    <%= f.label :industries_served, 'Industries Served' %>
     <%= f.select :industries_served, Industry.all,
                         :prompt => 'Select an Industry' %>
   </div>
+  <br />
   </form>
   </div>
 
@@ -100,10 +107,10 @@
   </div>
 
   <div id="nextServicePage">
-  NEXT
+    <h1>Next</h1>
   </div>
   <div id="prevServicePage">
-  PREV
+    <h1>Previous</h1>
   </div>
   </div>
 
