@@ -999,4 +999,18 @@ table {
 	border-collapse:collapse;
 }
 
+p.content {
+        text-align: left;
+        margin-right: 30%;
+        margin-left: 1%;
+}
 
+ul.content {
+        text-align: left;
+        margin-right: 30%;
+        margin-left: 5%;
+}
+
+h1.content {
+	text-decoration: underline;
+}

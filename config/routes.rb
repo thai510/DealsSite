@@ -66,6 +66,8 @@ LocalAdResource::Application.routes.draw do
 
   get "learning_center/before_and_during"
 
+  get "learning_center/ask_a_question"
+
   get "learning_center/follow_up"
 
   get "home/index"

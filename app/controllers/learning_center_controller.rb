@@ -22,5 +22,9 @@ class LearningCenterController < ApplicationController
 
   def follow_up
   end
+ 
+  def ask_a_question
+    @feedback = Feedback.new
+  end
 
 end
