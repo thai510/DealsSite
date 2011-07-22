@@ -8,36 +8,87 @@ $(function () {
    $('.thirdServicePage').hide();
    $('#prevServicePage').hide();
    $('#nextServicePage').show();
+   $('#new_service').validate();//must call at least once before using valid()
   $('#nextServicePage').live("click", function() {
 
         if ($('.firstServicePage').is(':visible')) {
-           $('.firstServicePage').hide();
-           $('.secondServicePage').fadeIn();
-           $('#prevServicePage').show();
+           validateServicePage1();
+           //check first page validations, if valid move to next page
+           if ($('#new_service').valid()) {
+             $('.firstServicePage').hide();
+             $('.secondServicePage').fadeIn();
+             $('#prevServicePage').show();
+           }
          }
+            
         else if ($('.secondServicePage').is(':visible')) {
-           $('.secondServicePage').hide();
-           $('#nextServicePage').hide();
-           $('.thirdServicePage').fadeIn();
-        }
-
+           validateServicePage2(); 
+           if ($('#new_service').valid()) {
+             $('.secondServicePage').hide();
+             $('#nextServicePage').hide();
+             $('.thirdServicePage').fadeIn();
+             validateServicePage3();
+             }
+           }
    });
 
   $('#prevServicePage').live("click", function() {
 
         if ($('.secondServicePage').is(':visible')) {
+           removeValidatePage2();
+           //moving to previous page so remove all validations for current page
            $('.secondServicePage').hide();
            $('#prevServicePage').hide();
            $('.firstServicePage').fadeIn();
            $('#nextServicePage').show();
          }
         else if ($('.thirdServicePage').is(':visible')) {
+           removeValidatePage3();
            $('.thirdServicePage').hide();
            $('.secondServicePage').fadeIn();
            $('#nextServicePage').show();
         }
 
    });
-  
 
 });  
+
+function validateServicePage1(){
+   $("#service_deal_site_name").rules("add", {required: true});
+   $("#service_contact_name").rules("add", {required: true});
+   $("#service_deal_site_name").rules("add",{required:true});
+   $("#service_contact_email").rules("add",{required: true});
+   $("#service_contact_phone").rules("add",{required:true});
+   $("#service_product_name").rules("add", {required: true});
+   $("#service_locations_served").rules("add", {required: true}); 
+   $("#service_industries_served").rules("add", {required: true});
+}
+
+function validateServicePage2(){
+   $("#service_minimum_required_discount").rules("add",{required:true});
+   $("#service_revenue_share").rules("add",{required:true});
+   $("#service_minimum_number_of_vouchers").rules("add",{required:true});
+   $("#service_payment_terms").rules("add",{required:true});
+}
+
+function validateServicePage3(){
+   $("#service_time_length_standard_promo").rules("add",{required:true});
+   $("#service_quantity_credit_card_fee").rules("add",{required:true});
+   $("#service_payer_credit_card_fee").rules("add",{required:true});
+   $("#service_restrictions").rules("add",{required:true});
+}
+
+
+function removeValidatePage2(){
+   $("#service_minimum_required_discount").rules("remove","required");
+   $("#service_revenue_share").rules("remove","required");
+   $("#service_minimum_number_of_vouchers").rules("remove","required");
+   $("#service_payment_terms").rules("remove","required");
+}
+
+function removeValidatePage3(){
+   $("#service_time_length_standard_promo").rules("remove","required");
+   $("#service_quantity_credit_card_fee").rules("remove","required");
+   $("#service_payer_credit_card_fee").rules("remove","required");
+   $("#service_restrictions").rules("remove","required");
+}
