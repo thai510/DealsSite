@@ -350,18 +350,20 @@ h1 span {
 /*ERROR BOX*/
 
 .error {
-	border-top: 1px solid #f7d0d0;
+	/*border-top: 1px solid #f7d0d0;
 	border-bottom: 1px solid #c87676;
 
 	background: #f3c7c7;
 	background: -moz-linear-gradient(top,#f3c7c7,#eea2a2);
 	background: -webkit-gradient(linear, left top, left bottom, from(#f3c7c7), to(#eea2a2));
+*/
 }
 
 .error:before {
-	content: url(../images/theme/icons/notifications/error.png);
+        /*this added the red x for error messages */
+	/*content: url(../images/theme/icons/notifications/error.png);
 	float: left;
-	margin: 7px 15px 0px 15px;
+	margin: 7px 15px 0px 15px;*/
 }
 
 .error strong {
@@ -1013,4 +1015,52 @@ ul.content {
 
 h1.content {
 	text-decoration: underline;
+}
+
+p.ServicePage {
+
+	color:#fff;
+	text-decoration:none;
+	font-size:14px;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	text-shadow:0 1px 1px #0c507b;
+	letter-spacing:0px;
+	text-transform:uppercase;
+	
+	padding:8px 12px 6px 12px;
+	margin:70px 5px 5px 0px;
+	
+/*	background: #3aa3e6;
+	background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #87c6ee), color-stop(.01, #3aa3e6), to(#028fe8)); 
+*/
+	border:1px solid #e6791c;/*#0082d5;*/
+	
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	
+	outline:none;
+        display:inline;
+
+}
+#nextServicePage {
+  float:right;
+}
+
+#prevServicePage {
+  float:left;
+}
+p.ServicePage:hover {
+	text-shadow: 0 1px 1px #6f3a02;
+
+	border:1px solid #0082d5/*#e6791c;*/
+	border-bottom:1px solid #d86f15;
+
+	background:grey;/*#f48423;
+	background: -moz-linear-gradient(top, #ffdf9e, #f5b026 2%, #f48423);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffd683), color-stop(.01, #f5b026), to(#f48423)); 
+	*/
+	cursor:pointer;
 }
