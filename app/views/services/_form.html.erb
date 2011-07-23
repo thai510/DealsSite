@@ -14,37 +14,43 @@
   <div id="overallService">
   <div class="firstServicePage">
   <div class="entry">
-    <b><%= f.label :deal_site_name %></b>
+    <b><%= f.label :deal_site_name, 'Name of Service' %></b>
     <%= f.text_field :deal_site_name %>
   </div>
+  <br />
   <div class="entry">
-    <b><%= f.label :contact_name %></b>
+    <b><%= f.label :contact_name, 'Your Name' %></b>
     <%= f.text_field :contact_name %>
   </div>
+  <br />
   <div class="entry">
-    <b><%= f.label :contact_email %></b>
+    <b><%= f.label :contact_email, 'Email' %></b>
     <%= f.text_field :contact_email %>
   </div>
+  <br />
   <div class="entry">
-   <b> <%= f.label :contact_phone %></b>
+    <b><%= f.label :contact_phone, 'Phone Number' %></b>
     <%= f.text_field :contact_phone,:size =>17, :maxlength => 10, :placeholder => 'Area code and number' %>
     <br /> 
   </div>
+  <br />
   <div class="entry">
-   <b> <%= f.label :product_name %></b>
+    <b><%= f.label :product_name, 'Name of Product' %></b>
     <%= f.text_field :product_name %>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label :locations_served %></b>
     <%= f.select :locations_served, Service::LOCATIONS,
                         :prompt => 'Select a Location' %>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label :industries_served %></b>
     <%= f.select :industries_served, Industry.all,
                         :prompt => 'Select an Industry' %>
   </div>
-  </form>
+  <br />
   </div>
 
   <div class="secondServicePage">

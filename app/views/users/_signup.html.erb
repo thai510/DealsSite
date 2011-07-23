@@ -13,22 +13,27 @@
     <b><%= f.label 'Name:' %>
     <%= f.text_field :name, :size => 22 %></b>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label 'Email:' %>
     <%= f.text_field :email, :size => 22 %></b>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label  'Password:'%>
     <%= f.password_field :password, :size => 22 %></b>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label :password_confirmation, 'Confirm:'%>
     <%= f.password_field :password_confirmation, :size => 22 %></b>
   </div>
+  <br />
   <div class="entry">
     <b><%= f.label 'Zipcode:'%>
     <%= f.text_field :zipcode, :size => 22 %></b>
   </div>
+  <br />
   <div class="entry">
       <b><%= f.label 'Industry:' %></b>
          <% Industry.all.each do |industry| %>
@@ -37,11 +42,12 @@
          <% end %>
        <br />
 </div>
+  <br />
   <div class="entry">
      <b><%= f.label 'Company Logo:' %></b>
         <%= f.file_field :logo %>
-  </div>
+  </div> 
   <div class="button">
-    <%= f.submit %>
+    <%= f.submit 'Sign Up' %>
   </div>
 <% end %>
