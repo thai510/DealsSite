@@ -1,4 +1,5 @@
 <%= form_for @user,:html => {:multipart => true}  do |f| %>
+<noscript>
   <% if @user.errors.any? %>
       <h2> Please fix the following errors</h2>
 
@@ -8,6 +9,7 @@
       <% end %>
       </ul>
   <% end %>
+</noscript>
 
   <div class="entry">
     <b><%= f.label 'Name:' %>

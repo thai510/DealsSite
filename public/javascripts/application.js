@@ -92,3 +92,29 @@ function removeValidatePage3(){
    $("#service_payer_credit_card_fee").rules("remove","required");
    $("#service_restrictions").rules("remove","required");
 }
+
+
+
+/* validate sign up page */
+
+$('#user_submit').live("click", function() { 
+   $('#new_user').validate();
+   validateSignUp();
+   $('#new_user').validate(); 
+});
+
+function validateSignUp(){
+ $("#user_name").rules("add",{required:true});
+ $("#user_email").rules("add",{required:true, email:true,
+   /* checks uniqueness of email, will have to work on this */
+    /* remote:"/users/check_email"*/
+   });
+ $("#user_password").rules("add",{required:true, minlength: 6, maxlength:20});
+ $("#user_password_confirmation").rules("add",{required:true,
+    equalTo:"#user_password"});
+ $("#user_zipcode").rules("add", {required:true,digits:true, minlength: 5, maxlength: 5});
+ $("#user_industry_ids_").rules("add", {required:true});
+
+
+  //custom messages for sign up validation
+}

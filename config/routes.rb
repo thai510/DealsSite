@@ -20,6 +20,10 @@ LocalAdResource::Application.routes.draw do
   resources :users
   #resources :sessions
 
+  #for jquery check of email uniqueness for new users
+  #still have to figure it out
+  #match 'users/check_email' => "users#check_email"
+
   get "sign_up/index"
 
   get "eula/index"

@@ -85,3 +85,14 @@ class UsersController < ApplicationController
     end
   end
 end
+
+def check_email
+  @user = find_by_email(params[:user][:email])
+
+  unless @user
+     return true
+  else
+     return false
+  end
+  
+end
