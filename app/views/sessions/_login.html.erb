@@ -4,17 +4,11 @@
 
 <%= form_tag do %>   
   <div id="box">
-    <div class="one_half">
-      <b><label for="email">Email:</label></b>
-      <%= text_field_tag :email, params[:email]%>
-    </div>
-    <div class="one_half last">  
-      <b><label for="password">Password:</label></b>      
-      <%= password_field_tag :password, params[:password] %>
-    </div>
-    <div class="login">                    
+      <div class="login_fields">
+      <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
+      <%= password_field_tag :password, params[:password], :placeholder => "Password" %>
       <%= submit_tag 'Login' %>      
-    </div>
+      </div>
     <div class="signup">
        <b><%= link_to 'Sign Up', sign_up_index_path %></b>
        - <b><%= link_to 'Deal Site Login Portal', new_service_path %></b>

@@ -820,14 +820,11 @@ a.button_link, input[type="submit"], input[type="reset"], .ui-dialog .ui-dialog-
 	letter-spacing:0px;
 	text-transform:uppercase;
 	
-	padding:8px 12px 6px 12px;
-	margin:0 10px 5px 0;
-	
-	background: #3aa3e6;
-	background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
+	background: #000;
+	/*background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #87c6ee), color-stop(.01, #3aa3e6), to(#028fe8)); 
-
-	border:1px solid #0082d5;
+*/
+	border:1px solid #0f75bc;
 	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -852,13 +849,13 @@ a.button_link, input[type="submit"], input[type="reset"], .ui-dialog .ui-dialog-
 a.button_link:hover, input[type="submit"]:hover, input[type="reset"]:hover, .ui-dialog-buttonpane button:hover {
 	text-shadow: 0 1px 1px #6f3a02;
 
-	border:1px solid #e6791c;
-	border-bottom:1px solid #d86f15;
+	border:1px solid #8cc63e;
+	border-bottom:1px solid #8cc640;
 
-	background: #f48423;
+	/*background: #f48423;
 	background: -moz-linear-gradient(top, #ffdf9e, #f5b026 2%, #f48423);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #ffd683), color-stop(.01, #f5b026), to(#f48423)); 
-	
+	*/
 	cursor:pointer;
 
 }
@@ -1017,7 +1014,8 @@ h1.content {
 	text-decoration: underline;
 }
 
-p.ServicePage {
+p.ServicePage, p.industryBlindDown, p.industryBlindUp {
+
 
 	color:#fff;
 	text-decoration:none;
@@ -1026,7 +1024,6 @@ p.ServicePage {
 	font-weight:bold;
 	text-shadow:0 1px 1px #0c507b;
 	letter-spacing:0px;
-	text-transform:uppercase;
 	
 	padding:8px 12px 6px 12px;
 	margin:70px 5px 5px 0px;
@@ -1043,16 +1040,17 @@ p.ServicePage {
 	
 	outline:none;
         display:inline;
-
 }
 #nextServicePage {
   float:right;
+  text-transform:uppercase;
 }
 
 #prevServicePage {
   float:left;
+  text-transform:uppercase;
 }
-p.ServicePage:hover {
+p.ServicePage:hover, p.industryBlindDown:hover, p.industryBlindUp:hover {
 	text-shadow: 0 1px 1px #6f3a02;
 
 	border:1px solid #0082d5/*#e6791c;*/

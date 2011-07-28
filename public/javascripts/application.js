@@ -103,6 +103,25 @@ $('#user_submit').live("click", function() {
    $('#new_user').validate(); 
 });
 
+$(function () {
+
+  if($('.industryBlindDown').is(':visible')) {
+    $('.industryCheckboxes').hide();
+    $('.industryBlindUp').hide();
+    $('.industryBlindDown').live("click", function() {
+      $('.industryBlindDown').hide();
+      $('.industryCheckboxes').fadeIn(); 
+      $('.industryBlindUp').fadeIn();
+    });
+  }
+
+    $('.industryBlindUp').live("click", function() {
+      $('.industryBlindUp').hide();
+      $('.industryCheckboxes').hide();
+      $('.industryBlindDown').fadeIn();
+    });
+});
+
 function validateSignUp(){
  $("#user_name").rules("add",{required:true});
  $("#user_email").rules("add",{required:true, email:true,

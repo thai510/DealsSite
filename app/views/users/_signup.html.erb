@@ -37,18 +37,27 @@
   </div>
   <br />
   <div class="entry">
-      <b><%= f.label 'Industry:' %></b>
+     <b><%= f.label 'Company Logo:' %></b>
+        <%= f.file_field :logo %>
+  </div> 
+  <br />
+  <div class="entry">
+      <p class="industryBlindDown">
+       Add Industries
+      </p>
+      <div class="industryCheckboxes">
          <% Industry.all.each do |industry| %>
          <%= check_box_tag  'user[industry_ids][]',industry.id,@user.industries.include?(industry) %>
          <%= industry.title %>
          <% end %>
+      </div>
+        <br />
+      <p class="industryBlindUp">
+        OK
+      </p>
        <br />
 </div>
   <br />
-  <div class="entry">
-     <b><%= f.label 'Company Logo:' %></b>
-        <%= f.file_field :logo %>
-  </div> 
   <div class="button">
     <%= f.submit 'Sign Up' %>
   </div>
