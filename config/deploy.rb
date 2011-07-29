@@ -20,8 +20,8 @@ set :use_sudo, false
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
-default_environment['PATH']=':/usr/local/bin:/usr/bin:/bin'
-default_environment['GEM_PATH']=':/usr/local/ruby/gem'
+default_environment['PATH']='/usr/local/bin:/usr/bin:/bin'
+default_environment['GEM_PATH']='/usr/local/ruby/gem:/usr/local/bin'
 
 
 # If you are using Passenger mod_rails uncomment this:
