@@ -21,6 +21,6 @@ production:
   reconnect: false
   database: dealssite_production 
   pool: 5
-  username: crown 
-  password: password
-  host: 127.0.0.1 
+  username: deploy 
+  password: o9grXr!778
+  host: localhost

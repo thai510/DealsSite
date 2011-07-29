@@ -15,7 +15,7 @@ gem 'paperclip', '~> 2.3'
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
 group :production do
-   gem 'mysql'
+   gem 'mysql2'
 end
 
 # Use unicorn as the web server
