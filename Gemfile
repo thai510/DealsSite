@@ -11,9 +11,9 @@ gem 'jquery-rails'
 gem 'paperclip', '~> 2.3'
 
 
-#group :production do
- #  gem 'mysql2', '< 0.3'
-#end
+group :production do
+   gem 'mysql2', '< 0.3'
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'

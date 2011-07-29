@@ -1022,7 +1022,7 @@ p.ServicePage, p.industryBlindDown, p.industryBlindUp {
 	font-size:14px;
 	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
-	text-shadow:0 1px 1px #0c507b;
+	text-shadow:0 1px 1px: #0c507b;
 	letter-spacing:0px;
 	
 	padding:8px 12px 6px 12px;
@@ -1032,7 +1032,7 @@ p.ServicePage, p.industryBlindDown, p.industryBlindUp {
 	background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #87c6ee), color-stop(.01, #3aa3e6), to(#028fe8)); 
 */
-	border:1px solid #e6791c;/*#0082d5;*/
+	border:1px solid #8cc63f;
 	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
