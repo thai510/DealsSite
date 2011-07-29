@@ -14,9 +14,9 @@ gem 'paperclip', '~> 2.3'
 #adds old functions from rails 2.0 to rails 3.0, such as observe_field and remote_to_function
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
-group :production do
-   gem 'mysql2'
-end
+#group :production do
+ #  gem 'mysql2'
+#end
 
 # Use unicorn as the web server
 # gem 'unicorn'
