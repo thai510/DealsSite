@@ -1,4 +1,4 @@
-source 'http://rubygems.org'
+surce 'http://rubygems.org'
 
 gem 'rails', '3.0.7'
 # Bundle edge Rails instead:
@@ -15,7 +15,7 @@ gem 'paperclip', '~> 2.3'
 #gem 'prototype_legacy_helper', '0.0.0', :git => 'git://github.com/rails/prototype_legacy_helper.git'
 
 #group :production do
- #  gem 'mysql2'
+ #  gem 'mysql2', '< 0.3'
 #end
 
 # Use unicorn as the web server
