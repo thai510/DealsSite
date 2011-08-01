@@ -15,69 +15,35 @@
   <% unless current_user then  %>
   <%= yield %>
   <% else %>
-	<div id="container">
-		<div id="bgwrap">
-			<div id="primary_left">
+    <div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= image_tag("theme/bannercroppedlogo.png") %>
+         </div>
+         <div class="bannerbuttons">
+         <%= button_to "logout", logout_path, :method => :delete %>
+         </div>
+         <div class="bannerbuttons">
+         <%= button_to "Account", edit_user_path(session[:users_id]), :method => :get%>
+         </div>
         
-				<div id="logo">
-				  <%= link_to image_tag("theme/logo.png"), home_path %>
-         
-				</div> <!-- logo end -->
-        <div id="button_left">
-         <%= button_to 'ACCOUNT', current_user,
-                     :class => 'dashboard', :method => :get %>
-        </div>
-        <div id="button_right">
-          <%= button_to 'LOGOUT', logout_path,
-                    :method => :delete, :class => 'dashboard' %>
-        </div>
-				<div id="menu"> <!-- navigation menu -->
-           <ul>
-             <li>
-              <a href=<%= learning_center_index_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons_3/Chalkboard Green.png") %>
-                <span>Learn</span>
-              </a>
-            </li> 
-            <li>
-              <a href=<%= resources_index_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons/Diagram.png") %>
-                <span>Tools</span>
-              </a>
-            </li>
-            <li>
-              <a href=<%= reviews_index_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons/Comment.png") %>
-                <span>Reviews</span>
-              </a>
-            </li>  
-            <li>
-              <a href=<%= home_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons/chart.png") %>
-                <span>Portfolio</span>
-              </a>
-            </li>
-            <li>
-              <a href=<%= contact_contact_us_path %> class="dashboard">
-                <%= image_tag("theme/icons/small_icons/Users.png") %>
-                <span>About Us</span>
-              </a>
-            </li>
-     
-       
-           
-            
-					</ul>
-				</div> <!-- navigation menu end -->
-			</div> <!-- sidebar end -->
-
-			<div id="primary_right">
-				<div class="inner">					
-					<%= yield %>
-				</div> <!-- inner -->
-			</div> <!-- primary_right -->
-		</div> <!-- bgwrap -->
-	</div> <!-- container -->
+    </div>
+    <div id="content">
+    <div id="leftlayout">
+    </div>
+    <div id="rightlayout">
+    </div>
+    </div>
+    <div id="footer">
+       <div class="main_links">
+       <b><%= link_to 'Contact Us', contact_contact_us_path %></b> 
+       </div>
+       <div class="main_links">
+       <b><%= link_to 'Learning Center', learning_center_index_path %></b>
+       </div>
+       <div class="main_links">
+       <b><%= link_to 'EULA', eula_index_path %></b>
+       </div>
+    </div>
 <% end %>
 </body>
 </html>

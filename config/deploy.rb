@@ -16,7 +16,7 @@ set :deploy_via, :remote_cache
 set :scm, :git
 set :branch, 'master'
 set :scm_verbose, true
-set :use_sudo,true 
+set :use_sudo,false 
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
