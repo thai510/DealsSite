@@ -1102,6 +1102,7 @@ div#rightlayout {
   margin: 0px 0px 0px 0px;
   background:white;
   height:550px;
+  border-radius-bottom-right:15px;
   float:left;
 }
 
