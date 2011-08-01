@@ -1066,7 +1066,6 @@ p.ServicePage:hover, p.industryBlindDown:hover, p.industryBlindUp:hover {
 
 div#layoutbanner {
    width:100%;
-   border-bottom: 1px solid white;
    height: 70px;
    background:black;
    display:table;
@@ -1089,27 +1088,36 @@ div.bannerlogo {
 }
 
 div#leftlayout {
-   width:49.9%;
+   width:620px;
    height: 550px;
    background:white;
-   margin: 0px 1px 0px 0px;
+   margin: 0px 1px 0px 0;
    float:left;
+   border-radius:15px 0 0 15px;
+   -moz-border-radius:15px 0 0 15px;
 }
 
 div#rightlayout {
-  width:49.9%;
-  margin: 0px 1px 0px 0px;
+  width:620px;
+  margin: 0px 1px 0px 0;
   background:white;
   height:550px;
-  border-radius-bottom-right:15px;
   float:left;
+   border-radius: 0 15px 15px 0;
+   -moz-border-radius:0 15px 15px 0;
+}
+
+div#content {
+   width:1242px;
+   text-align:center;
+   margin: 0 auto; /* centers content tag */
+   height:550px;
 }
 
 div#footer {
   width:100%;
   text-align:center;
   position:relative;
-  border-top: 1px solid white;
   display:table;
 }
 
