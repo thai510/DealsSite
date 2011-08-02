@@ -38,3 +38,28 @@ p.industryBlindDown {
 p.industryBlindUp {
   display:inline;
 }
+
+
+table.signup {
+  width:45%;
+  border: 1px solid white;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  margin: 0 auto;
+  caption-side:bottom;
+ 
+}
+caption div.button {
+  width:100%;
+  padding-top:5px ;
+  text-align:right;
+  
+}
+
+td.signup_text {
+   text-align:right;
+  font-size: 13px;
+  color:#8cc63f;
+}
+td.signup_field {
+}

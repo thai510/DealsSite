@@ -11,39 +11,53 @@
   <% end %>
 </noscript>
 
-  <div class="entry">
-    <b><%= f.label 'Name:' %>
-    <%= f.text_field :name, :size => 22 %></b>
-  </div>
+<table class="signup">
+  <tr>
+    <div class="entry">
+      <td class="signup_text"><b><%= f.label 'Name:' %></td>
+      <td class="signup_field"><%= f.text_field :name, :size => 22 %></b></td>
+    </div>
+  </tr>
   <br />
-  <div class="entry">
-    <b><%= f.label 'Email:' %>
-    <%= f.text_field :email, :size => 22 %></b>
-  </div>
+  <tr>
+      <div class="entry">
+    <td class="signup_text"><b><%= f.label 'Email:' %></td>
+    <td class="signup_field"><%= f.text_field :email, :size => 22 %></b></td>
+      </div>
+  </tr>
   <br />
-  <div class="entry">
-    <b><%= f.label  'Password:'%>
-    <%= f.password_field :password, :size => 22 %></b>
+  <tr>
+    <div class="entry">
+    <td class="signup_text"><b><%= f.label  'Password:'%></td>
+    <td class="signup_field"><%= f.password_field :password, :size => 22 %></b></td>
   </div>
+  </tr>
   <br />
-  <div class="entry">
-    <b><%= f.label :password_confirmation, 'Confirm:'%>
-    <%= f.password_field :password_confirmation, :size => 22 %></b>
-  </div>
+  <tr>
+    <div class="entry">
+      <td class="signup_text"><b><%= f.label :password_confirmation, 'Confirm:'%></td>
+      <td class="signup_field"><%= f.password_field :password_confirmation, :size => 22 %></b></td>
+    </div>
+  </tr>
   <br />
-  <div class="entry">
-    <b><%= f.label 'Zipcode:'%>
-    <%= f.text_field :zipcode, :size => 22 %></b>
-  </div>
+  <tr>
+    <div class="entry">
+      <td class="signup_text"><b><%= f.label 'Zipcode:'%></td>
+      <td class="signup_field"><%= f.text_field :zipcode, :size => 22 %></b></td>
+    </div>
+  </tr>
   <br />
+  <tr>
   <div class="entry">
-     <b><%= f.label 'Company Logo:' %></b>
-        <%= f.file_field :logo %>
+     <td class="signup_text"><b><%= f.label 'Company Logo:' %></b>
+     <td class="signup_field"> <%= f.file_field :logo %></td>
   </div> 
+  </tr>
   <br />
+  <tr>
   <div class="entry">
       <p class="industryBlindDown">
-       Add Industries
+      Add Industries
       </p>
       <div class="industryCheckboxes">
          <% Industry.all.each do |industry| %>
@@ -57,8 +71,11 @@
       </p>
        <br />
 </div>
+</tr>
   <br />
+  <caption>
   <div class="button">
     <%= f.submit 'Sign Up' %>
   </div>
+  </caption>
 <% end %>

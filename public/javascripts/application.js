@@ -8,7 +8,10 @@ $(function () {
    $('.thirdServicePage').hide();
    $('#prevServicePage').hide();
    $('#nextServicePage').show();
-   $('#new_service').validate();//must call at least once before using valid()
+   $('#new_service').validate( {
+     errorPlacement: function(error,element) {
+       error.appendTo( element.parent("td").under("td") );}
+     });//must call at least once before using valid()
   $('#nextServicePage').live("click", function() {
 
         if ($('.firstServicePage').is(':visible')) {
