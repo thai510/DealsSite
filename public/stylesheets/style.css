@@ -1066,7 +1066,7 @@ p.ServicePage:hover, p.industryBlindDown:hover, p.industryBlindUp:hover {
 
 div#layoutbanner {
    width:100%;
-   height: 70px;
+   height: 46px;
    background:black;
    display:table;
 }
@@ -1077,18 +1077,23 @@ div#layoutbanner {
 }
 
 div.bannerbuttons {
-   margin:0px;
-   padding: 15px 10px 0 0;
+   margin-bottom:-12px;
+   padding: 10px 0 0 0;
    float: right;
 }
 
 div.bannerlogo {
    float: left;
-   padding: 10px 0 0 10px;
+   padding: 10px 0 0 28px;
+}
+
+div.bannerslogan {
+   float:left;
+   padding: 24px 0 0 0; 
 }
 
 div#leftlayout {
-   width:620px;
+   width:500px;
    height: 550px;
    background:white;
    margin: 0px 1px 0px 0;
@@ -1098,8 +1103,8 @@ div#leftlayout {
 }
 
 div#rightlayout {
-  width:620px;
-  margin: 0px 1px 0px 0;
+  width:500px;
+  margin: 0px 0px 0px 1px;
   background:white;
   height:550px;
   float:left;
@@ -1108,9 +1113,9 @@ div#rightlayout {
 }
 
 div#content {
-   width:1242px;
+   width:1002px;
    text-align:center;
-   margin: 0 auto; /* centers content tag */
+   margin: 10px auto; 
    height:550px;
 }
 

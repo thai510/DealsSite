@@ -17,7 +17,10 @@
   <% else %>
     <div id="layoutbanner">
          <div class="bannerlogo">
-         <%= image_tag("theme/bannercroppedlogo.png") %>
+         <%= image_tag("theme/smallbannercroppedlogo.png") %>
+         </div>
+         <div class="bannerslogan">
+         <%= image_tag("theme/smallbannercroppedslogan.png") %>
          </div>
          <div class="bannerbuttons">
          <%= button_to "logout", logout_path, :method => :delete %>
@@ -29,8 +32,10 @@
     </div>
     <div id="content">
     <div id="leftlayout">
+    <%= yield :leftlayout%>
     </div>
     <div id="rightlayout">
+    <%= yield :rightlayout%>
     </div>
     </div>
     <div id="footer">
