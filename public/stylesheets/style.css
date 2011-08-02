@@ -530,9 +530,9 @@ ul.dash li {
 	-webkit-box-shadow: 1px 1px 0px #999;
 	box-shadow: 1px 1px 0px #999;
 	
-	background:#fbfbfb;
-	background: -moz-linear-gradient(top,#fbfbfb,#f5f5f5);
-	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#f5f5f5));
+	background: black;
+	background: -moz-linear-gradient(top,black,black);
+	background: -webkit-gradient(linear, left top, left bottom, from(black), to(black));
 }
 
 .selected {
@@ -567,7 +567,7 @@ ul.dash li a span {
 	float:left;
 	width:100%;
 	text-align:center;
-	color:black;
+	color:white;
 	font-size:11px;
         font-weight: bold;
 }
@@ -1095,7 +1095,7 @@ div.bannerslogan {
 div#leftlayout {
    padding-left: 5px;
    width:115px;
-   height: 550px;
+   height: 500px;
    background:black;
    margin: 0px 1px 0px 0;
    float:left;
@@ -1109,7 +1109,7 @@ div#rightlayout {
   width:880px;
   margin: 0px 0px 0px 1px;
   background:white;
-  height:550px;
+  height:500px;
   float:left;
   padding-top: 10px;
   padding-bottom: 10px;
