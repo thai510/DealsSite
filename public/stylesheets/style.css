@@ -520,7 +520,7 @@ ul.dash li {
 	position:relative;
 	z-index:80;
 	
-	border:1px solid #fff;
+	border:2px solid #0F75BC;
 	
 	border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -544,6 +544,7 @@ ul.dash li {
 
 ul.dash li:hover {
 	cursor:hand;
+        border:2px solid #8CC63F;
 }
 
 ul.dash li a {
@@ -566,8 +567,9 @@ ul.dash li a span {
 	float:left;
 	width:100%;
 	text-align:center;
-	color:#666;
+	color:black;
 	font-size:11px;
+        font-weight: bold;
 }
 
 ul.dash li .bubble {
@@ -818,7 +820,6 @@ a.button_link, input[type="submit"], input[type="reset"], .ui-dialog .ui-dialog-
 	font-weight:bold;
 	text-shadow:0 1px 1px #0c507b;
 	letter-spacing:0px;
-	text-transform:uppercase;
 	
 	background: #000;
 	/*background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
@@ -1011,7 +1012,7 @@ ul.content {
 }
 
 h1.content {
-	text-decoration: underline;
+        color: #0F75BC;
 }
 
 p.ServicePage, p.industryBlindDown, p.industryBlindUp {
@@ -1076,6 +1077,10 @@ div#layoutbanner {
    vertical-align:middle;
 }
 
+div.bannerbuttonscontainer {
+  padding-right: 175px;
+}
+
 div.bannerbuttons {
    margin-bottom:-12px;
    padding: 10px 0 0 0;
@@ -1085,6 +1090,7 @@ div.bannerbuttons {
 div.bannerlogo {
    float: left;
    padding: 10px 0 0 28px;
+   padding-left: 185px;
 }
 
 div.bannerslogan {
@@ -1093,21 +1099,26 @@ div.bannerslogan {
 }
 
 div#leftlayout {
-   width:500px;
+   padding-left: 5px;
+   width:115px;
    height: 550px;
-   background:white;
+   background:black;
    margin: 0px 1px 0px 0;
    float:left;
+   padding-top: 10px;
+   padding-bottom: 10px;
    border-radius:15px 0 0 15px;
    -moz-border-radius:15px 0 0 15px;
 }
 
 div#rightlayout {
-  width:500px;
+  width:880px;
   margin: 0px 0px 0px 1px;
   background:white;
   height:550px;
   float:left;
+  padding-top: 10px;
+  padding-bottom: 10px;
    border-radius: 0 15px 15px 0;
    -moz-border-radius:0 15px 15px 0;
 }
@@ -1115,7 +1126,8 @@ div#rightlayout {
 div#content {
    width:1002px;
    text-align:center;
-   margin: 10px auto; 
+   margin: 10px auto;
+   margin-top: 0px; 
    height:550px;
 }
 
@@ -1143,3 +1155,7 @@ div.main_links a:hover {
   color: #8cc63f;
 }
 
+h3.dashboard_header {
+  text-decoration: underline;
+  color:#0F75BC;
+}

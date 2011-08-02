@@ -22,13 +22,14 @@
          <div class="bannerslogan">
          <%= image_tag("theme/smallbannercroppedslogan.png") %>
          </div>
-         <div class="bannerbuttons">
-         <%= button_to "logout", logout_path, :method => :delete %>
-         </div>
-         <div class="bannerbuttons">
-         <%= button_to "Account", edit_user_path(session[:users_id]), :method => :get%>
-         </div>
-        
+         <div class="bannerbuttonscontainer">
+           <div class="bannerbuttons">
+             <%= button_to "Logout", logout_path, :method => :delete %>
+           </div>
+           <div class="bannerbuttons">
+             <%= button_to "Settings", edit_user_path(session[:users_id]), :method => :get%>
+           </div>
+        </div>
     </div>
     <div id="content">
     <div id="leftlayout">
