@@ -11,68 +11,52 @@
   <% end %>
 </noscript>
 
+  <br />
+  <br />
+  <br />
+
+<div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= image_tag("theme/smallbannercroppedlogo.png") %>
+         </div>
+         <div class="bannerslogan">
+         <%= image_tag("theme/smallbannercroppedslogan.png") %>
+         </div>
+</div>
+  <br />
+  <br />
+
 <table class="signup">
-  <tr>
-    <div class="entry">
+  <tr class="signup">
       <td class="signup_text"><b><%= f.label 'Name:' %></td>
       <td class="signup_field"><%= f.text_field :name, :size => 22 %></b></td>
-    </div>
   </tr>
-  <br />
+  <tr><td></td></tr> 
   <tr>
-      <div class="entry">
     <td class="signup_text"><b><%= f.label 'Email:' %></td>
     <td class="signup_field"><%= f.text_field :email, :size => 22 %></b></td>
-      </div>
   </tr>
-  <br />
+  <tr><td></td></tr> 
   <tr>
-    <div class="entry">
     <td class="signup_text"><b><%= f.label  'Password:'%></td>
     <td class="signup_field"><%= f.password_field :password, :size => 22 %></b></td>
-  </div>
   </tr>
-  <br />
+  <tr><td></td></tr> 
   <tr>
-    <div class="entry">
       <td class="signup_text"><b><%= f.label :password_confirmation, 'Confirm:'%></td>
       <td class="signup_field"><%= f.password_field :password_confirmation, :size => 22 %></b></td>
-    </div>
   </tr>
-  <br />
+  <tr><td></td></tr> 
   <tr>
-    <div class="entry">
       <td class="signup_text"><b><%= f.label 'Zipcode:'%></td>
       <td class="signup_field"><%= f.text_field :zipcode, :size => 22 %></b></td>
-    </div>
   </tr>
-  <br />
+  <tr><td></td></tr> 
   <tr>
-  <div class="entry">
      <td class="signup_text"><b><%= f.label 'Company Logo:' %></b>
      <td class="signup_field"> <%= f.file_field :logo %></td>
-  </div> 
   </tr>
-  <br />
-  <tr>
-  <div class="entry">
-      <p class="industryBlindDown">
-      Add Industries
-      </p>
-      <div class="industryCheckboxes">
-         <% Industry.all.each do |industry| %>
-         <%= check_box_tag  'user[industry_ids][]',industry.id,@user.industries.include?(industry) %>
-         <%= industry.title %>
-         <% end %>
-      </div>
-        <br />
-      <p class="industryBlindUp">
-        OK
-      </p>
-       <br />
-</div>
-</tr>
-  <br />
+  <tr><td></td></tr> 
   <caption>
   <div class="button">
     <%= f.submit 'Sign Up' %>

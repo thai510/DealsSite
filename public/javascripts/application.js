@@ -10,8 +10,13 @@ $(function () {
    $('#nextServicePage').show();
    $('#new_service').validate( {
      errorPlacement: function(error,element) {
-       error.appendTo( element.parent("td").under("td") );}
-     });//must call at least once before using valid()
+       offset = element.offset();
+       error.insertBefore(element);
+       error.css('position', 'absolute');
+       error.css('left', offset.left);
+        error.css('top', offset.top + element.outerHeight());
+     }
+   });//must call at least once before using valid()
   $('#nextServicePage').live("click", function() {
 
         if ($('.firstServicePage').is(':visible')) {
@@ -101,9 +106,13 @@ function removeValidatePage3(){
 /* validate sign up page */
 
 $('#user_submit').live("click", function() { 
-   $('#new_user').validate();
+   $('#new_user').validate( {
+     errorPlacement: function(error,element) {
+       offset = element.offset();
+       error.appendTo(element.closest("tr").next('tr'));
+     }
+   });//must call at least once before using valid()
    validateSignUp();
-   $('#new_user').validate(); 
 });
 
 $(function () {

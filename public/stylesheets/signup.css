@@ -41,7 +41,7 @@ p.industryBlindUp {
 
 
 table.signup {
-  width:45%;
+  width:250px;
   border: 1px solid white;
   border-radius: 15px;
   -moz-border-radius: 15px;
@@ -62,4 +62,15 @@ td.signup_text {
   color:#8cc63f;
 }
 td.signup_field {
+  text-align:left;
 }
+
+table.signup .error {
+  text-align:left;
+}
+
+table.signup label.error {
+ color:#0f75bc;
+ float:left;
+}
+
