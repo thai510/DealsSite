@@ -1110,7 +1110,7 @@ div#leftlayout {
 div#rightlayout {
   width:880px;
   margin: 0px 0px 0px 1px;
-  background:white;
+  background:#C1C7CC;
   height:500px;
   float:left;
   padding-top: 10px;
@@ -1123,7 +1123,7 @@ div#content {
    width:1002px;
    text-align:center;
    margin: 10px auto;
-   margin-top: 0px; 
+   margin-top: 10px; 
    height:550px;
 }
 
