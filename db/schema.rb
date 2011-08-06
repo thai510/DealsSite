@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110720202832) do
+ActiveRecord::Schema.define(:version => 20110806201851) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -25,6 +25,24 @@ ActiveRecord::Schema.define(:version => 20110720202832) do
   create_table "deal_builders", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "business_name"
+    t.string   "offer_title"
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.integer  "offer_value"
+    t.integer  "offer_price"
+    t.text     "offer_description"
+    t.string   "industry"
+    t.string   "offer_photo_file_name"
+    t.string   "offer_photo_content_type"
+    t.integer  "offer_photo_file_size"
+    t.datetime "offer_photo_updated_at"
+    t.string   "submit_for_review"
+    t.string   "offer_launch_date"
+    t.string   "standard_restriction"
+    t.string   "incentive_idea"
   end
 
   create_table "faqs", :force => true do |t|

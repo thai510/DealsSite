@@ -1,5 +1,26 @@
-<h1>New deal_builder</h1>
+<%= content_for :rightlayout do %>
 
-<%= render 'form' %>
+<% unless @deal_builder.business_name then %>
+<%= render 'part_one' %>
+<% else %>
+  <% unless @deal_builder.offer_photo_file_name then %>
+    <%= render 'part_two', :object => @deal_builder %>
+  <% else %>
+    <% unless @deal_builder.offer_launch_date then %>
+      <%= render 'part_three', :object => @deal_builder %>
+    <% else %>
+      <% unless @deal_builder.standard_restriction then %>
+        <%= render 'part_four', :object => @deal_builder %>
+      <% else %>
+        <% unless @deal_builder.incentive_idea then %>
+          <%= render 'part_five', :object => @deal_builder %>
+        <% else %>
+          <%= render 'part_six', :object => @deal_builder %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
 
 <%= link_to 'Back', deal_builders_path %>
+<% end %>

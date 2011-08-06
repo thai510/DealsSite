@@ -1,5 +1,14 @@
+<%= content_for :rightlayout do %>
 <p id="notice"><%= notice %></p>
 
 
+<%= @deal_builder.business_name %><br />
+<%= image_tag @deal_builder.logo.url(:medium) %><br />
+<%= @deal_builder.offer_title %><br />
+<%= @deal_builder.industry %><br />
+<%= @deal_builder.offer_value %><br />
+<%= @deal_builder.offer_price %><br />
+
 <%= link_to 'Edit', edit_deal_builder_path(@deal_builder) %> |
 <%= link_to 'Back', deal_builders_path %>
+<% end %>

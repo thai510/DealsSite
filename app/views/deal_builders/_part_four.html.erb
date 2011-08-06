@@ -1,0 +1,26 @@
+<%= content_for :rightlayout do %>
+<h1> Step 4: The Fine Print </h1>
+<%= form_for(@deal_builder) do |f| %>
+  <% if @deal_builder.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@deal_builder.errors.count, "error") %> prohibited this deal_builder from being saved:</h2>
+
+      <ul>
+      <% @deal_builder.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div>
+<%= f.label 'Offer Standard Restrictions' %>
+<%= f.text_field :standard_restriction %>
+</div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%end%>
+

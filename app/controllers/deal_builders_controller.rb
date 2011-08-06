@@ -44,7 +44,11 @@ class DealBuildersController < ApplicationController
 
     respond_to do |format|
       if @deal_builder.save
-        format.html { redirect_to(@deal_builder, :notice => 'Deal builder was successfully created.') }
+        format.html { unless submitted(@deal_builder) 
+                       render :action => "new", :object => @deal_builder
+                      else
+                       redirect_to(@deal_builder)
+                      end }
         format.xml  { render :xml => @deal_builder, :status => :created, :location => @deal_builder }
       else
         format.html { render :action => "new" }
@@ -60,7 +64,11 @@ class DealBuildersController < ApplicationController
 
     respond_to do |format|
       if @deal_builder.update_attributes(params[:deal_builder])
-        format.html { redirect_to(@deal_builder, :notice => 'Deal builder was successfully updated.') }
+        format.html { unless submitted(@deal_builder)
+                       render :action => "new", :object => @deal_builder
+                      else
+                       redirect_to(@deal_builder)
+                      end}
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,4 +88,14 @@ class DealBuildersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+protected
+
+def submitted(deal_builder)
+  unless deal_builder.submit_for_review  
+    return false
+  else
+    return true
+  end
+end
 end
