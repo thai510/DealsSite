@@ -105,15 +105,6 @@ function removeValidatePage3(){
 
 /* validate sign up page */
 
-$('#user_submit').live("click", function() { 
-   $('#new_user').validate( {
-     errorPlacement: function(error,element) {
-       offset = element.offset();
-       error.appendTo(element.closest("tr").next('tr'));
-     }
-   });//must call at least once before using valid()
-   validateSignUp();
-});
 
 $(function () {
 
@@ -134,18 +125,24 @@ $(function () {
     });
 });
 
-function validateSignUp(){
- $("#user_name").rules("add",{required:true});
- $("#user_email").rules("add",{required:true, email:true,
-   /* checks uniqueness of email, will have to work on this */
-    /* remote:"/users/check_email"*/
+$(document).ready(function () {
+//$('#user_submit').live("click", function() { 
+   $('#new_user').validate( {
+     errorPlacement: function(error,element) {
+       offset = element.offset();
+       error.appendTo(element.closest("tr").next('tr'));
+     },
+     rules: {
+       "user[name]":{required:true},
+       "user[email]":{required:true,email:true,remote:"/users/check_email"},
+       "user[password]":{required:true,minlength: 6, maxlength: 20},
+       "user[password_confirmation]":{required:true, equalTo:"#user_password"}},
+
+     messages: {
+       "user[email]":{remote:"Email already taken", email:"Invalid Email"},
+       "user[password_confirmation]":{equalTo:"Must match password"},
+       "user[password]":{minlength:"Must be at least 6 characters",
+                         maxlength:"Must be at most 20 characters"}
+     }
    });
- $("#user_password").rules("add",{required:true, minlength: 6, maxlength:20});
- $("#user_password_confirmation").rules("add",{required:true,
-    equalTo:"#user_password"});
- $("#user_zipcode").rules("add", {required:true,digits:true, minlength: 5, maxlength: 5});
- $("#user_industry_ids_").rules("add", {required:true});
-
-
-  //custom messages for sign up validation
-}
+});

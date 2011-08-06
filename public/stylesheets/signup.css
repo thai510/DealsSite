@@ -41,11 +41,12 @@ p.industryBlindUp {
 
 
 table.signup {
-  width:250px;
+  width:180px;
   border: 1px solid white;
   border-radius: 15px;
   -moz-border-radius: 15px;
   margin: 0 auto;
+  padding-bottom:5px;
   caption-side:bottom;
  
 }
@@ -60,9 +61,13 @@ td.signup_text {
    text-align:right;
   font-size: 13px;
   color:#8cc63f;
+  padding-top: 10px;
+  width:140px;
 }
 td.signup_field {
   text-align:left;
+  padding-top: 10px;
+  width:250px;
 }
 
 table.signup .error {
@@ -73,4 +78,7 @@ table.signup label.error {
  color:#0f75bc;
  float:left;
 }
+table.signup tr {
+}
+
 

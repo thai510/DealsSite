@@ -4,14 +4,14 @@
 
 </head>
 
-<% unless current_user then %>
-<div id='background'>
-  <div id='contatiner'>
-    <div id='logo'>
+ <div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= link_to image_tag("theme/smallbannercroppedlogo.png") , home_path %>
+         </div>
+         <div class="bannerslogan">
+         <%= image_tag("theme/smallbannercroppedslogan.png") %>
+         </div>
+ </div>
+ <div id="content">    
       <%= render(:partial => "users/signup",:object => @user) %>
-    </div>
-  </div>
-</div>
-<% else %>
-<%= back_to_home %>
-<% end %>
+ </div>

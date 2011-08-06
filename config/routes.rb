@@ -17,6 +17,7 @@ LocalAdResource::Application.routes.draw do
 
   get "login/index"
 
+  match "users/check_email", :to => 'users#check_email', :as => 'users/check_email'
   resources :users
   #resources :sessions
 

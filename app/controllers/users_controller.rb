@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_filter :authorize, :except => [:create, :new]
-  before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
+  skip_before_filter :authorize#, :except => [:create, :new,:check_email]
+  #before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
   # GET /users
   # GET /users.xml
 
@@ -84,15 +84,11 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-end
+  def check_email
+    @user = User.find_by_email(params[:user][:email])
 
-def check_email
-  @user = find_by_email(params[:user][:email])
-
-  unless @user
-     return true
-  else
-     return false
+    respond_to do |format| 
+      format.json {render :json => !@user}
+    end
   end
-  
 end
