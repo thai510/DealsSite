@@ -45,6 +45,7 @@
 <%= f.label 'Please describe the offer' %>
 <%= f.text_area :offer_description, :size => "20x5" %>
 </div>
+  <%= f.hidden_field :user_id, :value => current_user.id%>
 
 
   <div class="actions">

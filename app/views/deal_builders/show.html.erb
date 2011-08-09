@@ -1,14 +1,75 @@
 <%= content_for :rightlayout do %>
 <p id="notice"><%= notice %></p>
 
+<table>
+<tr>
+  <td>Business Name:</td>
+  <td><%= @deal_builder.business_name %></td>
+</tr>
 
-<%= @deal_builder.business_name %><br />
-<%= image_tag @deal_builder.logo.url(:medium) %><br />
-<%= @deal_builder.offer_title %><br />
-<%= @deal_builder.industry %><br />
-<%= @deal_builder.offer_value %><br />
-<%= @deal_builder.offer_price %><br />
+<tr>
+  <td>Company Logo</td>
+  <td><%= image_tag @deal_builder.logo.url(:thumb) %></td>
+</tr>
+<tr>
+  <td>Offer Title:</td>
+  <td><%= @deal_builder.offer_title %></td>
+</tr>
 
+<tr>
+ <td>Industry:</td>
+ <td><%= @deal_builder.industry %></td>
+</tr>
+
+<tr>
+  <td>Offer Value:</td>
+  <td><%= @deal_builder.offer_value %></td>
+</tr>
+<tr>
+  <td>Offer Price:</td>
+  <td><%= @deal_builder.offer_price %></td>
+</tr>
+<tr>
+  <td>Offer Photo:</td>
+  <td><%= image_tag @deal_builder.offer_photo.url(:thumb) %></td>
+</tr>
+<tr>
+  <td>Offer Launch Date:</td>
+  <td><%= @deal_builder.offer_launch_date %></td>
+</tr>
+
+<tr>
+  <td>Standard Restrictions:</td>
+  <% @deal_builder.standard_restrictions.each do |s_r| %>
+  <td><%= s_r.title %></td>
+  <% end %>
+</tr>
+
+<tr>
+  <td>Industry Specific Restrictions:</td>
+  <% @deal_builder.industry_restrictions.each do |i_r| %>
+  <td><%= i_r.title %></td>
+  <% end %>
+</tr>
+
+<tr>
+  <td>Optional Restrictions:</td>
+  <td><%= @deal_builder.optional_restriction %></td>
+</tr>
+
+<tr>
+  <td>Incentive Ideas:</td>
+  <% @deal_builder.incentive_ideas.each do |i_i| %>
+  <td><%= i_i.title %></td>
+  <% end %>
+</tr>
+
+<tr>
+  <td>Optional Incentives:</td>
+  <td><%= @deal_builder.optional_incentive %></td>
+</tr>
+
+</table>
 <%= link_to 'Edit', edit_deal_builder_path(@deal_builder) %> |
 <%= link_to 'Back', deal_builders_path %>
 <% end %>

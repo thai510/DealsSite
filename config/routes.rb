@@ -1,4 +1,12 @@
 LocalAdResource::Application.routes.draw do
+  resources :locations
+
+  resources :incentive_ideas
+
+  resources :industry_restrictions
+
+  resources :standard_restrictions
+
   resources :subindustries
 
   resources :industries

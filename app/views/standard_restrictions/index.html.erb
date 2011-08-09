@@ -1,0 +1,27 @@
+<%= content_for :rightlayout do %>
+<h1>Listing standard_restrictions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @standard_restrictions.each do |standard_restriction| %>
+  <tr>
+    <td><%= standard_restriction.title %></td>
+    <td><%= standard_restriction.description %></td>
+    <td><%= link_to 'Show', standard_restriction %></td>
+    <td><%= link_to 'Edit', edit_standard_restriction_path(standard_restriction) %></td>
+    <td><%= link_to 'Destroy', standard_restriction, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Standard restriction', new_standard_restriction_path %>
+<% end %>

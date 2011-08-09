@@ -1,0 +1,17 @@
+<%= content_for :rightlayout do %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @incentive_idea.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @incentive_idea.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_incentive_idea_path(@incentive_idea) %> |
+<%= link_to 'Back', incentive_ideas_path %>
+<% end %>

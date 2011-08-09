@@ -1,0 +1,18 @@
+
+  <div class="entry">
+      <p class="industryBlindDown">
+      Add Industries
+      </p>
+      <div class="industryCheckboxes">
+         <% Industry.all.each do |industry| %>
+         <%= check_box_tag  'user[industry_ids][]',industry.id,@user.industries.include?(industry) %>
+         <%= industry.title %>
+         <% end %>
+      </div>
+        <br />
+      <p class="industryBlindUp">
+        OK
+      </p>
+       <br />
+</div>
+</tr>

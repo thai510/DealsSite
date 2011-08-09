@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110806201851) do
+ActiveRecord::Schema.define(:version => 20110809023602) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -41,9 +41,42 @@ ActiveRecord::Schema.define(:version => 20110806201851) do
     t.datetime "offer_photo_updated_at"
     t.string   "submit_for_review"
     t.string   "offer_launch_date"
-    t.string   "standard_restriction"
-    t.string   "incentive_idea"
+    t.text     "optional_restriction"
+    t.integer  "user_id"
+    t.text     "optional_incentive"
   end
+
+  create_table "deal_builders_incentive_ideas", :id => false, :force => true do |t|
+    t.integer "deal_builder_id"
+    t.integer "incentive_idea_id"
+  end
+
+  add_index "deal_builders_incentive_ideas", ["deal_builder_id", "incentive_idea_id"], :name => "deals_incentive_ideas", :unique => true
+  add_index "deal_builders_incentive_ideas", ["incentive_idea_id", "deal_builder_id"], :name => "incentive_ideas_deals", :unique => true
+
+  create_table "deal_builders_industry_restrictions", :id => false, :force => true do |t|
+    t.integer "deal_builder_id"
+    t.integer "industry_restriction_id"
+  end
+
+  add_index "deal_builders_industry_restrictions", ["deal_builder_id", "industry_restriction_id"], :name => "deals_industry_restrictions", :unique => true
+  add_index "deal_builders_industry_restrictions", ["industry_restriction_id", "deal_builder_id"], :name => "industry_restrictions_deals", :unique => true
+
+  create_table "deal_builders_locations", :id => false, :force => true do |t|
+    t.integer "deal_builder_id"
+    t.integer "location_id"
+  end
+
+  add_index "deal_builders_locations", ["deal_builder_id", "location_id"], :name => "deals_locations", :unique => true
+  add_index "deal_builders_locations", ["location_id", "deal_builder_id"], :name => "locations_deals", :unique => true
+
+  create_table "deal_builders_standard_restrictions", :id => false, :force => true do |t|
+    t.integer "deal_builder_id"
+    t.integer "standard_restriction_id"
+  end
+
+  add_index "deal_builders_standard_restrictions", ["deal_builder_id", "standard_restriction_id"], :name => "deals_restrictions", :unique => true
+  add_index "deal_builders_standard_restrictions", ["standard_restriction_id", "deal_builder_id"], :name => "restrictions_deals", :unique => true
 
   create_table "faqs", :force => true do |t|
     t.datetime "created_at"
@@ -54,6 +87,13 @@ ActiveRecord::Schema.define(:version => 20110806201851) do
     t.string   "email"
     t.string   "name"
     t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "incentive_ideas", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -73,9 +113,28 @@ ActiveRecord::Schema.define(:version => 20110806201851) do
   add_index "industries_users", ["industry_id", "user_id"], :name => "index_industries_users_on_industry_id_and_user_id"
   add_index "industries_users", ["user_id", "industry_id"], :name => "index_industries_users_on_user_id_and_industry_id"
 
+  create_table "industry_restrictions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "industry_id"
+  end
+
   create_table "links", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.text     "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "marketing_plans", :force => true do |t|
@@ -120,6 +179,13 @@ ActiveRecord::Schema.define(:version => 20110806201851) do
     t.text     "payer_credit_card_fee"
     t.text     "restrictions"
     t.text     "additional_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "standard_restrictions", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

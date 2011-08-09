@@ -1,0 +1,17 @@
+<%= content_for :rightlayout do %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @industry_restriction.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @industry_restriction.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_industry_restriction_path(@industry_restriction) %> |
+<%= link_to 'Back', industry_restrictions_path %>
+<% end %>

@@ -15,9 +15,18 @@
   <% end %>
 
 <div>
-<%= f.label 'Ideas for Incentives:' %>
-<%= f.text_field :incentive_idea %>
+<%= f.label 'Ideas for Incentives' %>
+         <% IncentiveIdea.all.each do |i_i| %>
+         <%= check_box_tag  'deal_builder[incentive_idea_ids][]',i_i.id,@deal_builder.incentive_ideas.include?(i_i) %>
+         <%= i_i.description %>
+         <% end %>
 </div>
+
+<div>
+<%= f.label 'Other Incentives' %>
+<%= f.text_area :optional_incentive, :size => "20x5" %>
+</div>
+
 
   <div class="actions">
     <%= f.submit %>

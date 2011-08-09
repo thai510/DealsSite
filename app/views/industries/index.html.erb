@@ -1,3 +1,4 @@
+<%= content_for :rightlayout do %>
 <h1>Listing industries</h1>
 <table class="normal">
 <thead>
@@ -13,8 +14,16 @@
   <tr>
     <td><%= industry.title %></td>
     <td><%= link_to 'Add SubIndustry', new_subindustry_path(:industry_id => industry)%></td>
+    <td><%= link_to 'Add Restriction', new_industry_restriction_path(:industry_id => industry)%></td>
     <td><%= link_to 'Edit', edit_industry_path(industry) %></td>
-    <td><%=link_to 'Remove',industry,:confirm => "Are you sure? This will remove all of #{industry.title}'s subindustries as well!", :method => :delete %></td>
+    <td><%=link_to 'Remove',industry,:confirm => "Are you sure? This will remove all of #{industry.title}'s subindustries as well!", :method => :delete %>
+    </td>
+    <% if industry.industry_restrictions.count > 0 %>
+        <% industry.industry_restrictions.each do |i_r| %>
+     <td>   <%= i_r.title %></td>
+        <% end %>
+        <% end %>
+</td>
  </tr>
  <% if industry.subindustries.count > 0 %>
    <%= render (industry.subindustries) %>
@@ -24,3 +33,4 @@
 
 
 <%= link_to 'New Industry', new_industry_path %>
+<% end %>

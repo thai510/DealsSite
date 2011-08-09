@@ -1,4 +1,5 @@
 <%= content_for :rightlayout do %>
+
 <h1> Step 4: The Fine Print </h1>
 <%= form_for(@deal_builder) do |f| %>
   <% if @deal_builder.errors.any? %>
@@ -15,7 +16,23 @@
 
 <div>
 <%= f.label 'Offer Standard Restrictions' %>
-<%= f.text_field :standard_restriction %>
+         <% StandardRestriction.all.each do |s_r| %>
+         <%= check_box_tag  'deal_builder[standard_restriction_ids][]',s_r.id,@deal_builder.standard_restrictions.include?(s_r) %>
+         <%= s_r.description %>
+         <% end %>
+</div>
+
+<div>
+<%= f.label 'Industry Specific Restrictions' %>
+         <% Industry.find_by_title(@deal_builder.industry).industry_restrictions.each do |i_r| %>
+         <%= check_box_tag  'deal_builder[industry_restriction_ids][]',i_r.id,@deal_builder.industry_restrictions.include?(i_r) %>
+         <%= i_r.description %>
+         <% end %>
+
+
+<div>
+<%= f.label 'Other Restrictions' %>
+<%= f.text_field :optional_restriction %>
 </div>
 
   <div class="actions">

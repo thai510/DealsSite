@@ -8,7 +8,7 @@
     <th></th>
   </tr>
 
-<% @deal_builders.each do |deal_builder| %>
+<% current_user.deal_builders.each do |deal_builder| %>
   <tr>
     <td><%= link_to 'Show', deal_builder %></td>
     <td><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>

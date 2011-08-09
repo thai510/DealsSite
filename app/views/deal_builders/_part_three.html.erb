@@ -18,6 +18,13 @@
 <%= f.text_field :offer_launch_date %>
 </div>
 
+<%= f.label 'Locations to include for deals' %>
+         <% User.find(current_user.id).locations.each do |loc| %>
+         <%= check_box_tag  'deal_builder[location_ids][]',loc.id,@deal_builder.locations.include?(loc) %>
+         <%= loc.name %>
+         <% end %>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
