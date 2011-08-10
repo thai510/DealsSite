@@ -21,10 +21,10 @@
 
   <div class="field">
     <%= f.label :optional_incentive %><br />
-    <%= f.text_area :optional_incentive %>
+    <%= f.text_area :optional_incentive, :size => "30x5" %>
   </div>
   <div class="actions">
     <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
-    <%= f.submit %>
+    <%= f.submit 'Complete Offer!' %>
   </div>
 <% end %>

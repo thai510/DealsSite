@@ -13,7 +13,7 @@
 <h1> Step 2: When and Where </h1>
   <div class="field">
     <%= f.label :offer_launch_date %><br />
-    <%= f.text_field :offer_launch_date %>
+    <%= select_date Date.today, :prefix => :ol_date, :order => [:month,:day,:year], :start_year => Date.today.year%>
   </div>
 
   <%= f.label 'Locations to include for deals' %>
@@ -24,6 +24,6 @@
 
   <div class="actions">
     <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
-    <%= f.submit %>
+    <%= f.submit 'Save and Continue' %>
   </div>
 <% end %>

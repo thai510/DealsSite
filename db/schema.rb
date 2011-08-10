@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110810195250) do
+ActiveRecord::Schema.define(:version => 20110810222526) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20110810195250) do
   add_index "db_step_threes_standard_restrictions", ["standard_restriction_id", "db_step_three_id"], :name => "standard_restrictions_db_three", :unique => true
 
   create_table "db_step_twos", :force => true do |t|
-    t.string   "offer_launch_date"
+    t.datetime "offer_launch_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
@@ -100,38 +100,6 @@ ActiveRecord::Schema.define(:version => 20110810195250) do
     t.datetime "updated_at"
     t.integer  "user_id"
   end
-
-  create_table "deal_builders_incentive_ideas", :id => false, :force => true do |t|
-    t.integer "deal_builder_id"
-    t.integer "incentive_idea_id"
-  end
-
-  add_index "deal_builders_incentive_ideas", ["deal_builder_id", "incentive_idea_id"], :name => "deals_incentive_ideas", :unique => true
-  add_index "deal_builders_incentive_ideas", ["incentive_idea_id", "deal_builder_id"], :name => "incentive_ideas_deals", :unique => true
-
-  create_table "deal_builders_industry_restrictions", :id => false, :force => true do |t|
-    t.integer "deal_builder_id"
-    t.integer "industry_restriction_id"
-  end
-
-  add_index "deal_builders_industry_restrictions", ["deal_builder_id", "industry_restriction_id"], :name => "deals_industry_restrictions", :unique => true
-  add_index "deal_builders_industry_restrictions", ["industry_restriction_id", "deal_builder_id"], :name => "industry_restrictions_deals", :unique => true
-
-  create_table "deal_builders_locations", :id => false, :force => true do |t|
-    t.integer "deal_builder_id"
-    t.integer "location_id"
-  end
-
-  add_index "deal_builders_locations", ["deal_builder_id", "location_id"], :name => "deals_locations", :unique => true
-  add_index "deal_builders_locations", ["location_id", "deal_builder_id"], :name => "locations_deals", :unique => true
-
-  create_table "deal_builders_standard_restrictions", :id => false, :force => true do |t|
-    t.integer "deal_builder_id"
-    t.integer "standard_restriction_id"
-  end
-
-  add_index "deal_builders_standard_restrictions", ["deal_builder_id", "standard_restriction_id"], :name => "deals_restrictions", :unique => true
-  add_index "deal_builders_standard_restrictions", ["standard_restriction_id", "deal_builder_id"], :name => "restrictions_deals", :unique => true
 
   create_table "faqs", :force => true do |t|
     t.datetime "created_at"

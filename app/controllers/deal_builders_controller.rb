@@ -85,13 +85,5 @@ class DealBuildersController < ApplicationController
     end
   end
 
-protected
 
-def submitted(deal_builder)
-  unless deal_builder.submit_for_review  
-    return false
-  else
-    return true
-  end
-end
 end

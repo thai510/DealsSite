@@ -41,6 +41,7 @@ class DbStepTwosController < ApplicationController
   # POST /db_step_twos.xml
   def create
     @db_step_two = DbStepTwo.new(params[:db_step_two])
+    @db_step_two.offer_launch_date = Date.civil(params[:ol_date][:year].to_i,params[:ol_date][:month].to_i,params[:ol_date][:day].to_i)
 
     respond_to do |format|
       if @db_step_two.save
@@ -57,7 +58,6 @@ class DbStepTwosController < ApplicationController
   # PUT /db_step_twos/1.xml
   def update
     @db_step_two = DbStepTwo.find(params[:id])
-
     respond_to do |format|
       if @db_step_two.update_attributes(params[:db_step_two])
         format.html { redirect_to(@db_step_two, :notice => 'Db step two was successfully updated.') }

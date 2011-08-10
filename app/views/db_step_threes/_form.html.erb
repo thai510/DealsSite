@@ -32,10 +32,10 @@
 
   <div class="field">
     <%= f.label :optional_restriction %><br />
-    <%= f.text_area :optional_restriction %>
+    <%= f.text_area :optional_restriction, :size => "30x5" %>
   </div>
   <div class="actions">
     <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
-    <%= f.submit %>
+    <%= f.submit 'Save and Continue' %>
   </div>
 <% end %>

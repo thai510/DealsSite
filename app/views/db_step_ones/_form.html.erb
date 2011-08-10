@@ -1,5 +1,4 @@
 <%= form_for (@db_step_one) , :html => {:multipart => true} do |f| %>
- <noscript>
   <% if @db_step_one.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@db_step_one.errors.count, "error") %> prohibited this db_step_one from being saved:</h2>
@@ -11,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-  </noscript>
 <h1>Step 1: The Basics </h1>
   <div class="field">
     <%= f.label :business_name %>
