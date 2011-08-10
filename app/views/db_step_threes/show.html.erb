@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>The Fine Print</h1>
+<div>
+  <b>Standard Restrictions:</b>
+  <% @db_step_three.standard_restrictions.each do |s_r| %>
+    <%= s_r.description %>
+  <% end %>
+<div>
+<div>
+  <b>Industry Specific Restrictions:</b>
+  <% @db_step_three.industry_restrictions.each do |i_r| %>
+    <%= i_r.description %>
+  <% end %>
+<div>
+<div>
+  <b>Optional restriction:</b>
+  <%= @db_step_three.optional_restriction %>
+</div>
+
+
+<%= link_to 'Edit', edit_db_step_three_path(@db_step_three) %> |
+<%= link_to 'Back', db_step_threes_path %>

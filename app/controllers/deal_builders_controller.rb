@@ -25,7 +25,6 @@ class DealBuildersController < ApplicationController
   # GET /deal_builders/new.xml
   def new
     @deal_builder = DealBuilder.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @deal_builder }
@@ -44,11 +43,8 @@ class DealBuildersController < ApplicationController
 
     respond_to do |format|
       if @deal_builder.save
-        format.html { unless submitted(@deal_builder) 
-                       render :action => "new", :object => @deal_builder
-                      else
-                       redirect_to(@deal_builder)
-                      end }
+        format.html { 
+                      }
         format.xml  { render :xml => @deal_builder, :status => :created, :location => @deal_builder }
       else
         format.html { render :action => "new" }

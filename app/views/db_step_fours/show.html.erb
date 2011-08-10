@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<h1> The Incentives </h1>
+<div>
+  <b>Incentives Ideas:</b>
+  <% @db_step_four.incentive_ideas.each do |i_i| %>
+    <%= i_i.description %>
+  <% end %>
+</div>
+<div>
+  <b>Optional incentive:</b>
+  <%= @db_step_four.optional_incentive %>
+</div>
+
+
+
+<%= link_to 'Edit', edit_db_step_four_path(@db_step_four) %> |
+<%= link_to 'Back', db_step_fours_path %>

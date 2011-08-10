@@ -1,0 +1,33 @@
+<h1>Listing db_step_ones</h1>
+
+<table>
+  <tr>
+    <th>Business name</th>
+    <th>Offer title</th>
+    <th>Industry</th>
+    <th>Offer value</th>
+    <th>Offer price</th>
+    <th>Offer description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @db_step_ones.each do |db_step_one| %>
+  <tr>
+    <td><%= db_step_one.business_name %></td>
+    <td><%= db_step_one.offer_title %></td>
+    <td><%= db_step_one.industry %></td>
+    <td><%= db_step_one.offer_value %></td>
+    <td><%= db_step_one.offer_price %></td>
+    <td><%= db_step_one.offer_description %></td>
+    <td><%= link_to 'Show', db_step_one %></td>
+    <td><%= link_to 'Edit', edit_db_step_one_path(db_step_one) %></td>
+    <td><%= link_to 'Destroy', db_step_one, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Db step one', new_db_step_one_path %>

@@ -1,4 +1,12 @@
 LocalAdResource::Application.routes.draw do
+  resources :db_step_fours
+
+  resources :db_step_threes
+
+  resources :db_step_twos
+
+  resources :db_step_ones
+
   resources :locations
 
   resources :incentive_ideas

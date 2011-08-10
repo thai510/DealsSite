@@ -1,0 +1,41 @@
+<%= form_for(@db_step_three) do |f| %>
+  <% if @db_step_three.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_step_three.errors.count, "error") %> prohibited this db_step_three from being saved:</h2>
+
+      <ul>
+      <% @db_step_three.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<h1> Step 3: The Fine Print </h1>
+  <div>
+  <%= f.label 'Offer Standard Restrictions' %>
+         <% StandardRestriction.all.each do |s_r| %>
+         <%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
+         <%= s_r.description %>
+         <% end %>
+  </div>
+
+  <div>
+  <%= f.label 'Industry Specific Restrictions' %>
+         <% Industry.find_by_title(DbStepOne.find(@deal_builder.db_step_one).industry).industry_restrictions.each do |i_r| %>
+         <%= check_box_tag  'db_step_three[industry_restriction_ids][]',i_r.id,@db_step_three.industry_restrictions.include?(i_r) %>
+         <%= i_r.description %>
+         <% end %>
+
+
+  <div>
+
+  <div class="field">
+    <%= f.label :optional_restriction %><br />
+    <%= f.text_area :optional_restriction %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
+    <%= f.submit %>
+  </div>
+<% end %>

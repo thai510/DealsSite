@@ -1,22 +1,19 @@
 <%= content_for :rightlayout do %>
 
-<% unless @deal_builder.business_name then %>
-<%= render 'part_one' %>
+<% unless params[:deal_builder_exist] then %>
+<%= render 'db_step_ones/form', :object => (@db_step_one = DbStepOne.new), :object => @deal_builder%>
 <% else %>
-  <% unless @deal_builder.offer_photo_file_name then %>
-    <%= render 'part_two', :object => @deal_builder %>
+  <% unless DealBuilder.find(params[:deal_builder_exist]).db_step_two then %>
+    <%= render 'db_step_twos/form', :object => (@db_step_two = DbStepTwo.new), 
+                                    :object => (@deal_builder = DealBuilder.find(params[:deal_builder_exist])) %>
   <% else %>
-    <% unless @deal_builder.offer_launch_date then %>
-      <%= render 'part_three', :object => @deal_builder %>
+    <% unless DealBuilder.find(params[:deal_builder_exist]).db_step_three then %>
+      <%= render 'db_step_threes/form', :object => (@db_step_three = DbStepThree.new),
+                                        :object => (@deal_builder = DealBuilder.find(params[:deal_builder_exist])) %>
     <% else %>
-      <% if @deal_builder.standard_restrictions.empty?  then %>
-        <%= render 'part_four', :object => @deal_builder %>
-      <% else %>
-        <% if @deal_builder.incentive_ideas.empty? then %>
-          <%= render 'part_five', :object => @deal_builder %>
-        <% else %>
-          <%= render 'part_six', :object => @deal_builder %>
-        <% end %>
+      <% unless DealBuilder.find(params[:deal_builder_exist]).db_step_four then %>
+      <%= render 'db_step_fours/form', :object => (@db_step_four = DbStepFour.new),
+                                        :object => (@deal_builder = DealBuilder.find(params[:deal_builder_exist])) %>
       <% end %>
     <% end %>
   <% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110809023602) do
+ActiveRecord::Schema.define(:version => 20110810195250) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -22,28 +22,83 @@ ActiveRecord::Schema.define(:version => 20110809023602) do
     t.datetime "updated_at"
   end
 
-  create_table "deal_builders", :force => true do |t|
+  create_table "db_step_fours", :force => true do |t|
+    t.text     "optional_incentive"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "deal_builder_id"
+  end
+
+  create_table "db_step_fours_incentive_ideas", :id => false, :force => true do |t|
+    t.integer "db_step_four_id"
+    t.integer "incentive_idea_id"
+  end
+
+  add_index "db_step_fours_incentive_ideas", ["db_step_four_id", "incentive_idea_id"], :name => "db_four_incentive_ideas", :unique => true
+  add_index "db_step_fours_incentive_ideas", ["incentive_idea_id", "db_step_four_id"], :name => "incentive_ideas_db_four", :unique => true
+
+  create_table "db_step_ones", :force => true do |t|
     t.string   "business_name"
     t.string   "offer_title"
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
+    t.string   "industry"
     t.integer  "offer_value"
     t.integer  "offer_price"
     t.text     "offer_description"
-    t.string   "industry"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "company_logo_file_name"
+    t.string   "company_logo_content_type"
+    t.integer  "company_logo_file_size"
+    t.datetime "company_logo_updated_at"
     t.string   "offer_photo_file_name"
     t.string   "offer_photo_content_type"
     t.integer  "offer_photo_file_size"
     t.datetime "offer_photo_updated_at"
-    t.string   "submit_for_review"
-    t.string   "offer_launch_date"
+    t.integer  "deal_builder_id"
+  end
+
+  create_table "db_step_threes", :force => true do |t|
     t.text     "optional_restriction"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "deal_builder_id"
+  end
+
+  create_table "db_step_threes_industry_restrictions", :id => false, :force => true do |t|
+    t.integer "db_step_three_id"
+    t.integer "industry_restriction_id"
+  end
+
+  add_index "db_step_threes_industry_restrictions", ["db_step_three_id", "industry_restriction_id"], :name => "db_three_industry_restrictions", :unique => true
+  add_index "db_step_threes_industry_restrictions", ["industry_restriction_id", "db_step_three_id"], :name => "industry_restrictions_db_three", :unique => true
+
+  create_table "db_step_threes_standard_restrictions", :id => false, :force => true do |t|
+    t.integer "db_step_three_id"
+    t.integer "standard_restriction_id"
+  end
+
+  add_index "db_step_threes_standard_restrictions", ["db_step_three_id", "standard_restriction_id"], :name => "db_three_standard_restrictions", :unique => true
+  add_index "db_step_threes_standard_restrictions", ["standard_restriction_id", "db_step_three_id"], :name => "standard_restrictions_db_three", :unique => true
+
+  create_table "db_step_twos", :force => true do |t|
+    t.string   "offer_launch_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "deal_builder_id"
+  end
+
+  create_table "db_step_twos_locations", :id => false, :force => true do |t|
+    t.integer "db_step_two_id"
+    t.integer "location_id"
+  end
+
+  add_index "db_step_twos_locations", ["db_step_two_id", "location_id"], :name => "index_db_step_twos_locations_on_db_step_two_id_and_location_id"
+  add_index "db_step_twos_locations", ["location_id", "db_step_two_id"], :name => "index_db_step_twos_locations_on_location_id_and_db_step_two_id"
+
+  create_table "deal_builders", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
-    t.text     "optional_incentive"
   end
 
   create_table "deal_builders_incentive_ideas", :id => false, :force => true do |t|

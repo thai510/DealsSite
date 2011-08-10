@@ -146,3 +146,33 @@ $(document).ready(function () {
      }
    });
 });
+
+$(document).ready(function () {
+  if( $('#db_step_one').is(':visible') ) {
+    $('#new_deal_builder').validate( {
+      rules: {
+        "deal_builder[business_name]":{required:true},
+        "deal_builder[offer_title]":{required:true},
+        "deal_builder[logo]":{required:true},
+        "deal_builder[industry]":{required:true},
+        "deal_builder[offer_value]":{required:true},
+        "deal_builder[offer_price]":{required:true},
+        "deal_builder[offer_description]":{required:true}
+     }
+    });
+  }
+  else if( $('#db_step_two').is(':visible') ) {
+    $('.edit_deal_builder').validate( {
+      rules : {
+        "deal_builder[offer_launch_date]":{required:true},
+      /*  checkbox: {
+          required: 'input[type="checkbox"]:checked',
+          minlength: $('input[type="checkbox"]').length();
+        }*/
+      },
+      messages : {
+       // checkbox: "Please check at least one",
+      }
+    });
+  }
+});

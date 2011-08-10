@@ -1,0 +1,29 @@
+<%= form_for(@db_step_two) do |f| %>
+  <% if @db_step_two.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_step_two.errors.count, "error") %> prohibited this db_step_two from being saved:</h2>
+
+      <ul>
+      <% @db_step_two.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<h1> Step 2: When and Where </h1>
+  <div class="field">
+    <%= f.label :offer_launch_date %><br />
+    <%= f.text_field :offer_launch_date %>
+  </div>
+
+  <%= f.label 'Locations to include for deals' %>
+         <% User.find(current_user.id).locations.each do |loc| %>
+         <%= check_box_tag  'db_step_two[location_ids][]',loc.id,@db_step_two.locations.include?(loc) %>
+         <%= loc.name %>
+         <% end %>
+
+  <div class="actions">
+    <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
+    <%= f.submit %>
+  </div>
+<% end %>

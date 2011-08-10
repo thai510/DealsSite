@@ -1,0 +1,30 @@
+<%= form_for(@db_step_four) do |f| %>
+  <% if @db_step_four.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_step_four.errors.count, "error") %> prohibited this db_step_four from being saved:</h2>
+
+      <ul>
+      <% @db_step_four.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+  <%= f.label 'Ideas for Incentives' %>
+         <% IncentiveIdea.all.each do |i_i| %>
+         <%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
+         <%= i_i.description %>
+         <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :optional_incentive %><br />
+    <%= f.text_area :optional_incentive %>
+  </div>
+  <div class="actions">
+    <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
+    <%= f.submit %>
+  </div>
+<% end %>
