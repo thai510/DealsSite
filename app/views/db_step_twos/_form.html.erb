@@ -10,20 +10,36 @@
       </ul>
     </div>
   <% end %>
-<h1> Step 2: When and Where </h1>
-  <div class="field">
-    <%= f.label :offer_launch_date %><br />
-    <%= select_date Date.today, :prefix => :ol_date, :order => [:month,:day,:year], :start_year => Date.today.year%>
-  </div>
 
-  <%= f.label 'Locations to include for deals' %>
+<h1> Step 2: When and Where </h1>
+<div class="leftSideLayout">
+
+<table>
+  <tr>
+    <td><%= f.label :offer_launch_date %></td>
+    <td><%= f.text_field :offer_launch_date, :size => '12px' %></td>
+    <td></td>
+  </tr>
+  <tr><td><%= f.label 'Locations to include for deals' %></td><td></td></tr>
          <% User.find(current_user.id).locations.each do |loc| %>
-         <%= check_box_tag  'db_step_two[location_ids][]',loc.id,@db_step_two.locations.include?(loc) %>
-         <%= loc.name %>
+         <tr><td><%= check_box_tag  'db_step_two[location_ids][]',loc.id,@db_step_two.locations.include?(loc) %>
+         <%= loc.name %></td></tr>
          <% end %>
+</table>
 
   <div class="actions">
     <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
     <%= f.submit 'Save and Continue' %>
   </div>
+</div>
+<div class="rightSideLayout">
+  <table class="stepTwoTips">
+    <tr id="offer_launch_date">
+      <td>first field</td>
+    </tr>
+    <tr id="locations">
+       <td>second field</td>
+    </tr>
+  </table>
+</div>
 <% end %>

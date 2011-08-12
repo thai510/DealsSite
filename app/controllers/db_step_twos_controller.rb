@@ -41,14 +41,13 @@ class DbStepTwosController < ApplicationController
   # POST /db_step_twos.xml
   def create
     @db_step_two = DbStepTwo.new(params[:db_step_two])
-    @db_step_two.offer_launch_date = Date.civil(params[:ol_date][:year].to_i,params[:ol_date][:month].to_i,params[:ol_date][:day].to_i)
 
     respond_to do |format|
       if @db_step_two.save
         format.html { redirect_to(new_deal_builder_path(:deal_builder_exist => DealBuilder.find(@db_step_two.deal_builder_id))) }
         format.xml  { render :xml => @db_step_two, :status => :created, :location => @db_step_two }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to(new_deal_builder_path(:deal_builder_exist => DealBuilder.find(@db_step_two.deal_builder_id))) }
         format.xml  { render :xml => @db_step_two.errors, :status => :unprocessable_entity }
       end
     end

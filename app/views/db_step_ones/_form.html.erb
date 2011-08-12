@@ -1,4 +1,5 @@
 <%= form_for (@db_step_one) , :html => {:multipart => true} do |f| %>
+  <noscript>
   <% if @db_step_one.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@db_step_one.errors.count, "error") %> prohibited this db_step_one from being saved:</h2>
@@ -10,41 +11,99 @@
       </ul>
     </div>
   <% end %>
+ </noscript>
+
 <h1>Step 1: The Basics </h1>
-  <div class="field">
-    <%= f.label :business_name %>
-    <%= f.text_field :business_name %>
-  </div>
-  <div class="field">
-    <%= f.label :company_logo %>
-    <%= f.file_field :company_logo %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_title %>
-    <%= f.text_field :offer_title %>
-  </div>
-  <div class="field">
-    <%= f.label 'Offer photo (optional)' %>
-    <%= f.file_field :offer_photo %>
-  </div>
-  <div>
-  <%= f.label 'Industry:' %>
-  <%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
-                        :prompt => 'Please select an Industry' %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_value %>
-    <%= f.text_field :offer_value %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_price %>
-    <%= f.text_field :offer_price %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_description %>
-    <%= f.text_area :offer_description, :size => '30x5' %>
-  </div>
+<div class ="leftSideLayout">
+<table>
+
+  <tr>
+    <td><%= f.label :business_name %></td>
+    <td><%= f.text_field :business_name %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label :company_logo %></td>
+    <td><%= f.file_field :company_logo %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label :offer_title %></td>
+    <td><%= f.text_field :offer_title %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label 'Offer photo (optional)' %></td>
+    <td><%= f.file_field :offer_photo %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label 'Industry:' %></td>
+    <td><%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
+                        :prompt => 'Please select an Industry' %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label :offer_value %></td>
+    <td><%= f.text_field :offer_value %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label :offer_price %></td>
+    <td><%= f.text_field :offer_price %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td><%= f.label :offer_description %></td>
+    <td><%= f.text_area :offer_description, :size => '30x3' %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+</table>
   <div class="actions">
     <%= f.submit 'Save and Continue'%>
   </div>
+</div>
+<div class="rightSideLayout">
+  <table class="stepOneTips">
+    <tr id="business_name"> 
+      <td>First field</td>
+    </tr>
+    <tr id="company_logo"> 
+      <td>Second field</td>
+    </tr>
+    <tr id="offer_title"> 
+      <td>Third field</td>
+    </tr>
+    <tr id="offer_photo"> 
+      <td>fourth field</td>
+    </tr>
+    <tr id="industry"> 
+      <td>Fifth field</td>
+    </tr>
+    <tr id="offer_value"> 
+      <td>Sixth field</td>
+    </tr>
+    <tr id="offer_price"> 
+      <td>Seventh field</td>
+    </tr>
+    <tr id="offer_description"> 
+      <td>Eighth field</td>
+    </tr>
+</table>
+</div>
 <% end %>

@@ -3,6 +3,7 @@ class CreateDbStepTwos < ActiveRecord::Migration
     create_table :db_step_twos do |t|
       t.datetime :offer_launch_date
 
+
       t.timestamps
     end
   end
