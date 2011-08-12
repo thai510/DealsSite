@@ -1,0 +1,17 @@
+<%= content_for :rightlayout do %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @form_tip.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @form_tip.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_form_tip_path(@form_tip) %> |
+<%= link_to 'Back', form_tips_path %>
+<% end %>

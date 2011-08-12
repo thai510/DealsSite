@@ -6,7 +6,7 @@
 <% unless params[:deal_builder_exist] then %>
 <%= render 'db_step_ones/form', :object => (@db_step_one = DbStepOne.new), :object => @deal_builder%>
 <% else %>
-  <% if DealBuilder.find(params[:deal_builder_exist]).db_step_two.nil? then %>
+  <% unless DealBuilder.find(params[:deal_builder_exist]).db_step_two then %>
     <%= render 'db_step_twos/form', :object => (@db_step_two = DbStepTwo.new), 
                                     :object => (@deal_builder = DealBuilder.find(params[:deal_builder_exist])) %>
   <% else %>

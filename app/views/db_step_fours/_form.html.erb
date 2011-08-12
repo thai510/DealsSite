@@ -10,21 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-  <%= f.label 'Ideas for Incentives' %>
+<h1>Step 4: Incentives </h1>
+<div class="leftSideLayout">
+  <table>
+    <tr><td><b><%= f.label 'Ideas for Incentives' %></b></td><td></td></tr>
          <% IncentiveIdea.all.each do |i_i| %>
-         <%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
-         <%= i_i.description %>
+    <tr><td><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
+         <%= i_i.description %></td></tr>
          <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :optional_incentive %><br />
-    <%= f.text_area :optional_incentive, :size => "30x5" %>
-  </div>
+    <tr>
+      <td><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
+    </tr>
+  </table>
   <div class="actions">
     <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
     <%= f.submit 'Complete Offer!' %>
   </div>
+</div>
+<div class="rightSideLayout">
+  <table class="stepFourTips">
+    <tr id="incentive_ideas">
+      <td><%=FormTip.find_by_title("incentive ideas").description%></td>
+    </td>
+    <tr id="optional_incentives">
+      <td><%=FormTip.find_by_title("optional incentives").description%></td>
+    </td>
+  </table>
+</div>
 <% end %>

@@ -1,0 +1,26 @@
+<%= content_for :rightlayout do %>
+<h1>Listing form_tips</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @form_tips.each do |form_tip| %>
+  <tr>
+    <td><%= form_tip.title %></td>
+    <td><%= link_to 'Show', form_tip %></td>
+    <td><%= link_to 'Edit', edit_form_tip_path(form_tip) %></td>
+    <td><%= link_to 'Destroy', form_tip, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Form tip', new_form_tip_path %>
+<% end %>
