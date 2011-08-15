@@ -145,9 +145,25 @@ $(document).ready(function () {
      }
    });
 });
+//makes the current blue circle fade in and out
+$(document).ready(function() {
+ $('.progressBar').bind('fade-cycle', function() {
+    $('.currentProgress').fadeOut('slow', function() {
+          $('.currentProgress').fadeIn('slow', function() {
+            $(this).trigger('fade-cycle');
+            });
+    });
+});
+  $('.progressBar').each(function(index, elem) {
+    setTimeout(function() {
+        $(elem).trigger('fade-cycle');
+    }, index * 250);
+  });
+});
 //functions for step one of deal builder
 //includes validations and tool tip code
 $(document).ready(function () {
+  $('.rightSideLayout').hide()
   $('#business_name').hide();
   $('#company_logo').hide();
   $('#offer_title').hide();
@@ -166,6 +182,7 @@ $(document).ready(function () {
     $('#offer_description').hide();
     $('#company_logo').hide();
     $('#business_name').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_company_logo').focus( function () {
@@ -177,6 +194,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#company_logo').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_company_logo').live("click", function () {
@@ -188,6 +206,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#company_logo').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_offer_title').focus( function ()  {
@@ -199,6 +218,7 @@ $(document).ready(function () {
     $('#company_logo').hide();
     $('#business_name').hide();
     $('#offer_title').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_offer_photo').focus( function ()  {
@@ -210,6 +230,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#offer_photo').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
   //needed to also add on click because for some reason focus
   // doesn't work click file_fields
@@ -222,6 +243,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#offer_photo').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_industry').focus( function ()  {
@@ -233,6 +255,7 @@ $(document).ready(function () {
     $('#offer_title').hide();
     $('#offer_photo').hide();
     $('#industry').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_offer_value').focus( function ()  {
@@ -244,6 +267,7 @@ $(document).ready(function () {
     $('#offer_photo').hide();
     $('#industry').hide();
     $('#offer_value').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_offer_price').focus( function ()  {
@@ -255,6 +279,7 @@ $(document).ready(function () {
     $('#industry').hide();
     $('#offer_value').hide();
     $('#offer_price').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#db_step_one_offer_description').focus( function ()  {
@@ -266,6 +291,7 @@ $(document).ready(function () {
     $('#offer_value').hide();
     $('#offer_price').hide();
     $('#offer_description').fadeIn();
+    $('.rightSideLayout').fadeIn()
   });
 
   $('#new_db_step_one').validate( {
@@ -274,7 +300,7 @@ $(document).ready(function () {
      },
     rules: {
       "db_step_one[business_name]":{required:true},
-      "db_step_one[company_logo]":{required:true, accept:true},
+      "db_step_one[company_logo]":{ accept:true},
       "db_step_one[offer_photo]":{accept:true},
       "db_step_one[offer_title]":{required:true},
       "db_step_one[industry]":{required:true},
@@ -283,10 +309,14 @@ $(document).ready(function () {
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
-      "db_step_one[company_logo]":{accept:"Png, gif, or jpeg only"},
-      "db_step_one[offer_photo]":{accept:"Png, gif, or jpeg only"},
-      "db_step_one[offer_price]":{number:"Numbers only",min:"Must be at least 0"},
-      "db_step_one[offer_value]":{number:"Numbers only",min:"Must be at least 0"}
+      "db_step_one[company_logo]":{accept:""},
+      "db_step_one[offer_photo]":{accept:"",required:""},
+      "db_step_one[offer_title]":{required:""},
+      "db_step_one[industry]":{required:""},
+      "db_step_one[offer_price]":{number:"",min:"",required:""},
+      "db_step_one[offer_value]":{number:"",min:"",required:""},
+      "db_step_one[business_name]":{required:""},
+      "db_step_one[offer_description]":{required:""}
     }
   });
   $("#db_step_one_offer_photo").change(function () {
@@ -295,6 +325,7 @@ $(document).ready(function () {
   $("#db_step_one_company_logo").change(function () {
     $("#db_step_one_company_logo").blur().focus();
   });
+ 
 });
 //deal builder step 2 javascript
 //validations and tool tip generation
@@ -333,6 +364,10 @@ $(document).ready(function () {
      rules : {
        "db_step_two[offer_launch_date]":{required:true},
        "db_step_two[location_ids][]":{required:true,minlength:1}
+     },
+     messages : {
+       "db_step_two[offer_launch_date]":{required:""},
+       "db_step_two[location_ids][]":{required:"",minlength:""}
      }
   });
 });
@@ -416,6 +451,9 @@ $(document).ready(function () {
          error.appendTo(element.closest('td').next('td'));
        }
      },
+     success: function(label) {
+       label.addClass('valid');
+     },
     rules: {
       "db_step_four[incentive_idea_ids][]":{required:true,minlength:1}
     }, 
@@ -424,3 +462,4 @@ $(document).ready(function () {
     }
   });
 });
+

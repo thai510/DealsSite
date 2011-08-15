@@ -52,7 +52,7 @@ class DbStepOnesController < ApplicationController
                       redirect_to( new_deal_builder_path(:deal_builder_exist => @deal_builder_exist) )}
         format.xml  { render :xml => @db_step_one, :status => :created, :location => @db_step_one }
       else
-        format.html { render :action => "deal_builders/new" }
+        format.html { render :template => "deal_builders/new" }
         format.xml  { render :xml => @db_step_one.errors, :status => :unprocessable_entity }
       end
     end

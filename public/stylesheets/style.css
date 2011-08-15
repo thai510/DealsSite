@@ -1110,7 +1110,6 @@ div#leftlayout {
 div#rightlayout {
   width:880px;
   margin: 0px 0px 0px 1px;
-  background:#C1C7CC;
   height:500px;
   float:left;
   padding-top: 10px;
@@ -1121,6 +1120,7 @@ div#rightlayout {
 
 div#content {
    width:1002px;
+  background:black;
    text-align:center;
    margin: 10px auto;
    margin-top: 10px; 
@@ -1157,14 +1157,69 @@ h3.dashboard_header {
 }
 
 div.leftSideLayout {
-  width:57%;
+  width:450px;
   float:left;
+  margin:0px 0px 0px 20px;
+  border:1px solid;
+  border-radius:15px;
+  -moz-border-radius:15px;
+  background:black;
+  color:white;
+}
+table#dealBuilder {
+  padding:5px 0px 0px 35px;
+}
+td.dealBuilderLabel {
+  text-align:right;
+  padding-top:5px;
+}
+td.dealBuilderField {
+  text-align:left;
+  padding-top:5px;
 }
 div.rightSideLayout {
   float:right;
-  width:43%;
+  width:350px;
+  border:1px solid white;
+  border-radius:15px;
+  -moz-border-radius:15px;
+  color:#8cc63f;
 }
 
 table.stepOneTips td {
   padding-top: 6px;
 }
+
+
+label.error {
+   background:url('../images/theme/icons/small_icons/Erase.png');
+background-repeat:no-repeat;
+padding-left:1.5em
+}
+
+div.progressBar {
+  float:left;
+  width:450px;
+  height:30px;
+  padding-top:20px;
+  padding-left:30px;
+  text-align:left;
+}
+
+div.currentProgress {
+  display:inline;
+}
+
+div.previousProgress {
+  display:inline;
+}
+
+div.forwardProgress {
+  display:inline;
+  float:right;
+}
+
+div.currentGreaterThan {
+  display:inline;
+}
+

@@ -11,7 +11,6 @@
     </div>
   <% end %>
 
-<h1> Step 2: When and Where </h1>
 <div class="leftSideLayout">
 
 <table>
@@ -41,5 +40,21 @@
       <td><%=FormTip.find_by_title("locations for deal").description%></td>
     </tr>
   </table>
+</div>
+<div class="progressBar">
+  <div class="previousProgress">
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+  </div>
+  <div class="currentProgress">
+    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
+  </div>
+  <div class="currentGreaterThan">
+    <%= image_tag("/images/theme/blueGreaterThan.png") %>
+  </div>
+  <div class="forwardProgress">
+    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
+    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
+  </div>
+
 </div>
 <% end %>

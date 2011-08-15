@@ -11,7 +11,6 @@ class DbStepOne < ActiveRecord::Base
 
   validates :offer_price, :numericality => {:greater_than_or_equal_to => 0}
   validates :offer_value, :numericality => {:greater_than_or_equal_to => 0}
-  validates_attachment_presence :company_logo
   validates_attachment_content_type :company_logo, :content_type => ['image/jpeg','image/png', 'image/gif']
   validates_attachment_content_type :offer_photo, :content_type => ['image/jpeg','image/png','image/gif']
 end
