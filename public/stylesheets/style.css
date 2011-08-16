@@ -1160,11 +1160,8 @@ div.leftSideLayout {
   width:450px;
   float:left;
   margin:0px 0px 0px 20px;
-  border:1px solid;
-  border-radius:15px;
-  -moz-border-radius:15px;
   background:black;
-  color:white;
+  color:#8cc63f;
 }
 table#dealBuilder {
   padding:5px 0px 0px 35px;
@@ -1172,6 +1169,14 @@ table#dealBuilder {
 td.dealBuilderLabel {
   text-align:right;
   padding-top:5px;
+}
+td.dealBuilderLabelCBox {
+   text-align:left;
+}
+td.dealBuilderFieldCBox {
+  text-align:left;
+  padding-left:35px;
+  color:white;
 }
 td.dealBuilderField {
   text-align:left;

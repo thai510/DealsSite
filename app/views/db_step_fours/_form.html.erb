@@ -10,16 +10,15 @@
       </ul>
     </div>
   <% end %>
-<h1>Step 4: Incentives </h1>
 <div class="leftSideLayout">
-  <table>
-    <tr><td><b><%= f.label 'Ideas for Incentives' %></b></td><td></td></tr>
+  <table style="margin-top:90px">
+    <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Ideas for Incentives' %></b></td><td></td></tr>
          <% IncentiveIdea.all.each do |i_i| %>
-    <tr><td><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
+    <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
          <%= i_i.description %></td></tr>
          <% end %>
     <tr>
-      <td><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
+      <td style="padding-top:20px"><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
     </tr>
   </table>
   <div class="actions">
@@ -36,5 +35,15 @@
       <td><%=FormTip.find_by_title("optional incentives").description%></td>
     </td>
   </table>
+</div>
+<div class="progressBar">
+  <div class="previousProgress">
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+  </div>
+  <div class="currentProgress">
+    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
+  </div>
 </div>
 <% end %>

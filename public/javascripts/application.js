@@ -182,7 +182,7 @@ $(document).ready(function () {
     $('#offer_description').hide();
     $('#company_logo').hide();
     $('#business_name').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_company_logo').focus( function () {
@@ -194,7 +194,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#company_logo').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_company_logo').live("click", function () {
@@ -206,7 +206,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#company_logo').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_title').focus( function ()  {
@@ -218,7 +218,7 @@ $(document).ready(function () {
     $('#company_logo').hide();
     $('#business_name').hide();
     $('#offer_title').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_photo').focus( function ()  {
@@ -230,7 +230,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#offer_photo').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
   //needed to also add on click because for some reason focus
   // doesn't work click file_fields
@@ -243,7 +243,7 @@ $(document).ready(function () {
     $('#business_name').hide();
     $('#offer_title').hide();
     $('#offer_photo').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_industry').focus( function ()  {
@@ -255,7 +255,7 @@ $(document).ready(function () {
     $('#offer_title').hide();
     $('#offer_photo').hide();
     $('#industry').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_value').focus( function ()  {
@@ -267,7 +267,7 @@ $(document).ready(function () {
     $('#offer_photo').hide();
     $('#industry').hide();
     $('#offer_value').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_price').focus( function ()  {
@@ -279,7 +279,7 @@ $(document).ready(function () {
     $('#industry').hide();
     $('#offer_value').hide();
     $('#offer_price').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_description').focus( function ()  {
@@ -291,7 +291,7 @@ $(document).ready(function () {
     $('#offer_value').hide();
     $('#offer_price').hide();
     $('#offer_description').fadeIn();
-    $('.rightSideLayout').fadeIn()
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#new_db_step_one').validate( {
@@ -330,22 +330,26 @@ $(document).ready(function () {
 //deal builder step 2 javascript
 //validations and tool tip generation
 $(document).ready(function () {
+  $('.rightSideLayout').hide();
   $('#offer_launch_date').hide();
   $('#locations').hide();
 
   $('#db_step_two_offer_launch_date').focus(function () {  
     $('#locations').hide();
     $('#offer_launch_date').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_two_location_ids_').focus(function () {  
     $('#offer_launch_date').hide();
     $('#locations').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_two_location_ids_').live("click", function () {  
     $('#offer_launch_date').hide();
     $('#locations').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
@@ -377,35 +381,41 @@ $(document).ready(function () {
   $('#standard_restrictions').hide();
   $('#industry_restrictions').hide();
   $('#optional_restrictions').hide();
+  $('.rightSideLayout').hide();
 
   $('#db_step_three_standard_restriction_ids_').focus(function () {
     $('#industry_restrictions').hide();
     $('#optional_restrictions').hide();
     $('#standard_restrictions').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
     $('#industry_restrictions').hide();
     $('#optional_restrictions').hide();
     $('#standard_restrictions').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_three_industry_restriction_ids_').focus(function () {
     $('#optional_restrictions').hide();
     $('#standard_restrictions').hide();
     $('#industry_restrictions').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_three_industry_restriction_ids_').live("click",function () {
     $('#optional_restrictions').hide();
     $('#standard_restrictions').hide();
     $('#industry_restrictions').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_three_optional_restriction').focus(function () {
     $('#standard_restrictions').hide();
     $('#industry_restrictions').hide();
     $('#optional_restrictions').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#new_db_step_three').validate( {
@@ -417,29 +427,33 @@ $(document).ready(function () {
       "db_step_three[industry_restriction_ids][]":{required:true,minlength:1}
     },
     messages: {
-     "db_step_three[standard_restriction_ids][]":{required:"Choose at least one"}, 
-     "db_step_three[industry_restriction_ids][]":{required:"Choose at least one"} 
+     "db_step_three[standard_restriction_ids][]":{required:"",minlength:""}, 
+     "db_step_three[industry_restriction_ids][]":{required:"",minlength:""} 
     } 
   });
 });
 
 $(document).ready(function () {
+  $('.rightSideLayout').hide();
   $('#incentive_ideas').hide();
   $('#optional_incentives').hide();
 
   $('#db_step_four_incentive_idea_ids_').focus(function () {
     $('#optional_incentives').hide();
     $('#incentive_ideas').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_four_incentive_idea_ids_').live("click", function () {
     $('#optional_incentives').hide();
     $('#incentive_ideas').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_four_optional_incentive').focus(function () {
     $('#incentive_ideas').hide();
     $('#optional_incentives').fadeIn();
+    $('.rightSideLayout').fadeIn();
   });
  
   $('#new_db_step_four').validate( {
@@ -458,7 +472,7 @@ $(document).ready(function () {
       "db_step_four[incentive_idea_ids][]":{required:true,minlength:1}
     }, 
     messages : {
-      "db_step_four[incentive_idea_ids][]":{required:"Choose at least one"}
+      "db_step_four[incentive_idea_ids][]":{required:"",minlength:""}
     }
   });
 });

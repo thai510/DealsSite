@@ -13,21 +13,20 @@
   <% end %>
   </noscript>
 
-<h1> Step 3: The Fine Print </h1>
 <div class="leftSideLayout">
-  <table>
-    <tr><td><b><%= f.label 'Offer Standard Restrictions' %></b></td><td></td></tr>
+  <table id="dealBuilder">
+    <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Offer Standard Restrictions' %></b></td><td></td></tr>
            <% StandardRestriction.all.each do |s_r| %>
-    <tr><td><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
+    <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
            <%= s_r.description %></td></tr>
            <% end %>
-  <tr><td><b><%= f.label 'Industry Specific Restrictions' %></b></td><td></td></tr>
+  <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Industry Specific Restrictions' %></b></td><td></td></tr>
          <% Industry.find_by_title(DbStepOne.find(@deal_builder.db_step_one).industry).industry_restrictions.each do |i_r| %>
-  <tr><td><%= check_box_tag  'db_step_three[industry_restriction_ids][]',i_r.id,@db_step_three.industry_restrictions.include?(i_r) %>
+  <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[industry_restriction_ids][]',i_r.id,@db_step_three.industry_restrictions.include?(i_r) %>
          <%= i_r.description %></td></tr>
          <% end %>
   <tr>
-    <td><%= f.text_area :optional_restriction, :size => "30x5",:placeholder => 'Optional Restrictions...' %></td>
+    <td class="dealBuilderField"><%= f.text_area :optional_restriction, :size => "30x5", :placeholder => "Optional Restrictions...."%></td>
   </tr>
   </table>
   <div class="actions">
@@ -48,5 +47,20 @@
     </tr>
   
   </table>
+</div>
+<div class="progressBar">
+  <div class="previousProgress">
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
+  </div>
+  <div class="currentProgress">
+    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
+  </div>
+  <div class="currentGreaterThan">
+    <%= image_tag("/images/theme/blueGreaterThan.png") %>
+  </div>
+  <div class="forwardProgress">
+    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
+  </div>
 </div>
 <% end %>
