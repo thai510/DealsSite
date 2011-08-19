@@ -13,21 +13,29 @@
 
 <div class="leftSideLayout">
 
-<table style="margin-top:90px">
+<table id="dealBuilder">
   <tr>
-    <td><%= f.label :offer_launch_date %></td>
-    <td><%= f.text_field :offer_launch_date, :size => '12px' %></td>
+    <td class="dealBuilderField"><%= f.text_field :offer_launch_date, :size => '12px', :placeholder=> 'Launch Date' %></td>
     <td></td>
   </tr>
-  <tr><td><%= f.label 'Locations to include for deals' %></td><td></td></tr>
-         <% User.find(current_user.id).locations.each do |loc| %>
-         <tr><td><%= check_box_tag  'db_step_two[location_ids][]',loc.id,@db_step_two.locations.include?(loc) %>
-         <%= loc.name %></td></tr>
-         <% end %>
+    <%= f.fields_for :locations do |location_form| %>
+  <tr>
+    <td class="locationLabel">Offer Location</td>
+  </tr>
+  <tr>
+    <td class="locationField"><%= location_form.text_field :name, :placeholder => 'Address Name' ,:size => '12' %>
+    <%= location_form.text_field :address,:placeholder => 'Address',:size => '20' %></td>
+  </tr>
+  <tr>
+    <td class="locationField"><%= location_form.text_field :city,:size=>'16',:placeholder => 'City' %>
+      <%= location_form.select :state,Location::STATES, {:prompt => 'State'} %>
+    <%= location_form.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%></td>
+  </tr>
+  <% end %>   
 </table>
 
   <div class="actions">
-    <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
+    <%= f.hidden_field :deal_builder_id, :value => params[:deal_builder]%>
     <%= f.submit 'Save and Continue' %>
   </div>
 </div>

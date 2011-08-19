@@ -5,8 +5,8 @@ LocalAdResource::Application.routes.draw do
 
   resources :db_step_threes
 
-  resources :db_step_twos
-
+  resources :db_step_twos 
+  
   resources :db_step_ones
 
   resources :locations
@@ -35,7 +35,7 @@ LocalAdResource::Application.routes.draw do
 
   get "login/index"
 
-  match "users/check_email", :to => 'users#check_email', :as => 'users/check_email'
+  match 'users/check_email', :to => 'users#check_email', :as => 'users/check_email'
   resources :users
   #resources :sessions
 
@@ -57,7 +57,7 @@ LocalAdResource::Application.routes.draw do
 
   resources :comparison_tools
 
-  resources :deal_builders
+  resources :deal_builders 
 
   resources :marketing_plans
 

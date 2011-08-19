@@ -174,124 +174,128 @@ $(document).ready(function () {
   $('#offer_description').hide();
 
   $('#db_step_one_business_name').focus( function () {
-    $('#offer_title').hide();
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
+    $('#offer_photo_label').css('color','white');
     $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#business_name').fadeIn();
+    $('#business_name_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
+  });
+
+  $('#db_step_one_business_name').focusout( function () {
+    $('#business_name_label').css('color','white');
+    $('#business_name').hide();
+    $('.rightSideLayout').hide()
   });
 
   $('#db_step_one_company_logo').focus( function () {
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
+    $('#offer_photo_label').css('color','white');
     $('#company_logo').fadeIn();
+    $('#company_logo_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_company_logo').live("click", function () {
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
+    $('#offer_photo_label').css('color','white');
     $('#company_logo').fadeIn();
+    $('#company_logo_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_offer_title').focus( function ()  {
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
+    $('#offer_photo_label').css('color','white');
     $('#company_logo').hide();
-    $('#business_name').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_title').fadeIn();
+    $('#offer_title_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
   });
 
-  $('#db_step_one_offer_photo').focus( function ()  {
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#company_logo').hide();
-    $('#business_name').hide();
+  $('#db_step_one_offer_title').focusout( function ()  {
     $('#offer_title').hide();
+    $('#offer_title_label').css('color','white');
+    $('.rightSideLayout').hide()
+  });
+
+  $('#db_step_one_offer_photo').focus( function ()  {
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_photo').fadeIn();
+    $('#offer_photo_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
   });
   //needed to also add on click because for some reason focus
   // doesn't work click file_fields
   $('#db_step_one_offer_photo').live("click", function ()  {
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
     $('#company_logo').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_photo').fadeIn();
+    $('#offer_photo_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_one_industry').focus( function ()  {
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#company_logo').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
     $('#offer_photo').hide();
+    $('#offer_photo_label').css('color','white');
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#industry').fadeIn();
+    $('#industry_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
+  });
+  $('#db_step_one_industry').focusout( function ()  {
+    $('#industry').hide();
+    $('#industry_label').css('color','white');
+    $('.rightSideLayout').hide()
   });
 
   $('#db_step_one_offer_value').focus( function ()  {
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#company_logo').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
     $('#offer_photo').hide();
-    $('#industry').hide();
+    $('#offer_photo_label').css('color','white');
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_value').fadeIn();
+    $('#offer_value_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
+  });
+  $('#db_step_one_offer_value').focusout( function ()  {
+    $('#offer_value').hide();
+    $('#offer_value_label').css('color','white');
+    $('.rightSideLayout').hide()
   });
 
   $('#db_step_one_offer_price').focus( function ()  {
-    $('#offer_description').hide();
-    $('#company_logo').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
+    $('#offer_photo_label').css('color','white');
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_price').fadeIn();
+    $('#offer_price_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
+  });
+  $('#db_step_one_offer_price').focusout( function ()  {
+    $('#offer_price').hide();
+    $('#offer_price_label').css('color','white');
+    $('.rightSideLayout').hide()
   });
 
   $('#db_step_one_offer_description').focus( function ()  {
-    $('#company_logo').hide();
-    $('#business_name').hide();
-    $('#offer_title').hide();
     $('#offer_photo').hide();
-    $('#industry').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
+    $('#offer_photo_label').css('color','white');
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
     $('#offer_description').fadeIn();
+    $('#offer_description_label').css('color','#8cc63f');
     $('.rightSideLayout').fadeIn();
+  });
+  $('#db_step_one_offer_description').focusout( function ()  {
+    $('#offer_description').hide();
+    $('#offer_description_label').css('color','white');
+    $('.rightSideLayout').hide()
   });
 
   $('#new_db_step_one').validate( {

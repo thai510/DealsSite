@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812180840) do
+ActiveRecord::Schema.define(:version => 20110817235501) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -87,14 +87,6 @@ ActiveRecord::Schema.define(:version => 20110812180840) do
     t.integer  "deal_builder_id"
   end
 
-  create_table "db_step_twos_locations", :id => false, :force => true do |t|
-    t.integer "db_step_two_id"
-    t.integer "location_id"
-  end
-
-  add_index "db_step_twos_locations", ["db_step_two_id", "location_id"], :name => "index_db_step_twos_locations_on_db_step_two_id_and_location_id"
-  add_index "db_step_twos_locations", ["location_id", "db_step_two_id"], :name => "index_db_step_twos_locations_on_location_id_and_db_step_two_id"
-
   create_table "deal_builders", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -164,7 +156,7 @@ ActiveRecord::Schema.define(:version => 20110812180840) do
     t.integer  "zip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "db_step_two_id"
   end
 
   create_table "marketing_plans", :force => true do |t|

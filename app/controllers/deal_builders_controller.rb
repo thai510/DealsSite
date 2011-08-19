@@ -44,6 +44,7 @@ class DealBuildersController < ApplicationController
     respond_to do |format|
       if @deal_builder.save
         format.html { 
+                         redirect_to new_db_step_two_path(@deal_builder)
                       }
         format.xml  { render :xml => @deal_builder, :status => :created, :location => @deal_builder }
       else
@@ -61,7 +62,11 @@ class DealBuildersController < ApplicationController
     respond_to do |format|
       if @deal_builder.update_attributes(params[:deal_builder])
         format.html { unless submitted(@deal_builder)
-                       render :action => "new", :object => @deal_builder
+                       unless @deal_builder.db_step_two 
+                         redirect_to new_db_step_two_path(@deal_builder)
+                       else
+                       render :template => "new", :object => @deal_builder
+                       end
                       else
                        redirect_to(@deal_builder)
                       end}
@@ -84,6 +89,4 @@ class DealBuildersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-
-
 end

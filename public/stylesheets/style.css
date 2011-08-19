@@ -1161,10 +1161,13 @@ div.leftSideLayout {
   float:left;
   margin:0px 0px 0px 20px;
   background:black;
-  color:#8cc63f;
+  color:white;
 }
 table#dealBuilder {
   padding:5px 0px 0px 35px;
+}
+table#dealBuilder td.locationField input ,select{
+  margin-right:0px;
 }
 td.dealBuilderLabel {
   text-align:right;
@@ -1181,6 +1184,14 @@ td.dealBuilderFieldCBox {
 td.dealBuilderField {
   text-align:left;
   padding-top:5px;
+}
+td.locationField {
+  text-align:left;
+  padding-right:0px;
+}
+td.locationLabel {
+  text-align:left;
+  padding-top:10px;
 }
 div.rightSideLayout {
   float:right;

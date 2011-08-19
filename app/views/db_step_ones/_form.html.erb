@@ -17,35 +17,35 @@
 <table id="dealBuilder">
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label :business_name %></b></td>
+    <td class="dealBuilderLabel" id="business_name_label"><b><%= f.label :business_name %></b></td>
     <td class="dealBuilderField"><%= f.text_field :business_name %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label "Company logo (optional)" %></b></td>
+    <td class="dealBuilderLabel" id="company_logo_label"><b><%= f.label "Company logo (optional)" %></b></td>
     <td class="dealBuilderField"><%= f.file_field :company_logo %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label :offer_title %></b></td>
+    <td class="dealBuilderLabel" id="offer_title_label"><b><%= f.label :offer_title %></b></td>
     <td class="dealBuilderField"><%= f.text_field :offer_title %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label 'Offer photo (optional)' %></b></td>
+    <td class="dealBuilderLabel" id="offer_photo_label"><b><%= f.label 'Offer photo (optional)' %></b></td>
     <td class="dealBuilderField"><%= f.file_field :offer_photo %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label 'Industry:' %></b></td>
+    <td class="dealBuilderLabel" id="industry_label"><b><%= f.label 'Industry:' %></b></td>
     <td class="dealBuilderField"><%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
                         :prompt => 'Please select an Industry' %></td>
     <td></td>
@@ -53,21 +53,21 @@
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"></b><%= f.label :offer_description %></b></td>
+    <td class="dealBuilderLabel" id="offer_description_label"><b><%= f.label :offer_description %></b></td>
     <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label :offer_value %></b></td>
+    <td class="dealBuilderLabel" id="offer_value_label"><b><%= f.label :offer_value %></b></td>
     <td class="dealBuilderField"><%= f.text_field :offer_value %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel"><b><%= f.label :offer_price %></b></td>
+    <td class="dealBuilderLabel" id="offer_price_label"><b><%= f.label :offer_price %></b></td>
     <td class="dealBuilderField"><%= f.text_field :offer_price %></td>
     <td></td>
   </tr>

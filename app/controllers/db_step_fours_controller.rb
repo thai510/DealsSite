@@ -47,7 +47,7 @@ class DbStepFoursController < ApplicationController
         format.html { redirect_to(DealBuilder.find(@db_step_four.deal_builder_id)) }
         format.xml  { render :xml => @db_step_four, :status => :created, :location => @db_step_four }
       else
-        format.html { redirect_to(new_deal_builder_path(:deal_builder_exist => DealBuilder.find(@db_step_four.deal_builder_id))) }
+        format.html { redirect_to new_db_step_four_path(:deal_builder => @db_step_four.deal_builder_id) }
         format.xml  { render :xml => @db_step_four.errors, :status => :unprocessable_entity }
       end
     end

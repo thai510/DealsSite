@@ -25,6 +25,7 @@ class DbStepTwosController < ApplicationController
   # GET /db_step_twos/new.xml
   def new
     @db_step_two = DbStepTwo.new
+      @db_step_two.locations.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,10 +45,10 @@ class DbStepTwosController < ApplicationController
 
     respond_to do |format|
       if @db_step_two.save
-        format.html { redirect_to(new_deal_builder_path(:deal_builder_exist => DealBuilder.find(@db_step_two.deal_builder_id))) }
+        format.html { redirect_to(new_db_step_three_path(:deal_builder => @db_step_two.deal_builder_id)) }
         format.xml  { render :xml => @db_step_two, :status => :created, :location => @db_step_two }
       else
-        format.html { redirect_to(new_deal_builder_path(:deal_builder_exist => DealBuilder.find(@db_step_two.deal_builder_id))) }
+        format.html { redirect_to(new_db_step_two_path(:deal_builder => @db_step_two.deal_builder_id)) }
         format.xml  { render :xml => @db_step_two.errors, :status => :unprocessable_entity }
       end
     end
@@ -79,4 +80,5 @@ class DbStepTwosController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

@@ -44,15 +44,15 @@ class DbStepOnesController < ApplicationController
 
     respond_to do |format|
       if @db_step_one.save
-        format.html { @deal_builder_exist = DealBuilder.new;
-                      @deal_builder_exist.user_id = current_user;
-                      @deal_builder_exist.save; 
-                      @db_step_one.deal_builder_id = @deal_builder_exist.id;
+        format.html { @deal_builder = DealBuilder.new;
+                      @deal_builder.user_id = current_user;
+                      @deal_builder.save; 
+                      @db_step_one.deal_builder_id = @deal_builder.id;
                       @db_step_one.save;
-                      redirect_to( new_deal_builder_path(:deal_builder_exist => @deal_builder_exist) )}
+                      redirect_to new_db_step_two_path(:deal_builder => @deal_builder.id)}
         format.xml  { render :xml => @db_step_one, :status => :created, :location => @db_step_one }
       else
-        format.html { render :template => "deal_builders/new" }
+        format.html { render :action => "new" }
         format.xml  { render :xml => @db_step_one.errors, :status => :unprocessable_entity }
       end
     end

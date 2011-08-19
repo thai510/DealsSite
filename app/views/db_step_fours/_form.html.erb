@@ -22,7 +22,7 @@
     </tr>
   </table>
   <div class="actions">
-    <%= f.hidden_field :deal_builder_id, :value => @deal_builder.id%>
+    <%= f.hidden_field :deal_builder_id, :value => params[:deal_builder]%>
     <%= f.submit 'Complete Offer!' %>
   </div>
 </div>
