@@ -10,6 +10,8 @@ gem 'jquery-rails'
 
 gem 'paperclip', '~> 2.3'
 
+gem 'nested_form'
+
 
 #group :production do
  #  gem 'mysql2', '< 0.3'

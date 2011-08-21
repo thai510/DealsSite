@@ -50,6 +50,7 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
+    nested_form (0.1.1)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -94,6 +95,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   jquery-rails
+  nested_form
   paperclip (~> 2.3)
   rails (= 3.0.7)
   sqlite3

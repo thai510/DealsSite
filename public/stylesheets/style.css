@@ -1166,8 +1166,13 @@ div.leftSideLayout {
 table#dealBuilder {
   padding:5px 0px 0px 35px;
 }
-table#dealBuilder td.locationField input ,select{
+table#dealBuilder tr.locationField {
+}
+table#dealBuilder td.locationField input ,select {
   margin-right:0px;
+}
+table#dealBuilder td.locationField div.fields{
+   width:284px;
 }
 td.dealBuilderLabel {
   text-align:right;
@@ -1239,3 +1244,6 @@ div.currentGreaterThan {
   display:inline;
 }
 
+div.fields input, select{
+  margin-right:0px;
+}
