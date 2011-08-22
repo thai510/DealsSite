@@ -21,7 +21,7 @@
            <%= s_r.description %></td></tr>
            <% end %>
   <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Industry Specific Restrictions' %></b></td><td></td></tr>
-         <% Industry.find_by_title(DbStepOne.find(DealBuilder.find_by_id(params[:deal_builder]).db_step_one).industry).industry_restrictions.each do |i_r| %>
+         <% Industry.find_by_title(DbStepOne.find(DealBuilder.find_by_id(params[:db_id]).db_step_one).industry).industry_restrictions.each do |i_r| %>
   <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[industry_restriction_ids][]',i_r.id,@db_step_three.industry_restrictions.include?(i_r) %>
          <%= i_r.description %></td></tr>
          <% end %>
@@ -30,7 +30,7 @@
   </tr>
   </table>
   <div class="actions">
-    <%= f.hidden_field :deal_builder_id, :value => params[:deal_builder]%>
+    <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
     <%= f.submit 'Save and Continue' %>
   </div>
 </div>

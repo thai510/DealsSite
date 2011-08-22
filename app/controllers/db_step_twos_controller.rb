@@ -45,10 +45,10 @@ class DbStepTwosController < ApplicationController
 
     respond_to do |format|
       if @db_step_two.save
-        format.html { redirect_to(new_db_step_three_path(:deal_builder => @db_step_two.deal_builder_id)) }
+        format.html { redirect_to(new_db_step_three_path(:db_id => @db_step_two.deal_builder_id)) }
         format.xml  { render :xml => @db_step_two, :status => :created, :location => @db_step_two }
       else
-        format.html { redirect_to(new_db_step_two_path(:deal_builder => @db_step_two.deal_builder_id)) }
+        format.html { redirect_to(new_db_step_two_path(:db_id => @db_step_two.deal_builder_id)) }
         format.xml  { render :xml => @db_step_two.errors, :status => :unprocessable_entity }
       end
     end

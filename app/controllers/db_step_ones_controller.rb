@@ -49,7 +49,7 @@ class DbStepOnesController < ApplicationController
                       @deal_builder.save; 
                       @db_step_one.deal_builder_id = @deal_builder.id;
                       @db_step_one.save;
-                      redirect_to new_db_step_two_path(:deal_builder => @deal_builder.id)}
+                      redirect_to new_db_step_two_path(:db_id => @deal_builder.id)}
         format.xml  { render :xml => @db_step_one, :status => :created, :location => @db_step_one }
       else
         format.html { render :action => "new" }

@@ -1,6 +1,7 @@
+<%= content_for :rightlayout do %>
 <h1>Editing db_step_one</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @db_step_one %> |
-<%= link_to 'Back', db_step_ones_path %>
+<%= link_to 'Back', edit_deal_builder_path(DealBuilder.find(@db_step_one.deal_builder_id)) %>
+<% end %>

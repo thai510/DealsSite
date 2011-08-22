@@ -20,7 +20,7 @@ a, input { outline:none; }
 body {
 	color:#555;
 	font-size:12px;
-	background:black;
+  background:url('../images/theme/Golden-Gate-Bridge.jpg');
 }
 
 hr {
@@ -1119,7 +1119,6 @@ div#rightlayout {
 
 div#content {
    width:1002px;
-  background:url('../images/theme/Golden-Gate-Bridge.jpg');
    text-align:center;
    margin: 10px auto;
    margin-top: 10px; 
@@ -1247,12 +1246,16 @@ div.fields input, select{
   margin-right:0px;
 }
 
-td.locationField a {
+td.locationField a, div.blueGreenLink a {
   text-decoration:none;
   color: #0f75bc;
 }
 
-td.locationField a:hover {
+td.locationField a:hover, div.blueGreenLink a:hover {
   text-decoration:none;
   color: #8cc63f;
+}
+
+div.blueGreenLink {
+  text-align:left;
 }

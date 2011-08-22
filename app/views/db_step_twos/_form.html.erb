@@ -19,7 +19,7 @@
     <tr><td class='locationField'><b><%= f.link_to_add "Add Location", :locations %></b></td></tr>
 </table>
   <div class="actions">
-    <%= f.hidden_field :deal_builder_id, :value => params[:deal_builder]%>
+    <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
     <%= f.submit 'Save and Continue' %>
   </div>
 </div>
