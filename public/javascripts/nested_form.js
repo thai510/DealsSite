@@ -36,6 +36,11 @@ jQuery(function($) {
 
     $(this).before(content);
     $(this).closest("form").trigger('nested:fieldAdded');
+    //for dealBuilder step two location field adder
+    //makes sure only 4 extra locations are added
+    if ($('table#dealBuilder td.locationField div.fields').size() == 4) {
+      $('form a.add_nested_fields').hide();
+    }
     return false;
   });
 
