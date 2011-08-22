@@ -20,7 +20,10 @@ a, input { outline:none; }
 body {
 	color:#555;
 	font-size:12px;
-  background:url('../images/theme/Golden-Gate-Bridge.jpg');
+  background-color:black;
+  background-image:url('../images/theme/Golden-Gate-Bridge.jpg');
+  background-repeat:no-repeat;
+  background-position:center;
 }
 
 hr {
