@@ -1167,9 +1167,9 @@ div.leftSideLayout {
   padding:20px 10px 30px 10px;
   background:black;
   color:white;
-  filter: alpha(opacity=83);
-  -moz-opacity: 0.83;
-  opacity: 0.83;
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.80;
+  opacity: 0.80;
   -moz-border-radius: 15px;
   border-radius: 15px;
   -moz-box-shadow: 8px 8px 8px black;
@@ -1203,6 +1203,10 @@ td.dealBuilderFieldCBox {
 td.dealBuilderField {
   text-align:left;
   padding-top:5px;
+}
+
+td.dealBuilderField input,select,textarea {
+  color:black;
 }
 td.locationField {
   text-align:left;
