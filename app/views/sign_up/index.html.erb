@@ -3,7 +3,7 @@
 <%= stylesheet_link_tag 'signup.css' %>
 
 </head>
-
+<body style="background:black;">
  <div id="layoutbanner">
          <div class="bannerlogo">
          <%= link_to image_tag("theme/smallbannercroppedlogo.png") , home_path %>
@@ -15,3 +15,4 @@
  <div id="content">    
       <%= render(:partial => "users/signup",:object => @user) %>
  </div>
+</body>
