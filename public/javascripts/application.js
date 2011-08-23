@@ -358,7 +358,7 @@ $(document).ready(function () {
 
   $('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
                                                   showOn:'button',
-                                                  buttonImage: "../images/theme/calendar.gif",
+                                                  buttonImage: "/images/theme/calendar.gif",
 			                          buttonImageOnly: true});
   $('#new_db_step_two').validate( {
      errorPlacement: function(error,element) {

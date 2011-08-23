@@ -1,15 +1,17 @@
 <% content_for :rightlayout do %>
+<div class="leftSideLayout">
 <h1>Listing deal_builders</h1>
 
 <table>
   <tr>
-    <th></th>
+    <th> Title</th>
     <th></th>
     <th></th>
   </tr>
 
 <% current_user.deal_builders.each do |deal_builder| %>
   <tr>
+    <td><%= deal_builder.db_step_one.offer_title %></td>
     <td><%= link_to 'Show', deal_builder %></td>
     <td><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
     <td><%= link_to 'Destroy', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -21,3 +23,4 @@
 
 <%= link_to 'New Deal builder', new_deal_builder_path %>
 <% end %>
+</div>

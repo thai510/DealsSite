@@ -4,5 +4,5 @@ class Location < ActiveRecord::Base
             VT VA WA WV WI WY}
   has_many :db_step_twos
 
-  validates :name, :address, :city, :state, :zip, :presence => true
+  validates :address, :city, :state, :zip, :presence => true
 end

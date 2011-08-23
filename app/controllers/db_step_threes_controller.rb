@@ -60,7 +60,7 @@ class DbStepThreesController < ApplicationController
 
     respond_to do |format|
       if @db_step_three.update_attributes(params[:db_step_three])
-        format.html { redirect_to(@db_step_three, :notice => 'Db step three was successfully updated.') }
+        format.html { redirect_to(edit_deal_builder_path(DealBuilder.find(@db_step_three.deal_builder_id))) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110817235501) do
+ActiveRecord::Schema.define(:version => 20110823223634) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -149,7 +149,6 @@ ActiveRecord::Schema.define(:version => 20110817235501) do
   end
 
   create_table "locations", :force => true do |t|
-    t.string   "name"
     t.text     "address"
     t.string   "city"
     t.string   "state"
