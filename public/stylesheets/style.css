@@ -1268,12 +1268,12 @@ div.fields input, select{
   margin-right:0px;
 }
 
-td.locationField a, div.blueGreenLink a {
+td.locationField a, div.blueGreenLink a,td.formTipLink a {
   text-decoration:none;
   color: #0f75bc;
 }
 
-td.locationField a:hover, div.blueGreenLink a:hover {
+td.locationField a:hover, div.blueGreenLink a:hover, td.formTipLink a:hover {
   text-decoration:none;
   color: #8cc63f;
 }
