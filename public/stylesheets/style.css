@@ -7,10 +7,10 @@
 html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
 blockquote,pre,address,code,del,dfn,em,img,q,
 dl,dt,dd,ol,ul,li,
-table,caption,tbody,tfoot,thead,tr,th,td,br,fieldset,textarea{font-family:"Lucida Sans Unicode","Lucida Grande","Trebuchet MS", Helvetica, Arial, sans-serif;line-height:20px;letter-spacing:.1px;word-spacing:1px;margin:0;padding:0;border:0;}
+table,caption,tbody,tfoot,thead,tr,th,td,br,fieldset,textarea{font-family:Arial Black, Gadget, sans-serif;line-height:20px;letter-spacing:.1px;word-spacing:1px;margin:0;padding:0;border:0;}
 h1,h2,h3,h4,h5,h6,hr,p,ul,ol,dl,pre,address,table,form{margin:0 0 20px}
 p,h1, h2, h3, h4, h5, h6, ul.check_list, ul.arrowlist{padding-left:2px;}
-strong, b{font-weight:bold;}
+strong, b{font-weight:normal;}
 em, dfn, i{font-style:italic;}
 
 a, input { outline:none; }
@@ -1154,12 +1154,16 @@ h3.dashboard_header {
 div.leftSideLayout {
   width:450px;
   float:left;
-  margin:0px 0px 0px 20px;
+  margin:25px 10px 15px 20px;
+  padding:20px 10px 30px 10px;
   background:black;
   color:white;
+  filter: alpha(opacity=83);
+  -moz-opacity: 0.83;
+  opacity: 0.83;
 }
 table#dealBuilder {
-  padding:5px 0px 0px 35px;
+  top-padding:5px 0px 0px 35px;
 }
 table#dealBuilder tr.locationField {
 }
