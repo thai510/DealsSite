@@ -24,8 +24,23 @@
   <tr><td></td></tr>
 
   <tr>
+    <td class="dealBuilderLabel" id="industry_label"><b><%= f.label 'Industry' %></b></td>
+    <td class="dealBuilderField"><%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
+                        :prompt => 'Please select an Industry' %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
     <td class="dealBuilderLabel" id="company_logo_label"><b><%= f.label "Company Logo (Optional)" %></b></td>
     <td class="dealBuilderField"><%= f.file_field :company_logo %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td class="dealBuilderLabel" id="offer_description_label"><b><%= f.label :offer_description, "Offer Description" %></b></td>
+    <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
@@ -44,20 +59,7 @@
   </tr>
   <tr><td></td></tr>
 
-  <tr>
-    <td class="dealBuilderLabel" id="industry_label"><b><%= f.label 'Industry' %></b></td>
-    <td class="dealBuilderField"><%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
-                        :prompt => 'Please select an Industry' %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
 
-  <tr>
-    <td class="dealBuilderLabel" id="offer_description_label"><b><%= f.label :offer_description, "Offer Description" %></b></td>
-    <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
 
   <tr>
     <td class="dealBuilderLabel" id="offer_value_label"><b><%= f.label :offer_value, "Offer Value" %></b></td>
