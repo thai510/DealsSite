@@ -1214,12 +1214,10 @@ padding-left:1.5em
 }
 
 div.progressBar {
-  float:left;
   width:450px;
   height:30px;
   padding-top:20px;
   padding-left:30px;
-  text-align:left;
 }
 
 div.currentProgress {
@@ -1231,11 +1229,6 @@ div.previousProgress {
 }
 
 div.forwardProgress {
-  display:inline;
-  float:right;
-}
-
-div.currentGreaterThan {
   display:inline;
 }
 
