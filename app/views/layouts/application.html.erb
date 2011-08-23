@@ -30,37 +30,25 @@
            <div class="bannerbuttons">
              <%= button_to "Settings", edit_user_path(session[:users_id]), :method => :get%>
            </div>
+           <div class="blueGreenLink">
+             <b><%= link_to 'New Deal', new_deal_builder_path %></b>
+           </div>
+           <div class="blueGreenLink">
+             <b><%= link_to 'My Deals', deal_builders_path %></b>
+           </div>
+           <div class="blueGreenLink">
+             <b><%= link_to 'Distribute', '#' %></b>
+           </div>
+           <div class="blueGreenLink">
+             <b><%= link_to 'Track', '#' %></b>
+           </div>
         </div>
     </div>
     <div id="content">
+    <%= yield :content %>
     <div id="leftlayout">
-      <ul class="dash">
-         <li class="fade_hover tooltip" title="" style="opacity: 1;">
-           <a href=<%=new_db_step_one_path%>>
-             <%= image_tag("theme/icons/dashboard/41.png") %>
-             <span>Build Offer</span>
-           </a>
-         </li><br />
-       <li class="fade_hover tooltip" title="" style="opacity: 1;">
-         <a href=<%=deal_builders_path%>>
-            <%= image_tag("theme/icons/dashboard/2.png") %>
-            <span>My Offers</span>
-         </a>
-  </li><br />
-  <li class="fade_hover tooltip" title="" style="opacity: 1;">
-  <a href="#">
-    <%= image_tag("theme/icons/dashboard/66.png") %>
-    <span>Distribute</span>
-  </a>
-  </li><br />
-  <li class="fade_hover tooltip" title="" style="opacity: 1;">
-  <a href="#">
-    <%= image_tag("theme/icons/dashboard/43.png") %>
-    <span>Track</span>
-  </a>
-  </li><br />
-
-    </div>
+    <%= yield :leftlayout %>
+    </div> 
     <div id="rightlayout">
     <%= yield :rightlayout%>
     </div>

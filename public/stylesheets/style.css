@@ -516,12 +516,7 @@ ul.dash {
 ul.dash li {
 	float:left;
 
-	margin:0 15px 15px 0;
-	width:100px;
-	height:100px;
-	
-	position:relative;
-	z-index:80;
+        margin:210px 100px 0 0;	
 	
 	border:2px solid #0F75BC;
 	
@@ -1075,9 +1070,7 @@ div#layoutbanner {
 }
 
 div.bannerbuttonscontainer {
-       element.before(error);dd
-       element.before(error);dd
-  padding-right: 175px;
+  float:right;
 }
 
 div.bannerbuttons {
@@ -1085,6 +1078,7 @@ div.bannerbuttons {
    padding: 10px 0 0 0;
    float: right;
 }
+
 
 div.bannerlogo {
    float: left;
@@ -1262,3 +1256,8 @@ td.locationField a:hover, div.blueGreenLink a:hover {
 div.blueGreenLink {
   text-align:left;
 }
+
+#layoutbanner div.blueGreenLink {
+  padding:18px 30px 0px 5px;
+}
+
