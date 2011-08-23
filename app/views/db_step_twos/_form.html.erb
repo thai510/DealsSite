@@ -13,7 +13,7 @@
 
 <div class="leftSideLayout">
 <table id="dealBuilder">
-   <tr><td class='dealBuilderField'><%= f.text_field :offer_launch_date, :size => '12px', :placeholder=> 'Launch Date' %></td></tr>
+   <tr><td class='dealBuilderField'>Launch Date:<br /><%= f.text_field :offer_launch_date, :size => '12px', :placeholder=> 'Launch Date' %></td></tr>
    <tr><td class='dealBuilderField'>Offer Redeemable At:</td></tr>
         <%= f.fields_for :locations %>
     <tr><td class='locationField'><b><%= f.link_to_add "Add Location", :locations %></b></td></tr>

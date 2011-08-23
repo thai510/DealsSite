@@ -531,6 +531,10 @@ ul.dash li {
 	background: black;
 	background: -moz-linear-gradient(top,black,black);
 	background: -webkit-gradient(linear, left top, left bottom, from(black), to(black));
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        opacity: 0.7;
+
 }
 
 .selected {
@@ -1186,6 +1190,7 @@ table#dealBuilder td.locationField div.fields{
 td.dealBuilderLabel {
   text-align:right;
   padding-top:5px;
+  padding-right:11px;
 }
 td.dealBuilderLabelCBox {
    text-align:left;
