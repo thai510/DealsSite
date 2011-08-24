@@ -1212,6 +1212,9 @@ td.locationField {
   text-align:left;
   padding-right:0px;
 }
+td.locationField input,select {
+  color:black;
+}
 td.locationLabel {
   text-align:left;
   padding-top:10px;

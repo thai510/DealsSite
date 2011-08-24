@@ -52,7 +52,7 @@ class DbStepOnesController < ApplicationController
                       redirect_to new_db_step_two_path(:db_id => @deal_builder.id)}
         format.xml  { render :xml => @db_step_one, :status => :created, :location => @db_step_one }
       else
-        format.html { render :action => "new" }
+        format.html { render :action => :new }
         format.xml  { render :xml => @db_step_one.errors, :status => :unprocessable_entity }
       end
     end
@@ -68,7 +68,7 @@ class DbStepOnesController < ApplicationController
         format.html { redirect_to(edit_deal_builder_path(DealBuilder.find(@db_step_one.deal_builder_id))) }
         format.xml  { head :ok }
       else
-        format.html { render :action => "edit" }
+        format.html { render :action => :edit ,:object => (@deal_builder_id = @db_step_one.deal_builder_id) }
         format.xml  { render :xml => @db_step_one.errors, :status => :unprocessable_entity }
       end
     end

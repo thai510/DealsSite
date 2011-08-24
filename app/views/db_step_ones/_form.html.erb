@@ -77,6 +77,9 @@
 
 </table>
   <div class="actions">
+    <% if @deal_builder_id %>
+      <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
+    <% end %>
     <%= f.submit 'Save and Continue'%>
   </div>
 </div>

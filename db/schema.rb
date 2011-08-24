@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110823223634) do
+ActiveRecord::Schema.define(:version => 20110824210423) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(:version => 20110823223634) do
   add_index "db_step_threes_standard_restrictions", ["standard_restriction_id", "db_step_three_id"], :name => "standard_restrictions_db_three", :unique => true
 
   create_table "db_step_twos", :force => true do |t|
-    t.datetime "offer_launch_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "deal_builder_id"

@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Offer launch date</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,7 +9,6 @@
 
 <% @db_step_twos.each do |db_step_two| %>
   <tr>
-    <td><%= db_step_two.offer_launch_date %></td>
     <td><%= link_to 'Show', db_step_two %></td>
     <td><%= link_to 'Edit', edit_db_step_two_path(db_step_two) %></td>
     <td><%= link_to 'Destroy', db_step_two, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -11,7 +11,7 @@
     </div>
   <% end %>
 <div class="leftSideLayout">
-  <table style="margin-top:90px">
+  <table class="dealBuilder">
     <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Ideas for Incentives' %></b></td><td></td></tr>
          <% IncentiveIdea.all.each do |i_i| %>
     <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
@@ -22,7 +22,11 @@
     </tr>
   </table>
   <div class="actions">
-    <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
+    <% unless @deal_builder_id %>
+      <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
+    <% else %>
+      <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
+    <% end %>
     <%= f.submit 'Complete Offer!' %>
   </div>
 </div>

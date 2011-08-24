@@ -2,10 +2,6 @@
 
 <h1>When and Where</h1>
 <div>
-  <b>Offer launch date:</b>
-  <%= @db_step_two.offer_launch_date %>
-</div>
-<div>
   <b>Locations serving Offer</b>
   <% @db_step_two.locations.each do |loc| %>
     <%= render :template => 'locations/show', :object => (@location = loc) %>

@@ -1,6 +1,6 @@
 <% content_for :rightlayout do %>
 <div class="leftSideLayout">
-<h1>Listing deal_builders</h1>
+<h1>Your Deals</h1>
 
 <table>
   <tr>
@@ -12,15 +12,27 @@
 <% current_user.deal_builders.each do |deal_builder| %>
   <tr>
     <td><%= deal_builder.db_step_one.offer_title %></td>
-    <td><%= link_to 'Show', deal_builder %></td>
-    <td><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
-    <td><%= link_to 'Destroy', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% if deal_builder.db_step_four %>
+      <td class="formTipLink"><%= link_to 'Preview!', deal_builder %></td>
+    <% else %>
+      <td style="width:47px"></td>
+    <% end %>
+    <td></td>
+    <td class="formTipLink"><%= link_to 'Delete', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <% if deal_builder.db_step_four %>
+      <td>Complete!</td>
+      <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
+      <td>
+    <% else %>
+      <td class="formTipLink"><%= link_to 'Not complete, click here to finish!', edit_deal_builder_path(deal_builder) %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Deal builder', new_deal_builder_path %>
 <% end %>
 </div>

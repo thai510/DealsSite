@@ -1,5 +1,4 @@
 <%= content_for :rightlayout do %>
-<h1>Editing deal_builder</h1>
 <div class='leftSideLayout'>
 <div class='blueGreenLink'>
 
@@ -11,14 +10,14 @@
     <% if @deal_builder.db_step_four %>
     <b><%= link_to 'Edit Part 4', edit_db_step_four_path(@deal_builder.db_step_four, :db_id => @deal_builder.id) %></b></div>
     <% else %>
-      <b><%= link_to 'Begin Part 4', new_db_step_four_path(:id => @deal_builder.id) %></b>
+      <b><%= link_to 'Begin Part 4', new_db_step_four_path(:db_id => @deal_builder.id) %></b>
     <% end %>
   <% else %>
-    <b><%= link_to 'Begin Part 3', new_db_step_three_path(:id => @deal_builder.id) %></b>
+    <b><%= link_to 'Begin Part 3', new_db_step_three_path(:db_id => @deal_builder.id) %></b>
     <b>Finish part 3! </b></div>
   <% end %>
 <% else %>
-  <b><%= link_to 'Begin Part 2', new_db_step_two_path(:id => @deal_builder.id) %></b>
+  <b><%= link_to 'Begin Part 2', new_db_step_two_path(:db_id => @deal_builder.id) %></b>
   <b>finish part 2!</b>
   <b>Finish part 3! </b></div>
 <% end %>
