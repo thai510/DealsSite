@@ -32,8 +32,10 @@
   <div class="actions">
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
+      <%= link_to 'Back to Step Two', edit_db_step_two_path(DbStepTwo.find_by_deal_builder_id(params[:db_id]),:db_id => params[:db_id]) %>
     <% else %>
       <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
+      <%= link_to 'Back to Step Two', edit_db_step_two_path(DbStepTwo.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id) %>
     <% end %>
     <%= f.submit 'Save and Continue' %>
   </div>
