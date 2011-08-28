@@ -1,7 +1,8 @@
 <%= content_for :rightlayout do %>
+<% if bool_finished_step_zero? %>
 <ul class="dash">
   <li class="fade_hover tooltip" title="">  
-  <a href=<%=new_deal_builder_path%>>
+  <a href=<%=new_db_step_one_path%>>
     <%= image_tag("theme/icons/dashboard/41.png") %>
     <span>Build Offer</span>
   </a>
@@ -12,11 +13,6 @@
     <span>My Offers</span>
   </a>
   </li>
-  <li class="fade_hover tooltip" title="">
-  <a href="#">
-    <%= image_tag("theme/icons/dashboard/66.png") %>
-    <span>Distribute</span>
-  </a>
   </li>
   <li class="fade_hover tooltip" title="">
   <a href="#">
@@ -24,4 +20,9 @@
     <span>Track</span>
   </a>
   </li>
+<% else %>
+<div class="leftSideLayout"
+<%= render :template => 'db_step_zeros/new' %>
+</div>
+<% end %>
 <% end %>

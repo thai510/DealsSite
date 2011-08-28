@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824210423) do
+ActiveRecord::Schema.define(:version => 20110826220628) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -38,23 +38,17 @@ ActiveRecord::Schema.define(:version => 20110824210423) do
   add_index "db_step_fours_incentive_ideas", ["incentive_idea_id", "db_step_four_id"], :name => "incentive_ideas_db_four", :unique => true
 
   create_table "db_step_ones", :force => true do |t|
-    t.string   "business_name"
     t.string   "offer_title"
-    t.string   "industry"
     t.integer  "offer_value"
     t.integer  "offer_price"
     t.text     "offer_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "company_logo_file_name"
-    t.string   "company_logo_content_type"
-    t.integer  "company_logo_file_size"
-    t.datetime "company_logo_updated_at"
+    t.integer  "deal_builder_id"
     t.string   "offer_photo_file_name"
     t.string   "offer_photo_content_type"
     t.integer  "offer_photo_file_size"
     t.datetime "offer_photo_updated_at"
-    t.integer  "deal_builder_id"
   end
 
   create_table "db_step_threes", :force => true do |t|
@@ -63,14 +57,6 @@ ActiveRecord::Schema.define(:version => 20110824210423) do
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
   end
-
-  create_table "db_step_threes_industry_restrictions", :id => false, :force => true do |t|
-    t.integer "db_step_three_id"
-    t.integer "industry_restriction_id"
-  end
-
-  add_index "db_step_threes_industry_restrictions", ["db_step_three_id", "industry_restriction_id"], :name => "db_three_industry_restrictions", :unique => true
-  add_index "db_step_threes_industry_restrictions", ["industry_restriction_id", "db_step_three_id"], :name => "industry_restrictions_db_three", :unique => true
 
   create_table "db_step_threes_standard_restrictions", :id => false, :force => true do |t|
     t.integer "db_step_three_id"
@@ -84,6 +70,19 @@ ActiveRecord::Schema.define(:version => 20110824210423) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
+  end
+
+  create_table "db_step_zeros", :force => true do |t|
+    t.string   "business_name"
+    t.text     "business_description"
+    t.string   "industry"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "company_logo_file_name"
+    t.string   "company_logo_content_type"
+    t.integer  "company_logo_file_size"
+    t.datetime "company_logo_updated_at"
   end
 
   create_table "deal_builders", :force => true do |t|

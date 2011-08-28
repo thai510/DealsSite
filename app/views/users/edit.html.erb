@@ -1,5 +1,8 @@
-
-<% content_for :leftlayout do %>
-<h1>Your Account</h1>
+<% content_for :rightlayout do %>
+<div class="leftSideLayout">
 <%= render 'signup' %>
+<div class='blueGreenLink'>
+  <%= link_to 'Edit Business Attributes', edit_db_step_zero_path(DbStepZero.find_by_user_id(session[:users_id])) %>
+</div>
 <% end %>
+</div>

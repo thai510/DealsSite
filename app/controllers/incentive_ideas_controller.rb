@@ -44,7 +44,7 @@ class IncentiveIdeasController < ApplicationController
 
     respond_to do |format|
       if @incentive_idea.save
-        format.html { redirect_to(@incentive_idea, :notice => 'Incentive idea was successfully created.') }
+        format.html { redirect_to(incentive_ideas_path, :notice => 'Incentive idea was successfully created.') }
         format.xml  { render :xml => @incentive_idea, :status => :created, :location => @incentive_idea }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class IncentiveIdeasController < ApplicationController
 
     respond_to do |format|
       if @incentive_idea.update_attributes(params[:incentive_idea])
-        format.html { redirect_to(@incentive_idea, :notice => 'Incentive idea was successfully updated.') }
+        format.html { redirect_to(incentive_ideas_path, :notice => 'Incentive idea was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

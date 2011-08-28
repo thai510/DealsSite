@@ -56,6 +56,9 @@ class DbStepThreesController < ApplicationController
   # PUT /db_step_threes/1
   # PUT /db_step_threes/1.xml
   def update
+    #this handles if no checkboxes are checked, and sends an emptry array,
+    #which our model will catch and give an error message
+    params[:db_step_three][:standard_restriction_ids] ||= []
     @db_step_three = DbStepThree.find(params[:id])
 
     respond_to do |format|

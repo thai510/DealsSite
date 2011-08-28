@@ -1,36 +1,34 @@
 <%= content_for :rightlayout do %>
-<h1>Listing industries</h1>
-<table class="normal">
-<thead>
+<div class="leftSideLayout">
+<h1>Industries</h1>
+<table>
   <tr>
     <th>Industry</th>
     <th></th>
     <th></th>
     <th></th>
-    <th># of Sub-Industries</th>
   </tr>
-</thead>
 <% @industries.each do |industry| %>
   <tr>
     <td><%= industry.title %></td>
-    <td><%= link_to 'Add SubIndustry', new_subindustry_path(:industry_id => industry)%></td>
-    <td><%= link_to 'Add Restriction', new_industry_restriction_path(:industry_id => industry)%></td>
-    <td><%= link_to 'Edit', edit_industry_path(industry) %></td>
-    <td><%=link_to 'Remove',industry,:confirm => "Are you sure? This will remove all of #{industry.title}'s subindustries as well!", :method => :delete %>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="formTipLink"><%= link_to 'Edit', edit_industry_path(industry) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="formTipLink"><%=link_to 'Remove',industry,:confirm => "Are you sure?", :method => :delete %>
     </td>
-    <% if industry.industry_restrictions.count > 0 %>
-        <% industry.industry_restrictions.each do |i_r| %>
-     <td>   <%= i_r.title %></td>
-        <% end %>
-        <% end %>
 </td>
  </tr>
- <% if industry.subindustries.count > 0 %>
-   <%= render (industry.subindustries) %>
- <% end %>
 <% end %>
 </table>
 
 
-<%= link_to 'New Industry', new_industry_path %>
+<div class="blueGreenLink"><%= link_to 'Add Industry', new_industry_path %></div>
 <% end %>
+</div>

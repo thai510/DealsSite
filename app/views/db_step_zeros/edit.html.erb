@@ -1,0 +1,7 @@
+<%= content_for :rightlayout do%>
+<div class="leftSideLayout">
+<%= render 'form' %>
+
+<div class="blueGreenLink"><%= link_to 'Back', edit_user_path(session[:users_id]) %></div>
+<% end %>
+</div>

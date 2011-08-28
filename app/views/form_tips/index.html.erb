@@ -1,11 +1,10 @@
 <%= content_for :rightlayout do %>
 <div class="leftSideLayout">
-<h1>Listing form_tips</h1>
+<h1>Form Tips</h1>
 
 <table>
   <tr>
     <th>Title</th>
-    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,8 +13,16 @@
 <% @form_tips.each do |form_tip| %>
   <tr>
     <td class="formTipLink"><%= form_tip.title %></td>
-    <td class="formTipLink"><%= link_to 'Show', form_tip %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td class="formTipLink"><%= link_to 'Edit', edit_form_tip_path(form_tip) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
     <td class="formTipLink"><%= link_to 'Destroy', form_tip, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -23,6 +30,6 @@
 
 <br />
 
-<%= link_to 'New Form tip', new_form_tip_path %>
+<div class="blueGreenLink"><%= link_to 'Add Form tip', new_form_tip_path %></div>
 </div>
 <% end %>

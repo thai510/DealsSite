@@ -44,7 +44,7 @@ class StandardRestrictionsController < ApplicationController
 
     respond_to do |format|
       if @standard_restriction.save
-        format.html { redirect_to(@standard_restriction, :notice => 'Standard restriction was successfully created.') }
+        format.html { redirect_to(standard_restrictions_path, :notice => 'Standard restriction was successfully created.') }
         format.xml  { render :xml => @standard_restriction, :status => :created, :location => @standard_restriction }
       else
         format.html { render :action => "new" }
@@ -60,7 +60,7 @@ class StandardRestrictionsController < ApplicationController
 
     respond_to do |format|
       if @standard_restriction.update_attributes(params[:standard_restriction])
-        format.html { redirect_to(@standard_restriction, :notice => 'Standard restriction was successfully updated.') }
+        format.html { redirect_to(standard_restrictions_path, :notice => 'Standard restriction was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

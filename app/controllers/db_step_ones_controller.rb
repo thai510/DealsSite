@@ -45,7 +45,7 @@ class DbStepOnesController < ApplicationController
     respond_to do |format|
       if @db_step_one.save
         format.html { @deal_builder = DealBuilder.new;
-                      @deal_builder.user_id = current_user;
+                      @deal_builder.user_id = session[:users_id];
                       @deal_builder.save; 
                       @db_step_one.deal_builder_id = @deal_builder.id;
                       @db_step_one.save;

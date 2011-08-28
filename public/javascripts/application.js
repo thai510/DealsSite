@@ -42,192 +42,120 @@ $(document).ready(function() {
 //functions for step one of deal builder
 //includes validations and tool tip code
 $(document).ready(function () {
-  $('.rightSideLayout').hide()
-  $('#business_name').hide();
-  $('#company_logo').hide();
-  $('#offer_title').hide();
-  $('#offer_photo').hide();
-  $('#industry').hide();
-  $('#offer_value').hide();
-  $('#offer_price').hide();
-  $('#offer_description').hide();
-
-  $('#db_step_one_business_name').focus( function () {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#business_name').fadeIn();
-    $('#business_name_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_one_business_name').focusout( function () {
-    $('#business_name_label').css('color','white');
-    $('#business_name').hide();
+  if($('#new_db_step_one').is(':visible') || $('.edit_db_step_one').is(':visible'))
+  {
     $('.rightSideLayout').hide()
-  });
-
-  $('#db_step_one_company_logo').focus( function () {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').fadeIn();
-    $('#company_logo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_one_company_logo').live("click", function () {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').fadeIn();
-    $('#company_logo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_one_offer_title').focus( function ()  {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_title').fadeIn();
-    $('#offer_title_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_one_offer_title').focusout( function ()  {
     $('#offer_title').hide();
-    $('#offer_title_label').css('color','white');
-    $('.rightSideLayout').hide()
-  });
-
-  $('#db_step_one_offer_photo').focus( function ()  {
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_photo').fadeIn();
-    $('#offer_photo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-  //needed to also add on click because for some reason focus
-  // doesn't work click file_fields
-  $('#db_step_one_offer_photo').live("click", function ()  {
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_photo').fadeIn();
-    $('#offer_photo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_one_industry').focus( function ()  {
     $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#industry').fadeIn();
-    $('#industry_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-  $('#db_step_one_industry').focusout( function ()  {
-    $('#industry').hide();
-    $('#industry_label').css('color','white');
-    $('.rightSideLayout').hide()
-  });
-
-  $('#db_step_one_offer_value').focus( function ()  {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_value').fadeIn();
-    $('#offer_value_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-  $('#db_step_one_offer_value').focusout( function ()  {
     $('#offer_value').hide();
-    $('#offer_value_label').css('color','white');
-    $('.rightSideLayout').hide()
-  });
-
-  $('#db_step_one_offer_price').focus( function ()  {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_price').fadeIn();
-    $('#offer_price_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-  $('#db_step_one_offer_price').focusout( function ()  {
     $('#offer_price').hide();
-    $('#offer_price_label').css('color','white');
-    $('.rightSideLayout').hide()
-  });
-
-  $('#db_step_one_offer_description').focus( function ()  {
-    $('#offer_photo').hide();
-    $('#offer_photo_label').css('color','white');
-    $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#offer_description').fadeIn();
-    $('#offer_description_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
-  });
-  $('#db_step_one_offer_description').focusout( function ()  {
     $('#offer_description').hide();
-    $('#offer_description_label').css('color','white');
-    $('.rightSideLayout').hide()
-  });
+
+
+
+    $('#db_step_one_offer_title').focus( function ()  {
+      $('#offer_photo').hide();
+      $('#offer_photo_label').css('color','white');
+      $('#offer_title').fadeIn();
+      $('#offer_title_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+
+    $('#db_step_one_offer_title').focusout( function ()  {
+      $('#offer_title').hide();
+      $('#offer_title_label').css('color','white');
+      $('.rightSideLayout').hide()
+    });
+
+    $('#db_step_one_offer_photo').focus( function ()  {
+      $('#offer_photo').fadeIn();
+      $('#offer_photo_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+    //needed to also add on click because for some reason focus
+    // doesn't work click file_fields
+    $('#db_step_one_offer_photo').live("click", function ()  {
+      $('#offer_photo').fadeIn();
+      $('#offer_photo_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+
+
+    $('#db_step_one_offer_value').focus( function ()  {
+      $('#offer_photo').hide();
+      $('#offer_photo_label').css('color','white');
+      $('#offer_value').fadeIn();
+      $('#offer_value_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+    $('#db_step_one_offer_value').focusout( function ()  {
+      $('#offer_value').hide();
+      $('#offer_value_label').css('color','white');
+      $('.rightSideLayout').hide()
+    });
+
+    $('#db_step_one_offer_price').focus( function ()  {
+      $('#offer_photo').hide();
+      $('#offer_photo_label').css('color','white');
+      $('#offer_price').fadeIn();
+      $('#offer_price_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+    $('#db_step_one_offer_price').focusout( function ()  {
+      $('#offer_price').hide();
+      $('#offer_price_label').css('color','white');
+      $('.rightSideLayout').hide()
+    });
+
+    $('#db_step_one_offer_description').focus( function ()  {
+      $('#offer_photo').hide();
+      $('#offer_photo_label').css('color','white');
+      $('#offer_description').fadeIn();
+      $('#offer_description_label').css('color','#8cc63f');
+      $('.rightSideLayout').fadeIn();
+    });
+    $('#db_step_one_offer_description').focusout( function ()  {
+      $('#offer_description').hide();
+      $('#offer_description_label').css('color','white');
+      $('.rightSideLayout').hide()
+    });
 
   $('#new_db_step_one').validate( {
      errorPlacement: function(error,element) {
        error.appendTo(element.closest("td").next('td'));
      },
     rules: {
-      "db_step_one[business_name]":{required:true},
-      "db_step_one[company_logo]":{ accept:true},
       "db_step_one[offer_photo]":{accept:true},
       "db_step_one[offer_title]":{required:true},
-      "db_step_one[industry]":{required:true},
       "db_step_one[offer_price]":{required:true, min: 0, number:true},
       "db_step_one[offer_value]":{required:true, min: 0, number:true},
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
-      "db_step_one[company_logo]":{accept:""},
       "db_step_one[offer_photo]":{accept:"",required:""},
       "db_step_one[offer_title]":{required:""},
-      "db_step_one[industry]":{required:""},
       "db_step_one[offer_price]":{number:"",min:"",required:""},
       "db_step_one[offer_value]":{number:"",min:"",required:""},
-      "db_step_one[business_name]":{required:""},
       "db_step_one[offer_description]":{required:""}
     }
   });
   $("#db_step_one_offer_photo").change(function () {
     $("#db_step_one_offer_photo").blur().focus();
   });
-  $("#db_step_one_company_logo").change(function () {
-    $("#db_step_one_company_logo").blur().focus();
-  });
- 
+ }
 });
 //deal builder step 2 javascript
 //validations and tool tip generation
 $(document).ready(function () {
-  $('.rightSideLayout').hide();
-  $('#locations').hide();
+  if($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible'))
+  {
 
-  $('#db_step_two_location_ids_').focus(function () {  
-    $('#locations').fadeIn();
-    $('.rightSideLayout').fadeIn();
-  });
 
-  $('#db_step_two_location_ids_').live("click", function () {  
-    $('#locations').fadeIn();
-    $('.rightSideLayout').fadeIn();
-  });
+      $('.rightSideLayout').fadeIn();
+      $('#locations').fadeIn();
 
-  //format for calendar
-  /*$('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
+    //format for calendar
+    /*$('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
                                                   showOn:'button',
                                                   buttonImage: "/images/theme/calendar.gif",
 			                          buttonImageOnly: true});*/
@@ -247,10 +175,13 @@ $(document).ready(function () {
        "db_step_two[location_ids][]":{required:"",minlength:""}
      }
   });
+  }
 });
 
 //validations and tool tips for deal builder step 3
 $(document).ready(function () {
+  if($('#new_db_step_three').is(':visible') || $('.edit_db_step_three').is(':visible'))
+  {
   $('#standard_restrictions').hide();
   $('#industry_restrictions').hide();
   $('#optional_restrictions').hide();
@@ -304,9 +235,12 @@ $(document).ready(function () {
      "db_step_three[industry_restriction_ids][]":{required:"",minlength:""} 
     } 
   });
+  }
 });
 
 $(document).ready(function () {
+  if($('#new_db_step_four').is(':visible') || $('.edit_db_step_four').is(':visible'))
+  {
   $('.rightSideLayout').hide();
   $('#incentive_ideas').hide();
   $('#optional_incentives').hide();
@@ -348,7 +282,50 @@ $(document).ready(function () {
       "db_step_four[incentive_idea_ids][]":{required:"",minlength:""}
     }
   });
+  }
 });
 
 
 
+//code for db_step_zero
+/*
+  $('#db_step_one_company_logo').focus( function () {
+    $('#company_logo').fadeIn();
+    $('#company_logo_label').css('color','#8cc63f');
+    $('.rightSideLayout').fadeIn();
+  });
+
+  $('#db_step_one_industry').focus( function ()  {
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
+    $('#industry').fadeIn();
+    $('#industry_label').css('color','#8cc63f');
+    $('.rightSideLayout').fadeIn();
+  });
+  $('#db_step_one_industry').focusout( function ()  {
+    $('#industry').hide();
+    $('#industry_label').css('color','white');
+    $('.rightSideLayout').hide()
+  });
+  $('#db_step_one_company_logo').live("click", function () {
+    $('#company_logo').fadeIn();
+    $('#company_logo_label').css('color','#8cc63f');
+    $('.rightSideLayout').fadeIn();
+  });
+
+  //validations
+  rules:
+      "db_step_one[business_name]":{required:true},
+      "db_step_one[company_logo]":{ accept:true},
+      "db_step_one[industry]":{required:true},
+ 
+  messages:
+      "db_step_one[company_logo]":{accept:""},
+      "db_step_one[industry]":{required:""},
+      "db_step_one[business_name]":{required:""},
+  
+  //after validations
+  $("#db_step_one_company_logo").change(function () {
+    $("#db_step_one_company_logo").blur().focus();
+  });
+*/

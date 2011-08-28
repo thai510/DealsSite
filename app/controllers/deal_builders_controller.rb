@@ -1,4 +1,5 @@
 class DealBuildersController < ApplicationController
+  before_filter :finished_step_zero?
   # GET /deal_builders
   # GET /deal_builders.xml
   def index

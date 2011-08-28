@@ -1,6 +1,10 @@
+<%= content_for :rightlayout do %>
+<div class="leftSideLayout">
 <h1>Editing incentive_idea</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @incentive_idea %> |
-<%= link_to 'Back', incentive_ideas_path %>
+<div class="blueGreenLink"><%= link_to 'Show', @incentive_idea %> |
+<%= link_to 'Back', incentive_ideas_path %></div>
+<% end %>
+</div>

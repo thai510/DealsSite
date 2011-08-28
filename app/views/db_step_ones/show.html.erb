@@ -3,24 +3,16 @@
 
 <h1> The Basics </h1>
 <div>
-  <b>Business name:</b>
-  <%= @db_step_one.business_name %>
-</div>
-<div>
-  <b>Company Logo:</b>
-  <%= image_tag(@db_step_one.company_logo.url(:thumb)) %>
-</div>
-<div>
   <b>Offer title:</b>
   <%= @db_step_one.offer_title %>
 </div>
 <div>
-  <b>Offer photo:</b>
-  <%= image_tag(@db_step_one.offer_photo.url(:thumb)) %>
+  <b>Offer description:</b>
+  <%= @db_step_one.offer_description %>
 </div>
 <div>
-  <b>Industry:</b>
-  <%= @db_step_one.industry %>
+  <b>Offer photo:</b>
+  <%= image_tag(@db_step_one.offer_photo.url(:thumb)) %>
 </div>
 <div>
   <b>Offer value:</b>
@@ -29,10 +21,6 @@
 <div>
   <b>Offer price:</b>
   <%= @db_step_one.offer_price %>
-</div>
-<div>
-  <b>Offer description:</b>
-  <%= @db_step_one.offer_description %>
 </div>
 
 

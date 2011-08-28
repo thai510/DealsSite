@@ -1,0 +1,29 @@
+<h1>Listing db_step_zeros</h1>
+
+<table>
+  <tr>
+    <th>Business name</th>
+    <th>Business description</th>
+    <th>Industry</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @db_step_zeros.each do |db_step_zero| %>
+  <tr>
+    <td><%= db_step_zero.business_name %></td>
+    <td><%= db_step_zero.business_description %></td>
+    <td><%= db_step_zero.industry %></td>
+    <td><%= db_step_zero.user_id %></td>
+    <td><%= link_to 'Show', db_step_zero %></td>
+    <td><%= link_to 'Edit', edit_db_step_zero_path(db_step_zero) %></td>
+    <td><%= link_to 'Destroy', db_step_zero, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Db step zero', new_db_step_zero_path %>

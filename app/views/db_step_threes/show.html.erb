@@ -6,13 +6,7 @@
   <% @db_step_three.standard_restrictions.each do |s_r| %>
     <%= s_r.description %>
   <% end %>
-<div>
-<div>
-  <b>Industry Specific Restrictions:</b>
-  <% @db_step_three.industry_restrictions.each do |i_r| %>
-    <%= i_r.description %>
-  <% end %>
-<div>
+</div>
 <div>
   <b>Optional restriction:</b>
   <%= @db_step_three.optional_restriction %>

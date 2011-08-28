@@ -1,0 +1,47 @@
+<%= form_for (@db_step_zero), :html => {:multipart => true} do |f| %>
+  <% if @db_step_zero.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_step_zero.errors.count, "error") %> prohibited this db_step_zero from being saved:</h2>
+
+      <ul>
+      <% @db_step_zero.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<table id="dealBuilder">
+  <tr>
+    <td class='dealBuilderLabel'>Business Name:</td>
+    <td class='dealBuilderField'><%= f.text_field :business_name, :size => '20' %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+   <tr>
+     <td class='dealBuilderLabel' id='industry_label'>Industry:</td>
+     <td class='dealBuilderField'><%= collection_select :db_step_zero, :industry, Industry.all,:title,:title,
+                                                        :prompt => 'Please Select an Industry' %></td>
+     <td></td>
+   </tr>
+  <tr><td></td></tr>
+   
+  <tr><td class='dealBuilderLabel'>Business Description:</td>
+  <td class='dealBuilderField'><%= f.text_area :business_description, :size => '30x2' %></td>
+      <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td class="dealBuilderLabel" id="company_logo_label">Logo</td>
+    <td class="dealBuilderField"><%= f.file_field :company_logo %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+</table>
+  <div class="actions">
+    <%= f.hidden_field :user_id, :value => session[:users_id] %>
+    <%= f.submit 'Get Started!'%>
+  </div>
+<% end %>
+

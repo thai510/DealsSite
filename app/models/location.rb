@@ -5,4 +5,6 @@ class Location < ActiveRecord::Base
   has_many :db_step_twos
 
   validates :address, :city, :state, :zip, :presence => true
+  validates :zip, :length => {:minimum => 5, :maximum => 5 }
+  validates :zip, :numericality => {:only_integer => true}
 end

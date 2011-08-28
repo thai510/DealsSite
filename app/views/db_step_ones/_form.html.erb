@@ -16,27 +16,7 @@
 <div class ="leftSideLayout">
 <table id="dealBuilder">
 
-  <tr>
-    <td class="dealBuilderLabel" id="business_name_label"><b><%= f.label :business_name, "Business Name" %></b></td>
-    <td class="dealBuilderField"><%= f.text_field :business_name %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
 
-  <tr>
-    <td class="dealBuilderLabel" id="industry_label"><b><%= f.label 'Industry' %></b></td>
-    <td class="dealBuilderField"><%= collection_select :db_step_one, :industry, Industry.all,:title,:title,
-                        :prompt => 'Please select an Industry' %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-
-  <tr>
-    <td class="dealBuilderLabel" id="company_logo_label"><b><%= f.label "Company Logo (Optional)" %></b></td>
-    <td class="dealBuilderField"><%= f.file_field :company_logo %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
 
   <tr>
     <td class="dealBuilderLabel" id="offer_description_label"><b><%= f.label :offer_description, "Offer Description" %></b></td>
@@ -85,20 +65,11 @@
 </div>
 <div class="rightSideLayout">
   <table class="stepOneTips">
-    <tr id="business_name"> 
-      <td><%=FormTip.find_by_title("business name").description %></td>
-    </tr>
-    <tr id="company_logo"> 
-      <td><%=FormTip.find_by_title("company logo").description %></td>
-    </tr>
     <tr id="offer_title"> 
       <td><%=FormTip.find_by_title("offer title").description %></td>
     </tr>
     <tr id="offer_photo"> 
       <td><%=FormTip.find_by_title("offer photo").description %></td>
-    </tr>
-    <tr id="industry"> 
-      <td><%=FormTip.find_by_title("industry").description %></td>
     </tr>
     <tr id="offer_value"> 
       <td><%=FormTip.find_by_title("offer value").description %></td>

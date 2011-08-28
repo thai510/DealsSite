@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   helper_method :back_to_home
   helper_method :industries_for_new_user
   helper_method :update_or_new_industry
+  helper_method :admin_authorize
+  helper_method :bool_finished_step_zero?
   protect_from_forgery
  
   private
@@ -32,12 +34,26 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authorize
-    if current_user
-      unless (User.find_by_id(session[:users_id])).email == "stephencharlesb@gmail.com" 
-        redirect_to home_url
+      unless (User.find(session[:users_id])).email == "stephencharlesb@gmail.com" 
+        return false 
       end
-    else
-      redirect_to home_url
+      return true
+  end
+
+  def bool_finished_step_zero?
+    unless admin_authorize
+      unless (User.find(session[:users_id])).db_step_zero
+        return false
+      end
+    end
+    return true
+  end
+
+  def finished_step_zero?
+    unless admin_authorize
+      unless (User.find(session[:users_id])).db_step_zero
+        redirect_to new_db_step_zero_path
+      end
     end
   end
 

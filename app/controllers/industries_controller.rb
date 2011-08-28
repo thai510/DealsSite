@@ -44,7 +44,7 @@ class IndustriesController < ApplicationController
 
     respond_to do |format|
       if @industry.save
-        format.html { redirect_to(@industry, :notice => 'Industry was successfully created.') }
+        format.html { redirect_to(industries_path, :notice => 'Industry was successfully created.') }
         format.xml  { render :xml => @industry, :status => :created, :location => @industry }
       else
         format.html { render :action => "new" }

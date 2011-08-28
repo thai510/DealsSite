@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Business name:</b>
+  <%= @db_step_zero.business_name %>
+</p>
+
+<p>
+  <b>Business description:</b>
+  <%= @db_step_zero.business_description %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%= @db_step_zero.industry %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @db_step_zero.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_db_step_zero_path(@db_step_zero) %> |
+<%= link_to 'Back', db_step_zeros_path %>

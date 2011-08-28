@@ -1,2 +1,10 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<% if admin_authorize %>
+   <table>
+     <th>Admin</th>
+       <tr><td class="formTipLink"><b><%= link_to 'Users', users_path %></b></td></tr>
+       <tr><td class="formTipLink"><b><%= link_to 'Industries', industries_path %></b></td></tr>
+       <tr><td class="formTipLink"><b><%= link_to 'Form Tips', form_tips_path %></b></td></tr>
+       <tr><td class="formTipLink"><b><%= link_to 'Standard Restrictions', standard_restrictions_path %></b></td></tr>
+       <tr><td class="formTipLink"><b><%= link_to 'Incentive Ideas', incentive_ideas_path %></b></td></tr>
+   </table>
+<% end %>

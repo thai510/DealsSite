@@ -21,7 +21,7 @@ body {
 	color:#555;
 	font-size:12px;
   background-color:black;
-  background-image:url('../images/theme/Golden-Gate-Bridge.jpg');
+  background-image:url('../images/theme/cherry_blossom_1600x1200.jpg');
   background-repeat:no-repeat;
   background-position:center;
 }
@@ -511,12 +511,12 @@ h1 span {
 
 ul.dash {
 	list-style-type:none;	
+        margin-left:90px;
 }
 
 ul.dash li {
 	float:left;
-
-        margin:210px 100px 0 0;	
+        margin:210px 150px 0 0;	
 	
 	border:2px solid #0F75BC;
 	
@@ -740,10 +740,13 @@ input,select, textarea {
 	border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;	
+        resize: none;
 	
 	font-size:11px;
 	margin-right:15px;
+        
 }
+
 
 select option {
 	padding:6px 10px;
@@ -1113,21 +1116,17 @@ div.bannerslogan {
 
 div#rightlayout {
   width:880px;
-  margin: 0px 0px 0px 1px;
   height:500px;
-  float:left;
-  padding-top: 10px;
-  padding-left: 70px;
-  padding-bottom: 10px;
+  text-align:center;
+  margin: 0 auto;
    border-radius: 0 15px 15px 0;
    -moz-border-radius:0 15px 15px 0;
 }
 
 div#content {
-   width:1002px;
+   width:1202px;
    text-align:center;
    margin: 10px auto;
-   margin-top: 10px; 
    height:550px;
 }
 
@@ -1289,3 +1288,18 @@ div.blueGreenLink {
   padding:18px 30px 0px 5px;
 }
 
+div#admin {
+  float:left;
+   width:80px;
+  background:black;
+  color:white;
+  margin-top:25px;
+  filter: alpha(opacity=80);
+  -moz-opacity: 0.80;
+  opacity: 0.80;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: 8px 8px 8px black;
+  -webkit-box-shadow: 8px 8px 8px black;
+  box-shadow: 8px 8px 8px black;
+}

@@ -1,5 +1,6 @@
 <%= content_for :rightlayout do %>
-<h1>Listing standard_restrictions</h1>
+<div class="leftSideLayout">
+<h1>Standard Restrictions</h1>
 
 <table>
   <tr>
@@ -14,14 +15,23 @@
   <tr>
     <td><%= standard_restriction.title %></td>
     <td><%= standard_restriction.description %></td>
-    <td><%= link_to 'Show', standard_restriction %></td>
-    <td><%= link_to 'Edit', edit_standard_restriction_path(standard_restriction) %></td>
-    <td><%= link_to 'Destroy', standard_restriction, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="formTipLink"><%= link_to 'Edit', edit_standard_restriction_path(standard_restriction) %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="formTipLink"><%= link_to 'Remove', standard_restriction, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Standard restriction', new_standard_restriction_path %>
+<div class="blueGreenLink"><%= link_to 'Add Standard restriction', new_standard_restriction_path %></div>
 <% end %>
+</div>

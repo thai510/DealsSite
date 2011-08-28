@@ -11,9 +11,7 @@
   <% end %>
 </noscript>
 
-<br /><br /><br />
-<br /><br /><br />
-<table class="signup">
+<table class="signup" style="caption-side:bottom;">
   <tr class="signup">
       <td class="signup_text"><b><%= f.label 'Name:' %></td>
       <td class="signup_field"><%= f.text_field :name, :size => 22 %></b></td>
@@ -35,7 +33,7 @@
   </tr>
   <tr><td></td></tr> 
   <caption>
-  <div class="button">
+  <div class="buttonSignup">
     <%= f.submit 'Sign Up' %>
   </div>
   </caption>

@@ -1,4 +1,5 @@
 <%= content_for :rightlayout do %>
+<div class="leftSideLayout">
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -12,6 +13,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_incentive_idea_path(@incentive_idea) %> |
-<%= link_to 'Back', incentive_ideas_path %>
+<div class="blueGreenLink"><%= link_to 'Edit', edit_incentive_idea_path(@incentive_idea) %> |
+<%= link_to 'Back', incentive_ideas_path %></div>
 <% end %>
+</div>

@@ -15,30 +15,6 @@ div.button {
 div.industriesSignup {
   display:inline;
 }
-div.industrylink a {
-  text-decoration:none;
-  color: teal;
-}
-
-div.industrylink {
-  display:inline;
-}
-
-div.industrylink a:hover {
-  text-decoration:none;
-  color: orange;
-  display:inline;
-}
-
-
-p.industryBlindDown {
-  display:inline;
-}
-
-p.industryBlindUp {
-  display:inline;
-}
-
 
 table.signup {
   width:180px;
@@ -46,7 +22,6 @@ table.signup {
   -moz-border-radius: 15px;
   margin: 0 auto;
   padding-bottom:5px;
-  caption-side:bottom;
   font-family: Century Gothic, sans-serif; 
 }
 caption div.button {
