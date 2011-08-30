@@ -10,11 +10,12 @@
   <% end %>
 
 <div class="leftSideLayout">
-<table id="dealBuilder">
-   <tr><td class='dealBuilderField'>Offer Redeemable At:</td></tr>
+<table id="dealBuilder" style='width:450px;'>
+   <tr><td class='dealBuilderField' style="color:#8cc63f;" id='errorLocation'>Offer Redeemable At:</td><td></td></tr>
         <% @draw_remove = 0 %>
         <%= f.fields_for :locations%>
-    <tr><td class='locationField'><b><%= f.link_to_add "Add Location", :locations %></b></td></tr>
+    <tr><td class='locationField'><b><%= f.link_to_add "Add Location", :locations %></b>
+        <div style="display:inline;float:right;"><%= check_box(:db_step_two,:include_all,{},'yes','no') %> Include All Business Locations?</div></td></tr>
 </table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>

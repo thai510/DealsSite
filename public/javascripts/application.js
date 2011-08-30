@@ -164,18 +164,13 @@ $(document).ready(function () {
 			                          buttonImageOnly: true});*/
   $('#new_db_step_two').validate( {
      errorPlacement: function(error,element) {
-       if(element.is('input:checkbox')) {
-         error.appendTo(element.closest('tr').prev('tr').last('td'));
-       }
-       else {
-         error.appendTo(element.closest('td').next('td'));
-       }
+         error.appendTo($('#errorLocation').closest('td').next('td'));
      },
      rules : {
-       "db_step_two[location_ids][]":{required:true,minlength:1}
+       'db_step_two[locations_attributes][0][address]':{required:true}
      },
      messages : {
-       "db_step_two[location_ids][]":{required:"",minlength:""}
+       'db_step_two[locations_attributes][0][address]':{required:''}
      }
   });
   }
@@ -187,40 +182,22 @@ $(document).ready(function () {
   {
   $('.rightSideLayout').hide();
   $('#standard_restrictions').hide();
-  $('#industry_restrictions').hide();
   $('#optional_restrictions').hide();
 
   $('#db_step_three_standard_restriction_ids_').focus(function () {
-    $('#industry_restrictions').hide();
     $('#optional_restrictions').hide();
     $('#standard_restrictions').fadeIn();
     $('.rightSideLayout').fadeIn();
   });
 
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
-    $('#industry_restrictions').hide();
     $('#optional_restrictions').hide();
     $('#standard_restrictions').fadeIn();
     $('.rightSideLayout').fadeIn();
   });
 
-  $('#db_step_three_industry_restriction_ids_').focus(function () {
-    $('#optional_restrictions').hide();
-    $('#standard_restrictions').hide();
-    $('#industry_restrictions').fadeIn();
-    $('.rightSideLayout').fadeIn();
-  });
-
-  $('#db_step_three_industry_restriction_ids_').live("click",function () {
-    $('#optional_restrictions').hide();
-    $('#standard_restrictions').hide();
-    $('#industry_restrictions').fadeIn();
-    $('.rightSideLayout').fadeIn();
-  });
-
   $('#db_step_three_optional_restriction').focus(function () {
     $('#standard_restrictions').hide();
-    $('#industry_restrictions').hide();
     $('#optional_restrictions').fadeIn();
     $('.rightSideLayout').fadeIn();
   });
@@ -231,11 +208,9 @@ $(document).ready(function () {
     },
     rules: {
       "db_step_three[standard_restriction_ids][]":{required:true,minlength:1},
-      "db_step_three[industry_restriction_ids][]":{required:true,minlength:1}
     },
     messages: {
      "db_step_three[standard_restriction_ids][]":{required:"",minlength:""}, 
-     "db_step_three[industry_restriction_ids][]":{required:"",minlength:""} 
     } 
   });
   }

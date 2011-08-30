@@ -1183,9 +1183,6 @@ table#dealBuilder tr.locationField {
 table#dealBuilder td.locationField input ,select {
   margin-right:0px;
 }
-table#dealBuilder td.locationField div.fields{
-   width:284px;
-}
 td.dealBuilderLabel {
   text-align:right;
   padding-top:5px;
@@ -1303,3 +1300,4 @@ div#admin {
   -webkit-box-shadow: 8px 8px 8px black;
   box-shadow: 8px 8px 8px black;
 }
+

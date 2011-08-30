@@ -6,6 +6,11 @@
   <% @db_step_two.locations.each do |loc| %>
     <%= render :template => 'locations/show', :object => (@location = loc) %>
   <% end %>
+  <% if @db_step_two.include_all == 'yes' %>
+     Include all locations!
+  <% else %>
+     Do not include all locations!
+  <% end %>
 </div>
 
 
