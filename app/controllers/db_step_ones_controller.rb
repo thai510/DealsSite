@@ -65,7 +65,14 @@ class DbStepOnesController < ApplicationController
 
     respond_to do |format|
       if @db_step_one.update_attributes(params[:db_step_one])
-        format.html { redirect_to(edit_deal_builder_path(DealBuilder.find(@db_step_one.deal_builder_id))) }
+        format.html { #check if db_step_two already exists
+                      if DealBuilder.find(@db_step_one.deal_builder_id).db_step_two 
+                         redirect_to(edit_db_step_two_path(DealBuilder.find(@db_step_one.deal_builder_id).db_step_two,
+                                                           :db_id => @db_step_one.deal_builder_id))
+                      else
+                        redirect_to new_db_step_two_path(:db_id => @db_step_one.deal_builder_id)
+                      end
+                    }
         format.xml  { head :ok }
       else
         format.html { render :action => :edit ,:object => (@deal_builder_id = @db_step_one.deal_builder_id) }

@@ -56,11 +56,11 @@
   <tr><td></td></tr>
 
 </table>
-  <div class="actions">
     <% if @deal_builder_id %>
-      <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
+       <%= f.hidden_field :deal_builder_id , :value => @deal_builder_id %>
     <% end %>
-    <%= f.submit 'Save and Continue'%>
+  <div class="actions" style="float:right;">
+    <%= f.submit 'Forward'%>
   </div>
 </div>
 <div class="rightSideLayout">

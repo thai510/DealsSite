@@ -38,8 +38,10 @@ jQuery(function($) {
     $(this).closest("form").trigger('nested:fieldAdded');
     //for dealBuilder step two location field adder
     //makes sure only 4 extra locations are added
-    if ($('table#dealBuilder td.locationField div.fields').size() == 4) {
-      $('form a.add_nested_fields').hide();
+    if ($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible')) {
+      if ($('div.fields').filter(':visible').size() >= 5) { 
+        $('form a.add_nested_fields').hide();
+      }
     }
     return false;
   });
@@ -51,6 +53,11 @@ jQuery(function($) {
     }
     $(this).closest('.fields').hide();
     $(this).closest("form").trigger('nested:fieldRemoved');
+    if ($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible')) {
+      if (($('div.fields').filter(':visible').size()) <= 5) { 
+        $('form a.add_nested_fields').show();
+      }
+    }
     return false;
   });
 });

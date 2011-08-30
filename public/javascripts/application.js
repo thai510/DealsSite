@@ -150,7 +150,10 @@ $(document).ready(function () {
   if($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible'))
   {
 
-
+      
+    if ($('div.fields').filter(':visible').size() == 5) { 
+      $('form a.add_nested_fields').hide();
+    }
       $('.rightSideLayout').fadeIn();
       $('#locations').fadeIn();
 
@@ -182,10 +185,10 @@ $(document).ready(function () {
 $(document).ready(function () {
   if($('#new_db_step_three').is(':visible') || $('.edit_db_step_three').is(':visible'))
   {
+  $('.rightSideLayout').hide();
   $('#standard_restrictions').hide();
   $('#industry_restrictions').hide();
   $('#optional_restrictions').hide();
-  $('.rightSideLayout').hide();
 
   $('#db_step_three_standard_restriction_ids_').focus(function () {
     $('#industry_restrictions').hide();

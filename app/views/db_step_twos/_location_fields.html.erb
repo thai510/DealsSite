@@ -1,5 +1,8 @@
 
-   <tr><td class='locationField'><%= f.text_field :address,:placeholder => 'Address',:size => '20' %></td></tr>
+   <tr><td class='locationField'><%= f.text_field :address,:placeholder => 'Address',:size => '20' %></td>
+
+   <td class='formTipLink' style='display:none;'><%= f.link_to_remove  'Remove Location' %></td></tr>
+
    <tr><td class='locationField'><%= f.text_field :city,:size=>'16',:placeholder => 'City' %>
       <%= f.select :state,Location::STATES, {:prompt => 'State'} %>
     <%= f.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%></td></tr>

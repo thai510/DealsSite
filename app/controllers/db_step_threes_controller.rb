@@ -63,7 +63,12 @@ class DbStepThreesController < ApplicationController
 
     respond_to do |format|
       if @db_step_three.update_attributes(params[:db_step_three])
-        format.html { redirect_to(edit_deal_builder_path(DealBuilder.find(@db_step_three.deal_builder_id))) }
+        format.html { if DealBuilder.find(@db_step_three.deal_builder_id).db_step_four 
+                         redirect_to(edit_db_step_four_path(DealBuilder.find(@db_step_three.deal_builder_id).db_step_four,
+                                                           :db_id => @db_step_three.deal_builder_id))
+                      else
+                        redirect_to new_db_step_four_path(:db_id => @db_step_three.deal_builder_id)
+                      end}
         format.xml  { head :ok }
       else
         format.html { render :action => :edit ,:object => (@deal_builder_id = @db_step_three.deal_builder_id) }
