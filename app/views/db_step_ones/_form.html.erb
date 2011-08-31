@@ -72,15 +72,22 @@
       <td><%=FormTip.find_by_title("offer photo").description %></td>
     </tr>
     <tr id="offer_value"> 
-      <td><%=FormTip.find_by_title("offer value").description %></td>
+      <td><%=FormTip.find_by_title("offer value").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
     <tr id="offer_price"> 
       <td><%=FormTip.find_by_title("offer price").description %></td>
     </tr>
     <tr id="offer_description"> 
-      <td><%=FormTip.find_by_title("offer description").description %></td>
+      <td><%=FormTip.find_by_title("offer description").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
 </table>
+</div>
+<div class="rightSideLayout" id='additionalRSL'>
+   <table class='stepOneTips'>
+    <tr id="additional_offer_description"> 
+      <td><%=FormTip.find_by_title("additional offer description").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+   </table>
 </div>
 <div class="progressBar">
   <div class="currentProgress">

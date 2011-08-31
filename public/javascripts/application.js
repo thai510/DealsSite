@@ -44,12 +44,14 @@ $(document).ready(function() {
 $(document).ready(function () {
   if($('#new_db_step_one').is(':visible') || $('.edit_db_step_one').is(':visible'))
   {
-    $('.rightSideLayout').hide()
+    $('.rightSideLayout').hide();
+    $('#additionalRSL').hide();
     $('#offer_title').hide();
     $('#offer_photo').hide();
     $('#offer_value').hide();
     $('#offer_price').hide();
     $('#offer_description').hide();
+    $('#additional_offer_description').hide();
 
 
 
@@ -59,18 +61,21 @@ $(document).ready(function () {
       $('#offer_title').fadeIn();
       $('#offer_title_label').css('color','#8cc63f');
       $('.rightSideLayout').fadeIn();
+      $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_title').focusout( function ()  {
       $('#offer_title').hide();
       $('#offer_title_label').css('color','white');
-      $('.rightSideLayout').hide()
+      $('.rightSideLayout').hide();
+      $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_photo').focus( function ()  {
       $('#offer_photo').fadeIn();
       $('#offer_photo_label').css('color','#8cc63f');
       $('.rightSideLayout').fadeIn();
+      $('#additionalRSL').hide();
     });
     //needed to also add on click because for some reason focus
     // doesn't work click file_fields
@@ -78,6 +83,7 @@ $(document).ready(function () {
       $('#offer_photo').fadeIn();
       $('#offer_photo_label').css('color','#8cc63f');
       $('.rightSideLayout').fadeIn();
+      $('#additionalRSL').hide();
     });
 
 
@@ -87,11 +93,13 @@ $(document).ready(function () {
       $('#offer_value').fadeIn();
       $('#offer_value_label').css('color','#8cc63f');
       $('.rightSideLayout').fadeIn();
+      $('#additionalRSL').hide();
     });
     $('#db_step_one_offer_value').focusout( function ()  {
       $('#offer_value').hide();
       $('#offer_value_label').css('color','white');
-      $('.rightSideLayout').hide()
+      $('.rightSideLayout').hide();
+      $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_price').focus( function ()  {
@@ -100,24 +108,30 @@ $(document).ready(function () {
       $('#offer_price').fadeIn();
       $('#offer_price_label').css('color','#8cc63f');
       $('.rightSideLayout').fadeIn();
+      $('#additionalRSL').hide();
     });
     $('#db_step_one_offer_price').focusout( function ()  {
       $('#offer_price').hide();
       $('#offer_price_label').css('color','white');
-      $('.rightSideLayout').hide()
+      $('.rightSideLayout').hide();
+      $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_description').focus( function ()  {
       $('#offer_photo').hide();
       $('#offer_photo_label').css('color','white');
-      $('#offer_description').fadeIn();
-      $('#offer_description_label').css('color','#8cc63f');
+      $('#additionalRSL').show();
       $('.rightSideLayout').fadeIn();
+      $('#offer_description').fadeIn();
+      $('#additional_offer_description').fadeIn();
+      $('#offer_description_label').css('color','#8cc63f');
     });
     $('#db_step_one_offer_description').focusout( function ()  {
       $('#offer_description').hide();
+      $('#additional_offer_description').hide();
       $('#offer_description_label').css('color','white');
-      $('.rightSideLayout').hide()
+      $('.rightSideLayout').hide();
+      $('#additionalRSL').hide();
     });
 
   $('#new_db_step_one').validate( {

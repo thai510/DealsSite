@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+  <% unless @edit_page %>
   <div class="field">
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
+   <% end %>
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description,:size => "30x5" %>
