@@ -43,6 +43,10 @@ jQuery(function($) {
         $('form a.add_nested_fields').hide();
       }
     }
+    validateAddresses();
+    validateCities();
+    validateStates();
+    validateZips();
     return false;
   });
 
@@ -58,6 +62,10 @@ jQuery(function($) {
         $('form a.add_nested_fields').show();
       }
     }
-    return false;
+    removeAddresses();
+    removeCities();
+    removeStates();
+    removeZips();  
+   return false;
   });
 });

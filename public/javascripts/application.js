@@ -134,6 +134,11 @@ $(document).ready(function () {
       $('#additionalRSL').hide();
     });
 
+  $.validator.addMethod('lessThan', function(value) {
+    var offerValue = $('#db_step_one_offer_value').val();
+    return (parseFloat(value) < offerValue);
+  },'');
+
   $('#new_db_step_one').validate( {
      errorPlacement: function(error,element) {
        error.appendTo(element.closest("td").next('td'));
@@ -141,18 +146,19 @@ $(document).ready(function () {
     rules: {
       "db_step_one[offer_photo]":{accept:true},
       "db_step_one[offer_title]":{required:true},
-      "db_step_one[offer_price]":{required:true, min: 0, number:true},
       "db_step_one[offer_value]":{required:true, min: 0, number:true},
+      "db_step_one[offer_price]":{required:true, min: 0, number:true,lessThan:true},
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
       "db_step_one[offer_photo]":{accept:"",required:""},
       "db_step_one[offer_title]":{required:""},
-      "db_step_one[offer_price]":{number:"",min:"",required:""},
       "db_step_one[offer_value]":{number:"",min:"",required:""},
+      "db_step_one[offer_price]":{number:"",min:"",required:"",lessThan:''},
       "db_step_one[offer_description]":{required:""}
     }
   });
+
   $("#db_step_one_offer_photo").change(function () {
     $("#db_step_one_offer_photo").blur().focus();
   });
@@ -176,19 +182,122 @@ $(document).ready(function () {
                                                   showOn:'button',
                                                   buttonImage: "/images/theme/calendar.gif",
 			                          buttonImageOnly: true});*/
+
+
   $('#new_db_step_two').validate( {
-     errorPlacement: function(error,element) {
-         error.appendTo($('#errorLocation').closest('td').next('td'));
-     },
-     rules : {
-       'db_step_two[locations_attributes][0][address]':{required:true}
-     },
-     messages : {
-       'db_step_two[locations_attributes][0][address]':{required:''}
-     }
+     /*errorPlacement: function(error,element) {
+         error.appendTo($(element).closest('tr').last('td'));
+     }*/
   });
+
+    removeAddresses();
+    removeCities();
+    removeStates();
+    removeZips();
+
+    validateAddresses();
+    validateCities();
+    validateStates();
+    validateZips();
   }
 });
+
+function validateAddresses(){
+     $('input[name$="[address]"]').each(function() {
+        //alert('#' + $(this).attr('id'));
+        //this takes care of adding location button adding separate
+        //input fields, these should not be checked by validations
+        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
+          $('#' + $(this).attr('id')).rules("add",{
+            required:true,
+            messages: {
+              required:''
+            }
+            });
+        }
+     });
+}
+
+function removeAddresses(){
+     $('input[name$="[address]"]').each(function() {
+        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
+          $('#' + $(this).attr('id')).rules("remove","required");
+        }
+     });
+}
+
+function validateCities(){
+     $('input[name$="[city]"]').each(function() {
+        //alert('#' + $(this).attr('id'));
+        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
+          $('#' + $(this).attr('id')).rules("add",{
+            required:true,
+            messages: {
+              required:''
+            }
+            });
+        }
+     });
+}
+
+function removeCities(){
+     $('input[name$="[city]"]').each(function() {
+        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
+          $('#' + $(this).attr('id')).rules("remove","required");
+        }
+     });
+}
+
+function validateStates(){
+     $('select[name$="[state]"]').each(function() {
+        //alert('#' + $(this).attr('id'));
+        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
+          $('#' + $(this).attr('id')).rules("add",{
+            required:true,
+            messages: {
+              required:''
+            }
+            });
+        }
+     });
+}
+
+function removeStates(){
+     $('select[name$="[state]"]').each(function() {
+        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
+          $('#' + $(this).attr('id')).rules("remove","required");
+        }
+     });
+}
+
+function validateZips(){
+     $('input[name$="[zip]"]').each(function() {
+        //alert('#' + $(this).attr('id'));
+        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is('hidden'))) {
+          $('#' + $(this).attr('id')).rules("add",{
+            required:true,
+            minlength:5,
+            maxlength:5,
+            digits:true,
+            messages: {
+              required:'',
+              minlength:'',
+              maxlength:'',
+              digits:''
+            }
+            });
+         }
+     });
+}
+
+function removeZips(){
+     $('input[name$="[zip]"]').each(function() {
+        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
+          $('#' + $(this).attr('id')).rules("remove","required");
+        }
+     });
+}
+
 
 //validations and tool tips for deal builder step 3
 $(document).ready(function () {

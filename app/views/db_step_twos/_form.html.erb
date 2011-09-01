@@ -1,21 +1,23 @@
 <%= nested_form_for @db_step_two do |f| %> 
-  <% if @db_step_two.errors.any? %>
-    <div id="error_explanation">
-      <ul>
-      <% @db_step_two.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 <div class="leftSideLayout">
 <table id="dealBuilder" style='width:450px;'>
    <tr><td class='dealBuilderField' style="color:#8cc63f;" id='errorLocation'>Offer Redeemable At:</td><td></td></tr>
-        <% @draw_remove = 0 %>
-        <%= f.fields_for :locations%>
-    <tr><td class='locationField'><b><%= f.link_to_add "Add Location", :locations %></b>
-        <div style="display:inline;float:right;"><%= check_box(:db_step_two,:include_all,{},'yes','no') %> Include All Business Locations?</div></td></tr>
+        <%= f.fields_for :locations do |locations_form|%>
+          <tr><td class='locationField'><%= locations_form.text_field :address,:placeholder => 'Address',:size => '47' %>
+          <%= locations_form.text_field :city,:size=>'22',:placeholder => 'City' %>
+          <%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %>
+          <%= locations_form.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%><td></td></tr>
+
+          <tr><td class='locationField' style:'display:none'><div class='blueGreenLink' style='padding-left:220px;'>
+            <%= locations_form.link_to_remove 'Remove Location' %>
+          </div></td></tr>
+          <% @errors = false %>
+        <% end %>
+    <tr>
+       <td><div class='blueGreenLink'><%= f.link_to_add 'Add Location',:locations %>
+       <div style="display:inline;padding-left:165px;">
+       <%= check_box(:db_step_two,:include_all,{},'yes','no') %> Include All Business Locations?</div></td></tr>
 </table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
@@ -25,7 +27,7 @@
     <% else %>
       <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
       <div class="blueGreenLink" style="display:inline;float:left;">
-      <%= link_to 'Back to Step One', edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id) %>
+      <%= link_to 'Back', edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id) %>
       </div>
     <% end %>
   <div class="actions" style="float:right;">

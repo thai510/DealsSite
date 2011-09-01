@@ -1,4 +1,5 @@
 @import "jQuery_UI_uniq.css";
+
 @import "iPhoneCheckboxes.css";
 @import "visualize.css";
 
@@ -1180,8 +1181,8 @@ table#dealBuilder {
 }
 table#dealBuilder tr.locationField {
 }
-table#dealBuilder td.locationField input ,select {
-  margin-right:0px;
+table#dealBuilder td.locationField input {
+   margin-right:0px;
 }
 td.dealBuilderLabel {
   text-align:right;
@@ -1301,3 +1302,7 @@ div#admin {
   box-shadow: 8px 8px 8px black;
 }
 
+div.field_with_errors {
+  display:inline;
+  color:red;
+}
