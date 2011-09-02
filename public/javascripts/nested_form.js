@@ -39,14 +39,10 @@ jQuery(function($) {
     //for dealBuilder step two location field adder
     //makes sure only 4 extra locations are added
     if ($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible')) {
-      if ($('div.fields').filter(':visible').size() >= 5) { 
+      if ($('div.fields').filter(':visible').size() >= 3) { 
         $('form a.add_nested_fields').hide();
       }
     }
-    validateAddresses();
-    validateCities();
-    validateStates();
-    validateZips();
     return false;
   });
 
@@ -58,14 +54,10 @@ jQuery(function($) {
     $(this).closest('.fields').hide();
     $(this).closest("form").trigger('nested:fieldRemoved');
     if ($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible')) {
-      if (($('div.fields').filter(':visible').size()) <= 5) { 
+      if (($('div.fields').filter(':visible').size()) <= 3) { 
         $('form a.add_nested_fields').show();
       }
     }
-    removeAddresses();
-    removeCities();
-    removeStates();
-    removeZips();  
    return false;
   });
 });

@@ -12,7 +12,7 @@
   <% end %>
 <div class="leftSideLayout">
   <table class="dealBuilder">
-    <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Ideas for Incentives' %></b></td><td></td></tr>
+    <tr><td class="dealBuilderLabelCBox" style="color:#8cc63f;font-weight:bold;">Ideas For Incentives:</td><td></td></tr>
          <% IncentiveIdea.all.each do |i_i| %>
     <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
          <%= i_i.description %></td></tr>

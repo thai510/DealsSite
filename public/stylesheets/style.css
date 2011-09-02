@@ -1179,11 +1179,6 @@ div.leftSideLayout {
 table#dealBuilder {
   top-padding:5px 0px 0px 35px;
 }
-table#dealBuilder tr.locationField {
-}
-table#dealBuilder td.locationField input {
-   margin-right:0px;
-}
 td.dealBuilderLabel {
   text-align:right;
   padding-top:5px;
@@ -1207,7 +1202,6 @@ td.dealBuilderField input,select,textarea {
 }
 td.locationField {
   text-align:left;
-  padding-right:0px;
 }
 td.locationField input,select {
   color:black;
@@ -1264,10 +1258,6 @@ div.forwardProgress {
   display:inline;
 }
 
-div.fields input, select{
-  margin-right:0px;
-}
-
 td.locationField a, div.blueGreenLink a,td.formTipLink a {
   text-decoration:none;
   color: #0f75bc;
@@ -1304,5 +1294,4 @@ div#admin {
 
 div.field_with_errors {
   display:inline;
-  color:red;
 }

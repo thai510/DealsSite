@@ -1,22 +1,18 @@
-<%= nested_form_for @db_step_two do |f| %> 
+<%=form_for @db_step_two do |f| %> 
 
 <div class="leftSideLayout">
-<table id="dealBuilder" style='width:450px;'>
-   <tr><td class='dealBuilderField' style="color:#8cc63f;" id='errorLocation'>Offer Redeemable At:</td><td></td></tr>
+<table id="dealBuilder">
+   <th style="color:#8cc63f;text-align:left;">Offer Redeemable At:</th>
+   <th></th>
         <%= f.fields_for :locations do |locations_form|%>
-          <tr><td class='locationField'><%= locations_form.text_field :address,:placeholder => 'Address',:size => '47' %>
-          <%= locations_form.text_field :city,:size=>'22',:placeholder => 'City' %>
-          <%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %>
-          <%= locations_form.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%><td></td></tr>
-
-          <tr><td class='locationField' style:'display:none'><div class='blueGreenLink' style='padding-left:220px;'>
-            <%= locations_form.link_to_remove 'Remove Location' %>
-          </div></td></tr>
-          <% @errors = false %>
+          <tr><td class='locationField' style='padding-top:40px;'><%= locations_form.text_field :address,:placeholder => 'Address',:size => '20' %></td>
+          <td class='locationField' style='padding-top:40px;'><%= locations_form.text_field :city,:size=>'20',:placeholder => 'City' %></td></tr>
+          <tr><td class='locationField' style='padding-bottom:40px;'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></td>
+          <td class='locationField' style='padding-bottom:40px;'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%><td></td></tr>
         <% end %>
     <tr>
-       <td><div class='blueGreenLink'><%= f.link_to_add 'Add Location',:locations %>
-       <div style="display:inline;padding-left:165px;">
+       <td>
+       <div style="display:inline;float:left;">
        <%= check_box(:db_step_two,:include_all,{},'yes','no') %> Include All Business Locations?</div></td></tr>
 </table>
     <% unless @deal_builder_id %>

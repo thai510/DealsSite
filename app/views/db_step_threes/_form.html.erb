@@ -15,7 +15,7 @@
 
 <div class="leftSideLayout">
   <table id="dealBuilder">
-    <tr><td class="dealBuilderLabelCBox"><b><%= f.label 'Offer Standard Restrictions' %></b></td><td></td></tr>
+    <tr><td class="dealBuilderLabelCBox" style="color:#8cc63f;font-weight:bold;">Offer Standard Restrictions:</td><td></td></tr>
            <% StandardRestriction.all.each do |s_r| %>
     <% if @edit_page %>
     <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
