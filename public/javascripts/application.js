@@ -484,3 +484,41 @@ $(document).ready(function () {
     $("#db_step_one_company_logo").blur().focus();
   });
 */
+
+$(document).ready(function () {
+  if($('.show_deal_builder').is(':visible'))
+  {
+
+     $('.dbShowTwo').hide();
+     $('.dbShowThree').hide();
+     $('.dbShowFour').hide();
+
+    $('div.dbClickOne').live("click",function() {
+      $('.dbShowTwo').hide();
+      $('.dbShowThree').hide();
+      $('.dbShowFour').hide();
+      $('.dbShowOne').show();
+    });
+
+    $('div.dbClickTwo').live("click",function() {
+      $('.dbShowThree').hide();
+      $('.dbShowFour').hide();
+      $('.dbShowOne').hide();
+      $('.dbShowTwo').show();
+    });
+
+    $('div.dbClickThree').live("click",function() {
+      $('.dbShowTwo').hide();
+      $('.dbShowFour').hide();
+      $('.dbShowOne').hide();
+      $('.dbShowThree').show();
+    });
+
+    $('div.dbClickFour').live("click",function() {
+      $('.dbShowTwo').hide();
+      $('.dbShowThree').hide();
+      $('.dbShowOne').hide();
+      $('.dbShowFour').show();
+    });
+  }
+});

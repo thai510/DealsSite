@@ -1295,3 +1295,15 @@ div#admin {
 div.field_with_errors {
   display:inline;
 }
+
+div.dbClickOne, div.dbClickTwo, div.dbClickThree,div.dbClickFour{
+  margin-right:10px;
+  cursor:pointer;
+  display:inline;
+  color: #0f75bc;
+  font-weight:bold;
+}
+
+div.dbClickOne:hover, div.dbClickTwo:hover, div.dbClickThree:hover, div.dbClickFour:hover {
+  color:yellow;
+}

@@ -1,4 +1,3 @@
-<%= content_for :rightlayout do %>
 <p id="notice"><%= notice %></p>
 
 <h1> The Basics </h1>
@@ -10,10 +9,13 @@
   <b>Offer description:</b>
   <%= @db_step_one.offer_description %>
 </div>
+
+<% if @db_step_one.offer_photo_file_name %>
 <div>
   <b>Offer photo:</b>
   <%= image_tag(@db_step_one.offer_photo.url(:thumb)) %>
 </div>
+<% end %>
 <div>
   <b>Offer value:</b>
   <%= @db_step_one.offer_value %>
@@ -26,4 +28,3 @@
 
 <%= link_to 'Edit', edit_db_step_one_path(@db_step_one) %> |
 <%= link_to 'Back', db_step_ones_path %>
-<% end %>
