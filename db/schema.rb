@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110830190737) do
+ActiveRecord::Schema.define(:version => 20110907182845) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110830190737) do
     t.string   "offer_photo_content_type"
     t.integer  "offer_photo_file_size"
     t.datetime "offer_photo_updated_at"
+    t.string   "coupon"
   end
 
   create_table "db_step_threes", :force => true do |t|

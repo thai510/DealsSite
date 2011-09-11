@@ -39,6 +39,10 @@ $(document).ready(function() {
     }, index * 250);
   });
 });
+
+
+$(document).ready(function () {
+});
 //functions for step one of deal builder
 //includes validations and tool tip code
 $(document).ready(function () {
@@ -85,7 +89,10 @@ $(document).ready(function () {
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
-
+    
+    $('#db_step_one_coupon').live("click", function () {
+      checkCoupon();
+    });
 
     $('#db_step_one_offer_value').focus( function ()  {
       $('#offer_photo').hide();
@@ -182,8 +189,37 @@ $(document).ready(function () {
   $("#db_step_one_offer_photo").change(function () {
     $("#db_step_one_offer_photo").blur().focus();
   });
+
+  checkCoupon();
+
  }
 });
+//handles coupon checkbox validations and
+//functionality
+function checkCoupon() {
+    if ($('#db_step_one_coupon').prop('checked')) {
+       $('#db_step_one_offer_value').rules("remove");
+       $('#db_step_one_offer_price').rules("remove");
+       $('input#db_step_one_offer_value').hide(); 
+       $('input#db_step_one_offer_price').hide(); 
+       $('label[for="db_step_one_offer_value"]').hide(); 
+       $('label[for="db_step_one_offer_price"]').hide(); 
+      }
+      else {  
+       $('#db_step_one_offer_value').rules("add",{required:true,
+                                                  min:0,
+                                                  number:true});
+       $('#db_step_one_offer_price').rules("add",{required:true,
+                                                  min:0,
+                                                  number:true,
+                                                  lessThan:true});
+       $('input#db_step_one_offer_value').show(); 
+       $('input#db_step_one_offer_price').show(); 
+       $('label[for="db_step_one_offer_value"]').show(); 
+       $('label[for="db_step_one_offer_price"]').show(); 
+      }
+}
+
 //deal builder step 2 javascript
 //validations and tool tip generation
 $(document).ready(function () {

@@ -16,6 +16,7 @@
   <%= image_tag(@db_step_one.offer_photo.url(:thumb)) %>
 </div>
 <% end %>
+<% if @db_step_one.coupon == 'no' %>
 <div>
   <b>Offer value:</b>
   <%= @db_step_one.offer_value %>
@@ -24,6 +25,11 @@
   <b>Offer price:</b>
   <%= @db_step_one.offer_price %>
 </div>
+<% else %>
+<div>
+This is a coupon
+</div>
+<% end %>
 
 
 <%= link_to 'Edit', edit_db_step_one_path(@db_step_one) %> |

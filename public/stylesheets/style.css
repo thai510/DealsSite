@@ -21,8 +21,7 @@ a, input { outline:none; }
 body {
 	color:#555;
 	font-size:12px;
-  background-color:black;
-  background-image:url('../images/theme/cherry_blossom_1600x1200.jpg');
+  background-color:white;
   background-repeat:no-repeat;
   background-position:center;
 }
@@ -1116,7 +1115,7 @@ div.bannerslogan {
 }
 
 div#rightlayout {
-  width:880px;
+  width:950px;
   height:500px;
   text-align:center;
   margin: 0 auto;
