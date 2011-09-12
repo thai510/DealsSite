@@ -31,4 +31,38 @@
 <br />
 </div>
 </div>
+<% if @deal_builder.db_step_four %>
+  <div class="rightSideLayout">
+  <% unless @deal_builder.db_publish %>
+     <div class='blueGreenLink' style="text-align:center;font-size:30px;padding-top:20px;padding-bottom:20px;">
+      <%= link_to 'Publish Now!', new_db_publish_path(:db_id => @deal_builder.id) %></div> 
+    </div>
+  <% else %>
+    <p id="notice"><%= notice %></p>
+
+    <h1>DEAL LIVE</h1>
+    <p>
+      <% if @deal_builder.db_publish.max_vouchers_to_sell == 0 %>
+      Unlimited
+    <%else %>
+      <b>Max vouchers to sell:</b>
+      <%= @deal_builder.db_publish.max_vouchers_to_sell %>
+    <% end %>
+    </p>
+
+    <p>
+      <% if @deal_builder.db_publish.length_of_deal == 0%>
+        Until Stopped
+      <% else %>
+        <b>Length of deal:</b>
+        <%= @deal_builder.db_publish.length_of_deal %> Month(s)
+      <% end %>
+    </p>
+
+
+<%= link_to 'Stop', @deal_builder.db_publish, :confirm => 'Are you sure you want to stop this promotion?',:method=>:delete %> 
+<%= link_to 'Preview',@deal_builder.db_publish %>
+   
+  <% end %>
+<% end %>
 <% end %>

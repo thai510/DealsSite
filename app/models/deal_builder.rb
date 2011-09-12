@@ -3,6 +3,7 @@ class DealBuilder < ActiveRecord::Base
    has_one :db_step_two, :dependent => :destroy
    has_one :db_step_three, :dependent => :destroy
    has_one :db_step_four, :dependent => :destroy
+   has_one :db_publish, :dependent => :destroy
    belongs_to :user
 
 #   validates :deal_builders_locations, :presence => true

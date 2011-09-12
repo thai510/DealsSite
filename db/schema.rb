@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110907182845) do
+ActiveRecord::Schema.define(:version => 20110911225847) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -20,6 +20,14 @@ ActiveRecord::Schema.define(:version => 20110907182845) do
   create_table "comparison_tools", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "db_publishes", :force => true do |t|
+    t.integer  "max_vouchers_to_sell"
+    t.integer  "length_of_deal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "deal_builder_id"
   end
 
   create_table "db_step_fours", :force => true do |t|

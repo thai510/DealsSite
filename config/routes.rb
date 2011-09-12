@@ -1,4 +1,6 @@
 LocalAdResource::Application.routes.draw do
+  resources :db_publishes
+
   resources :db_step_zeros
 
   resources :form_tips

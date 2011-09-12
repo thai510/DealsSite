@@ -1,0 +1,39 @@
+<%= form_for(@db_publish) do |f| %>
+  <% if @db_publish.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_publish.errors.count, "error") %> prohibited this db_publish from being saved:</h2>
+
+      <ul>
+      <% @db_publish.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table id='dealBuilder'>
+  <tr>
+    <td class='dealBuilderLabel'><%= f.label :max_vouchers_to_sell %></td>
+    <td class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:size=> '10'%></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr>
+    <td class='dealBuilderLabel'><%= f.label :length_of_deal %></td>
+    <td class='dealBuilderField'><%= select :db_publish,:length_of_deal,
+      ['0','1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+  </table>
+
+  <% unless @deal_builder_id %>
+  <%= f.hidden_field :deal_builder_id, :value => params[:db_id] %>
+  <% else %>
+  <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id %>
+  <% end %>
+  <div class="actions">
+    <%= f.submit 'Publish!' %>
+  </div>
+<% end %>

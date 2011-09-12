@@ -1,0 +1,25 @@
+<h1>Listing db_publishes</h1>
+
+<table>
+  <tr>
+    <th>Max vouchers to sell</th>
+    <th>Length of deal</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @db_publishes.each do |db_publish| %>
+  <tr>
+    <td><%= db_publish.max_vouchers_to_sell %></td>
+    <td><%= db_publish.length_of_deal %></td>
+    <td><%= link_to 'Show', db_publish %></td>
+    <td><%= link_to 'Edit', edit_db_publish_path(db_publish) %></td>
+    <td><%= link_to 'Destroy', db_publish, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Db publish', new_db_publish_path %>
