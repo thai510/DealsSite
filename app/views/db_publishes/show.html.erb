@@ -1,4 +1,57 @@
 <%content_for :rightlayout do %>
-some shit lots of shit
+  <div class="leftPublishedDeal">
+    <% @one = DealBuilder.find(@db_publish.deal_builder_id).db_step_one %>
+    <h2><%= @one.offer_title %></h2>
+    <% if(@one.coupon == 'no') then %>
+      <h3>$<%= @one.offer_value %> value for $<%= @one.offer_price %></h3>
+    <% else %>
+      <h3>Redeem this coupon today</h3>
+    <% end %>
+    <p><%= @one.offer_description %></p>
+    <% if(@one.offer_photo.exists? == true) then %>
+      <%= image_tag @one.offer_photo.url(:medium) %>
+    <% end %>
+    <hr />
+    <h2>Incentives</h2>
+    <% @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four %>
+    <% @four.incentive_ideas.each do |incentive| %>
+      <p><%= incentive.description %></p>
+    <% end %>   
+    <p><%= @four.optional_incentive %></p>
+    
+    <hr />
+    <h2>Restrictions</h2>
+    <% @three = DealBuilder.find(@db_publish.deal_builder_id).db_step_three %>
+    <% @three.standard_restrictions.each do |restriction| %>
+      <p><%= restriction.description %></p>
+    <% end %>
+    <p><%= @three.optional_restriction %></p>
+  </div>
+  <div class="rightPublishedDeal">
+    <% @zero = User.find(session[:users_id]).db_step_zero %>
+    <h2><%= @zero.business_name %></h2>
+    <p><%= @zero.business_description %></p>
+    <% if(@zero.company_logo.exists? == true) then %>
+      <%= image_tag @zero.company_logo.url(:thumb) %>
+    <% end %>
+    <% @two = DealBuilder.find(@db_publish.deal_builder_id).db_step_two.locations[0] %>
+    <h3>Redeemable at:</h3>
+    <p><%= @two.address %></p>
+    <p><%= @two.city %>, <%= @two.state %></p>
+    <p><%= @two.zip %></p>
+    <p>www.stupidface.com</p>
+    <p>510.555.5555</p>
+    <p><%= User.find(session[:users_id]).email %></p>
+  </div>
+  <div class="rightPublishedDeal">
+    <h3>Stats</h3>
+    <p>Vouchers Sold: 223</p>
+    <% if(@db_publish.max_vouchers_to_sell > 0) then %>
+      <p>Vouchers Remaining: dbvoucherssold - dbvoucherstotal</p>
+    <% end %>
+    <% if(@db_publish.length_of_deal > 0) then %>
+      <p>Time Left: 2:23</p>
+    <% end %>
+  </div>
 
 <% end %>
