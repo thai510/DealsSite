@@ -26,6 +26,7 @@
       <p><%= restriction.description %></p>
     <% end %>
     <p><%= @three.optional_restriction %></p>
+    <p>Voucher expires <%= @three.voucher_length %> month(s) after purchase.</p>
   </div>
   <div class="rightPublishedDeal">
     <% @zero = User.find(session[:users_id]).db_step_zero %>

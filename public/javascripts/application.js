@@ -381,34 +381,56 @@ $(document).ready(function () {
   $('.rightSideLayout').hide();
   $('#standard_restrictions').hide();
   $('#optional_restrictions').hide();
-
-  $('#db_step_three_standard_restriction_ids_').focus(function () {
-    $('#optional_restrictions').hide();
-    $('#standard_restrictions').show();
-    $('.rightSideLayout').show();
-  });
+  $('#voucher_length').hide();
 
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
-    $('#optional_restrictions').hide();
-    $('#standard_restrictions').show();
     $('.rightSideLayout').show();
+    $('#standard_restrictions').show();
+    $('#standard_restriction_label').css('color','#8cc63f');
+  });
+
+  $('#db_step_three_voucher_length').focus(function () {
+    $('#standard_restrictions').hide();
+    $('#voucher_length').show();
+    $('.rightSideLayout').show();
+    $('#standard_restriction_label').css('color','white');
+    $('#voucher_length_label').css('color','#8cc63f');
+  });
+
+  $('#db_step_three_voucher_length').focusout(function () {
+    $('#voucher_length').hide();
+    $('.rightSideLayout').hide();
+    $('#voucher_length_label').css('color','white');
   });
 
   $('#db_step_three_optional_restriction').focus(function () {
     $('#standard_restrictions').hide();
+    $('#standard_restriction_label').css('color','white');
     $('#optional_restrictions').show();
     $('.rightSideLayout').show();
   });
 
+  $('#db_step_three_optional_restriction').focusout(function () {
+    $('#optional_restrictions').hide();
+    $('.rightSideLayout').hide();
+  });
+
   $('#new_db_step_three').validate( {
     errorPlacement: function(error,element) {
-      error.appendTo(element.closest('tr').prev('tr').last('td'));
+      if($(element).is(':checkbox')) {
+        error.appendTo(element.closest('tr').prev('tr'));
+      }
+      else {
+       error.appendTo(element.closest("td").next('td'));
+      }
     },
     rules: {
       "db_step_three[standard_restriction_ids][]":{required:true,minlength:1},
+      "db_step_three[voucher_length]":{required:true}
     },
     messages: {
      "db_step_three[standard_restriction_ids][]":{required:"",minlength:""}, 
+      "db_step_three[voucher_length]":{required:""}
     } 
   });
   $('.edit_db_step_three').validate( {
@@ -417,9 +439,11 @@ $(document).ready(function () {
     },
     rules: {
       "db_step_three[standard_restriction_ids][]":{required:true,minlength:1},
+      "db_step_three[voucher_length]":{required:true}
     },
     messages: {
      "db_step_three[standard_restriction_ids][]":{required:"",minlength:""}, 
+      "db_step_three[voucher_length]":{required:""}
     } 
   });
   }

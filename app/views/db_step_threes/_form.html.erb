@@ -15,15 +15,20 @@
 
 <div class="leftSideLayout">
   <table id="dealBuilder">
-    <tr><td class="dealBuilderLabelCBox" style="color:#8cc63f;font-weight:bold;">Offer Standard Restrictions:</td><td></td></tr>
+    <tr><td class="dealBuilderLabelCBox" id='standard_restriction_label'>Offer Standard Restrictions:</td></tr>
            <% StandardRestriction.all.each do |s_r| %>
     <% if @edit_page %>
-    <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
+    <tr><td class="dealBuilderFieldCBox" style='width:370px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
     <% else %>
-    <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
+    <tr><td class="dealBuilderFieldCBox" style='width:370px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
     <% end %>
            <%= s_r.description %></td></tr>
            <% end %>
+  <tr>
+    <td class='dealBuilderField' id='voucher_length_label'>Offer Voucher Length:  <%= select :db_step_three,:voucher_length,
+      ['1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
+    <td></td>
+  </tr>
   <tr>
     <td class="dealBuilderField"><%= f.text_area :optional_restriction, :size => "30x5", :placeholder => "Optional Restrictions...."%></td>
   </tr>
@@ -48,8 +53,8 @@
     <tr id="standard_restrictions"> 
       <td><%=FormTip.find_by_title("standard restrictions").description%></td>
     </tr>
-    <tr id="industry_restrictions"> 
-      <td><%=FormTip.find_by_title("industry restrictions").description%></td>
+    <tr id="voucher_length"> 
+      <td><%=FormTip.find_by_title("voucher length").description%></td>
     </tr>
     <tr id="optional_restrictions"> 
       <td><%=FormTip.find_by_title("optional restrictions").description%></td>
