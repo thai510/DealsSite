@@ -13,14 +13,14 @@
 
   <table id='dealBuilder'>
   <tr>
-    <td class='dealBuilderLabel'><%= f.label :max_vouchers_to_sell %></td>
+    <td class='dealBuilderLabel' id='max_vouchers_to_sell_label'><%= f.label :max_vouchers_to_sell %></td>
     <td class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:size=> '10'%></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class='dealBuilderLabel'><%= f.label :length_of_deal %></td>
+    <td class='dealBuilderLabel' id='length_of_deal_label'><%= f.label :length_of_deal %></td>
     <td class='dealBuilderField'><%= select :db_publish,:length_of_deal,
       ['0','1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
     <td></td>
@@ -36,4 +36,16 @@
   <div class="actions">
     <%= f.submit 'Publish!' %>
   </div>
+</div>
+<div class="rightSideLayout">
+  <table class="stepOneTips">
+    <tr id="max_vouchers_to_sell">
+      <td><%=FormTip.find_by_title("max vouchers to sell").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+    <tr id="length_of_deal">
+      <td><%=FormTip.find_by_title("length of deal").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+  </table>
+</div>
+
 <% end %>

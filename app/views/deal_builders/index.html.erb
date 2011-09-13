@@ -12,23 +12,31 @@
 <% current_user.deal_builders.each do |deal_builder| %>
   <tr>
     <td><%= deal_builder.db_step_one.offer_title %></td>
-    <% if deal_builder.db_step_four %>
-      <td class="formTipLink"><%= link_to 'Preview!', deal_builder %></td>
-    <% else %>
-      <td style="width:47px"></td>
+    <% unless deal_builder.db_publish %>
+      <% if deal_builder.db_step_four %>
+      <td class="formTipLink"><%= link_to 'Publish Now!', deal_builder %></td>
     <% end %>
+    <% else %>
+      <td class="formTipLink"><%= link_to 'View Deal Page!', deal_builder.db_publish %></td>
+    <% end %>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <% if deal_builder.db_step_four %>
+      <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
+      <td>
+      <td>
+    <% else %>
+      <td class="formTipLink"><%= link_to 'Finish Deal!', edit_deal_builder_path(deal_builder) %></td>
+      <td>
+      <td>
+    <% end %>
+    <td></td>
     <td></td>
     <td class="formTipLink"><%= link_to 'Delete', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
     <td></td>
     <td></td>
-    <td></td>
-    <% if deal_builder.db_step_four %>
-      <td>Complete!</td>
-      <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
-      <td>
-    <% else %>
-      <td class="formTipLink"><%= link_to 'Not complete, click here to finish!', edit_deal_builder_path(deal_builder) %></td>
-    <% end %>
   </tr>
 <% end %>
 </table>

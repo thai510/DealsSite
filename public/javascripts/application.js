@@ -435,7 +435,12 @@ $(document).ready(function () {
   });
   $('.edit_db_step_three').validate( {
     errorPlacement: function(error,element) {
-      error.appendTo(element.closest('tr').prev('tr').last('td'));
+      if($(element).is(':checkbox')) {
+        error.appendTo(element.closest('tr').prev('tr'));
+      }
+      else {
+        error.appendTo(element.closest('td').next('td'));
+      }
     },
     rules: {
       "db_step_three[standard_restriction_ids][]":{required:true,minlength:1},
@@ -448,7 +453,48 @@ $(document).ready(function () {
   });
   }
 });
+$(document).ready(function () {
+  if($('#new_db_publish').is(':visible')) {
+    $('.rightSideLayout').hide();
+    $('#max_vouchers_to_sell').hide();
+    $('#length_of_deal').hide();
 
+    $('#db_publish_max_vouchers_to_sell').focusout(function () {
+      $('.rightSideLayout').hide();
+      $('#max_vouchers_to_sell').hide();
+      $('#max_vouchers_to_sell_label').css('color','white');
+    });
+
+    $('#db_publish_max_vouchers_to_sell').focus(function () {
+      $('.rightSideLayout').show();
+      $('#max_vouchers_to_sell').show();
+      $('#max_vouchers_to_sell_label').css('color','#8cc63f');
+    });
+
+    $('#db_publish_length_of_deal').focus(function () {
+      $('.rightSideLayout').show();
+      $('#length_of_deal').show();
+      $('#length_of_deal_label').css('color','#8cc63f');
+    });
+
+    $('#db_publish_length_of_deal').focusout(function () {
+      $('.rightSideLayout').hide();
+      $('#length_of_deal').hide();
+      $('#length_of_deal_label').css('color','white');
+    });
+    
+    $('#new_db_publish').validate( {
+      rules : {
+        'db_publish[max_vouchers_to_sell]':{required:true,min:0,digits:true},
+        'db_publish[length_of_deal]':{required:true,min:0,digits:true}
+      },
+      messages : {
+        'db_publish[max_vouchers_to_sell]':{required:"",min:"",digits:""},
+        'db_publish[length_of_deal]':{required:"",min:"",digits:""}
+      }
+    });
+  }
+});
 $(document).ready(function () {
   if($('#new_db_step_four').is(':visible') || $('.edit_db_step_four').is(':visible'))
   {
