@@ -1,4 +1,5 @@
 class IncentiveIdeasController < ApplicationController
+  before_filter :admin_authorize
   # GET /incentive_ideas
   # GET /incentive_ideas.xml
   def index

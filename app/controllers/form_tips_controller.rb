@@ -1,4 +1,5 @@
 class FormTipsController < ApplicationController
+  before_filter :admin_authorize
   # GET /form_tips
   # GET /form_tips.xml
   def index

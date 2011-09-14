@@ -1,10 +1,9 @@
 class ApplicationController < ActionController::Base
-  before_filter :authorize
   helper_method :current_user
   helper_method :back_to_home
   helper_method :industries_for_new_user
   helper_method :update_or_new_industry
-  helper_method :admin_authorize
+  helper_method :bool_admin_authorize
   helper_method :bool_finished_step_zero?
   protect_from_forgery
  
@@ -34,14 +33,27 @@ class ApplicationController < ActionController::Base
   end
 
   def admin_authorize
-      unless (User.find(session[:users_id])).email == "stephencharlesb@gmail.com" 
-        return false 
+    if(session[:users_id])
+      if (User.find(session[:users_id])).email == "stephencharlesb@gmail.com" 
+        return true
       end
-      return true
+       redirect_to home_path
+    else 
+       redirect_to login_index_url, :notice => "Please log in"
+    end
+  end
+ 
+  def bool_admin_authorize
+    if(session[:users_id])
+      if (User.find(session[:users_id])).email == "stephencharlesb@gmail.com" 
+        return true
+      end
+    end
+    return false
   end
 
   def bool_finished_step_zero?
-    unless admin_authorize
+    unless bool_admin_authorize
       unless (User.find(session[:users_id])).db_step_zero
         return false
       end
@@ -50,7 +62,7 @@ class ApplicationController < ActionController::Base
   end
 
   def finished_step_zero?
-    unless admin_authorize
+    unless bool_admin_authorize
       unless (User.find(session[:users_id])).db_step_zero
         redirect_to new_db_step_zero_path
       end

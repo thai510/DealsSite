@@ -1,4 +1,5 @@
 class IndustriesController < ApplicationController
+  before_filter :admin_authorize
   # GET /industries
   # GET /industries.xml
   def index

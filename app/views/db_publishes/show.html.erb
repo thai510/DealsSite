@@ -1,4 +1,16 @@
-<%content_for :rightlayout do %>
+<% unless current_user %>
+ <div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= link_to image_tag("theme/smallbannercroppedlogo.png"),login_index_path %>
+         </div>
+         <div class="bannerslogan">
+         <%= image_tag("theme/smallbannercroppedslogan.png") %>
+         </div>
+</div>
+<div id='content'>
+  <div id='rightlayout'>  
+<% end %>
+  <% @user_id = User.find(DealBuilder.find(@db_publish.deal_builder_id).user_id) %>
   <div class="leftPublishedDeal">
     <% @one = DealBuilder.find(@db_publish.deal_builder_id).db_step_one %>
     <h2><%= @one.offer_title %></h2>
@@ -29,7 +41,7 @@
     <p>Voucher expires <%= @three.voucher_length %> month(s) after purchase.</p>
   </div>
   <div class="rightPublishedDeal">
-    <% @zero = User.find(session[:users_id]).db_step_zero %>
+    <% @zero = User.find(@user_id).db_step_zero %>
     <h2><%= @zero.business_name %></h2>
     <p><%= @zero.business_description %></p>
     <% if(@zero.company_logo.exists? == true) then %>
@@ -40,9 +52,9 @@
     <p><%= @two.address %></p>
     <p><%= @two.city %>, <%= @two.state %></p>
     <p><%= @two.zip %></p>
-    <p>www.stupidface.com</p>
-    <p>510.555.5555</p>
-    <p><%= User.find(session[:users_id]).email %></p>
+    <p><%= @zero.website %></p>
+    <p><%= @zero.phone_number %></p>
+    <p><%= User.find(@user_id).email %></p>
   </div>
   <div class="rightPublishedDeal">
     <h3>Stats</h3>
@@ -54,5 +66,7 @@
       <p>Time Left: 2:23</p>
     <% end %>
   </div>
-
+<% unless current_user %>
+  </div>
+</div>
 <% end %>

@@ -3,7 +3,8 @@ class DbStepZero < ActiveRecord::Base
    has_attached_file :company_logo, :styles => { :medium => "300x300>",
                                          :thumb => "100x100>" }
 
-  validates :industry,:business_name,:business_description, :presence => true
+  validates :industry,:business_name,:business_description,:phone_number, :presence => true
   validates_attachment_content_type :company_logo, :content_type => ['image/jpeg','image/png', 'image/gif']
+  validates :phone_number, :length => {:minimum => 10 , :maximum => 10}
   
 end

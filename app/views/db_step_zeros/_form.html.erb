@@ -12,7 +12,7 @@
   <% end %>
 <table id="dealBuilder">
   <tr>
-    <td class='dealBuilderLabel'>Business Name:</td>
+    <td class='dealBuilderLabel' id='business_name_label'>Business Name:</td>
     <td class='dealBuilderField'><%= f.text_field :business_name, :size => '20' %></td>
     <td></td>
   </tr>
@@ -26,14 +26,26 @@
    </tr>
   <tr><td></td></tr>
    
-  <tr><td class='dealBuilderLabel'>Business Description:</td>
+  <tr><td class='dealBuilderLabel' id='business_description_label'>Business Description:</td>
   <td class='dealBuilderField'><%= f.text_area :business_description, :size => '30x2' %></td>
       <td></td>
   </tr>
   <tr><td></td></tr>
 
+  <tr><td class='dealBuilderLabel' id='phone_number_label'>Phone Number:</td>
+  <td class='dealBuilderField'><%= f.text_field :phone_number,:size => 11, :maxlength => 10 %></td>
+      <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+  <tr><td class='dealBuilderLabel' id='business_website_label'>Business Website (Optional):</td>
+  <td class='dealBuilderField'><%= f.text_field :website %></td>
+      <td></td>
+  </tr>
+  <tr><td></td></tr>
+
   <tr>
-    <td class="dealBuilderLabel" id="company_logo_label">Logo</td>
+    <td class="dealBuilderLabel" id="company_logo_label">Business Logo (Optional):</td>
     <td class="dealBuilderField"><%= f.file_field :company_logo %></td>
     <td></td>
   </tr>
@@ -43,5 +55,23 @@
     <%= f.hidden_field :user_id, :value => session[:users_id] %>
     <%= f.submit 'Get Started!'%>
   </div>
+</div>
+<div class="rightSideLayout">
+  <table class="stepOneTips">
+    <tr id="business_description">
+      <td><%= FormTip.find_by_title("business description").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+    <tr id="industry">
+      <td><%= FormTip.find_by_title("industry").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+    <tr id="phone_number">
+      <td><%= FormTip.find_by_title("phone number").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+    <tr id="company_logo">
+      <td><%= FormTip.find_by_title("company logo").description.gsub("\n",'<br>').html_safe() %></td>
+    </tr>
+
+  </table>
+</div>
 <% end %>
 

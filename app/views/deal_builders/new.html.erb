@@ -1,7 +1,6 @@
 <head>
 <%= stylesheet_link_tag 'style.css' %>
 </head>
-<%= content_for :rightlayout do %>
 
 <% unless params[:deal_builder_exist] then %>
 <%= render 'db_step_ones/form', :object => (@db_step_one = DbStepOne.new), :object => @deal_builder%>
@@ -20,4 +19,4 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %><% end %>
+<% end %>

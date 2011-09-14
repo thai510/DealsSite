@@ -13,8 +13,8 @@
 <body>
   <% unless current_user then  %>
     <%= yield %>
+    <%= yield :rightlayout%>
   <% else %>
-    <%= yield :style%>
     <div id="layoutbanner">
          <div class="bannerlogo">
          <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
@@ -48,7 +48,7 @@
       <%= render :template => 'admin/index' %>
     </div>
     <div id="rightlayout">
-    <%= yield :rightlayout%>
+    <%= yield %>
     </div>
     </div>
 <% end %>

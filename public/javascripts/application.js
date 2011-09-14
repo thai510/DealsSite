@@ -158,7 +158,7 @@ $(document).ready(function () {
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
-      "db_step_one[offer_photo]":{accept:"",required:""},
+      "db_step_one[offer_photo]":{accept:""},
       "db_step_one[offer_title]":{required:""},
       "db_step_one[offer_value]":{number:"",min:"",required:""},
       "db_step_one[offer_price]":{number:"",min:"",required:"",lessThan:''},
@@ -549,48 +549,128 @@ $(document).ready(function () {
 
 
 //code for db_step_zero
-/*
-  $('#db_step_one_company_logo').focus( function () {
-    $('#company_logo').fadeIn();
+$(document).ready(function () {
+
+  if($('#new_db_step_zero').is(':visible') || $('.edit_db_step_zero').is(':visible')) {
+    $('.rightSideLayout').hide();
+    $('#industry').hide();
+    $('#business_description').hide();
+    $('#phone_number').hide();
+    $('#business_logo').hide();
+    $('#business_website').hide();
+
+  $('#db_step_zero_company_logo').focus( function () {
+    $('#company_logo').show();
     $('#company_logo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
+    $('.rightSideLayout').show();
   });
 
-  $('#db_step_one_industry').focus( function ()  {
+  $('#db_step_zero_business_name').focus( function () {
+    $('#company_logo').hide();
+    $('.rightSideLayout').hide();
+    $('#company_logo_label').css('color','white');
+    $('#business_name_label').css('color','#8cc63f');
+  });
+
+  $('#db_step_zero_business_name').focusout( function () {
+    $('#business_name_label').css('color','white');
+  });
+
+  $('#db_step_zero_website').focus( function () {
+    $('#company_logo').hide();
+    $('.rightSideLayout').hide();
+    $('#company_logo_label').css('color','white');
+    $('#business_website_label').css('color','#8cc63f');
+  });
+
+  $('#db_step_zero_website').focusout( function () {
+    $('#business_website_label').css('color','white');
+  });
+
+  $('#db_step_zero_business_description').focus( function () {
     $('#company_logo').hide();
     $('#company_logo_label').css('color','white');
-    $('#industry').fadeIn();
-    $('#industry_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
+    $('#business_description_label').css('color','#8cc63f');
+    $('.rightSideLayout').show();
+    $('#business_description').show();
   });
-  $('#db_step_one_industry').focusout( function ()  {
+
+  $('#db_step_zero_business_description').focusout( function () {
+    $('#business_description_label').css('color','white');
+    $('.rightSideLayout').hide();
+    $('#business_description').hide();
+  });
+
+  $('#db_step_zero_phone_number').focus( function () {
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
+    $('#phone_number_label').css('color','#8cc63f');
+    $('.rightSideLayout').show();
+    $('#phone_number').show();
+  });
+
+  $('#db_step_zero_phone_number').focusout( function () {
+    $('#phone_number_label').css('color','white');
+    $('.rightSideLayout').hide();
+    $('#phone_number').hide();
+  });
+
+  $('#db_step_zero_industry').focus( function ()  {
+    $('#company_logo').hide();
+    $('#company_logo_label').css('color','white');
+    $('#industry_label').css('color','#8cc63f');
+    $('.rightSideLayout').show();
+    $('#industry').show();
+  });
+
+  $('#db_step_zero_industry').focusout( function ()  {
     $('#industry').hide();
     $('#industry_label').css('color','white');
     $('.rightSideLayout').hide()
   });
-  $('#db_step_one_company_logo').live("click", function () {
-    $('#company_logo').fadeIn();
+
+  $('#db_step_zero_company_logo').live("click", function () {
     $('#company_logo_label').css('color','#8cc63f');
-    $('.rightSideLayout').fadeIn();
+    $('.rightSideLayout').show();
+    $('#company_logo').show();
   });
 
   //validations
-  rules:
-      "db_step_one[business_name]":{required:true},
-      "db_step_one[company_logo]":{ accept:true},
-      "db_step_one[industry]":{required:true},
- 
-  messages:
-      "db_step_one[company_logo]":{accept:""},
-      "db_step_one[industry]":{required:""},
-      "db_step_one[business_name]":{required:""},
-  
-  //after validations
-  $("#db_step_one_company_logo").change(function () {
-    $("#db_step_one_company_logo").blur().focus();
-  });
-*/
+  $('#new_db_step_zero').validate({
+    rules: {
+      "db_step_zero[business_name]":{required:true},
+      "db_step_zero[business_description]":{required:true},
+      "db_step_zero[company_logo]":{ accept:true},
+      "db_step_zero[industry]":{required:true},
+      "db_step_zero[phone_number]":{required:true,minlength:10,maxlength:10,digits:true}
+    },
+    messages: {
+        "db_step_zero[company_logo]":{accept:""},
+        "db_step_zero[industry]":{required:""},
+        "db_step_zero[business_name]":{required:""},
+        "db_step_zero[business_description]":{required:""},
+        "db_step_zero[phone_number]":{required:"",minlength:"",maxlength:"",digits:""}
+    }
+  });  
 
+  $('.edit_db_step_zero').validate({
+    rules: {
+      "db_step_zero[business_name]":{required:true},
+      "db_step_zero[business_description]":{required:true},
+      "db_step_zero[company_logo]":{ accept:true},
+      "db_step_zero[industry]":{required:true},
+      "db_step_zero[phone_number]":{required:true,minlength:10,maxlength:10,digits:true}
+    },
+    messages: {
+        "db_step_zero[company_logo]":{accept:""},
+        "db_step_zero[industry]":{required:""},
+        "db_step_zero[business_name]":{required:""},
+        "db_step_zero[business_description]":{required:""},
+        "db_step_zero[phone_number]":{required:"",minlength:"",maxlength:"",digits:""}
+    }
+  });  
+ }
+});
 $(document).ready(function () {
   if($('.show_deal_builder').is(':visible'))
   {

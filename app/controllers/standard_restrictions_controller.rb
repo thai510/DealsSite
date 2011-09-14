@@ -1,4 +1,5 @@
 class StandardRestrictionsController < ApplicationController
+  before_filter :admin_authorize
   # GET /standard_restrictions
   # GET /standard_restrictions.xml
   def index
