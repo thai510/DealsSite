@@ -1,6 +1,6 @@
 class AddPhoneNumberToDbStepZero < ActiveRecord::Migration
   def self.up
-    add_column :db_step_zeros, :phone_number, :integer
+    add_column :db_step_zeros, :phone_number, :string
   end
 
   def self.down

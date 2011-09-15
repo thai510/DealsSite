@@ -95,8 +95,8 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.string   "company_logo_content_type"
     t.integer  "company_logo_file_size"
     t.datetime "company_logo_updated_at"
-    t.integer  "phone_number"
     t.string   "website"
+    t.string   "phone_number"
   end
 
   create_table "deal_builders", :force => true do |t|
