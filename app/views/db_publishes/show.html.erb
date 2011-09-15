@@ -58,12 +58,20 @@
   </div>
   <div class="rightPublishedDeal">
     <h3>Stats</h3>
-    <p>Vouchers Sold: 223</p>
+    <p>Vouchers Sold: dbvoucherssold</p>
     <% if(@db_publish.max_vouchers_to_sell > 0) then %>
-      <p>Vouchers Remaining: dbvoucherssold - dbvoucherstotal</p>
+      <p>Vouchers Remaining: dbvoucherstotal - dbvoucherssold</p>
     <% end %>
     <% if(@db_publish.length_of_deal > 0) then %>
-      <p>Time Left: 2:23</p>
+         <script>
+          $(document).ready(function() {
+          var endOfDeal = new Date();
+          var months = <%= j @db_publish.length_of_deal%>
+          endOfDeal = new Date(endOfDeal.getFullYear(),endOfDeal.getMonth() + months,endOfDeal.getDate());
+          $('#countdown').countdown({until:endOfDeal});
+          });
+        </script>
+        <div id='countdown'></div>
     <% end %>
   </div>
 <% unless current_user %>

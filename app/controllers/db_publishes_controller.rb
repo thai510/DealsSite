@@ -1,4 +1,5 @@
 class DbPublishesController < ApplicationController
+  before_filter :authorize, :except => :show
   # GET /db_publishes
   # GET /db_publishes.xml
   def index

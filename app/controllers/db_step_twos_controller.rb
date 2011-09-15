@@ -1,4 +1,6 @@
 class DbStepTwosController < ApplicationController
+  before_filter :admin_authorize , :except => [:new,:edit,:create,:update,:show]
+  helper_method :same_user?
   # GET /db_step_twos
   # GET /db_step_twos.xml
   def index
@@ -83,6 +85,12 @@ class DbStepTwosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(db_step_twos_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def same_user?(deal_builder_id)
+    unless DealBuilder.find(deal_builder_id).user_id == session[:users_id] || bool_admin_authorize
+      redirect_to home_url
     end
   end
 

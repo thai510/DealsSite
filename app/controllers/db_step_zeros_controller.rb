@@ -1,4 +1,6 @@
 class DbStepZerosController < ApplicationController
+  before_filter :admin_authorize , :except => [:new,:edit,:create,:update,:show]
+  helper_method :same_user?
   # GET /db_step_zeros
   # GET /db_step_zeros.xml
   def index
@@ -78,6 +80,12 @@ class DbStepZerosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(db_step_zeros_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def same_user?(db_step_zero_id)
+    unless DbStepZero.find(db_step_zero_id).user_id == session[:users_id] || bool_admin_authorize
+      redirect_to home_url
     end
   end
 end

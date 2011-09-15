@@ -1,5 +1,6 @@
 class DealBuildersController < ApplicationController
   before_filter :finished_step_zero?
+  helper_method :same_user?
   # GET /deal_builders
   # GET /deal_builders.xml
   def index
@@ -88,6 +89,12 @@ class DealBuildersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(deal_builders_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def same_user?(db_id)
+    unless DealBuilder.find(db_id).user_id == session[:users_id] || bool_admin_authorize
+      redirect_to home_url
     end
   end
 end

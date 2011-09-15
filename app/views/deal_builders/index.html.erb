@@ -17,16 +17,21 @@
     <% end %>
     <% else %>
       <td class="formTipLink"><%= link_to 'View Deal Page!', deal_builder.db_publish %></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+      <td class="formTipLink"><%= link_to 'Stop Deal!', deal_builder.db_publish, :method => :delete,:confirm => 'Are you sure?' %></td>
     <% end %>
     <td></td>
     <td></td>
     <td></td>
     <td></td>
-    <% if deal_builder.db_step_four %>
+    <% if deal_builder.db_step_four  && !deal_builder.db_publish%>
       <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
       <td>
       <td>
-    <% else %>
+    <% elsif !deal_builder.db_step_four%>
       <td class="formTipLink"><%= link_to 'Finish Deal!', edit_deal_builder_path(deal_builder) %></td>
       <td>
       <td>

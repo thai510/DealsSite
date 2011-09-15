@@ -1,8 +1,7 @@
 class ApplicationController < ActionController::Base
+  before_filter :authorize
   helper_method :current_user
-  helper_method :back_to_home
   helper_method :industries_for_new_user
-  helper_method :update_or_new_industry
   helper_method :bool_admin_authorize
   helper_method :bool_finished_step_zero?
   protect_from_forgery
@@ -68,7 +67,5 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
-
 
 end
