@@ -33,6 +33,7 @@
   <% else %>
   <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id %>
   <% end %>
+  <%= f.hidden_field :total_vouchers_sold, :value => 0 %>
   <div class="actions">
     <%= f.submit 'Publish!' %>
   </div>

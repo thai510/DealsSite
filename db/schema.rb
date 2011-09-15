@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110913200336) do
+ActiveRecord::Schema.define(:version => 20110915215728) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110913200336) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
+    t.integer  "total_vouchers_sold"
   end
 
   create_table "db_step_fours", :force => true do |t|
@@ -172,6 +173,27 @@ ActiveRecord::Schema.define(:version => 20110913200336) do
   create_table "marketing_plans", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "prev_publishes", :force => true do |t|
+    t.integer  "max_number_of_vouchers"
+    t.integer  "total_vouchers_sold"
+    t.datetime "start_of_deal"
+    t.text     "incentive_ideas"
+    t.string   "offer_title"
+    t.text     "offer_description"
+    t.integer  "offer_value"
+    t.integer  "offer_price"
+    t.text     "restrictions"
+    t.integer  "voucher_length"
+    t.text     "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "coupon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "review_entries", :force => true do |t|

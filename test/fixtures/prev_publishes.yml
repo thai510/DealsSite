@@ -1,0 +1,35 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  max_number_of_vouchers: 1
+  total_vouchers_sold: 1
+  start_of_deal: 2011-09-15 14:08:09
+  incentive_ideas: MyText
+  offer_title: MyString
+  offer_description: MyText
+  offer_value: 1
+  offer_price: 1
+  restrictions: MyText
+  voucher_length: 1
+  address: MyText
+  city: MyString
+  state: MyString
+  zip: 1
+  coupon: MyString
+
+two:
+  max_number_of_vouchers: 1
+  total_vouchers_sold: 1
+  start_of_deal: 2011-09-15 14:08:09
+  incentive_ideas: MyText
+  offer_title: MyString
+  offer_description: MyText
+  offer_value: 1
+  offer_price: 1
+  restrictions: MyText
+  voucher_length: 1
+  address: MyText
+  city: MyString
+  state: MyString
+  zip: 1
+  coupon: MyString

@@ -74,11 +74,27 @@ class DbPublishesController < ApplicationController
   # DELETE /db_publishes/1.xml
   def destroy
     @db_publish = DbPublish.find(params[:id])
-    @deal_builder_id = @db_publish.deal_builder_id
+    @current_db = DealBuilder.find(@db_publish.deal_builder_id)
+    @new_past_publish = PrevPublish.new do |pp|
+      pp.total_vouchers_sold = @db_publish.total_vouchers_sold
+      pp.max_number_of_vouchers = @db_publish.max_vouchers_to_sell
+      pp.start_of_deal = @db_publish.created_at
+      pp.offer_title = @current_db.db_step_one.offer_title
+      pp.offer_description = @current_db.db_step_one.offer_description
+      pp.offer_value = @current_db.db_step_one.offer_value
+      pp.offer_price = @current_db.db_step_one.offer_price
+      pp.coupon = @current_db.db_step_one.coupon 
+      pp.incentive_ideas = ''
+      @current_db.db_step_four.incentive_ideas.each do |incentive|
+        pp.incentive_ideas = pp.incentive_ideas + ' ' + incentive.description 
+      end
+      pp.user_id = session[:users_id]
+    end
+    @new_past_publish.save
     @db_publish.destroy
 
     respond_to do |format|
-      format.html { redirect_to(DealBuilder.find(@deal_builder_id)) }
+      format.html { redirect_to( @current_db ) }
       format.xml  { head :ok }
     end
   end

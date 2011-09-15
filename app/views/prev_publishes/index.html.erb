@@ -1,0 +1,51 @@
+<h1>Listing prev_publishes</h1>
+
+<table>
+  <tr>
+    <th>Max number of vouchers</th>
+    <th>Total vouchers sold</th>
+    <th>Start of deal</th>
+    <th>Incentive ideas</th>
+    <th>Offer title</th>
+    <th>Offer description</th>
+    <th>Offer value</th>
+    <th>Offer price</th>
+    <th>Restrictions</th>
+    <th>Voucher length</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Coupon</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @prev_publishes.each do |prev_publish| %>
+  <tr>
+    <td><%= prev_publish.max_number_of_vouchers %></td>
+    <td><%= prev_publish.total_vouchers_sold %></td>
+    <td><%= prev_publish.start_of_deal %></td>
+    <td><%= prev_publish.incentive_ideas %></td>
+    <td><%= prev_publish.offer_title %></td>
+    <td><%= prev_publish.offer_description %></td>
+    <td><%= prev_publish.offer_value %></td>
+    <td><%= prev_publish.offer_price %></td>
+    <td><%= prev_publish.restrictions %></td>
+    <td><%= prev_publish.voucher_length %></td>
+    <td><%= prev_publish.address %></td>
+    <td><%= prev_publish.city %></td>
+    <td><%= prev_publish.state %></td>
+    <td><%= prev_publish.zip %></td>
+    <td><%= prev_publish.coupon %></td>
+    <td><%= link_to 'Show', prev_publish %></td>
+    <td><%= link_to 'Edit', edit_prev_publish_path(prev_publish) %></td>
+    <td><%= link_to 'Destroy', prev_publish, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Prev publish', new_prev_publish_path %>
