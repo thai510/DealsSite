@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @private_deal_code.code %>
+</p>
+
+<p>
+  <b>Db publish:</b>
+  <%= @private_deal_code.db_publish_id %>
+</p>
+
+<p>
+  <b>Times used:</b>
+  <%= @private_deal_code.times_used %>
+</p>
+
+
+<%= link_to 'Edit', edit_private_deal_code_path(@private_deal_code) %> |
+<%= link_to 'Back', private_deal_codes_path %>

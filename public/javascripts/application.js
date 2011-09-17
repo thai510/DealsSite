@@ -220,6 +220,19 @@ function checkCoupon() {
       }
 }
 
+function checkFbShare() {
+  if ($('#db_step_four_fb_incentive').prop('checked')) {
+    $('#db_step_four_fb_incentive_text').rules("add",{required:true});
+    $('#db_step_four_fb_incentive_text').show();
+    $('label[for="db_step_four_fb_incentive_text"]').show(); 
+  }
+  else {
+    $('#db_step_four_fb_incentive_text').rules("remove");
+    $('textarea#db_step_four_fb_incentive_text').hide();
+    $('label[for="db_step_four_fb_incentive_text"]').hide(); 
+  }
+}
+
 //deal builder step 2 javascript
 //validations and tool tip generation
 $(document).ready(function () {
@@ -499,50 +512,42 @@ $(document).ready(function () {
   if($('#new_db_step_four').is(':visible') || $('.edit_db_step_four').is(':visible'))
   {
   $('.rightSideLayout').hide();
-  $('#incentive_ideas').hide();
   $('#optional_incentives').hide();
 
-  $('#db_step_four_incentive_idea_ids_').focus(function () {
-    $('#optional_incentives').hide();
-    $('#incentive_ideas').show();
-    $('.rightSideLayout').show();
-  });
-
-  $('#db_step_four_incentive_idea_ids_').live("click", function () {
-    $('#optional_incentives').hide();
-    $('#incentive_ideas').show();
-    $('.rightSideLayout').show();
-  });
+    $('#db_step_four_fb_incentive').live("click", function () {
+      checkFbShare();
+    });
 
   $('#db_step_four_optional_incentive').focus(function () {
-    $('#incentive_ideas').hide();
     $('#optional_incentives').show();
     $('.rightSideLayout').show();
   });
  
   $('#new_db_step_four').validate( {
      errorPlacement: function(error,element) {
-         error.appendTo(element.closest('tr').prev('tr').last('td'));
+       error.appendTo(element.closest("td").next('td'));
      },
     rules: {
-      "db_step_four[incentive_idea_ids][]":{required:true,minlength:1}
+      "db_step_four[fb_incentive_text]":{required:true}
     }, 
     messages : {
-      "db_step_four[incentive_idea_ids][]":{required:"",minlength:""}
+      "db_step_four[fb_incentive_text]":{required:""}
     }
   });
 
   $('.edit_db_step_four').validate( {
      errorPlacement: function(error,element) {
-         error.appendTo(element.closest('tr').prev('tr').last('td'));
+       error.appendTo(element.closest("td").next('td'));
      },
     rules: {
-      "db_step_four[incentive_idea_ids][]":{required:true,minlength:1}
+      "db_step_four[fb_incentive_text]":{required:true}
     }, 
     messages : {
-      "db_step_four[incentive_idea_ids][]":{required:"",minlength:""}
+      "db_step_four[fb_incentive_text]":{required:""}
     }
   });
+
+      checkFbShare();
   }
 });
 

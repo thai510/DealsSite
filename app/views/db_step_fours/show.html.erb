@@ -3,9 +3,9 @@
 
 <h1> The Incentives </h1>
 <div>
-  <b>Incentives Ideas:</b>
-  <% @db_step_four.incentive_ideas.each do |i_i| %>
-    <%= i_i.description %>
+  <% if @db_step_four.fb_incentive == 'yes' %>
+  <b>Facebook share incentive:</b>
+    <%= @db_step_four.fb_incentive_text %>
   <% end %>
 </div>
 <div>
@@ -15,5 +15,6 @@
 
 
 
-<%= link_to 'Edit', edit_db_step_four_path(@db_step_four) %> |
-<%= link_to 'Back', db_step_fours_path %>
+<% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
+  <%= link_to 'Edit', edit_db_step_four_path(@db_step_four, @db_step_four.deal_builder_id) %> 
+<% end %>

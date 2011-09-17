@@ -1,0 +1,24 @@
+<div class='leftSideLayout'>
+<h1>Active Codes for this Offer</h1>
+
+<table>
+  <tr>
+    <th>Code</th>
+    <th>Times used</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% DbPublish.find(params[:id]).private_deal_codes.each do |private_deal_code| %>
+  <tr>
+    <td><%= private_deal_code.code %></td>
+    <td><%= private_deal_code.times_used %></td>
+    <td style='text-align:right;'><%= link_to 'Remove', private_deal_code, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+</div>
+<div class='rightSideLayout'>
+  <%= render 'form', :object => (@private_deal_code = PrivateDealCode.new) %>
+</div>

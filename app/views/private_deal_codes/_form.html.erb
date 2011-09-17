@@ -1,0 +1,20 @@
+<%= form_for(@private_deal_code) do |f| %>
+  <% if @private_deal_code.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@private_deal_code.errors.count, "error") %> prohibited this private_deal_code from being saved:</h2>
+
+      <ul>
+      <% @private_deal_code.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <%= f.hidden_field :code ,:value => ActiveSupport::SecureRandom.hex(6)%>
+    <%= f.hidden_field :db_publish_id, :value => params[:id] %>
+    <%= f.hidden_field :times_used,:value => 0 %>
+  <div class="actions">
+    <%= f.submit 'Generate Code' %>
+  </div>
+<% end %>

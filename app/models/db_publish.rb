@@ -1,5 +1,6 @@
 class DbPublish < ActiveRecord::Base
   belongs_to :deal_builder
+  has_many :private_deal_codes, :dependent => :destroy
   
   
   validates :max_vouchers_to_sell, :length_of_deal,:presence => true

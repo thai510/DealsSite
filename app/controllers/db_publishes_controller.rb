@@ -1,5 +1,6 @@
 class DbPublishesController < ApplicationController
   before_filter :authorize, :except => :show
+  helper_method :show_private_deal
   # GET /db_publishes
   # GET /db_publishes.xml
   def index
@@ -84,10 +85,6 @@ class DbPublishesController < ApplicationController
       pp.offer_value = @current_db.db_step_one.offer_value
       pp.offer_price = @current_db.db_step_one.offer_price
       pp.coupon = @current_db.db_step_one.coupon 
-      pp.incentive_ideas = ''
-      @current_db.db_step_four.incentive_ideas.each do |incentive|
-        pp.incentive_ideas = pp.incentive_ideas + ' ' + incentive.description 
-      end
       pp.user_id = session[:users_id]
     end
     @new_past_publish.save
@@ -97,5 +94,17 @@ class DbPublishesController < ApplicationController
       format.html { redirect_to( @current_db ) }
       format.xml  { head :ok }
     end
+  end
+
+  def show_private_deal(db_publish_id)
+    unless User.find(DealBuilder.find(DbPublish.find(db_publish_id).deal_builder_id).user_id)  == current_user || bool_admin_authorize 
+       if session[:pdc]
+        if PrivateDealCode.find_by_code(session[:pdc]).db_publish_id == db_publish_id 
+         return true
+        end
+       end
+      redirect_to private_url,:notice => 'Offer requires code to access'
+    end
+    return true
   end
 end

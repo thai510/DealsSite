@@ -1,7 +1,7 @@
 <% same_user?(@db_step_two.deal_builder_id) %>
 <p id="notice"><%= notice %></p>
 
-<h1>When and Where</h1>
+<h1>The Where</h1>
 <div>
   <b>Locations serving Offer</b>
   <% @db_step_two.locations.each do |loc| %>
@@ -15,5 +15,6 @@
 </div>
 
 
-<%= link_to 'Edit', edit_db_step_two_path(@db_step_two) %> |
-<%= link_to 'Back', db_step_twos_path %>
+<% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
+  <%= link_to 'Edit', edit_db_step_two_path(@db_step_two, :db_id => @db_step_two.deal_builder_id) %> |
+<% end %>

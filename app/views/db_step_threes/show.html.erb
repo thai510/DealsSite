@@ -18,5 +18,6 @@
 </div>
 
 
-<%= link_to 'Edit', edit_db_step_three_path(@db_step_three) %> |
-<%= link_to 'Back', db_step_threes_path %>
+<% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
+  <%= link_to 'Edit', edit_db_step_three_path(@db_step_three, :db_id => @db_step_three.deal_builder_id) %> 
+<% end %>

@@ -1,0 +1,2 @@
+module PrivateDealSessionHelper
+end

@@ -12,13 +12,18 @@
   <% end %>
 <div class="leftSideLayout">
   <table class="dealBuilder">
-    <tr><td class="dealBuilderLabelCBox" style="color:#8cc63f;font-weight:bold;">Ideas For Incentives:</td><td></td></tr>
-         <% IncentiveIdea.all.each do |i_i| %>
-    <tr><td class="dealBuilderFieldCBox"><%= check_box_tag  'db_step_four[incentive_idea_ids][]',i_i.id,@db_step_four.incentive_ideas.include?(i_i) %>
-         <%= i_i.description %></td></tr>
-         <% end %>
     <tr>
-      <td style="padding-top:20px"><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
+    <td><div style='display:inline;'><%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
+    </div></td>
+    </tr>
+    <tr>
+    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '30x2',:placeholder => 'Type the incentive here....' %></td>
+    <td></td>
+  </tr>
+  <tr><td></td></tr>
+
+    <tr>
+      <td class="dealBuilderField"style="padding-top:20px"><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
     </tr>
   </table>
     <% unless @deal_builder_id %>

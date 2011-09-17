@@ -32,5 +32,6 @@ This is a coupon
 </div>
 <% end %>
 
-
-<%= link_to 'Edit', edit_db_step_one_path(@db_step_one) %> |
+<% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
+  <%= link_to 'Edit', edit_db_step_one_path(@db_step_one, :db_id => @db_step_one.deal_builder_id) %> |
+<% end %>

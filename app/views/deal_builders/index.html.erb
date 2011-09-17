@@ -1,6 +1,6 @@
 <div class="leftSideLayout">
       <table>
-       <th><tr>Deals</tr></th>
+       <th><tr>Deals to finish</tr></th>
 <% current_user.deal_builders.each do |deal_builder| %>
     <% unless deal_builder.db_publish %>
      <tr>
@@ -12,21 +12,18 @@
     <% elsif !deal_builder.db_step_four%>
       <td class="formTipLink"><%= link_to 'Finish Deal!', edit_deal_builder_path(deal_builder) %></td>
     <% end %>
-    </tr>
-    <% else %>
-    <tr>
-        <td><%= deal_builder.db_step_one.offer_title %></td>
-      <td class="formTipLink"><%= link_to 'View Deal Page!', deal_builder.db_publish %></td>
-      <td class="formTipLink"><%= link_to 'Stop Deal!', deal_builder.db_publish, :method => :delete,:confirm => 'Are you sure?' %></td>
-    <td class="formTipLink"><%= link_to 'Delete', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
-     </tr> 
     <% end %>
 <% end %>
-      </table>
-      </div>
+    </tr>
+</table>
+</div>
+
 <div class='rightSideLayout'>
   <table>
-    <th>Your Past Published Deals</th>
+      <th>Your Past Published Deals</th>
+    <% unless current_user.prev_publishes %>
+      <tr><td>None at the moment</td></tr>
+    <% end %>
     <% current_user.prev_publishes.each do |pp| %>
       <tr>
         <td class='formTipLink'><%=link_to pp.offer_title, pp%></td>
@@ -36,3 +33,24 @@
     <% end %> 
   </table>
 </div>
+
+  <div class="leftSideLayout">
+      <table>
+       <th><tr> Live Deals</tr></th>
+       <% @a_db_publish = 0 %>
+    <% current_user.deal_builders.each do |deal_builder| %>
+     <% if deal_builder.db_publish %>
+       <tr>
+          <td><%= deal_builder.db_step_one.offer_title %></td>
+          <td class="formTipLink"><%= link_to 'View Deal!', deal_builder %></td>
+          <td class="formTipLink"><%= link_to 'Stop Deal!', deal_builder.db_publish, :method => :delete,:confirm => 'Are you sure?' %></td>
+          <td class="formTipLink"><%= link_to 'Delete', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
+       </tr> 
+       <% @a_db_publish = 1 %>
+     <% end %>
+    <% end %>
+      <% if @a_db_publish == 0 %>
+        <tr><td style='text-align:center;'>No live deals at the moment</td></tr>
+      <% end %>
+      </table>
+      </div>

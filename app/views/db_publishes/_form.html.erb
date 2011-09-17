@@ -28,6 +28,12 @@
   <tr><td></td></tr>
   </table>
 
+  <table>
+  <tr>
+    <td><div style='display:inline;margin-left:20px;'>Publish as private offer?<%= check_box(:db_publish,:private_deal,{},'yes','no') %></div></td>
+  </tr>
+  </table>
+
   <% unless @deal_builder_id %>
   <%= f.hidden_field :deal_builder_id, :value => params[:db_id] %>
   <% else %>

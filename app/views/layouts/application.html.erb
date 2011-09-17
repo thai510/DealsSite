@@ -16,18 +16,17 @@
     <%= yield :rightlayout%>
   <% else %>
     <div id="layoutbanner">
-         <div class="bannerlogo">
-         <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
-         </div>
-         <div class="bannerslogan">
-         <%= image_tag("theme/smallbannercroppedslogan.png") %>
-         </div>
-         <div class="bannerbuttonscontainer">
-           <div class="bannerbuttons">
-             <%= button_to "Logout", logout_path, :method => :delete %>
+        <div class="rightLinks">
+           <div class="blueGreenLink">
+             <%= link_to "Settings", edit_user_path(session[:users_id])%>
            </div>
-           <div class="bannerbuttons">
-             <%= button_to "Settings", edit_user_path(session[:users_id]), :method => :get%>
+           <div class="blueGreenLink">
+             <%= link_to "Logout", logout_path, :method => :delete %>
+           </div>
+        </div>
+        <div class="leftLinks">
+           <div class="bannerlogo">
+            <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
            </div>
            <div class="blueGreenLink">
              <b><%= link_to 'New Offer', new_deal_builder_path %></b>

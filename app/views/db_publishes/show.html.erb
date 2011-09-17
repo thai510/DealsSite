@@ -1,10 +1,10 @@
+<% if @db_publish.private_deal == 'yes'%> 
+  <% show_private_deal(@db_publish.id) %>
+<% end %>
 <% unless current_user %>
  <div id="layoutbanner">
          <div class="bannerlogo">
          <%= link_to image_tag("theme/smallbannercroppedlogo.png"),login_index_path %>
-         </div>
-         <div class="bannerslogan">
-         <%= image_tag("theme/smallbannercroppedslogan.png") %>
          </div>
 </div>
 <div id='content'>
@@ -16,6 +16,9 @@
     <h2><%= @one.offer_title %></h2>
     <% if(@one.coupon == 'no') then %>
       <h3>$<%= @one.offer_value %> value for $<%= @one.offer_price %></h3>
+        <% if @db_publish.private_deal == 'yes' && !current_user%>
+          <h3><%= link_to 'Purchase',private_path, :method => :delete%></h3>
+        <% end %>
     <% else %>
       <h3>Redeem this coupon today</h3>
     <% end %>
@@ -26,9 +29,10 @@
     <hr />
     <h2>Incentives</h2>
     <% @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four %>
-    <% @four.incentive_ideas.each do |incentive| %>
-      <p><%= incentive.description %></p>
-    <% end %>   
+    <% if @four.fb_incentive == 'yes' %>
+      <p>This deal has a facebook sharing incentive and here it is:
+        <%= @four.fb_incentive_text %>
+    <% end %>
     <p><%= @four.optional_incentive %></p>
     
     <hr />

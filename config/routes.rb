@@ -1,4 +1,6 @@
 LocalAdResource::Application.routes.draw do
+  resources :private_deal_codes
+
   resources :prev_publishes
 
   resources :db_publishes
@@ -17,13 +19,9 @@ LocalAdResource::Application.routes.draw do
 
   resources :locations
 
-  resources :incentive_ideas
-
   resources :industry_restrictions
 
   resources :standard_restrictions
-
-  resources :subindustries
 
   resources :industries
 
@@ -36,16 +34,17 @@ LocalAdResource::Application.routes.draw do
   post "login/index" => :create
   delete "logout" => :destroy
   end
+  
+  controller :private_deal_session do
+    post "private" => :create
+    delete "private" => :destroy
+  end
 
   get "login/index"
 
   match 'users/check_email', :to => 'users#check_email', :as => 'users/check_email'
+  match 'private', :to => 'private#index', :as => 'private'
   resources :users
-  #resources :sessions
-
-  #for jquery check of email uniqueness for new users
-  #still have to figure it out
-  #match 'users/check_email' => "users#check_email"
 
   get "sign_up/index"
 
@@ -102,6 +101,7 @@ LocalAdResource::Application.routes.draw do
   get "contact/about_us"
 
   get "contact/blog"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

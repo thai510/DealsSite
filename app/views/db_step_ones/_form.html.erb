@@ -17,17 +17,16 @@
 <table id="dealBuilder">
 
 
-
   <tr>
-    <td class="dealBuilderLabel" id="offer_description_label"><%= f.label :offer_description, "Offer Description" %></td>
-    <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
+    <td class="dealBuilderLabel" id="offer_title_label"><%= f.label :offer_title, "Offer Title" %></td>
+    <td class="dealBuilderField"><%= f.text_field :offer_title %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td class="dealBuilderLabel" id="offer_title_label"><%= f.label :offer_title, "Offer Title" %></td>
-    <td class="dealBuilderField"><%= f.text_field :offer_title %></td>
+    <td class="dealBuilderLabel" id="offer_description_label"><%= f.label :offer_description, "Offer Description" %></td>
+    <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>

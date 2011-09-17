@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110915215728) do
+ActiveRecord::Schema.define(:version => 20110916215237) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
     t.integer  "total_vouchers_sold"
+    t.string   "private_deal"
   end
 
   create_table "db_step_fours", :force => true do |t|
@@ -36,15 +37,9 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "deal_builder_id"
+    t.string   "fb_incentive"
+    t.text     "fb_incentive_text"
   end
-
-  create_table "db_step_fours_incentive_ideas", :id => false, :force => true do |t|
-    t.integer "db_step_four_id"
-    t.integer "incentive_idea_id"
-  end
-
-  add_index "db_step_fours_incentive_ideas", ["db_step_four_id", "incentive_idea_id"], :name => "db_four_incentive_ideas", :unique => true
-  add_index "db_step_fours_incentive_ideas", ["incentive_idea_id", "db_step_four_id"], :name => "incentive_ideas_db_four", :unique => true
 
   create_table "db_step_ones", :force => true do |t|
     t.string   "offer_title"
@@ -53,12 +48,12 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.text     "offer_description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "deal_builder_id"
     t.string   "offer_photo_file_name"
     t.string   "offer_photo_content_type"
     t.integer  "offer_photo_file_size"
     t.datetime "offer_photo_updated_at"
     t.string   "coupon"
+    t.integer  "deal_builder_id"
   end
 
   create_table "db_step_threes", :force => true do |t|
@@ -119,13 +114,6 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
   end
 
   create_table "form_tips", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "incentive_ideas", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
@@ -196,6 +184,14 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.integer  "user_id"
   end
 
+  create_table "private_deal_codes", :force => true do |t|
+    t.string   "code"
+    t.integer  "db_publish_id"
+    t.integer  "times_used"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "review_entries", :force => true do |t|
     t.string   "service"
     t.text     "content"
@@ -221,22 +217,6 @@ ActiveRecord::Schema.define(:version => 20110915215728) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "subindustries", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "industry_id"
-  end
-
-  create_table "subindustries_users", :id => false, :force => true do |t|
-    t.integer "subindustry_id"
-    t.integer "user_id"
-  end
-
-  add_index "subindustries_users", ["subindustry_id", "user_id"], :name => "index_subindustries_users_on_subindustry_id_and_user_id"
-  add_index "subindustries_users", ["user_id", "subindustry_id"], :name => "index_subindustries_users_on_user_id_and_subindustry_id"
 
   create_table "tutorials", :force => true do |t|
     t.datetime "created_at"
