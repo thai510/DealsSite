@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-    <%= f.hidden_field :code ,:value => ActiveSupport::SecureRandom.hex(6)%>
+    <%= f.hidden_field :code ,:value => get_new_private_code%>
     <%= f.hidden_field :db_publish_id, :value => params[:id] %>
     <%= f.hidden_field :times_used,:value => 0 %>
   <div class="actions">

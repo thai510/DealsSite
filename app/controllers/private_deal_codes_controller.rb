@@ -1,4 +1,6 @@
 class PrivateDealCodesController < ApplicationController
+
+  helper_method :get_new_private_code
   # GET /private_deal_codes
   # GET /private_deal_codes.xml
   def index
@@ -81,5 +83,13 @@ class PrivateDealCodesController < ApplicationController
       format.html { redirect_to(private_deal_codes_url(:id => @db_publish_id)) }
       format.xml  { head :ok }
     end
+  end
+
+  def get_new_private_code
+    @pCode = ActiveSupport::SecureRandom.hex(6)
+      until PrivateDealCode.find_by_code(@pCode).nil?
+        @pCode = ActiveSupport::SecureRandom.hex(6)
+      end
+      return @pCode
   end
 end
