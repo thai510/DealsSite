@@ -48,15 +48,15 @@
     <%= f.submit 'Forward' %>
   </div>
 </div>
-<div class="rightSideLayout">
+<div class="rightSideLayout" style='display:none'>
   <table class="stepThreeTips">
-    <tr id="standard_restrictions"> 
+    <tr id="standard_restrictions" style='display:none'> 
       <td><%=FormTip.find_by_title("standard restrictions").description%></td>
     </tr>
-    <tr id="voucher_length"> 
+    <tr id="voucher_length" style='display:none'> 
       <td><%=FormTip.find_by_title("voucher length").description%></td>
     </tr>
-    <tr id="optional_restrictions"> 
+    <tr id="optional_restrictions" style='display:none'> 
       <td><%=FormTip.find_by_title("optional restrictions").description%></td>
     </tr>
   

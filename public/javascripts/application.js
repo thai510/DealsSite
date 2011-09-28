@@ -48,16 +48,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   if($('#new_db_step_one').is(':visible') || $('.edit_db_step_one').is(':visible'))
   {
-    $('.rightSideLayout').hide();
-    $('#additionalRSL').hide();
-    $('#offer_title').hide();
-    $('#offer_photo').hide();
-    $('#offer_value').hide();
-    $('#offer_price').hide();
-    $('#offer_description').hide();
-    $('#additional_offer_description').hide();
-
-
 
     $('#db_step_one_offer_title').focus( function ()  {
       $('#offer_photo').hide();
@@ -391,10 +381,6 @@ function removeZips(){
 $(document).ready(function () {
   if($('#new_db_step_three').is(':visible') || $('.edit_db_step_three').is(':visible'))
   {
-  $('.rightSideLayout').hide();
-  $('#standard_restrictions').hide();
-  $('#optional_restrictions').hide();
-  $('#voucher_length').hide();
 
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
     $('.rightSideLayout').show();
@@ -511,8 +497,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   if($('#new_db_step_four').is(':visible') || $('.edit_db_step_four').is(':visible'))
   {
-  $('.rightSideLayout').hide();
-  $('#optional_incentives').hide();
 
     $('#db_step_four_fb_incentive').live("click", function () {
       checkFbShare();
@@ -521,6 +505,11 @@ $(document).ready(function () {
   $('#db_step_four_optional_incentive').focus(function () {
     $('#optional_incentives').show();
     $('.rightSideLayout').show();
+  });
+
+  $('#db_step_four_optional_incentive').focusout(function () {
+    $('#optional_incentives').hide();
+    $('.rightSideLayout').hide();
   });
  
   $('#new_db_step_four').validate( {

@@ -41,12 +41,9 @@
     <%= f.submit 'Complete Offer!' %>
   </div>
 </div>
-<div class="rightSideLayout">
+<div class="rightSideLayout" style='display:none'>
   <table class="stepFourTips">
-    <tr id="incentive_ideas">
-      <td><%=FormTip.find_by_title("incentive ideas").description%></td>
-    </td>
-    <tr id="optional_incentives">
+    <tr id="optional_incentives" style='display:none'>
       <td><%=FormTip.find_by_title("optional incentives").description%></td>
     </td>
   </table>

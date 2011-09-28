@@ -61,28 +61,28 @@
     <%= f.submit 'Forward'%>
   </div>
 </div>
-<div class="rightSideLayout">
+<div class="rightSideLayout" style='display:none'>
   <table class="stepOneTips">
-    <tr id="offer_title"> 
+    <tr id="offer_title" style='display:none'> 
       <td><%=FormTip.find_by_title("offer title").description %></td>
     </tr>
-    <tr id="offer_photo"> 
+    <tr id="offer_photo" style='display:none'> 
       <td><%=FormTip.find_by_title("offer photo").description %></td>
     </tr>
-    <tr id="offer_value"> 
+    <tr id="offer_value" style='display:none'> 
       <td><%=FormTip.find_by_title("offer value").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
-    <tr id="offer_price"> 
+    <tr id="offer_price" style='display:none'> 
       <td><%=FormTip.find_by_title("offer price").description %></td>
     </tr>
-    <tr id="offer_description"> 
+    <tr id="offer_description" style='display:none'> 
       <td><%=FormTip.find_by_title("offer description").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
 </table>
 </div>
-<div class="rightSideLayout" id='additionalRSL'>
+<div class="rightSideLayout" id='additionalRSL' style='display:none'>
    <table class='stepOneTips'>
-    <tr id="additional_offer_description"> 
+    <tr id="additional_offer_description" style='display:none'> 
       <td><%=FormTip.find_by_title("additional offer description").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
    </table>

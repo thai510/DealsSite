@@ -1,3 +1,13 @@
+<head>
+  <% @user_id = User.find(DealBuilder.find(@db_publish.deal_builder_id).user_id) %>
+  <% @one = DealBuilder.find(@db_publish.deal_builder_id).db_step_one %>
+  <% @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four %>
+  <% @three = DealBuilder.find(@db_publish.deal_builder_id).db_step_three %>
+<meta property="og:title" content=<%= @one.offer_title%> />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= @one.offer_description %>" />
+<meta property="og:site_name" content="Offer Glass" />
+</head>
 <% if @db_publish.private_deal == 'yes'%> 
   <% show_private_deal(@db_publish.id) %>
 <% end %>
@@ -10,9 +20,7 @@
 <div id='content'>
   <div id='rightlayout'>  
 <% end %>
-  <% @user_id = User.find(DealBuilder.find(@db_publish.deal_builder_id).user_id) %>
   <div class="leftPublishedDeal">
-    <% @one = DealBuilder.find(@db_publish.deal_builder_id).db_step_one %>
     <h2><%= @one.offer_title %></h2>
     <% if(@one.coupon == 'no') then %>
       <h3>$<%= @one.offer_value %> value for $<%= @one.offer_price %></h3>
@@ -26,9 +34,18 @@
     <% if(@one.offer_photo.exists? == true) then %>
       <%= image_tag @one.offer_photo.url(:medium) %>
     <% end %>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));</script>
+
+<div class="fb-like" data-href="http://fierce-fog-451.heroku.com/db_publishes/50" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>
     <hr />
     <h2>Incentives</h2>
-    <% @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four %>
     <% if @four.fb_incentive == 'yes' %>
       <p>This deal has a facebook sharing incentive and here it is:
         <%= @four.fb_incentive_text %>
@@ -37,7 +54,6 @@
     
     <hr />
     <h2>Restrictions</h2>
-    <% @three = DealBuilder.find(@db_publish.deal_builder_id).db_step_three %>
     <% @three.standard_restrictions.each do |restriction| %>
       <p><%= restriction.description %></p>
     <% end %>
