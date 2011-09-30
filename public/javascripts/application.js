@@ -703,4 +703,19 @@ $(document).ready(function () {
   }
 });
 
+var newWindowSize = 'width=600,height=400,scrollbars=yes'
+function openNewWindow(url,windowName)
+{
+  window.open(url,windowName,newWindowSize);
+}
+$(document).ready( function() {
+  $('a.linkToNewWindow').live("click", function (event) {
+    var link = $(this).attr('href');
 
+    var windowName = 'offerglass.com';
+
+    window.open(link,windowName,newWindowSize);
+
+    event.preventDefault();
+  });
+});

@@ -38,6 +38,41 @@
         <%= @four.fb_incentive_text %>
     <% end %>
     <p><%= @four.optional_incentive %></p>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+ window.fbAsyncInit = function() {
+ FB.init({
+
+    status : true, // check login status
+    cookie : true, // enable cookies to allow the server to access the session
+    xfbml  : true  // parse XFBML
+  });
+
+FB.Event.subscribe('edge.create', function(response) {
+var $dialog = $('<div></div>')
+		.html('Use the code below at checkout to unlock the facebook incentive<br /><br /><h1><%=ActiveSupport::SecureRandom.hex(3)%>')
+		.dialog({
+			autoOpen: false,
+                        position:[350,100],
+                        resizable:false,
+			title: 'Thanks for Sharing!',
+		});
+$dialog.dialog('open');
+});
+
+}
+</script>
+
+<div class="fb-like" data-href="google.com" data-send="false" data-layout="button_count" data-show-faces="false"></div>
+<div class='twshare left'>
+    <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="offerglass">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+  </div>
     
     <hr />
     <h2>Restrictions</h2>
