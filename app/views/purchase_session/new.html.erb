@@ -1,0 +1,12 @@
+<% unless current_user %>
+ <div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= link_to image_tag("theme/smallbannercroppedlogo.png"),login_index_path %>
+         </div>
+</div>
+<div class='leftSideLayout'>
+<p>This is where paypal will go</p>
+  <%= render 'vouchers/form', :object => (@db_publish_id = params[:id]),
+                              :object => (@voucher = Voucher.new) %>
+<% end %>
+</div>

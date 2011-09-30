@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
    has_and_belongs_to_many :industries
    has_and_belongs_to_many :subindustries
-   has_many :deal_builders
-   has_many :prev_publishes
+   has_many :deal_builders, :dependent => :destroy
+   has_many :prev_publishes, :dependent => :destroy
+   has_many :vouchers, :dependent => :destroy
    has_one :db_step_zero, :dependent => :destroy
    has_attached_file :logo, :styles => { :medium => "300x300",
                                          :thumb => "100x100" }

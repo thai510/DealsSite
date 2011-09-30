@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110916215237) do
+ActiveRecord::Schema.define(:version => 20110929191045) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -237,6 +237,27 @@ ActiveRecord::Schema.define(:version => 20110916215237) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+  end
+
+  create_table "vouchers", :force => true do |t|
+    t.string   "code"
+    t.integer  "user_id"
+    t.string   "redeemed"
+    t.string   "offer_title"
+    t.text     "offer_description"
+    t.integer  "offer_price"
+    t.integer  "offer_value"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.string   "all_locations"
+    t.text     "restrictions"
+    t.integer  "voucher_length"
+    t.text     "incentives"
+    t.string   "customer_email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

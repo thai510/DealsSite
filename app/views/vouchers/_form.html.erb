@@ -1,0 +1,49 @@
+<%= form_for(@voucher) do |f| %>
+  <% if @voucher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@voucher.errors.count, "error") %> prohibited this voucher from being saved:</h2>
+
+      <ul>
+      <% @voucher.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <% @one = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_one %>
+   <% @two = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_two %>
+   <% @three = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_three %>
+   <% @four = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_four %>
+   <% @restrictions = String.new %>
+   <% @incentives = String.new %>
+
+    <%= f.hidden_field :code, :value => get_new_voucher_code%>
+    <%= f.hidden_field :user_id, :value => DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).user_id %>
+    <%= f.hidden_field :redeemed ,:value => 'no'%>
+    <%= f.hidden_field :offer_title, :value => @one.offer_title %>
+    <%= f.hidden_field :offer_description, :value => @one.offer_description %>
+    <%= f.hidden_field :offer_price,:value => @one.offer_price %>
+    <%= f.hidden_field :offer_value, :value => @one.offer_value %>
+    <%= f.hidden_field :address, :value => @two.locations[0].address %>
+    <%= f.hidden_field :city, :value => @two.locations[0].city %>
+    <%= f.hidden_field :state,:value => @two.locations[0].state %>
+    <%= f.hidden_field :zip, :value => @two.locations[0].zip %>
+    <%= f.hidden_field :all_locations, :value => @two.include_all %>
+      <% @three.standard_restrictions.each do |s_r| %>
+        <% @restrictions += s_r.description + ' ' %>
+      <% end %>
+        <% @restrictions += @three.optional_restriction %>
+      
+    <%= f.hidden_field :restrictions, :value => @restrictions %>
+    <%= f.hidden_field :voucher_length,:value => @three.voucher_length %>
+    <%= f.hidden_field :incentives, :value => @four.optional_incentive %>
+      
+  <div class="field">
+    <%= f.label :customer_email %><br />
+    <%= f.text_field :customer_email %>
+  </div>
+  <div class="actions">
+    <%= f.submit 'Complete Purchase', :confirm => 'Are you sure?'%>
+  </div>
+<% end %>

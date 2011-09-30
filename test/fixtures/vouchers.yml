@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  code: MyString
+  user_id: 1
+  redeemed: MyString
+  offer_title: MyString
+  offer_description: MyText
+  offer_price: 1
+  offer_value: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  all_locations: MyString
+  restrictions: MyText
+  voucher_length: 1
+  incentives: MyText
+  customer_email: MyString
+
+two:
+  code: MyString
+  user_id: 1
+  redeemed: MyString
+  offer_title: MyString
+  offer_description: MyText
+  offer_price: 1
+  offer_value: 1
+  address: MyString
+  city: MyString
+  state: MyString
+  zip: 1
+  all_locations: MyString
+  restrictions: MyText
+  voucher_length: 1
+  incentives: MyText
+  customer_email: MyString

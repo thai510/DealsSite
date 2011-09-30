@@ -1,0 +1,48 @@
+<% unless current_user %>
+ <div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= link_to image_tag("theme/smallbannercroppedlogo.png"),login_index_path %>
+         </div>
+</div>
+<div class='purchasedVoucher'> 
+  <h1>Thank you for your Purchase!</h1>
+  <h2><b>Your Voucher Code:</b>
+  <%= @voucher.code %></h2>
+  <div style='font-size:x-small;'>
+  <b>Offer description:</b>
+  <%= @voucher.offer_description %>
+
+  <b>Offer price:</b>
+  <%= @voucher.offer_price %>
+
+  <b>Offer value:</b>
+  <%= @voucher.offer_value %>
+
+  <% if @voucher.all_locations == 'yes' %>
+     Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucer.user_id).business_name %> locations
+  <% else %>
+     <br />
+     Offer can only be redeemed at<br />
+  <%= @voucher.address %>,
+  <%= @voucher.city %><br />
+  <%= @voucher.state %>
+  <%= @voucher.zip %></br />
+  <% end %>
+
+  <b>Restrictions:</b>
+  <%= @voucher.restrictions %>
+  <%= @voucherCreatedAt = Date.parse(@voucher.created_at.to_s) %>
+  This voucher is good until <%= @voucherCreatedAt >> @voucher.voucher_length %>
+
+  <% if @voucher.incentives.size > 0 %>
+  <b>Incentives:</b>
+  <%= @voucher.incentives %>
+  <% end %>
+
+<p>
+  We will also send this voucher to <%= @voucher.customer_email %>
+</p>
+</div>
+
+</div>
+<% end %>

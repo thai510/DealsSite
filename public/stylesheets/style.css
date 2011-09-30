@@ -24,6 +24,7 @@ body {
   background-image:url('/images/theme/Golden_Gate_Sunset.jpg');
   background-repeat:no-repeat;
   background-position:center;
+  background-attachment:fixed;
 }
 
 hr {
@@ -1264,6 +1265,9 @@ div.blueGreenLink {
   text-align:left;
 }
 
+div.oneVoucher div.blueGreenLink {
+}
+
 #layoutbanner div.blueGreenLink {
   padding:5px 5px 5px 5px;
 }
@@ -1343,6 +1347,21 @@ div.rightPublishedDeal {
 
 }
 
+div.oneVoucher {
+  width:850px;
+  background:black;
+  color:white;
+  filter: alpha(opacity=83);
+  -moz-opacity: 0.83;
+  opacity: 0.83;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: 8px 8px 8px black;
+  -webkit-box-shadow: 8px 8px 8px black;
+  box-shadow: 8px 8px 8px black;
+  
+}
+
 div.privateCodeBackground {
   width:260px;
   margin:100px auto;
@@ -1364,4 +1383,28 @@ div.privateCodeFieldsSpace {
 
 div.privateCodeFields {
   padding:12px 10px 5px 25px;
+}
+
+div.purchasedVoucher {
+  background:white;
+  color:black;
+  text-align:center;
+  width:650;
+  margin-left:150px;
+  margin-right:150px;
+  padding-top:50px;
+  margin-top:50px;
+  filter: alpha(opacity=83);
+  -moz-opacity: 0.83;
+  opacity: 0.83;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+  -moz-box-shadow: 8px 8px 8px black;
+  -webkit-box-shadow: 8px 8px 8px black;
+  box-shadow: 8px 8px 8px black;
+}
+
+div.voucherIndexField  {
+  padding-left:15px;
+  display:inline;
 }

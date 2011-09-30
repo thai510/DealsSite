@@ -1,0 +1,2 @@
+module PurchaseSessionHelper
+end

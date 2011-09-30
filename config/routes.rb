@@ -1,4 +1,12 @@
 LocalAdResource::Application.routes.draw do
+  get "purchase_session/new"
+
+  get "purchase_session/create"
+
+  get "purchase_session/destroy"
+
+  resources :vouchers
+
   resources :private_deal_codes
 
   resources :prev_publishes
