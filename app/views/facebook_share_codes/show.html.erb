@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Code:</b>
+  <%= @facebook_share_code.code %>
+</p>
+
+<p>
+  <b>Db publish:</b>
+  <%= @facebook_share_code.db_publish_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_facebook_share_code_path(@facebook_share_code) %> |
+<%= link_to 'Back', facebook_share_codes_path %>

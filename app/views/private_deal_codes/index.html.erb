@@ -14,11 +14,13 @@
   <tr>
     <td><%= private_deal_code.code %></td>
     <td><%= private_deal_code.times_used %></td>
-    <td style='text-align:right;'><%= link_to 'Remove', private_deal_code, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td style='text-align:right;' class='formTipLink'><%= link_to 'Remove', private_deal_code, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 </div>
 <div class='rightSideLayout'>
+  <div style='padding:10px;'>
   <%= render 'form', :object => (@private_deal_code = PrivateDealCode.new) %>
+</div>
 </div>

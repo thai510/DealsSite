@@ -16,5 +16,5 @@
 
 
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
-  <%= link_to 'Edit', edit_db_step_four_path(@db_step_four, @db_step_four.deal_builder_id) %> 
+  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'Edit', edit_db_step_four_path(@db_step_four, @db_step_four.deal_builder_id) %></div> 
 <% end %>

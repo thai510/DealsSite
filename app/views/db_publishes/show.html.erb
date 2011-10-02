@@ -55,22 +55,24 @@
   });
 
 FB.Event.subscribe('edge.create', function(response) {
+var code = '<%= j checkAndCreateFBShareCode %>'
 var $dialog = $('<div></div>')
-		.html('Use the code below at checkout to unlock the facebook incentive<br /><br /><h1><%=ActiveSupport::SecureRandom.hex(3)%>')
+		.html('Use the code below at checkout to unlock the facebook incentive<br /><br /><h1>' + code)
 		.dialog({
 			autoOpen: false,
                         position:[350,100],
                         resizable:false,
 			title: 'Thanks for Sharing!',
 		});
-$dialog.dialog('open');
+if(code != 'false') {
+  $dialog.dialog('open');
+}
 });
 
 }
 </script>
-
-<div class="fb-like" data-href="google.com" data-send="false" data-layout="button_count" data-show-faces="false"></div>
-<div class='twshare left'>
+<div class="fb-like" data-href="google.com" data-send="false" data-layout="button_count" data-show-faces="false" style='float:right; padding-left:5px;'></div>
+<div class='twshare left'style='text-align:right;'>
     <a href="http://twitter.com/share" class="twitter-share-button" data-count="none" data-via="offerglass">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
   </div>
     

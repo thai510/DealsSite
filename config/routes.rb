@@ -1,4 +1,6 @@
 LocalAdResource::Application.routes.draw do
+  resources :facebook_share_codes
+
   get "purchase_session/new"
 
   get "purchase_session/create"

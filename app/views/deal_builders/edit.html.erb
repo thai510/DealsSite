@@ -14,12 +14,9 @@
     <% end %>
   <% else %>
     <b><%= link_to 'Begin Part 3', new_db_step_three_path(:db_id => @deal_builder.id) %></b>
-    <b>Finish part 3! </b></div>
   <% end %>
 <% else %>
   <b><%= link_to 'Begin Part 2', new_db_step_two_path(:db_id => @deal_builder.id) %></b>
-  <b>finish part 2!</b>
-  <b>Finish part 3! </b></div>
 <% end %>
 
   
@@ -32,6 +29,5 @@
   <h1>This deal is not complete!</h1>
 <% end %>
 
-<%= link_to 'Show', @deal_builder %> |
-<%= link_to 'Back', deal_builders_path %>
+<div class='blueGreenLink'><%= link_to 'Back', deal_builders_path %></div>
 </div>

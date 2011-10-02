@@ -1,6 +1,7 @@
 class DbPublishesController < ApplicationController
   before_filter :authorize, :except => :show
   helper_method :show_private_deal
+  helper_method :checkAndCreateFBShareCode
   # GET /db_publishes
   # GET /db_publishes.xml
   def index
@@ -107,4 +108,21 @@ class DbPublishesController < ApplicationController
     end
     return true
   end
+
+  def checkAndCreateFBShareCode
+    @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four
+    if @four.fb_incentive == 'yes' #there is a fb incentive on this deal!
+      @newCode = ActiveSupport::SecureRandom.hex(3)
+      until FacebookShareCode.find_by_code(@newCode).nil? #make sure code isn't being used
+        @newCode = ActiveSupport::SecureRandom.hex(3)
+      end
+      @newFbShare = FacebookShareCode.new #make new FBshare object
+      @newFbShare.db_publish_id = @db_publish.id
+      @newFbShare.code = @newCode
+      @newFbShare.save
+      return @newCode #return the code to be shown to the customer
+    end
+    return false
+  end
+  
 end
