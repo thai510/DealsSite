@@ -4,19 +4,10 @@ class CreateVouchers < ActiveRecord::Migration
       t.string :code
       t.integer :user_id
       t.string :redeemed
-      t.string :offer_title
-      t.text :offer_description
-      t.integer :offer_price
-      t.integer :offer_value
-      t.string :address
-      t.string :city
-      t.string :state
-      t.integer :zip
-      t.string :all_locations
-      t.text :restrictions
-      t.integer :voucher_length
-      t.text :incentives
       t.string :customer_email
+      t.integer :db_publish_id
+      t.integer :prev_publish_id
+      t.string :fb_incentive
 
       t.timestamps
     end

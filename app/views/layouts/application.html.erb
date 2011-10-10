@@ -43,9 +43,12 @@
         </div>
     </div>
     <div id="content">
+      <%= yield :not_right_layout %>
+    <% if bool_admin_authorize %>
     <div id="admin">
       <%= render :template => 'admin/index' %>
     </div>
+    <% end %>
     <div id="rightlayout">
     <%= yield %>
     </div>

@@ -110,8 +110,8 @@ if(code != 'false') {
          <script>
           $(document).ready(function() {
           var endOfDeal = new Date();
-          var months = <%= j @db_publish.length_of_deal%>
-          endOfDeal = new Date(endOfDeal.getFullYear(),endOfDeal.getMonth() + months,endOfDeal.getDate());
+          var days = <%= j @db_publish.length_of_deal%>
+          endOfDeal = new Date(endOfDeal.getFullYear(),endOfDeal.getMonth(),endOfDeal.getDate() + days,endOfDeal.getHours());
           $('#countdown').countdown({until:endOfDeal});
           });
         </script>

@@ -19,7 +19,7 @@
   <%= @voucher.offer_value %>
 
   <% if @voucher.all_locations == 'yes' %>
-     Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucer.user_id).business_name %> locations
+     Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucher.user_id).business_name %> locations
   <% else %>
      <br />
      Offer can only be redeemed at<br />
@@ -41,6 +41,7 @@
 
 <p>
   We will also send this voucher to <%= @voucher.customer_email %>
+  Publish id = <%= @db_publish_id %>
 </p>
 </div>
 

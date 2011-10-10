@@ -1,3 +1,12 @@
+<% content_for :not_right_layout do %>
+  <div id='voucherLeftPanel' style='width:110px;'>
+    <div>Vouchers Purchased</div>
+      <%= current_user.vouchers.count %>
+    <div>Coupon Count</div>
+      how many times coupons were redeemed
+    <div>View Customers</div>
+  </div>
+<% end %>
 <% if current_user.vouchers.size == 0 %>
 <div class='oneVoucher'>
   <div>Currently you have no vouchers to track!</div>
@@ -5,15 +14,14 @@
   <div class='blueGreenLink' style='display:inline'><%= link_to 'View Your Deals', deal_builders_path %></div>
 </div>
 <% else %>
-
   <% current_user.vouchers.each do |voucher| %>
-    <div class='oneVoucher' style='margin-top:20px;height:30px;'>
-          <div class='voucherIndexField' style='float:left'><%= voucher.customer_email %></div>
-          <div class='voucherIndexField'>Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
-          <div class='voucherIndexField'>Expires: <%= Date.parse(voucher.created_at.to_s) >> voucher.voucher_length %></div>
-          <div class='voucherIndexField' ><%= link_to 'Remove', voucher, :method => :delete %></div>
-          <div class='voucherIndexField' style='float:right;padding-right:5px;'><%= voucher.code %></div>
-  
+    <div class='oneVoucher' style='float:left;margin-top:20px;'>
+          <div class='voucherIndexField' style='float:left;width:200px;'><%= voucher.customer_email %></div>
+          <div class='voucherIndexField' style='text-align:right'>Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
+          <div class='voucherIndexField' style='text-align:right'>Expires: <%= Date.parse(voucher.created_at.to_s) >> voucher.voucher_length %></div>
+          <div class='voucherIndexField' style='text-align:right'>Value: <%= voucher.offer_value %></div>
+          <div class='voucherIndexField' style='text-align:right;padding-right:5px;'><%= voucher.code %></div>
+    </div>
   <% end %>
 <% end %>
 

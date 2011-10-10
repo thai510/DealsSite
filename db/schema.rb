@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111001225522) do
+ActiveRecord::Schema.define(:version => 20111010165424) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -189,6 +189,9 @@ ActiveRecord::Schema.define(:version => 20111001225522) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "all_locations"
+    t.string   "private_deal"
+    t.text     "fb_incentive"
   end
 
   create_table "private_deal_codes", :force => true do |t|
@@ -250,19 +253,10 @@ ActiveRecord::Schema.define(:version => 20111001225522) do
     t.string   "code"
     t.integer  "user_id"
     t.string   "redeemed"
-    t.string   "offer_title"
-    t.text     "offer_description"
-    t.integer  "offer_price"
-    t.integer  "offer_value"
-    t.string   "address"
-    t.string   "city"
-    t.string   "state"
-    t.integer  "zip"
-    t.string   "all_locations"
-    t.text     "restrictions"
-    t.integer  "voucher_length"
-    t.text     "incentives"
     t.string   "customer_email"
+    t.integer  "db_publish_id"
+    t.integer  "prev_publish_id"
+    t.string   "fb_incentive"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

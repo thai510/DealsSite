@@ -1281,7 +1281,7 @@ div.oneVoucher div.blueGreenLink {
   float:right;
 }
 
-div#admin {
+div#admin, div#voucherLeftPanel {
   float:left;
    width:80px;
   background:black;
