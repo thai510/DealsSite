@@ -454,9 +454,6 @@ $(document).ready(function () {
 });
 $(document).ready(function () {
   if($('#new_db_publish').is(':visible')) {
-    $('.rightSideLayout').hide();
-    $('#max_vouchers_to_sell').hide();
-    $('#length_of_deal').hide();
 
     $('#db_publish_max_vouchers_to_sell').focusout(function () {
       $('.rightSideLayout').hide();

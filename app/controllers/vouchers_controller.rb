@@ -45,6 +45,7 @@ class VouchersController < ApplicationController
 
     respond_to do |format|
       if @voucher.save
+        incrementVouchersSold(@voucher)
         format.html { redirect_to(@voucher,:notice => 'Thank you for your purchase!') }
         format.xml  { render :xml => @voucher, :status => :created, :location => @voucher }
       else
@@ -79,6 +80,18 @@ class VouchersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(vouchers_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def incrementVouchersSold(voucher)
+    if voucher.prev_publish_id.nil?
+      @db_publish = DbPublish.find(voucher.db_publish_id)
+      @db_publish.total_vouchers_sold += 1
+      @db_publish.save
+    else
+      @prev_publish = PrevPublish.find(voucher.prev_publish_id)
+      @prev_publish.total_vouchers_sold += 1
+      @prev_publish.save
     end
   end
 

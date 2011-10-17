@@ -18,8 +18,17 @@
     <div class='oneVoucher' style='float:left;margin-top:20px;'>
           <div class='voucherIndexField' style='float:left;width:200px;'><%= voucher.customer_email %></div>
           <div class='voucherIndexField' style='text-align:right'>Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
-          <div class='voucherIndexField' style='text-align:right'>Expires: <%= Date.parse(voucher.created_at.to_s) >> voucher.voucher_length %></div>
-          <div class='voucherIndexField' style='text-align:right'>Value: <%= voucher.offer_value %></div>
+          <% if voucher.prev_publish_id.nil? %>
+          <div class='voucherIndexField' style='text-align:right'>Expires:
+              <%= Date.parse(voucher.created_at.to_s) >>
+                    DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_three.voucher_length %></div>
+            <div class='voucherIndexField' style='text-align:right'>Value: 
+              <%= DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_one.offer_value %></div>
+          <% else %>
+          <div class='voucherIndexField' style='text-align:right'>Expires:
+           <%= Date.parse(voucher.created_at.to_s) >> PrevPublish.find(voucher.prev_publish_id).voucher_length %></div>
+            <div class='voucherIndexField' style='text-align:right'>Value: <%= PrevPublish.find(voucher.prev_publish_id).offer_value %></div>
+          <% end %>
           <div class='voucherIndexField' style='text-align:right;padding-right:5px;'><%= voucher.code %></div>
     </div>
   <% end %>

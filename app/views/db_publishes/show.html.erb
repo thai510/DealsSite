@@ -3,6 +3,7 @@
   <% @one = DealBuilder.find(@db_publish.deal_builder_id).db_step_one %>
   <% @four = DealBuilder.find(@db_publish.deal_builder_id).db_step_four %>
   <% @three = DealBuilder.find(@db_publish.deal_builder_id).db_step_three %>
+  <% checkLiveDeals(@db_publish.id, 'dbp_show') %>
 </head>
 <% if @db_publish.private_deal == 'yes'%> 
   <% show_private_deal(@db_publish.id) %>

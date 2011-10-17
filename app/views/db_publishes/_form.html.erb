@@ -44,12 +44,12 @@
     <%= f.submit 'Publish!' %>
   </div>
 </div>
-<div class="rightSideLayout">
+<div class="rightSideLayout" style="display:none">
   <table class="stepOneTips">
-    <tr id="max_vouchers_to_sell">
+    <tr id="max_vouchers_to_sell" style="display:none">
       <td><%=FormTip.find_by_title("max vouchers to sell").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
-    <tr id="length_of_deal">
+    <tr id="length_of_deal" style="display:none">
       <td><%=FormTip.find_by_title("length of deal").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
   </table>

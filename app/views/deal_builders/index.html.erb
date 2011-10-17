@@ -2,16 +2,19 @@
       <table>
        <th><tr>Deals to finish</tr></th>
 <% current_user.deal_builders.each do |deal_builder| %>
+    <% if deal_builder.db_publish %>
+      <% checkLiveDeals(deal_builder.db_publish.id, 'db_index') %>
+    <% end %>
     <% unless deal_builder.db_publish %>
      <tr>
         <td><%= deal_builder.db_step_one.offer_title %></td>
       <% if deal_builder.db_step_four %>
         <td class="formTipLink"><%= link_to 'Publish Now!', deal_builder %></td>
-    <% elsif deal_builder.db_step_four  && !deal_builder.db_publish%>
-      <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
-    <% elsif !deal_builder.db_step_four%>
-      <td class="formTipLink"><%= link_to 'Finish Deal!', edit_deal_builder_path(deal_builder) %></td>
-    <% end %>
+      <% elsif deal_builder.db_step_four  && !deal_builder.db_publish%>
+        <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
+      <% elsif !deal_builder.db_step_four%>
+        <td class="formTipLink"><%= link_to 'Finish Deal!', edit_deal_builder_path(deal_builder) %></td>
+      <% end %>
     <% end %>
 <% end %>
     </tr>

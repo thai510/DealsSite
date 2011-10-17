@@ -11,13 +11,6 @@
     </div>
   <% end %>
 
-   <% @one = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_one %>
-   <% @two = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_two %>
-   <% @three = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_three %>
-   <% @four = DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_four %>
-   <% @restrictions = String.new %>
-   <% @incentives = String.new %>
-
     <%= f.hidden_field :code, :value => get_new_voucher_code%>
     <%= f.hidden_field :user_id, :value => DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).user_id %>
     <%= f.hidden_field :redeemed ,:value => 'no'%>
@@ -26,8 +19,6 @@
     <%= f.label :customer_email %><br />
     <%= f.text_field :customer_email %>
   </div>
-
-    <%= f.hidden_field :voucher_length,:value => @three.voucher_length %>
       
   <div class="actions">
     <%= f.submit 'Complete Purchase', :confirm => 'Are you sure?'%>

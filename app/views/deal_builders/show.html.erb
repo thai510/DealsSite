@@ -13,6 +13,7 @@
       <%= link_to 'Publish Now!', new_db_publish_path(:db_id => @deal_builder.id) %></div> 
     </div>
   <% else %>
+    <% checkLiveDeals(@deal_builder.db_publish.id,'db_show') %>
     <p id="notice"><%= notice %></p>
 
     <h1>DEAL LIVE</h1>
@@ -21,7 +22,7 @@
       Unlimited
     <%else %>
       <b>Vouchers Left:</b>
-      <%= @deal_builder.db_publish.max_vouchers_to_sell %> - total vouchers sold
+      <%= @deal_builder.db_publish.max_vouchers_to_sell - @deal_builder.db_publish.total_vouchers_sold%>
     <% end %>
     </p>
 
@@ -82,3 +83,8 @@
       </div>
     <% end %>   
     <% end %>   
+ <% if @deal_builder.db_publish %>
+ <div class='rightSideLayout'>
+   Offer Link: http://offerglass.com/db_publishes/<%= @deal_builder.db_publish.id %>
+ </div>
+<% end %>
