@@ -9,7 +9,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
 blockquote,pre,address,code,del,dfn,em,img,q,
 dl,dt,dd,ol,ul,li,
 table,caption,tbody,tfoot,thead,tr,th,td,br,fieldset,textarea{font-family:Arial Black, Gadget, sans-serif;line-height:20px;letter-spacing:.1px;word-spacing:1px;margin:0;padding:0;border:0;}
-h1,h2,h3,h4,h5,h6,hr,p,ul,ol,dl,pre,address,table,form{margin:0 0 20px}
+h1,h2,h3,h4,h5,h6,hr,p,ul,ol,dl,pre,address,table{margin:0 0 20px}
 p,h1, h2, h3, h4, h5, h6, ul.check_list, ul.arrowlist{padding-left:2px;}
 strong, b{font-weight:normal;}
 em, dfn, i{font-style:italic;}
@@ -1348,8 +1348,26 @@ div.rightPublishedDeal {
 
 }
 
+div.voucherRedeemLoc {
+  float:right;
+  color:white;
+  
+}
+
+#voucherButton input[type="submit"], #voucherButton input[type="reset"] {
+   font-size:10px;
+  color: #0f75bc;
+   border:none;
+   background:none;
+   padding:none;
+}
+
+#voucherButton:hover input[type="submit"], #voucherButton:hover input[type="reset"] {
+  color: #8cc63f;
+}
+
 div.oneVoucher {
-  width:850px;
+  width:950px;
   background:black;
   color:white;
   filter: alpha(opacity=83);
@@ -1408,4 +1426,17 @@ div.purchasedVoucher {
 div.voucherIndexField  {
   padding-left:15px;
   display:inline;
+  text-align:right;
 }
+
+div.clicktoShowRedeemed, div.clicktoShowUnredeemed {
+  font-weight:bold;
+  margin-right:5px;
+  margin-left:5px;
+  display:inline;
+}
+
+div.clicktoShowRedeemed:hover, div.clicktoShowUnredeemed:hover {
+  cursor:pointer;
+}
+

@@ -62,7 +62,7 @@ class VouchersController < ApplicationController
 
     respond_to do |format|
       if @voucher.update_attributes(params[:voucher])
-        format.html { redirect_to(@voucher, :notice => 'Voucher was successfully updated.') }
+        format.html { redirect_to(vouchers_path, :notice => 'Voucher was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

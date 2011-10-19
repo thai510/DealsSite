@@ -13,19 +13,19 @@ LocalAdResource::Application.routes.draw do
 
   resources :prev_publishes
 
-  resources :db_publishes
+  resources :db_publishes, :path => 'live'
 
-  resources :db_step_zeros
+  resources :db_step_zeros, :path => 'zero'
 
   resources :form_tips
 
-  resources :db_step_fours
+  resources :db_step_fours, :path => 'four'
 
-  resources :db_step_threes
+  resources :db_step_threes, :path => 'three'
 
-  resources :db_step_twos 
+  resources :db_step_twos, :path => 'two' 
   
-  resources :db_step_ones
+  resources :db_step_ones, :path => 'one'
 
   resources :locations
 
@@ -70,7 +70,7 @@ LocalAdResource::Application.routes.draw do
 
   resources :comparison_tools
 
-  resources :deal_builders 
+  resources :deal_builders, :path => 'db' 
 
   resources :marketing_plans
 

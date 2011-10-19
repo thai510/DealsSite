@@ -47,7 +47,6 @@
           <td><%= deal_builder.db_step_one.offer_title %></td>
           <td class="formTipLink"><%= link_to 'View Deal!', deal_builder %></td>
           <td class="formTipLink"><%= link_to 'Stop Deal!', deal_builder.db_publish, :method => :delete,:confirm => 'Are you sure?' %></td>
-          <td class="formTipLink"><%= link_to 'Delete', deal_builder, :confirm => 'Are you sure?', :method => :delete %></td>
             <% if deal_builder.db_publish.private_deal == 'yes' %>
               <td class="formTipLink"><%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%></td>
             <%end %> 

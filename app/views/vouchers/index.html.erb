@@ -14,23 +14,62 @@
   <div class='blueGreenLink' style='display:inline'><%= link_to 'View Your Deals', deal_builders_path %></div>
 </div>
 <% else %>
-  <% current_user.vouchers.each do |voucher| %>
+  <div class='oneVoucher'>
+  <div class="clicktoShowRedeemed">
+     Redeemed Vouchers
+  </div>
+  <div class="clicktoShowUnredeemed" style="color:#0f75bc;">
+    Unredeemed Vouchers
+  </div>
+  </div>
+  <% @unredeemed = current_user.vouchers.find_all_by_redeemed("no")  %>
+  <% @redeemed = current_user.vouchers.find_all_by_redeemed("yes")  %>
+  <div class="unredeemedVouchersTable">
+  <% @unredeemed.each do |voucher| %>
     <div class='oneVoucher' style='float:left;margin-top:20px;'>
           <div class='voucherIndexField' style='float:left;width:200px;'><%= voucher.customer_email %></div>
-          <div class='voucherIndexField' style='text-align:right'>Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
+          <div class='voucherIndexField' >Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
           <% if voucher.prev_publish_id.nil? %>
-          <div class='voucherIndexField' style='text-align:right'>Expires:
+          <div class='voucherIndexField' >Expires:
               <%= Date.parse(voucher.created_at.to_s) >>
                     DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_three.voucher_length %></div>
-            <div class='voucherIndexField' style='text-align:right'>Value: 
+            <div class='voucherIndexField'>Value: 
               <%= DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_one.offer_value %></div>
           <% else %>
-          <div class='voucherIndexField' style='text-align:right'>Expires:
+          <div class='voucherIndexField' >Expires:
            <%= Date.parse(voucher.created_at.to_s) >> PrevPublish.find(voucher.prev_publish_id).voucher_length %></div>
-            <div class='voucherIndexField' style='text-align:right'>Value: <%= PrevPublish.find(voucher.prev_publish_id).offer_value %></div>
+            <div class='voucherIndexField'>Value: <%= PrevPublish.find(voucher.prev_publish_id).offer_value %></div>
           <% end %>
-          <div class='voucherIndexField' style='text-align:right;padding-right:5px;'><%= voucher.code %></div>
-    </div>
+          <div class='voucherIndexField'><%= voucher.code %></div>
+      <div class="voucherRedeemLoc" id="voucherButton">
+        <%= render 'redeem', :object => @voucher = voucher %>
+      </div>
+      </div>
   <% end %>
+  </div>
+  <div class="redeemedVouchersTable" style="display:none">
+  <% @redeemed.each do |voucher| %>
+    <div class='oneVoucher' style='float:left;margin-top:20px;'>
+          <div class='voucherIndexField' style='float:left;width:200px;'><%= voucher.customer_email %></div>
+          <div class='voucherIndexField' >Purchased On: <%= Date.parse(voucher.created_at.to_s) %></div>
+          <% if voucher.prev_publish_id.nil? %>
+          <div class='voucherIndexField' >Expires:
+              <%= Date.parse(voucher.created_at.to_s) >>
+                    DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_three.voucher_length %></div>
+            <div class='voucherIndexField'>Value: 
+              <%= DealBuilder.find(DbPublish.find(voucher.db_publish_id).deal_builder_id).db_step_one.offer_value %></div>
+          <% else %>
+          <div class='voucherIndexField' >Expires:
+           <%= Date.parse(voucher.created_at.to_s) >> PrevPublish.find(voucher.prev_publish_id).voucher_length %></div>
+            <div class='voucherIndexField'>Value: <%= PrevPublish.find(voucher.prev_publish_id).offer_value %></div>
+          <% end %>
+          <div class='voucherIndexField'><%= voucher.code %></div>
+      <div class="voucherRedeemLoc" id="voucherButton">
+        <%= render 'unredeem', :object => @voucher = voucher %>
+      </div>
+      </div>
+  <% end %>
+  </div>
 <% end %>
+
 

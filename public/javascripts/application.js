@@ -663,6 +663,20 @@ $(document).ready(function () {
  }
 });
 $(document).ready(function () {
+    $('.clicktoShowRedeemed').live("click", function() {
+      $('.clicktoShowRedeemed').css('color','#0f75bc');
+      $('.clicktoShowUnredeemed').css('color','white');
+      $('div.unredeemedVouchersTable').hide();
+      $('div.redeemedVouchersTable').show();
+    });
+    $('.clicktoShowUnredeemed').live("click", function() {
+      $('.clicktoShowRedeemed').css('color','white');
+      $('.clicktoShowUnredeemed').css('color','#0f75bc');
+      $('div.redeemedVouchersTable').hide();
+      $('div.unredeemedVouchersTable').show();
+    });
+});
+$(document).ready(function () {
   if($('.show_deal_builder').is(':visible'))
   {
 
