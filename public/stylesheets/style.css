@@ -1436,7 +1436,4 @@ div.clicktoShowRedeemed, div.clicktoShowUnredeemed {
   display:inline;
 }
 
-div.clicktoShowRedeemed:hover, div.clicktoShowUnredeemed:hover {
-  cursor:pointer;
-}
 

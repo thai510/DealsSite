@@ -10,3 +10,7 @@
                               :object => (@voucher = Voucher.new) %>
 <% end %>
 </div>
+
+<% if DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_four.fb_incentive == 'yes'&& !session[:fb_allow]%>
+  <%= render 'facebook_share_codes/redeem_form' ,:object => @db_publish_id%>
+<% end %>

@@ -30,13 +30,14 @@
       <% if @deal_builder.db_publish.length_of_deal == 0%>
         Until Stopped
       <% else %>
+        <% @endTime = @deal_builder.db_publish.created_at %>
+        <% @endTime += @deal_builder.db_publish.length_of_deal.days %>
         <b>Time Left</b>
         <script>
           $(document).ready(function() {
-          var endOfDeal = new Date();
-          var days = <%= j @deal_builder.db_publish.length_of_deal%>
-          endOfDeal = new Date(endOfDeal.getFullYear(),endOfDeal.getMonth(),endOfDeal.getDate() + days,endOfDeal.getHours());
-          $('#countdown').countdown({until:endOfDeal});
+          var endTimeSeconds = <%= @endTime.to_i %>;
+          var endTimeDate = new Date(Number(endTimeSeconds) * 1000);
+          $('#countdown').countdown({until:endTimeDate});
           });
         </script>
         <div id='countdown'></div>

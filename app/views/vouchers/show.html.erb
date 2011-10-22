@@ -80,7 +80,13 @@
 
     <% if @four.optional_incentive.size > 0 %>
     <b>Incentives:</b>
-    <%= @prev_publish.optional_incentive %>
+    <%= @four.optional_incentive %>
+    <% end %>
+    <% if session[:fb_allow] %>
+      <div>
+      <b>Thanks for sharing, here's your incentive</b>
+      <%= @four.fb_incentive_text %>
+      </div>
     <% end %>
     
   <% end %>

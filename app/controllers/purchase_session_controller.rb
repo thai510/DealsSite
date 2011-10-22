@@ -14,7 +14,6 @@ class PurchaseSessionController < ApplicationController
   end
 
   def destroy
-    session[:ps] = nil
   end
 
   def get_new_voucher_code

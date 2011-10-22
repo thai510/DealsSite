@@ -663,15 +663,20 @@ $(document).ready(function () {
  }
 });
 $(document).ready(function () {
+      $('div.clicktoShowRedeemed').css('cursor','pointer');
     $('.clicktoShowRedeemed').live("click", function() {
       $('.clicktoShowRedeemed').css('color','#0f75bc');
+      $('div.clicktoShowRedeemed').css('cursor','auto');
+      $('.clicktoShowUnredeemed').css('cursor','pointer');
       $('.clicktoShowUnredeemed').css('color','white');
       $('div.unredeemedVouchersTable').hide();
       $('div.redeemedVouchersTable').show();
     });
     $('.clicktoShowUnredeemed').live("click", function() {
-      $('.clicktoShowRedeemed').css('color','white');
       $('.clicktoShowUnredeemed').css('color','#0f75bc');
+      $('div.clicktoShowRedeemed').css('cursor','pointer');
+      $('.clicktoShowUnredeemed').css('cursor','auto');
+      $('.clicktoShowRedeemed').css('color','white');
       $('div.redeemedVouchersTable').hide();
       $('div.unredeemedVouchersTable').show();
     });

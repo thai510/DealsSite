@@ -1,4 +1,5 @@
 class FacebookShareCodesController < ApplicationController
+  skip_before_filter :authorize
   # GET /facebook_share_codes
   # GET /facebook_share_codes.xml
   def index
@@ -78,6 +79,17 @@ class FacebookShareCodesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(facebook_share_codes_url) }
       format.xml  { head :ok }
+    end
+  end
+
+  def checkAndValidateFBCode
+    if FacebookShareCode.authenticate(params[:typed_fb_code],params[:db_id])
+      session[:fb_allow] = 1;
+    else
+      session[:fb_allow] = nil;
+    end
+    respond_to do |format|
+      format.html { redirect_to purchase_session_new_path(:id => (@db_publish_id = params[:db_id])) }
     end
   end
 end

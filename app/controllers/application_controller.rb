@@ -72,20 +72,55 @@ class ApplicationController < ActionController::Base
   def checkLiveDeals(db_publish_id, path)
     @db_publish = DbPublish.find(db_publish_id)
     @current_db = DealBuilder.find(@db_publish.deal_builder_id)
-    if @db_publish.max_vouchers_to_sell == @db_publish.total_vouchers_sold
-      transferDealInfoToPrevPub(@db_publish)
-      @db_publish.destroy
-      if !current_user
-        #redirect to deal expired or wrong link page, for now just home page
-        redirect_to(home_url, :notice => 'Bad Link or Deal has Expired!')
-      elsif( path == 'db_index')
-        redirect_to(deal_builders_path)
-      elsif( path == 'db_show')
-        redirect_to(@current_db)
-      elsif( path == 'dbp_show')
-        redirect_to(@current_db)
+    @startTime = @db_publish.created_at
+    @endDateTime = DateTime.new(@startTime.year, @startTime.month,@startTime.day,
+                                @startTime.hour, @startTime.min, @startTime.sec);
+    @endDateTime += @db_publish.length_of_deal
+    unless path == 'db_index'
+      if (@db_publish.max_vouchers_to_sell > 0 &&
+             @db_publish.max_vouchers_to_sell == @db_publish.total_vouchers_sold) then
+        transferDealInfoToPrevPub(@db_publish)
+        @db_publish.destroy
+        if !current_user
+          #redirect to deal expired or wrong link page, for now just home page
+          redirect_to(home_url, :notice => 'Bad Link or Deal has Expired!')
+        elsif( path == 'db_show')
+          redirect_to(@current_db)
+        elsif( path == 'dbp_show')
+          redirect_to(@current_db)
+        end
+      end
+      if @db_publish.length_of_deal > 0 && DateTime.now > @endDateTime
+        transferDealInfoToPrevPub(@db_publish)
+        @db_publish.destroy
+        if !current_user
+          #redirect to deal expired or wrong link page, for now just home page
+          redirect_to(home_url, :notice => 'Bad Link or Deal has Expired!')
+        elsif( path == 'db_show')
+          redirect_to(@current_db)
+        elsif( path == 'dbp_show')
+          redirect_to(@current_db)
+        end
       end
     end
+    @redirect = false
+    if path == 'db_index'
+      current_user.deal_builders.each do |deal_builder|
+        if deal_builder.db_publish
+          if deal_builder.db_publish.max_vouchers_to_sell > 0 && 
+              deal_builder.db_publish.max_vouchers_to_sell == deal_builder.db_publish.total_vouchers_sold then
+             transferDealInfoToPrevPub(deal_builder.db_publish)
+             deal_builder.db_publish.destroy
+             @redirect = true
+          elsif deal_builder.db_publish.length_of_deal > 0 && DateTime.now > @endDateTime
+             transferDealInfoToPrevPub(deal_builder.db_publish)
+             deal_builder.db_publish.destroy
+             @redirect = true
+          end
+        end
+       end
+       if @redirect then redirect_to index_deal_builders_path end
+     end
     return false
   end
 
@@ -126,5 +161,9 @@ def transferDealInfoToPrevPub(db_publish)
         voucher.prev_publish_id = @new_past_publish.id
         voucher.save
     end
+  end
+
+  def resetFBincentive
+    session[:fb_allow] = nil
   end
 end

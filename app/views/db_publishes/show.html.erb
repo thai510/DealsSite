@@ -108,15 +108,19 @@ if(code != 'false') {
       <p>Vouchers Remaining: dbvoucherstotal - dbvoucherssold</p>
     <% end %>
     <% if(@db_publish.length_of_deal > 0) then %>
+
+    <% @endTime = @db_publish.created_at %>
+    <% @endTime += @db_publish.length_of_deal.days %>
+
          <script>
           $(document).ready(function() {
-          var endOfDeal = new Date();
-          var days = <%= j @db_publish.length_of_deal%>
-          endOfDeal = new Date(endOfDeal.getFullYear(),endOfDeal.getMonth(),endOfDeal.getDate() + days,endOfDeal.getHours());
-          $('#countdown').countdown({until:endOfDeal});
+          var endTimeSeconds = <%= @endTime.to_i %>;
+          var endTimeDate = new Date(Number(endTimeSeconds) * 1000);
+          $('#countdown').countdown({until:endTimeDate});
           });
         </script>
         <div id='countdown'></div>
+
     <% end %>
   </div>
 <% unless current_user %>

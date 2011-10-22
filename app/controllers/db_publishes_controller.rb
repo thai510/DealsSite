@@ -1,5 +1,6 @@
 class DbPublishesController < ApplicationController
   before_filter :authorize, :except => :show
+  before_filter :resetFBincentive
   helper_method :show_private_deal
   helper_method :checkAndCreateFBShareCode
   # GET /db_publishes
