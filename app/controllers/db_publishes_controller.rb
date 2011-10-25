@@ -3,6 +3,7 @@ class DbPublishesController < ApplicationController
   before_filter :resetFBincentive
   helper_method :show_private_deal
   helper_method :checkAndCreateFBShareCode
+  rescue_from ActiveRecord::RecordNotFound, :with => :deal_does_not_exist
   # GET /db_publishes
   # GET /db_publishes.xml
   def index
@@ -113,6 +114,10 @@ class DbPublishesController < ApplicationController
       return @newCode #return the code to be shown to the customer
     end
     return false
+  end
+
+  def deal_does_not_exist
+    render :partial => 'dealnotfound' 
   end
   
 end

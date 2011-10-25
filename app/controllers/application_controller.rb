@@ -83,7 +83,6 @@ class ApplicationController < ActionController::Base
         @db_publish.destroy
         if !current_user
           #redirect to deal expired or wrong link page, for now just home page
-          redirect_to(home_url, :notice => 'Bad Link or Deal has Expired!')
         elsif( path == 'db_show')
           redirect_to(@current_db)
         elsif( path == 'dbp_show')
@@ -95,7 +94,6 @@ class ApplicationController < ActionController::Base
         @db_publish.destroy
         if !current_user
           #redirect to deal expired or wrong link page, for now just home page
-          redirect_to(home_url, :notice => 'Bad Link or Deal has Expired!')
         elsif( path == 'db_show')
           redirect_to(@current_db)
         elsif( path == 'dbp_show')

@@ -1,0 +1,22 @@
+<head>
+  <title>OfferGlass</title>
+      <%= stylesheet_link_tag 'style.css',"jquery-ui-1.8.16.custom.css",'jquery.countdown.css'%>
+ <%= javascript_include_tag 'jquery','jquery-1.6.2.min','jquery-ui-1.8.16.custom.min',
+ 'jquery.validate.min','jquery.validate','jquery_ujs','jquery.countdown','nested_form','application' %>
+
+  <%= csrf_meta_tag %>
+</head>
+
+<div id="layoutbanner">
+         <div class="bannerlogo">
+         <%= link_to image_tag("theme/smallbannercroppedlogo.png"),login_index_path %>
+         </div>
+</div>
+<div id='content'>
+  <div id='rightlayout'>
+    <div class="leftPublishedDeal">
+      I'm sorry but that deal has already ended! 
+    </div> 
+  </div>
+</div>
+
