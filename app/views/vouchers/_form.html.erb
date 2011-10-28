@@ -14,6 +14,7 @@
     <%= f.hidden_field :code, :value => get_new_voucher_code%>
     <%= f.hidden_field :user_id, :value => DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).user_id %>
     <%= f.hidden_field :redeemed ,:value => 'no'%>
+    <%= f.hidden_field :coupon, :value => DealBuilder.find(DbPublish.find(@db_publish_id).deal_builder_id).db_step_one.coupon %>
     <%= f.hidden_field :db_publish_id, :value => @db_publish_id %>
   <div class="field">
     <%= f.label :customer_email %><br />

@@ -1,10 +1,8 @@
 <div class="leftSideLayout">
       <table>
        <th><tr>Deals to finish</tr></th>
+      <% checkLiveDeals('to pass the time', 'db_index') %>
 <% current_user.deal_builders.each do |deal_builder| %>
-    <% if deal_builder.db_publish %>
-      <% checkLiveDeals(deal_builder.db_publish.id, 'db_index') %>
-    <% end %>
     <% unless deal_builder.db_publish %>
      <tr>
         <td><%= deal_builder.db_step_one.offer_title %></td>

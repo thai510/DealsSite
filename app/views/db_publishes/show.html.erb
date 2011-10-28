@@ -19,16 +19,20 @@
 <% end %>
   <div class="leftPublishedDeal">
     <h2><%= @one.offer_title %></h2>
-    <% if(@one.coupon == 'no') then %>
       <h3>$<%= @one.offer_value %> value for $<%= @one.offer_price %></h3>
         <% if @db_publish.private_deal == 'yes' && !current_user%>
-          <h3><%= button_to 'Purchase',private_path, :method => :delete%></h3>
+          <% if @one.coupon == 'no' %>
+						<h3><%= button_to 'Purchase',private_path, :method => :delete%></h3>
+          <% else %>
+						<h3><%= button_to 'Redeem',private_path, :method => :delete%></h3>
+          <% end %>
         <% elsif !current_user %>
-          <h3><%= link_to 'Purchase',purchase_session_new_path(:id => @db_publish.id), :method => :get%></h3>
+          <% if @one.coupon == 'no' %> 
+						<h3><%= link_to 'Purchase',purchase_session_new_path(:id => @db_publish.id), :method => :get%></h3>
+					<% else %>
+						<h3><%= link_to 'Redeem',purchase_session_new_path(:id => @db_publish.id), :method => :get%></h3>
+					<% end %>
         <% end %>
-    <% else %>
-      <h3>Redeem this coupon today</h3>
-    <% end %>
     <p><%= @one.offer_description %></p>
     <% if(@one.offer_photo.exists? == true) then %>
       <%= image_tag @one.offer_photo.url(:medium) %>

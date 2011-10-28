@@ -5,7 +5,11 @@
          </div>
 </div>
 <div class='purchasedVoucher'> 
-  <h1>Thank you for your Purchase!</h1>
+  <% if @voucher.coupon == 'no' %>
+		<h1>Thank you for your Purchase!</h1>
+  <% else %>
+    <h1>Thank you! Here's your Coupon!</h1> 
+  <% end %>
   <h2><b>Your Voucher Code:</b>
   <%= @voucher.code %></h2>
   <% @voucherCreatedAt = Date.parse(@voucher.created_at.to_s) %>
@@ -15,12 +19,15 @@
 
     <b>Offer description:</b>
     <%= @prev_publish.offer_description %>
+    <% if @voucher.coupon == 'no' %>
+      <b>Offer price:</b>
+      <%= @prev_publish.offer_price %>
 
-    <b>Offer price:</b>
-    <%= @prev_publish.offer_price %>
-
-    <b>Offer value:</b>
-    <%= @prev_publish.offer_value %>
+      <b>Offer value:</b>
+      <%= @prev_publish.offer_value %>
+    <% else %>
+      <b>This is a coupon</b>
+    <% end %>
 
     <% if @prev_publish.all_locations == 'yes' %>
        Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucher.user_id).business_name %> locations
@@ -52,12 +59,15 @@
 
     <b>Offer description:</b>
     <%= @one.offer_description %>
+    <% if @voucher.coupon == 'no' %>
+      <b>Offer price:</b>
+      <%= @one.offer_price %>
 
-    <b>Offer price:</b>
-    <%= @one.offer_price %>
-
-    <b>Offer value:</b>
-    <%= @one.offer_value %>
+      <b>Offer value:</b>
+      <%= @one.offer_value %>
+    <% else %>
+      <b>This is a coupon</b>
+    <% end %>
 
     <% if @two.include_all == 'yes' %>
        Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucher.user_id).business_name %> locations

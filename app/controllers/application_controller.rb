@@ -70,13 +70,11 @@ class ApplicationController < ActionController::Base
   end
 
   def checkLiveDeals(db_publish_id, path)
+    unless path == 'db_index'
     @db_publish = DbPublish.find(db_publish_id)
     @current_db = DealBuilder.find(@db_publish.deal_builder_id)
-    @startTime = @db_publish.created_at
-    @endDateTime = DateTime.new(@startTime.year, @startTime.month,@startTime.day,
-                                @startTime.hour, @startTime.min, @startTime.sec);
-    @endDateTime += @db_publish.length_of_deal
-    unless path == 'db_index'
+    @endDateTime = @db_publish.created_at
+    @endDateTime += @db_publish.length_of_deal.days
       if (@db_publish.max_vouchers_to_sell > 0 &&
              @db_publish.max_vouchers_to_sell == @db_publish.total_vouchers_sold) then
         transferDealInfoToPrevPub(@db_publish)
@@ -88,8 +86,7 @@ class ApplicationController < ActionController::Base
         elsif( path == 'dbp_show')
           redirect_to(@current_db)
         end
-      end
-      if @db_publish.length_of_deal > 0 && DateTime.now > @endDateTime
+      elsif @db_publish.length_of_deal > 0 && DateTime.now > @endDateTime
         transferDealInfoToPrevPub(@db_publish)
         @db_publish.destroy
         if !current_user
@@ -105,6 +102,8 @@ class ApplicationController < ActionController::Base
     if path == 'db_index'
       current_user.deal_builders.each do |deal_builder|
         if deal_builder.db_publish
+					@endDateTime = deal_builder.db_publish.created_at
+					@endDateTime += deal_builder.db_publish.length_of_deal.days
           if deal_builder.db_publish.max_vouchers_to_sell > 0 && 
               deal_builder.db_publish.max_vouchers_to_sell == deal_builder.db_publish.total_vouchers_sold then
              transferDealInfoToPrevPub(deal_builder.db_publish)
@@ -117,7 +116,10 @@ class ApplicationController < ActionController::Base
           end
         end
        end
-       if @redirect then redirect_to index_deal_builders_path end
+       if @redirect then 
+        redirect_to deal_builders_path
+        return
+			 end
      end
     return false
   end
@@ -138,7 +140,7 @@ def transferDealInfoToPrevPub(db_publish)
       pp.city = @current_db.db_step_two.locations[0].city
       pp.state = @current_db.db_step_two.locations[0].state
       pp.zip = @current_db.db_step_two.locations[0].zip
-      pp.coupon = @current_db.db_step_one.coupon
+      #pp.coupon = @current_db.db_step_one.coupon
       pp.private_deal = @db_publish.private_deal
       if @current_db.db_step_four.fb_incentive == 'yes'
         pp.fb_incentive = @current_db.db_step_four.fb_incentive_text

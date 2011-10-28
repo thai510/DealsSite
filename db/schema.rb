@@ -257,6 +257,7 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.integer  "db_publish_id"
     t.integer  "prev_publish_id"
     t.string   "fb_incentive"
+    t.string   "coupon"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

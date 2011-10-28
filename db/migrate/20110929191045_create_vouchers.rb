@@ -8,6 +8,7 @@ class CreateVouchers < ActiveRecord::Migration
       t.integer :db_publish_id
       t.integer :prev_publish_id
       t.string :fb_incentive
+      t.string :coupon
 
       t.timestamps
     end

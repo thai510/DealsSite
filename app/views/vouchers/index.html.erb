@@ -1,9 +1,9 @@
 <% content_for :not_right_layout do %>
   <div id='voucherLeftPanel' style='width:110px;'>
     <div>Vouchers Purchased</div>
-      <%= current_user.vouchers.count %>
-    <div>Coupon Count</div>
-      how many times coupons were redeemed
+      <%= current_user.vouchers.find_all_by_coupon('no').count %>
+    <div>Coupons Granted</div>
+      <%= current_user.vouchers.find_all_by_coupon('yes').count %>
     <div>View Customers</div>
   </div>
 <% end %>
@@ -22,8 +22,8 @@
     Unredeemed Vouchers
   </div>
   </div>
-  <% @unredeemed = current_user.vouchers.find_all_by_redeemed("no")  %>
-  <% @redeemed = current_user.vouchers.find_all_by_redeemed("yes")  %>
+  <% @unredeemed = current_user.vouchers.where(:coupon => 'no', :redeemed => 'no')  %>
+  <% @redeemed = current_user.vouchers.where(:coupon => 'no', :redeemed => 'yes')  %>
   <div class="unredeemedVouchersTable">
   <% @unredeemed.each do |voucher| %>
     <div class='oneVoucher' style='float:left;margin-top:20px;'>
