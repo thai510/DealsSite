@@ -1252,12 +1252,12 @@ div.forwardProgress {
   display:inline;
 }
 
-td.locationField a, div.blueGreenLink a,td.formTipLink a {
+td.locationField a, div.blueGreenLink a,td.formTipLink a,div#blueGreenLink a {
   text-decoration:none;
   color: #0f75bc;
 }
 
-td.locationField a:hover, div.blueGreenLink a:hover, td.formTipLink a:hover {
+td.locationField a:hover, div.blueGreenLink a:hover, td.formTipLink a:hover, div#blueGreenLink a:hover {
   text-decoration:none;
   color: #8cc63f;
 }
@@ -1436,4 +1436,8 @@ div.clicktoShowRedeemed, div.clicktoShowUnredeemed {
   display:inline;
 }
 
-
+div.leftSidePanel {
+  height:100%;
+  width: 110px;
+  float:left;
+}

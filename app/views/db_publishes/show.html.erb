@@ -107,9 +107,9 @@ if(code != 'false') {
   </div>
   <div class="rightPublishedDeal">
     <h3>Stats</h3>
-    <p>Vouchers Sold: dbvoucherssold</p>
+    <p>Vouchers Sold: <%= @db_publish.total_vouchers_sold %></p>
     <% if(@db_publish.max_vouchers_to_sell > 0) then %>
-      <p>Vouchers Remaining: dbvoucherstotal - dbvoucherssold</p>
+      <p>Vouchers Remaining: <%= @db_publish.max_vouchers_to_sell - @db_publish.total_vouchers_sold %></p>
     <% end %>
     <% if(@db_publish.length_of_deal > 0) then %>
 

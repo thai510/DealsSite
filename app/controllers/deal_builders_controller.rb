@@ -5,6 +5,7 @@ class DealBuildersController < ApplicationController
   # GET /deal_builders.xml
   def index
     @deal_builders = DealBuilder.all
+    @prev_publishes = current_user.prev_publishes.paginate :page => params[:page], :per_page => 14, :order => 'created_at desc' 
 
     respond_to do |format|
       format.html # index.html.erb

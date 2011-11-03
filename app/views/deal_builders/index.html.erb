@@ -25,13 +25,16 @@
     <% unless current_user.prev_publishes %>
       <tr><td>None at the moment</td></tr>
     <% end %>
-    <% current_user.prev_publishes.each do |pp| %>
+    <% @prev_publishes.each do |pp| %>
       <tr>
         <td class='formTipLink'><%=link_to pp.offer_title, pp%></td>
         <td><%= pp.created_at.strftime("Ended on %m/%d/%y at %I:%M%p")%></td>
       </tr>
          
     <% end %> 
+  </table>
+  <table>
+    <td class='formTipLink' style='width:400px;'><%= will_paginate @prev_publishes %></td>
   </table>
 </div>
 
