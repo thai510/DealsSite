@@ -18,24 +18,8 @@
     </tr>
 </table>
 </div>
-
 <div class='rightSideLayout'>
-  <table>
-      <th>Your Past Published Deals</th>
-    <% unless current_user.prev_publishes %>
-      <tr><td>None at the moment</td></tr>
-    <% end %>
-    <% @prev_publishes.each do |pp| %>
-      <tr>
-        <td class='formTipLink'><%=link_to pp.offer_title, pp%></td>
-        <td><%= pp.created_at.strftime("Ended on %m/%d/%y at %I:%M%p")%></td>
-      </tr>
-         
-    <% end %> 
-  </table>
-  <table>
-    <td class='formTipLink' style='width:400px;'><%= will_paginate @prev_publishes %></td>
-  </table>
+  Game theory and Deal/Coupon statistics will go here
 </div>
 
   <div class="leftSideLayout">
@@ -60,3 +44,6 @@
       <% end %>
       </table>
       </div>
+<div class='leftSideLayout'>
+  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'View Your Past Deals', prev_publishes_path %></div>
+</div>

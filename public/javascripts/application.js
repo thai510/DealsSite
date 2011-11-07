@@ -665,18 +665,18 @@ $(document).ready(function () {
 $(document).ready(function () {
       $('div.clicktoShowRedeemed').css('cursor','pointer');
     $('.clicktoShowRedeemed').live("click", function() {
-      $('.clicktoShowRedeemed').css('color','#0f75bc');
+      $('.clicktoShowRedeemed').css('color','white');
       $('div.clicktoShowRedeemed').css('cursor','auto');
       $('.clicktoShowUnredeemed').css('cursor','pointer');
-      $('.clicktoShowUnredeemed').css('color','white');
+      $('.clicktoShowUnredeemed').css('color','#0f75bc');
       $('div.unredeemedVouchersTable').hide();
       $('div.redeemedVouchersTable').show();
     });
     $('.clicktoShowUnredeemed').live("click", function() {
-      $('.clicktoShowUnredeemed').css('color','#0f75bc');
+      $('.clicktoShowUnredeemed').css('color','white');
       $('div.clicktoShowRedeemed').css('cursor','pointer');
       $('.clicktoShowUnredeemed').css('cursor','auto');
-      $('.clicktoShowRedeemed').css('color','white');
+      $('.clicktoShowRedeemed').css('color','#0f75bc');
       $('div.redeemedVouchersTable').hide();
       $('div.unredeemedVouchersTable').show();
     });

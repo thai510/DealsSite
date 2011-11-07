@@ -13,7 +13,7 @@ LocalAdResource::Application.routes.draw do
 
   resources :private_deal_codes
 
-  resources :prev_publishes
+  resources :prev_publishes, :path => 'pd'
 
   resources :db_publishes, :path => 'live'
 

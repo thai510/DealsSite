@@ -2,7 +2,7 @@ class PrevPublishesController < ApplicationController
   # GET /prev_publishes
   # GET /prev_publishes.xml
   def index
-    @prev_publishes = PrevPublish.all
+    @prev_publishes = current_user.prev_publishes.paginate :page => params[:page], :per_page => 14, :order => 'created_at desc' 
 
     respond_to do |format|
       format.html # index.html.erb
