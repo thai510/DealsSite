@@ -34,7 +34,7 @@
     <div class='oneVoucher' style='float:left;margin-top:20px;'>
           <div class='voucherIndexField' style='float:left;width:200px;'><%= voucher.customer_email %></div>
           <% if voucher.prev_publish_id %>
-						<div class='voucherIndexField' id='blueGreenLink'><%= link_to 'Deal Terms', PrevPublish.find(voucher.prev_publish_id) %></div>
+						<div class='voucherIndexField' id='blueGreenLink'><%= link_to 'Deal Terms', voucher %></div>
           <% else %>
 						<div class='voucherIndexField' id='blueGreenLink'><%= link_to 'Deal Terms', DbPublish.find(voucher.db_publish_id) %></div>
           <% end %>

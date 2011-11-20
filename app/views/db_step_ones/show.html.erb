@@ -1,4 +1,4 @@
-<% same_user?(@db_step_one.deal_builder_id) %>
+<% if same_user?(@db_step_one.deal_builder_id,'db') %>
 <p id="notice"><%= notice %></p>
 
 <h1> The Basics </h1>
@@ -34,4 +34,5 @@ This is a coupon
 
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
   <div class='blueGreenLink' style='text-align:center;'><%= link_to 'Edit', edit_db_step_one_path(@db_step_one, :db_id => @db_step_one.deal_builder_id) %></div>
+<% end %>
 <% end %>

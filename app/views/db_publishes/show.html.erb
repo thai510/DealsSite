@@ -20,29 +20,24 @@
   <div class="leftPublishedDeal">
     <h2><%= @one.offer_title %></h2>
       <h3>$<%= @one.offer_value %> value for $<%= @one.offer_price %></h3>
-        <% if @db_publish.private_deal == 'yes' && !current_user%>
-          <% if @one.coupon == 'no' %>
-						<h3><%= button_to 'Purchase',private_path, :method => :delete%></h3>
-          <% else %>
-						<h3><%= button_to 'Redeem',private_path, :method => :delete%></h3>
-          <% end %>
-        <% elsif !current_user %>
+        <% if !current_user %>
           <% if @one.coupon == 'no' %> 
 						<h3><%= link_to 'Purchase',purchase_session_new_path(:id => @db_publish.id), :method => :get%></h3>
 					<% else %>
 						<h3><%= link_to 'Redeem',purchase_session_new_path(:id => @db_publish.id), :method => :get%></h3>
 					<% end %>
         <% end %>
-    <p><%= @one.offer_description %></p>
+    <h4><%= @one.offer_description %></h4>
     <% if(@one.offer_photo.exists? == true) then %>
       <%= image_tag @one.offer_photo.url(:medium) %>
     <% end %>
     <h2>Incentives</h2>
     <% if @four.fb_incentive == 'yes' %>
-      <p>This deal has a facebook sharing incentive and here it is:
-        <%= @four.fb_incentive_text %>
+        <b>FB Sharing Incentive:<%= @four.fb_incentive_text %></b>
     <% end %>
-    <p><%= @four.optional_incentive %></p>
+    <div>
+    <b>Other Incentives:</b><%= @four.optional_incentive %>
+    </div>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
@@ -84,10 +79,10 @@ if(code != 'false') {
     <hr />
     <h2>Restrictions</h2>
     <% @three.standard_restrictions.each do |restriction| %>
-      <p><%= restriction.description %></p>
+      <%= restriction.description %>
     <% end %>
-    <p><%= @three.optional_restriction %></p>
-    <p>Voucher expires <%= @three.voucher_length %> month(s) after purchase.</p>
+    <%= @three.optional_restriction %>
+    Voucher expires <%= @three.voucher_length %> month(s) after purchase.
   </div>
   <div class="rightPublishedDeal">
     <% @zero = User.find(@user_id).db_step_zero %>
@@ -97,15 +92,15 @@ if(code != 'false') {
       <%= image_tag @zero.company_logo.url(:thumb) %>
     <% end %>
     <% @two = DealBuilder.find(@db_publish.deal_builder_id).db_step_two.locations[0] %>
-    <h3>Redeemable at:</h3>
-    <p><%= @two.address %></p>
-    <p><%= @two.city %>, <%= @two.state %></p>
-    <p><%= @two.zip %></p>
-    <p><%= @zero.website %></p>
-    <p><%= @zero.phone_number %></p>
-    <p><%= User.find(@user_id).email %></p>
-  </div>
-  <div class="rightPublishedDeal">
+    <h4>Offer Redeemable at:</h4>
+    <div><%= @two.address %></div>
+    <div><%= @two.city %>, <%= @two.state %></div>
+    <%= @two.zip %>
+    <h4>Contact</h4>
+    <%= link_to @zero.website, @zero.website %>
+    <div><%= number_to_phone @zero.phone_number, :area_code => true %></div>
+    <%= User.find(@user_id).email %>
+    <hr />
     <h3>Stats</h3>
     <p>Vouchers Sold: <%= @db_publish.total_vouchers_sold %></p>
     <% if(@db_publish.max_vouchers_to_sell > 0) then %>

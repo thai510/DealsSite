@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :bool_admin_authorize
   helper_method :bool_finished_step_zero?
   helper_method :checkLiveDeals
+  helper_method :same_user?
   protect_from_forgery
  
   private
@@ -166,4 +167,14 @@ def transferDealInfoToPrevPub(db_publish)
   def resetFBincentive
     session[:fb_allow] = nil
   end
+
+  def same_user?(id,location)
+    if location == 'db'
+			unless DealBuilder.find(id).user_id == session[:users_id] || bool_admin_authorize
+			  return false
+			end
+	  end
+	  return true
+  end
+
 end

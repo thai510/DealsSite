@@ -8,10 +8,11 @@
       <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
       <%= password_field_tag :password, params[:password], :placeholder => "Password" %>
       <%= submit_tag 'Login' %>      
-      </div>
-     <div id="notice" style='text-align:left;padding-left:77px;'><%= notice %></div>
-    <div class="signup">
+<div class="signup">
        <b><%= link_to 'Sign Up', sign_up_index_path %></b>
+    </div>
+     <div id="notice" style='text-align:left;padding-left:77px;'><%= notice %></div>
+    
     </div>
   </div>
 <% end %>

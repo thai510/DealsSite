@@ -17,10 +17,8 @@
   <% else %>
     <div id="layoutbanner">
         <div class="rightLinks">
-           <div class="blueGreenLink">
+           <div class="headerLinks">
              <%= link_to "Settings", edit_user_path(session[:users_id])%>
-           </div>
-           <div class="blueGreenLink">
              <%= link_to "Logout", logout_path, :method => :delete %>
            </div>
         </div>
@@ -28,16 +26,10 @@
            <div class="bannerlogo">
             <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
            </div>
-           <div class="blueGreenLink">
+           <div class="headerLinks">
              <b><%= link_to 'New Offer', new_deal_builder_path %></b>
-           </div>
-           <div class="blueGreenLink">
              <b><%= link_to 'My Offers', deal_builders_path %></b>
-           </div>
-           <div class="blueGreenLink">
              <b><%= link_to 'Distribute', '#' %></b>
-           </div>
-           <div class="blueGreenLink">
              <b><%= link_to 'Track', vouchers_path %></b>
            </div>
         </div>
@@ -54,5 +46,10 @@
     </div>
     </div>
 <% end %>
+<div id='footer'>
+  &copy;2011 <div style='display:inline;color:#0f75bc;padding-right:0px;padding-left:0px;'>Offer</div>
+             <div style='display:inline;color:#8cc63f;padding-left:0px;'>Glass</div>
+</div>
 </body>
+
 </html>

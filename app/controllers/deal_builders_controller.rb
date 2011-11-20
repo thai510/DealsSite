@@ -1,6 +1,6 @@
 class DealBuildersController < ApplicationController
   before_filter :finished_step_zero?
-  helper_method :same_user?
+  rescue_from ActiveRecord::RecordNotFound, :with => :deal_does_not_exist
   # GET /deal_builders
   # GET /deal_builders.xml
   def index
@@ -93,9 +93,8 @@ class DealBuildersController < ApplicationController
     end
   end
 
-  def same_user?(db_id)
-    unless DealBuilder.find(db_id).user_id == session[:users_id] || bool_admin_authorize
-      redirect_to home_url
-    end
+  def deal_does_not_exist
+    render :partial => 'layouts/noaccess'
   end
+
 end

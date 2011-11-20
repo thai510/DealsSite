@@ -9,7 +9,7 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,
 blockquote,pre,address,code,del,dfn,em,img,q,
 dl,dt,dd,ol,ul,li,
 table,caption,tbody,tfoot,thead,tr,th,td,br,fieldset,textarea{font-family:Arial Black, Gadget, sans-serif;line-height:20px;letter-spacing:.1px;word-spacing:1px;margin:0;padding:0;border:0;}
-h1,h2,h3,h4,h5,h6,hr,p,ul,ol,dl,pre,address,table{margin:0 0 20px}
+hr,p,ul,ol,dl,pre,address,table{margin:0 0 10px}
 p,h1, h2, h3, h4, h5, h6, ul.check_list, ul.arrowlist{padding-left:2px;}
 strong, b{font-weight:normal;}
 em, dfn, i{font-style:italic;}
@@ -21,7 +21,8 @@ a, input { outline:none; }
 body {
 	color:#555;
 	font-size:12px;
-  background-image:url('/images/theme/Golden_Gate_Sunset.jpg');
+	background-color:#eeeeee;
+  /*background-image:url('/images/theme/Golden_Gate_Sunset.jpg');*/
   background-repeat:no-repeat;
   background-position:center;
   background-attachment:fixed;
@@ -68,8 +69,8 @@ h1 span {
 /* --- 3. LAYOUT --- */
 
 #container {
-	min-width:700px;
-	max-width:1600px;
+  width:960px;
+  margin:0 auto;
 }
 
 #bgwrap {
@@ -1132,13 +1133,6 @@ div#footer {
   display:table;
 }
 
-#footer div {
-  display:table-cell;
-  padding:0 20px;
-  text-align:center;
-  vertical-align:center;
-}
-
 div.main_links a {
   text-decoration:none;
   color: #0f75bc;
@@ -1437,7 +1431,101 @@ div.clicktoShowRedeemed, div.clicktoShowUnredeemed {
 }
 
 div.leftSidePanel {
-  height:100%;
-  width: 110px;
+  width:110px;
   float:left;
+}
+div.homeBigLinks {
+  width:50%;
+  padding-top:15%;
+}
+
+div.homeBigLinks a {
+font-size:55px;
+text-decoration:none;
+color:gray;
+}
+
+div.homeBigLinks a:hover {
+  font-size:75px;
+  color:black;
+}
+
+div.headerLinks a {
+  text-decoration:none;
+  color:gray;
+}
+
+div.headerLinks a:hover {
+  text-decoration:none;
+  color: #0f75bc;
+}
+
+#box {
+	padding:30px 30px 36px 30px;
+	width:560px;
+	margin:0 auto;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;	
+}
+
+#box div.field {
+	font-size:16px;
+	padding:10px 20px;
+	width:215px;
+}
+
+#box div.login_fields {
+  text-align:center;
+}
+
+div.signup {
+  display:inline;
+}
+
+div.signup a {
+  text-decoration:none;
+  color: #0f75bc;
+}
+
+div.signup a:hover {
+  text-decoration:none;
+  color: #8cc63f;
+}
+
+div #login {
+  padding-top:10px;
+  display:inline;
+}
+
+#box label.fix {
+	top:-5px;
+}
+
+#wrapper {
+  min-height:100%; 
+  height: auto !important;
+  height:100%;
+  margin: 0 -4em;
+}
+
+#logo {
+       
+	margin:0 auto;
+	text-align:center;
+	margin-bottom:-145px;
+        margin-top: -100px;
+}
+
+#line { 
+  width:100%;
+  height:10px;
+  background:#181717;
+  border-bottom:1px solid #424242;
+}
+
+#background {
+  background-color:black;
+  background-image:url('../images/theme/loginbg.png') 50% 0 no-repeat; 
+  padding-top:50px; 
 }

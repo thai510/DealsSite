@@ -1,4 +1,4 @@
-<% same_user?(@deal_builder.id) %>
+<% if same_user?(@deal_builder.id,'db') %>
 <p id="notice"><%= notice %></p>
 <div class="leftSideLayout">
     <div class='dbClickOne'>Basics</div>
@@ -88,4 +88,7 @@
  <div class='rightSideLayout'>
    Offer Link: http://offerglass.com/live/<%= @deal_builder.db_publish.id %>
  </div>
+<% end %>
+<% else %>
+			  <%= render :partial => 'layouts/noaccess'%>	
 <% end %>
