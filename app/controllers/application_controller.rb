@@ -174,6 +174,11 @@ def transferDealInfoToPrevPub(db_publish)
 			  return false
 			end
 	  end
+	  if location == 'user_edit'
+	    unless id == session[:users_id]
+	      return false
+	    end
+	  end
 	  return true
   end
 

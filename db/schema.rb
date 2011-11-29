@@ -17,11 +17,6 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.datetime "updated_at"
   end
 
-  create_table "comparison_tools", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "db_publishes", :force => true do |t|
     t.integer  "max_vouchers_to_sell"
     t.integer  "length_of_deal"
@@ -150,11 +145,6 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.integer  "industry_id"
   end
 
-  create_table "links", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "locations", :force => true do |t|
     t.text     "address"
     t.string   "city"
@@ -163,11 +153,6 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "db_step_two_id"
-  end
-
-  create_table "marketing_plans", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "prev_publishes", :force => true do |t|
@@ -202,37 +187,11 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.datetime "updated_at"
   end
 
-  create_table "review_entries", :force => true do |t|
-    t.string   "service"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "number_of_vouchers"
-    t.text     "offer"
-    t.integer  "level_of_new_business"
-    t.integer  "returning_new_customers"
-    t.integer  "overall_experience"
-    t.integer  "customer_service"
-    t.string   "email"
-  end
-
-  create_table "samples", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "standard_restrictions", :force => true do |t|
     t.string   "title"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "tutorials", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "topic"
-    t.text     "content"
   end
 
   create_table "users", :force => true do |t|

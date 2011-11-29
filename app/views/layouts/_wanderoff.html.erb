@@ -1,0 +1,38 @@
+<head>
+  <title>OfferGlass</title>
+      <%= stylesheet_link_tag 'style.css',"jquery-ui-1.8.16.custom.css"%>
+
+  <%= csrf_meta_tag %>
+</head>
+
+<div id="layoutbanner">
+        <div class="rightLinks">
+           <div class="headerLinks">
+             <%= link_to "Settings", edit_user_path(session[:users_id])%>
+             <%= link_to "Logout", logout_path, :method => :delete %>
+           </div>
+        </div>
+        <div class="leftLinks">
+           <div class="bannerlogo">
+            <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
+           </div>
+           <div class="headerLinks">
+             <b><%= link_to 'New Offer', new_deal_builder_path %></b>
+             <b><%= link_to 'My Offers', deal_builders_path %></b>
+             <b><%= link_to 'Distribute', '#' %></b>
+             <b><%= link_to 'Track', vouchers_path %></b>
+           </div>
+        </div>
+</div>
+<div id='content'>
+  <div id='rightlayout'>
+    <div class="leftPublishedDeal">
+      Hmm you've seen to have wandered off somewhere! Let's get ya back on track :) 
+      <div class='blueGreenLink' style='text-align:center;'>
+      <%= link_to 'Back to Your Offers', deal_builders_path %>
+      <%= link_to 'Create a New Offer', new_deal_builder_path %>
+      <%= link_to 'Track Your Offers',vouchers_path %>
+      </div>
+    </div> 
+  </div>
+</div>

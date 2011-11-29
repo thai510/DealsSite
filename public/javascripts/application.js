@@ -8,7 +8,7 @@ $(document).ready(function () {
 //$('#user_submit').live("click", function() { 
    $('#new_user').validate( {
      errorPlacement: function(error,element) {
-       error.appendTo(element.closest("tr").next('tr'));
+       error.appendTo(element.closest('div').next('div'));
      },
      rules: {
        "user[name]":{required:true},
@@ -51,23 +51,22 @@ $(document).ready(function () {
 
     $('#db_step_one_offer_title').focus( function ()  {
       $('#offer_photo').hide();
-      $('#offer_photo_label').css('color','white');
       $('#offer_title').show();
-      $('#offer_title_label').css('color','#8cc63f');
+      $('#offer_title_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_title').focusout( function ()  {
       $('#offer_title').hide();
-      $('#offer_title_label').css('color','white');
+      $('#offer_title_label').css('text-decoration','none');
       $('.rightSideLayout').hide();
       $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_photo').focus( function ()  {
       $('#offer_photo').fadeIn();
-      $('#offer_photo_label').css('color','#8cc63f');
+      $('#offer_photo_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
@@ -75,7 +74,6 @@ $(document).ready(function () {
     // doesn't work click file_fields
     $('#db_step_one_offer_photo').live("click", function ()  {
       $('#offer_photo').fadeIn();
-      $('#offer_photo_label').css('color','#8cc63f');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
@@ -86,47 +84,44 @@ $(document).ready(function () {
 
     $('#db_step_one_offer_value').focus( function ()  {
       $('#offer_photo').hide();
-      $('#offer_photo_label').css('color','white');
       $('#offer_value').show();
-      $('#offer_value_label').css('color','#8cc63f');
+      $('#offer_value_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
     $('#db_step_one_offer_value').focusout( function ()  {
       $('#offer_value').hide();
-      $('#offer_value_label').css('color','white');
+      $('#offer_value_label').css('text-decoration','none');
       $('.rightSideLayout').hide();
       $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_price').focus( function ()  {
       $('#offer_photo').hide();
-      $('#offer_photo_label').css('color','white');
       $('#offer_price').show();
-      $('#offer_price_label').css('color','#8cc63f');
+      $('#offer_price_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
     $('#db_step_one_offer_price').focusout( function ()  {
       $('#offer_price').hide();
-      $('#offer_price_label').css('color','white');
+      $('#offer_price_label').css('text-decoration','none');
       $('.rightSideLayout').hide();
       $('#additionalRSL').hide();
     });
 
     $('#db_step_one_offer_description').focus( function ()  {
       $('#offer_photo').hide();
-      $('#offer_photo_label').css('color','white');
       $('#additionalRSL').show();
       $('.rightSideLayout').show();
       $('#offer_description').show();
       $('#additional_offer_description').show();
-      $('#offer_description_label').css('color','#8cc63f');
+      $('#offer_description_label').css('text-decoration','underline');
     });
     $('#db_step_one_offer_description').focusout( function ()  {
       $('#offer_description').hide();
       $('#additional_offer_description').hide();
-      $('#offer_description_label').css('color','white');
+      $('#offer_description_label').css('text-decoration','none');
       $('.rightSideLayout').hide();
       $('#additionalRSL').hide();
     });
@@ -230,12 +225,45 @@ $(document).ready(function () {
   {
 
       
-    if ($('div.fields').filter(':visible').size() == 5) { 
-      $('form a.add_nested_fields').hide();
-    }
       $('.rightSideLayout').show();
       $('#locations').show();
 
+		$('#db_step_two_locations_attributes_0_address').focus( function ()  {
+      $('#address_label').css('text-decoration','underline');
+      $('.rightSideLayout').show();
+    });
+		$('#db_step_two_locations_attributes_0_address').focusout( function ()  {
+      $('#address_label').css('text-decoration','none');
+      $('.rightSideLayout').show();
+    });
+
+		$('#db_step_two_locations_attributes_0_city').focus( function ()  {
+      $('#city_label').css('text-decoration','underline');
+      $('.rightSideLayout').show();
+    });
+
+		$('#db_step_two_locations_attributes_0_city').focusout( function ()  {
+      $('#city_label').css('text-decoration','none');
+      $('.rightSideLayout').show();
+    });
+
+		$('#db_step_two_locations_attributes_0_state').focus( function ()  {
+      $('#state_label').css('text-decoration','underline');
+      $('.rightSideLayout').show();
+    });
+		$('#db_step_two_locations_attributes_0_state').focusout( function ()  {
+      $('#state_label').css('text-decoration','none');
+      $('.rightSideLayout').show();
+    });
+
+		$('#db_step_two_locations_attributes_0_zip').focus( function ()  {
+      $('#zip_label').css('text-decoration','underline');
+      $('.rightSideLayout').show();
+    });
+		$('#db_step_two_locations_attributes_0_zip').focusout( function ()  {
+      $('#zip_label').css('text-decoration','none');
+      $('.rightSideLayout').show();
+    });
     //format for calendar
     /*$('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
                                                   showOn:'button',
@@ -278,105 +306,6 @@ $(document).ready(function () {
   }
 });
 
-//fun code written for dynamicly adding validations
-//to dynamic forms, not in use atm
-function validateAddresses(){
-     $('input[name$="[address]"]').each(function() {
-        //alert('#' + $(this).attr('id'));
-        //this takes care of adding location button adding separate
-        //input fields, these should not be checked by validations
-        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
-          $('#' + $(this).attr('id')).rules("add",{
-            required:true,
-            messages: {
-              required:''
-            }
-            });
-        }
-     });
-}
-
-function removeAddresses(){
-     $('input[name$="[address]"]').each(function() {
-        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
-          $('#' + $(this).attr('id')).rules("remove","required");
-        }
-     });
-}
-
-function validateCities(){
-     $('input[name$="[city]"]').each(function() {
-        //alert('#' + $(this).attr('id'));
-        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
-          $('#' + $(this).attr('id')).rules("add",{
-            required:true,
-            messages: {
-              required:''
-            }
-            });
-        }
-     });
-}
-
-function removeCities(){
-     $('input[name$="[city]"]').each(function() {
-        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
-          $('#' + $(this).attr('id')).rules("remove","required");
-        }
-     });
-}
-
-function validateStates(){
-     $('select[name$="[state]"]').each(function() {
-        //alert('#' + $(this).attr('id'));
-        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is(':hidden'))) {
-          $('#' + $(this).attr('id')).rules("add",{
-            required:true,
-            messages: {
-              required:''
-            }
-            });
-        }
-     });
-}
-
-function removeStates(){
-     $('select[name$="[state]"]').each(function() {
-        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
-          $('#' + $(this).attr('id')).rules("remove","required");
-        }
-     });
-}
-
-function validateZips(){
-     $('input[name$="[zip]"]').each(function() {
-        //alert('#' + $(this).attr('id'));
-        if(!(/new_locations/i.test($(this).attr('id'))) && !($(this).is('hidden'))) {
-          $('#' + $(this).attr('id')).rules("add",{
-            required:true,
-            minlength:5,
-            maxlength:5,
-            digits:true,
-            messages: {
-              required:'',
-              minlength:'',
-              maxlength:'',
-              digits:''
-            }
-            });
-         }
-     });
-}
-
-function removeZips(){
-     $('input[name$="[zip]"]').each(function() {
-        if(!(/new_locations/i.test($(this).attr('id'))) && $(this).is(':hidden')) {
-          $('#' + $(this).attr('id')).rules("remove","required");
-        }
-     });
-}
-
-
 //validations and tool tips for deal builder step 3
 $(document).ready(function () {
   if($('#new_db_step_three').is(':visible') || $('.edit_db_step_three').is(':visible'))
@@ -385,32 +314,32 @@ $(document).ready(function () {
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
     $('.rightSideLayout').show();
     $('#standard_restrictions').show();
-    $('#standard_restriction_label').css('color','#8cc63f');
+    $('#standard_restriction_label').css('text-decoration','underline');
   });
 
   $('#db_step_three_voucher_length').focus(function () {
     $('#standard_restrictions').hide();
     $('#voucher_length').show();
     $('.rightSideLayout').show();
-    $('#standard_restriction_label').css('color','white');
-    $('#voucher_length_label').css('color','#8cc63f');
+    $('#voucher_length_label').css('text-decoration','underline');
   });
 
   $('#db_step_three_voucher_length').focusout(function () {
     $('#voucher_length').hide();
     $('.rightSideLayout').hide();
-    $('#voucher_length_label').css('color','white');
+    $('#voucher_length_label').css('text-decoration','none');
   });
 
   $('#db_step_three_optional_restriction').focus(function () {
     $('#standard_restrictions').hide();
-    $('#standard_restriction_label').css('color','white');
     $('#optional_restrictions').show();
+    $('#optional_restrictions_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
   });
 
   $('#db_step_three_optional_restriction').focusout(function () {
     $('#optional_restrictions').hide();
+    $('#optional_restrictions_label').css('text-decoration','none');
     $('.rightSideLayout').hide();
   });
 
@@ -458,25 +387,25 @@ $(document).ready(function () {
     $('#db_publish_max_vouchers_to_sell').focusout(function () {
       $('.rightSideLayout').hide();
       $('#max_vouchers_to_sell').hide();
-      $('#max_vouchers_to_sell_label').css('color','white');
+      $('#max_vouchers_to_sell_label').css('text-decoration','none');
     });
 
     $('#db_publish_max_vouchers_to_sell').focus(function () {
       $('.rightSideLayout').show();
       $('#max_vouchers_to_sell').show();
-      $('#max_vouchers_to_sell_label').css('color','#8cc63f');
+      $('#max_vouchers_to_sell_label').css('text-decoration','underline');
     });
 
     $('#db_publish_length_of_deal').focus(function () {
       $('.rightSideLayout').show();
       $('#length_of_deal').show();
-      $('#length_of_deal_label').css('color','#8cc63f');
+      $('#length_of_deal_label').css('text-decoration','underline');
     });
 
     $('#db_publish_length_of_deal').focusout(function () {
       $('.rightSideLayout').hide();
       $('#length_of_deal').hide();
-      $('#length_of_deal_label').css('color','white');
+      $('#length_of_deal_label').css('text-decoration','none');
     });
     
     $('#new_db_publish').validate( {
@@ -501,11 +430,13 @@ $(document).ready(function () {
 
   $('#db_step_four_optional_incentive').focus(function () {
     $('#optional_incentives').show();
+    $('#optional_incentives_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
   });
 
   $('#db_step_four_optional_incentive').focusout(function () {
     $('#optional_incentives').hide();
+    $('#optional_incentives_label').css('text-decoration','none');
     $('.rightSideLayout').hide();
   });
  
@@ -552,76 +483,75 @@ $(document).ready(function () {
 
   $('#db_step_zero_company_logo').focus( function () {
     $('#company_logo').show();
-    $('#company_logo_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
   });
 
   $('#db_step_zero_business_name').focus( function () {
     $('#company_logo').hide();
     $('.rightSideLayout').hide();
-    $('#company_logo_label').css('color','white');
-    $('#business_name_label').css('color','#8cc63f');
+    $('#business_name_label').css('text-decoration','underline');
   });
 
   $('#db_step_zero_business_name').focusout( function () {
-    $('#business_name_label').css('color','white');
+    $('#business_name_label').css('text-decoration','none');
   });
 
   $('#db_step_zero_website').focus( function () {
     $('#company_logo').hide();
     $('.rightSideLayout').hide();
-    $('#company_logo_label').css('color','white');
-    $('#business_website_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','none');
+    $('#business_website_label').css('text-decoration','underline');
   });
 
   $('#db_step_zero_website').focusout( function () {
-    $('#business_website_label').css('color','white');
+    $('#business_website_label').css('text-decoration','none');
   });
 
   $('#db_step_zero_business_description').focus( function () {
     $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#business_description_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','none');
+    $('#business_description_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
     $('#business_description').show();
   });
 
   $('#db_step_zero_business_description').focusout( function () {
-    $('#business_description_label').css('color','white');
+    $('#business_description_label').css('text-decoration','none');
     $('.rightSideLayout').hide();
     $('#business_description').hide();
   });
 
   $('#db_step_zero_phone_number').focus( function () {
     $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#phone_number_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','none');
+    $('#phone_number_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
     $('#phone_number').show();
   });
 
   $('#db_step_zero_phone_number').focusout( function () {
-    $('#phone_number_label').css('color','white');
+    $('#phone_number_label').css('text-decoration','none');
     $('.rightSideLayout').hide();
     $('#phone_number').hide();
   });
 
   $('#db_step_zero_industry').focus( function ()  {
     $('#company_logo').hide();
-    $('#company_logo_label').css('color','white');
-    $('#industry_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','none');
+    $('#industry_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
     $('#industry').show();
   });
 
   $('#db_step_zero_industry').focusout( function ()  {
     $('#industry').hide();
-    $('#industry_label').css('color','white');
+    $('#industry_label').css('text-decoration','none');
     $('.rightSideLayout').hide()
   });
 
   $('#db_step_zero_company_logo').live("click", function () {
-    $('#company_logo_label').css('color','#8cc63f');
+    $('#company_logo_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
     $('#company_logo').show();
   });
@@ -665,18 +595,18 @@ $(document).ready(function () {
 $(document).ready(function () {
       $('div.clicktoShowRedeemed').css('cursor','pointer');
     $('.clicktoShowRedeemed').live("click", function() {
-      $('.clicktoShowRedeemed').css('color','white');
+      $('.clicktoShowRedeemed').css('text-decoration','none');
       $('div.clicktoShowRedeemed').css('cursor','auto');
       $('.clicktoShowUnredeemed').css('cursor','pointer');
-      $('.clicktoShowUnredeemed').css('color','#0f75bc');
+      $('.clicktoShowUnredeemed').css('text-decoration','underline');
       $('div.unredeemedVouchersTable').hide();
       $('div.redeemedVouchersTable').show();
     });
     $('.clicktoShowUnredeemed').live("click", function() {
-      $('.clicktoShowUnredeemed').css('color','white');
+      $('.clicktoShowUnredeemed').css('text-decoration','none');
       $('div.clicktoShowRedeemed').css('cursor','pointer');
       $('.clicktoShowUnredeemed').css('cursor','auto');
-      $('.clicktoShowRedeemed').css('color','#0f75bc');
+      $('.clicktoShowRedeemed').css('text-decoration','underline');
       $('div.redeemedVouchersTable').hide();
       $('div.unredeemedVouchersTable').show();
     });

@@ -1,19 +1,19 @@
 <%=form_for @db_step_two do |f| %> 
 
+<div class='formHeader'>The Where</div>
 <div class="leftSideLayout">
 <table id="dealBuilder">
-   <th style="color:#8cc63f;text-align:left;">Offer Redeemable At:</th>
    <th></th>
         <%= f.fields_for :locations do |locations_form|%>
-          <tr><td class='locationField' style='padding-top:40px;'><%= locations_form.text_field :address,:placeholder => 'Address',:size => '20' %></td>
-          <td class='locationField' style='padding-top:40px;'><%= locations_form.text_field :city,:size=>'20',:placeholder => 'City' %></td></tr>
-          <tr><td class='locationField' style='padding-bottom:40px;'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></td>
-          <td class='locationField' style='padding-bottom:40px;'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5' ,:placeholder => 'Zipcode'%><td></td></tr>
+          <tr><td class='dealBuilderLabel' id='address_label' style='width:140px;'><%= locations_form.label :address %></td>
+          <td class='dealBuilderField'><%= locations_form.text_field :address,:size => '20' %></td></tr>
+          <tr><td class='dealBuilderLabel' id='city_label'><%= locations_form.label :city %></td>
+          <td class='dealBuilderField' ><%= locations_form.text_field :city,:size=>'20'%></td><td></td></tr>
+					<tr><td class='dealBuilderLabel' id='state_label'><%= locations_form.label :state %></td>
+          <td class='dealBuilderField'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></td><td></td></tr>
+          <tr><td class='dealBuilderLabel' id='zip_label'><%= locations_form.label :zip %></td>
+          <td class='dealBuilderField'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5'%><td></td></tr>
         <% end %>
-    <tr>
-       <td>
-       <div style="display:inline;float:left;">
-       <%= check_box(:db_step_two,:include_all,{},'yes','no') %> Include All Business Locations?</div></td></tr>
 </table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>

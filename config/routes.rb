@@ -62,29 +62,13 @@ LocalAdResource::Application.routes.draw do
 
   get "eula/index"
 
-  resources :review_entries
-
   get "review_entries/new"
 
   get "reviews/index"
 
-  resources :calculator_tools
-
-  resources :comparison_tools
-
   resources :deal_builders, :path => 'db' 
 
-  resources :marketing_plans
-
   get "resources/index"
-
-  resources :faqs
-
-  resources :links
-
-  resources :samples
-
-  resources :tutorials
 
   get "learning_center/index"
 

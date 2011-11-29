@@ -16,13 +16,7 @@
     <%= yield :rightlayout%>
   <% else %>
     <div id="layoutbanner">
-        <div class="rightLinks">
-           <div class="headerLinks">
-             <%= link_to "Settings", edit_user_path(session[:users_id])%>
-             <%= link_to "Logout", logout_path, :method => :delete %>
-           </div>
-        </div>
-        <div class="leftLinks">
+                <div class="leftLinks">
            <div class="bannerlogo">
             <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
            </div>
@@ -33,6 +27,13 @@
              <b><%= link_to 'Track', vouchers_path %></b>
            </div>
         </div>
+       <div class="rightLinks">
+           <div class="headerLinks">
+             <%= link_to "Settings", edit_user_path(session[:users_id])%>
+             <%= link_to "Logout", logout_path, :method => :delete %>
+           </div>
+        </div>
+
     </div>
     <div id="content">
       <%= yield :not_right_layout %>
@@ -47,8 +48,7 @@
     </div>
 <% end %>
 <div id='footer'>
-  &copy;2011 <div style='display:inline;color:#0f75bc;padding-right:0px;padding-left:0px;'>Offer</div>
-             <div style='display:inline;color:#8cc63f;padding-left:0px;'>Glass</div>
+  &copy;2011 OfferGlass
 </div>
 </body>
 

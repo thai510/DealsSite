@@ -10,21 +10,27 @@
       </ul>
     </div>
   <% end %>
+<div class='formHeader'>The Extras </div>
 <div class="leftSideLayout">
   <table class="dealBuilder">
+
+	<tr>
+   <td class="dealBuilderField" id='optional_incentives_label'> <%= f.label 'Additional Incentives:' %></td></tr>
+  <tr>
+    <td class="dealBuilderField"><%= f.text_area :optional_incentive, :size => "60x5"%></td>
+  </tr>
+  <tr><td><br /></td></tr>
     <tr>
-    <td><div style='display:inline;'><%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
+    <td><div style='display:inline;float:left;'><%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
     </div></td>
     </tr>
     <tr>
-    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '30x2',:placeholder => 'Type the incentive here....' %></td>
+    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '60x2',:placeholder => 'Type the incentive here....' %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
-    <tr>
-      <td class="dealBuilderField"style="padding-top:20px"><%= f.text_area :optional_incentive, :size => "30x5",:placeholder => "Optional Incentives..." %></td>
-    </tr>
+  
   </table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>

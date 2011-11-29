@@ -11,30 +11,19 @@
   <% end %>
 </noscript>
 
-<table class="signup" style="caption-side:bottom;">
-  <tr class="signup">
-      <td class="signup_text"><b><%= f.label 'Name:' %></td>
-      <td class="signup_field"><%= f.text_field :name, :size => 22 %></b></td>
-  </tr>
-  <tr><td></td></tr> 
-  <tr>
-    <td class="signup_text"><b><%= f.label 'Email:' %></td>
-    <td class="signup_field"><%= f.text_field :email, :size => 22 %></b></td>
-  </tr>
-  <tr><td></td></tr> 
-  <tr>
-    <td class="signup_text"><b><%= f.label  'Password:'%></td>
-    <td class="signup_field"><%= f.password_field :password, :size => 22 %></b></td>
-  </tr>
-  <tr><td></td></tr> 
-  <tr>
-      <td class="signup_text"><b><%= f.label :password_confirmation, 'Confirm:'%></td>
-      <td class="signup_field"><%= f.password_field :password_confirmation, :size => 22 %></b></td>
-  </tr>
-  <tr><td></td></tr> 
-  <caption>
+      <div class="signup_text"><%= f.label 'Name:' %></div>
+      <div class="signup_field"><%= f.text_field :name, :size => 22 %></div>
+      <div class='signuperror'></div>
+    <div class="signup_text"><%= f.label 'Email:' %></div>
+    <div class="signup_field"><%= f.text_field :email, :size => 22 %></div>
+      <div class='signuperror'></div>
+    <div class="signup_text"><%= f.label  'Password:'%></div>
+    <div class="signup_field"><%= f.password_field :password, :size => 22 %></div>
+      <div class='signuperror'></div>
+      <div class="signup_text"><%= f.label :password_confirmation, 'Confirm:'%></div>
+      <div class="signup_field"><%= f.password_field :password_confirmation, :size => 22 %></div>
+      <div class='signuperror'></div>
   <div class="buttonSignup">
     <%= f.submit 'Sign Up' %>
   </div>
-  </caption>
 <% end %>

@@ -12,25 +12,29 @@
     </div>
   <% end %>
   </noscript>
-
+<div class='formHeader'>The Fine Print </div>
 <div class="leftSideLayout">
   <table id="dealBuilder">
-    <tr><td class="dealBuilderLabelCBox" id='standard_restriction_label'>Offer Standard Restrictions:</td></tr>
-           <% StandardRestriction.all.each do |s_r| %>
+		<tr>
+			<td class='dealBuilderField' id='voucher_length_label'>Offer Voucher Length:  <%= select :db_step_three,:voucher_length,
+				['1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
+			<td></td>
+		</tr>
+		<tr><td><br /></td></tr>
+    <% StandardRestriction.all.each do |s_r| %>
     <% if @edit_page %>
-    <tr><td class="dealBuilderFieldCBox" style='width:370px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
+    <tr><td class="dealBuilderFieldCBox" style='width:370px;padding-left:0px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
     <% else %>
-    <tr><td class="dealBuilderFieldCBox" style='width:370px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
+    <tr><td class="dealBuilderFieldCBox" style='width:370px;padding-left:0px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
     <% end %>
            <%= s_r.description %></td></tr>
            <% end %>
+  
+		<tr><td><br /></td></tr>
   <tr>
-    <td class='dealBuilderField' id='voucher_length_label'>Offer Voucher Length:  <%= select :db_step_three,:voucher_length,
-      ['1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
-    <td></td>
-  </tr>
+   <td class="dealBuilderField" id='optional_restrictions_label'> <%= f.label 'Additional Restrictions:' %></td></tr>
   <tr>
-    <td class="dealBuilderField"><%= f.text_area :optional_restriction, :size => "30x5", :placeholder => "Optional Restrictions...."%></td>
+    <td class="dealBuilderField"><%= f.text_area :optional_restriction, :size => "60x5"%></td>
   </tr>
   </table>
     <% unless @deal_builder_id %>

@@ -1,3 +1,6 @@
+<% if !same_user?(@user.id,'user_edit') %>
+  <%= render 'layouts/noaccess' %>
+<% else %>
 <div class="leftSideLayout">
 <%= render 'signup' %>
 <% if DbStepZero.find_by_user_id(session[:users_id]) %>
@@ -8,3 +11,4 @@
 </table>
 <% end %>
 </div>
+<% end %>

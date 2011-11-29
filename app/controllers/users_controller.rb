@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize#, :except => [:create, :new,:check_email]
   #before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
+  rescue_from ActiveRecord::RecordNotFound, :with => :edit_user_does_not_exist, :only => [:edit]
+
   # GET /users
   # GET /users.xml
 
@@ -90,5 +92,9 @@ class UsersController < ApplicationController
     respond_to do |format| 
       format.json {render :json => !@user}
     end
+  end
+
+  def edit_user_does_not_exist
+    render :partial => 'layouts/wanderoff'
   end
 end
