@@ -1612,3 +1612,7 @@ div.buttonSignup input#user_submit:hover {
 div.signUpForm {
   display:block;
 }
+
+textarea[disabled] {
+ background:gray;
+}

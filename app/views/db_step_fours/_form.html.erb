@@ -15,7 +15,7 @@
   <table class="dealBuilder">
 
 	<tr>
-   <td class="dealBuilderField" id='optional_incentives_label'> <%= f.label 'Additional Incentives:' %></td></tr>
+   <td class="dealBuilderField" id='optional_incentives_label'> <%= f.label 'Incentives:' %></td></tr>
   <tr>
     <td class="dealBuilderField"><%= f.text_area :optional_incentive, :size => "60x5"%></td>
   </tr>
@@ -25,7 +25,7 @@
     </div></td>
     </tr>
     <tr>
-    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '60x2',:placeholder => 'Type the incentive here....' %></td>
+    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '60x2',:placeholder => 'Type the incentive here....',:disabled => true %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>

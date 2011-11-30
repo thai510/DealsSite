@@ -209,12 +209,13 @@ function checkFbShare() {
   if ($('#db_step_four_fb_incentive').prop('checked')) {
     $('#db_step_four_fb_incentive_text').rules("add",{required:true});
     $('#db_step_four_fb_incentive_text').show();
-    $('label[for="db_step_four_fb_incentive_text"]').show(); 
+    $('textarea#db_step_four_fb_incentive_text').removeAttr("disabled"); 
+    $("#post_code").removeAttr("disabled");
+
   }
   else {
     $('#db_step_four_fb_incentive_text').rules("remove");
-    $('textarea#db_step_four_fb_incentive_text').hide();
-    $('label[for="db_step_four_fb_incentive_text"]').hide(); 
+    $('textarea#db_step_four_fb_incentive_text').attr("disabled","true"); 
   }
 }
 
