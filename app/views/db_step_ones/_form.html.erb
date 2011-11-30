@@ -40,15 +40,15 @@
   <tr><td></td></tr>
 <table id='dealBuilder'>
   <tr >
-    <td><div style='display:inline;margin-left:20px;'><%= check_box(:db_step_one,:coupon,{},'yes','no') %> Is this a coupon?</div></td>
-    <td class="dealBuilderLabel" id="offer_price_label" style='width:117px;height:36px;'><%= f.label :offer_price, "Offer Price" %></td>
+    <!--<td><div style='display:inline;margin-left:20px;' #rubycode check_box(:db_step_one,:coupon,{},'yes','no') # Is this a coupon?</div></td> -->
+
+    <td class="dealBuilderLabel" id="offer_price_label" style='width:117px'><%= f.label :offer_price, "Offer Price" %></td>
     <td class="dealBuilderField"><%= f.text_field :offer_price, "size" => 6 %></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
 
   <tr>
-    <td></td>
     <td class="dealBuilderLabel" id="offer_value_label"><%= f.label :offer_value, "Offer Value" %></td>
     <td class="dealBuilderField"><%= f.text_field :offer_value, "size" => 6 %></td>
     <td></td>

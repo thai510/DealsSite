@@ -78,9 +78,9 @@ $(document).ready(function () {
       $('#additionalRSL').hide();
     });
     
-    $('#db_step_one_coupon').live("click", function () {
+   /* $('#db_step_one_coupon').live("click", function () {
       checkCoupon();
-    });
+    });*/
 
     $('#db_step_one_offer_value').focus( function ()  {
       $('#offer_photo').hide();
@@ -126,9 +126,9 @@ $(document).ready(function () {
       $('#additionalRSL').hide();
     });
 
-  $.validator.addMethod('lessThan', function(value) {
-    var offerValue = $('#db_step_one_offer_value').val();
-    return (parseFloat(value) < offerValue);
+  $.validator.addMethod('greaterThan', function(value) {
+    var offerPrice = $('#db_step_one_offer_price').val();
+    return (parseFloat(value) > offerPrice);
   },'');
 
   $('#new_db_step_one').validate( {
@@ -138,15 +138,15 @@ $(document).ready(function () {
     rules: {
       "db_step_one[offer_photo]":{accept:true},
       "db_step_one[offer_title]":{required:true},
-      "db_step_one[offer_value]":{required:true, min: 0, number:true},
-      "db_step_one[offer_price]":{required:true, min: 0, number:true,lessThan:true},
+      "db_step_one[offer_price]":{required:true, min: 0, number:true},
+      "db_step_one[offer_value]":{required:true, min: 0, number:true,greaterThan:true},
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
       "db_step_one[offer_photo]":{accept:""},
       "db_step_one[offer_title]":{required:""},
-      "db_step_one[offer_value]":{number:"",min:"",required:""},
-      "db_step_one[offer_price]":{number:"",min:"",required:"",lessThan:''},
+      "db_step_one[offer_price]":{number:"",min:"",required:""},
+      "db_step_one[offer_value]":{number:"",min:"",required:"",greaterThan:''},
       "db_step_one[offer_description]":{required:""}
     }
   });
@@ -158,15 +158,15 @@ $(document).ready(function () {
     rules: {
       "db_step_one[offer_photo]":{accept:true},
       "db_step_one[offer_title]":{required:true},
-      "db_step_one[offer_value]":{required:true, min: 0, number:true},
-      "db_step_one[offer_price]":{required:true, min: 0, number:true,lessThan:true},
+      "db_step_one[offer_price]":{required:true, min: 0, number:true},
+      "db_step_one[offer_value]":{required:true, min: 0, number:true,greaterThan:true},
       "db_step_one[offer_description]":{required:true}},
 
     messages: {
       "db_step_one[offer_photo]":{accept:"",required:""},
       "db_step_one[offer_title]":{required:""},
-      "db_step_one[offer_value]":{number:"",min:"",required:""},
-      "db_step_one[offer_price]":{number:"",min:"",required:"",lessThan:''},
+      "db_step_one[offer_price]":{number:"",min:"",required:""},
+      "db_step_one[offer_value]":{number:"",min:"",required:"",greaterThan:''},
       "db_step_one[offer_description]":{required:""}
     }
   });
@@ -175,7 +175,7 @@ $(document).ready(function () {
     $("#db_step_one_offer_photo").blur().focus();
   });
 
-  checkCoupon();
+  //checkCoupon();
 
  }
 });
