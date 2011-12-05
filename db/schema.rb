@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111010165424) do
+ActiveRecord::Schema.define(:version => 20111205085743) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -177,6 +177,7 @@ ActiveRecord::Schema.define(:version => 20111010165424) do
     t.string   "all_locations"
     t.string   "private_deal"
     t.text     "fb_incentive"
+    t.integer  "db_publish_id"
   end
 
   create_table "private_deal_codes", :force => true do |t|

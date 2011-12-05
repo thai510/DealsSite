@@ -1,4 +1,6 @@
 LocalAdResource::Application.routes.draw do
+  get "errors/wander"
+
   resources :facebook_share_codes
 
   post 'facebook_share_codes/checkAndValidateFBCode'
@@ -41,7 +43,6 @@ LocalAdResource::Application.routes.draw do
 
 
   controller :sessions do
-
   #get "login/index" => :new
   post "login/index" => :create
   delete "logout" => :destroy
@@ -71,8 +72,6 @@ LocalAdResource::Application.routes.draw do
   get "resources/index"
 
   get "learning_center/index"
-
-  resources :feedbacks
 
   get "contact/contact_us"
 
@@ -156,4 +155,7 @@ LocalAdResource::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  LocalAdResource::Application.routes.draw do
+   match '*a', :to => 'errors#wander' 
+  end
 end

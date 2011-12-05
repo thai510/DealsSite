@@ -142,6 +142,7 @@ def transferDealInfoToPrevPub(db_publish)
       pp.state = @current_db.db_step_two.locations[0].state
       pp.zip = @current_db.db_step_two.locations[0].zip
       #pp.coupon = @current_db.db_step_one.coupon
+      pp.db_publish_id = @db_publish.id
       pp.private_deal = @db_publish.private_deal
       if @current_db.db_step_four.fb_incentive == 'yes'
         pp.fb_incentive = @current_db.db_step_four.fb_incentive_text

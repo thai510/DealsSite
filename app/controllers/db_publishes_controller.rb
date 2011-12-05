@@ -117,7 +117,7 @@ class DbPublishesController < ApplicationController
   end
 
   def deal_does_not_exist
-    render :partial => 'dealnotfound' 
+    render :partial => 'dealnotfound', :object => @db_publish = @db_publish 
   end
   
 end
