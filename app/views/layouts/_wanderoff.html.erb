@@ -1,10 +1,12 @@
 <head>
   <title>OfferGlass</title>
       <%= stylesheet_link_tag 'style.css',"jquery-ui-1.8.16.custom.css"%>
+ <%= javascript_include_tag 'jquery','jquery-1.6.2.min','jquery-ui-1.8.16.custom.min',
+ 'jquery.validate.min','jquery.validate','jquery_ujs','jquery.countdown','nested_form','application' %>
 
   <%= csrf_meta_tag %>
 </head>
-
+<body>
 <div id="layoutbanner">
         
         <div class="leftLinks">
@@ -26,12 +28,21 @@
         </div>
 </div>
 <div id='content'>
-  <div id='rightlayout'>
+  <div id='rightlayout' style='padding-top:80px;'>
+   <div class='formHeader' style='padding-bottom:10px;'>
+   Where are you?
+   </div>
+   <div id='errorPageLayout'>
       Hmm you've seen to have wandered off somewhere! Let's get ya back on track :) 
-      <div class='blueGreenLink' style='text-align:center;'>
+      <div class='blueGreenLink' style='text-align:center;font-weight:bold;'>
       <%= link_to 'Back to Your Offers', deal_builders_path %>
       <%= link_to 'Create a New Offer', new_deal_builder_path %>
       <%= link_to 'Track Your Offers',vouchers_path %>
       </div>
+		</div>
   </div>
 </div>
+<div id='footer'>
+  &copy;2011 OfferGlass
+</div>
+</body>

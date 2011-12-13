@@ -5,13 +5,13 @@
 <table id="dealBuilder">
    <th></th>
         <%= f.fields_for :locations do |locations_form|%>
-          <tr><td class='dealBuilderLabel' id='address_label' style='width:140px;'><%= locations_form.label :address %></td>
+          <tr><td class='dealBuilderLabel' id='address_label' style='width:140px;'><%= locations_form.label :address,'Address*' %></td>
           <td class='dealBuilderField'><%= locations_form.text_field :address,:size => '20' %></td></tr>
-          <tr><td class='dealBuilderLabel' id='city_label'><%= locations_form.label :city %></td>
+          <tr><td class='dealBuilderLabel' id='city_label'><%= locations_form.label :city, 'City*' %></td>
           <td class='dealBuilderField' ><%= locations_form.text_field :city,:size=>'20'%></td><td></td></tr>
-					<tr><td class='dealBuilderLabel' id='state_label'><%= locations_form.label :state %></td>
+					<tr><td class='dealBuilderLabel' id='state_label'><%= locations_form.label :state, 'State*' %></td>
           <td class='dealBuilderField'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></td><td></td></tr>
-          <tr><td class='dealBuilderLabel' id='zip_label'><%= locations_form.label :zip %></td>
+          <tr><td class='dealBuilderLabel' id='zip_label'><%= locations_form.label :zip, 'Zipcode*' %></td>
           <td class='dealBuilderField'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5'%><td></td></tr>
         <% end %>
 </table>

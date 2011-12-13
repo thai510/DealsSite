@@ -16,11 +16,13 @@
 <div class="leftSideLayout">
   <table id="dealBuilder">
 		<tr>
-			<td class='dealBuilderField' id='voucher_length_label'>Offer Voucher Length:  <%= select :db_step_three,:voucher_length,
+			<td class='dealBuilderField' ><div id='voucher_length_label' style='display:inline;'> Offer Voucher Length*</div>  <%= select :db_step_three,:voucher_length,
 				['1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'Months'} %></td>
 			<td></td>
 		</tr>
 		<tr><td><br /></td></tr>
+		<tr><td style='font-size:10px;float:left'>*At Least One Required | 
+		 <div id='dbThreeStandardRestrictionButton' style='display:inline;'>more</div></td></tr>
     <% StandardRestriction.all.each do |s_r| %>
     <% if @edit_page %>
     <tr><td class="dealBuilderFieldCBox" style='width:370px;padding-left:0px;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
@@ -32,7 +34,7 @@
   
 		<tr><td><br /></td></tr>
   <tr>
-   <td class="dealBuilderField" id='optional_restrictions_label'> <%= f.label 'Additional Restrictions:' %></td></tr>
+   <td class="dealBuilderField" id='optional_restrictions_label'> <%= f.label :optional_restrictions, 'Additional Restrictions' %></td></tr>
   <tr>
     <td class="dealBuilderField"><%= f.text_area :optional_restriction, :size => "60x5"%></td>
   </tr>

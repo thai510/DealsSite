@@ -19,13 +19,15 @@
              <b><%= link_to 'My Offers', deal_builders_path %></b>
              <b><%= link_to 'Distribute', '#' %></b>
              <b><%= link_to 'Track', vouchers_path %></b>
-           </div>
-        </div>
+         </div>
+      </div>
        <div class="rightLinks">
            <div class="headerLinks">
              <%= link_to "Settings", edit_user_path(session[:users_id])%>
              <%= link_to "Logout", logout_path, :method => :delete %>
            </div>
+        </div>
+        <% else %>
         </div>
         <% end %>
 
@@ -39,7 +41,7 @@
         <% @user.deal_builders.each do |db| %>
           <% if db.db_publish %>
             <% if @headline == 1 %>
-              <div> Don't fret! Here are some other Offers by <% "#{@user.db_step_zero.business_name}" %></div>
+              <div> Don't fret! Here are some other Offers by <%= "#{@user.db_step_zero.business_name}" %></div>
               <% @headline = 0 %>
             <% end %>
             <%= link_to "#{db.db_step_one.offer_title}",db.db_publish %>

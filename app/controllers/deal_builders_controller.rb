@@ -94,7 +94,7 @@ class DealBuildersController < ApplicationController
   end
 
   def deal_does_not_exist
-    render :partial => 'layouts/noaccess'
+    render :partial => 'layouts/wanderoff'
   end
 
 end

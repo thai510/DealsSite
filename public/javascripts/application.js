@@ -53,6 +53,7 @@ $(document).ready(function () {
       $('#offer_photo').hide();
       $('#offer_title').show();
       $('#offer_title_label').css('text-decoration','underline');
+      $('#offer_photo_label').css('text-decoration','none');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
@@ -72,11 +73,13 @@ $(document).ready(function () {
     });
     //needed to also add on click because for some reason focus
     // doesn't work click file_fields
-    $('#db_step_one_offer_photo').live("click", function ()  {
+    $('#dbOnePhotoInfoButton').live("click", function ()  {
       $('#offer_photo').fadeIn();
+      $('#offer_photo_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
+
     
    /* $('#db_step_one_coupon').live("click", function () {
       checkCoupon();
@@ -86,6 +89,7 @@ $(document).ready(function () {
       $('#offer_photo').hide();
       $('#offer_value').show();
       $('#offer_value_label').css('text-decoration','underline');
+      $('#offer_photo_label').css('text-decoration','none');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
@@ -100,6 +104,7 @@ $(document).ready(function () {
       $('#offer_photo').hide();
       $('#offer_price').show();
       $('#offer_price_label').css('text-decoration','underline');
+      $('#offer_photo_label').css('text-decoration','none');
       $('.rightSideLayout').show();
       $('#additionalRSL').hide();
     });
@@ -115,6 +120,7 @@ $(document).ready(function () {
       $('#additionalRSL').show();
       $('.rightSideLayout').show();
       $('#offer_description').show();
+      $('#offer_photo_label').css('text-decoration','none');
       $('#additional_offer_description').show();
       $('#offer_description_label').css('text-decoration','underline');
     });
@@ -313,6 +319,12 @@ $(document).ready(function () {
   {
 
   $('#db_step_three_standard_restriction_ids_').live("click",function () {
+    $('.rightSideLayout').show();
+    $('#standard_restrictions').show();
+    $('#standard_restriction_label').css('text-decoration','underline');
+  });
+
+$('#dbThreeStandardRestrictionButton').live("click",function () {
     $('.rightSideLayout').show();
     $('#standard_restrictions').show();
     $('#standard_restriction_label').css('text-decoration','underline');

@@ -1128,6 +1128,7 @@ div#footer {
   text-align:center;
   position:relative;
   display:table;
+  color:#ccc;
 }
 
 div.main_links a {
@@ -1244,7 +1245,7 @@ td.locationField a, div.blueGreenLink a,td.formTipLink a,div#blueGreenLink a {
 
 td.locationField a:hover, div.blueGreenLink a:hover, td.formTipLink a:hover, div#blueGreenLink a:hover {
   text-decoration:none;
-  color: #8cc63f;
+  color: #6a1f51;
 }
 
 div.blueGreenLink {
@@ -1615,4 +1616,31 @@ div.signUpForm {
 
 textarea[disabled] {
  background:gray;
+}
+
+div#errorPageLayout {
+  background:black;
+  height:80px;
+  width:500px;
+  color:#ccc;
+  padding-top:40px;
+  border:1px; solid black;
+  border-radius:5px;
+}
+
+div#dbThreeStandardRestrictionButton, div#dbOnePhotoInfoButton,
+ div#dbFourFBInfoButton {
+  color:red;
+  font-size:10px;
+  display:inline;
+
+}
+
+div#dbThreeStandardRestrictionButton:hover, div#dbOnePhotoInfoButton:hover,
+ div#dbFourFBInfoButton:hover {
+  color:#ccc;
+  font-size:10px;
+  cursor:pointer;
+  display:inline;
+
 }
