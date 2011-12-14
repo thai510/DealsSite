@@ -1,21 +1,31 @@
-<%if same_user?(@db_step_four.deal_builder_id,'db') %>
-<p id="notice"><%= notice %></p>
+<% if same_user?(@db_step_four.deal_builder_id,'db') %>
 
 <h1> The Incentives </h1>
-<div>
-  <% if @db_step_four.fb_incentive == 'yes' %>
-  <b>Facebook share incentive:</b>
-    <%= @db_step_four.fb_incentive_text %>
+<br />
+<% if (@db_step_four.optional_incentive != '' || @db_step_four.fb_incentive == 'yes') %>
+  <% if @db_step_four.optional_incentive != '' %>
+  <div>
+    <div class='dbShowLabel'>Incentives</div>
+    <%= @db_step_four.optional_incentive %>
+  <div>
   <% end %>
-</div>
+  <% if @db_step_four.fb_incentive == 'yes' %>
+  <div>
+    <div class='dbShowLabel'>Facebook Share Incentive</div>
+      <%= @db_step_four.fb_incentive_text %>
+  </div>
+  <% end %>
+<% else %>
 <div>
-  <b>Optional incentive:</b>
-  <%= @db_step_four.optional_incentive %>
+There are no incentives for this offer.
 </div>
+<% end %>
 
+<br />
 
 
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
-  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'Edit', edit_db_step_four_path(@db_step_four, :db_id => @db_step_four.deal_builder_id) %></div> 
+  <div class='blueGreenLink' style='text-align:center;display:inline;'><%= link_to 'Edit', edit_db_step_four_path(@db_step_four,
+      :db_id => @db_step_four.deal_builder_id) %></div> 
 <% end %>
 <% end %>

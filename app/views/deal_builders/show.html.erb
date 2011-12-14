@@ -1,22 +1,45 @@
 <% if same_user?(@deal_builder.id,'db') %>
-<p id="notice"><%= notice %></p>
 <div class="leftSideLayout">
     <div class='dbClickOne'>Basics</div>
-    <div class='dbClickTwo'>Location</div>
-    <div class='dbClickThree'>Restrictions</div>
-    <div class='dbClickFour'>Incentives</div>
+    <% if @deal_builder.db_step_four %>
+      <div class='dbClickTwo'>Location</div>
+      <div class='dbClickThree'>Restrictions</div>
+      <div class='dbClickFour'>Incentives</div>
+    <% elsif @deal_builder.db_step_three %>
+      <div class='dbClickTwo'>Location</div>
+      <div class='dbClickThree'>Restrictions</div>
+      <div class='dbClickDisabled'>Incentives</div>   
+    <% elsif @deal_builder.db_step_two %>
+      <div class='dbClickTwo'>Location</div>
+      <div class='dbClickDisabled'>Restrictions</div>   
+      <div class='dbClickDisabled'>Incentives</div>   
+    <% else %>
+      <div class='dbClickDisabled'>Location</div>   
+      <div class='dbClickDisabled'>Restrictions</div>   
+      <div class='dbClickDisabled'>Incentives</div>   
+    <% end %>
 </div>
-<% if @deal_builder.db_step_four %>
   <div class="rightSideLayout">
   <% unless @deal_builder.db_publish %>
      <div class='blueGreenLink' style="text-align:center;font-size:30px;padding-top:20px;padding-bottom:20px;">
-      <%= link_to 'Publish Now!', new_db_publish_path(:db_id => @deal_builder.id) %></div> 
+     <%if @deal_builder.db_step_four %>
+      <%= link_to 'Publish Now!', new_db_publish_path(:db_id => @deal_builder.id) %> 
+     <% else %>
+       <% if @deal_builder.db_step_three %>
+         <%= link_to 'Finish Offer!', new_db_step_four_path(:db_id => @deal_builder.id) %>  
+       <% elsif @deal_builder.db_step_two %>
+         <%= link_to 'Finish Offer!', new_db_step_three_path(:db_id => @deal_builder.id) %>  
+       <% else %>
+         <%= link_to 'Finish Offer!', new_db_step_two_path(:db_id => @deal_builder.id) %>  
+       <% end %>
+     <% end %>
+    </div>
     </div>
   <% else %>
     <% checkLiveDeals(@deal_builder.db_publish.id,'db_show') %>
     <p id="notice"><%= notice %></p>
 
-    <h1>DEAL LIVE</h1>
+    <h1>OFFER LIVE</h1>
     <p>
       <% if @deal_builder.db_publish.max_vouchers_to_sell == 0 %>
       Unlimited
@@ -53,7 +76,7 @@
     <% end %>   
 
 <div class="leftSideLayout">
-<div class='show_deal_builder'>
+<div class='show_deal_builder' >
 <div class='dbShowOne'>
 <%= render :template => 'db_step_ones/show', :object => (@db_step_one = @deal_builder.db_step_one) %>
 </div>
@@ -71,7 +94,6 @@
 </div>
      <% end %>
    <% end %>
-<% end %> 
 
 <br />
 </div>

@@ -1,38 +1,29 @@
 <% if same_user?(@db_step_one.deal_builder_id,'db') %>
-<p id="notice"><%= notice %></p>
 
 <h1> The Basics </h1>
+<br />
+<div class='dbShowLeftContainer'>
 <div>
-  <b>Offer title:</b>
+  <div class='dbShowLabel'>Offer Title</div>
   <%= @db_step_one.offer_title %>
 </div>
+<br />
 <div>
-  <b>Offer description:</b>
+  <div class='dbShowLabel'>Offer Description</div>
   <%= @db_step_one.offer_description %>
 </div>
-
+</div>
+<div class='dbShowRightContainer'>
 <% if @db_step_one.offer_photo_file_name %>
-<div>
-  <b>Offer photo:</b>
-  <%= image_tag(@db_step_one.offer_photo.url(:thumb)) %>
-</div>
-<% end %>
-<% if @db_step_one.coupon == 'no' %>
-<div>
-  <b>Offer value:</b>
-  <%= @db_step_one.offer_value %>
-</div>
-<div>
-  <b>Offer price:</b>
-  <%= @db_step_one.offer_price %>
-</div>
+  <%= image_tag(@db_step_one.offer_photo.url(:mediumthumb)) %> <br />
+  $<%= @db_step_one.offer_value %> value for $<%= @db_step_one.offer_price %> 
 <% else %>
-<div>
-This is a coupon
-</div>
+  <%= image_tag('theme/default_offer_image_150.png') %> <br />
+  $<%= @db_step_one.offer_value %> value for $<%= @db_step_one.offer_price %> 
 <% end %>
-
+</div>
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
-  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'Edit', edit_db_step_one_path(@db_step_one, :db_id => @db_step_one.deal_builder_id) %></div>
+  <div class='blueGreenLink' style='text-align:center;display:inline;'><%= link_to 'Edit', edit_db_step_one_path(@db_step_one,
+           :db_id => @db_step_one.deal_builder_id) %></div>
 <% end %>
 <% end %>

@@ -67,7 +67,7 @@ LocalAdResource::Application.routes.draw do
 
   get "reviews/index"
 
-  resources :deal_builders, :path => 'db' 
+  resources :deal_builders, {:path => 'db', :except => :edit} 
 
   get "resources/index"
 

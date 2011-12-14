@@ -440,11 +440,16 @@ $(document).ready(function () {
     $('#db_step_four_fb_incentive').live("click", function () {
       checkFbShare();
     });
+    $('#dbFourFBInfoButton').live("click", function () {
+      $('#fb_incentive').show();
+      $('.rightSideLayout').show();
+    });
 
   $('#db_step_four_optional_incentive').focus(function () {
     $('#optional_incentives').show();
-    $('#optional_incentives_label').css('text-decoration','underline');
     $('.rightSideLayout').show();
+    $('#fb_incentive').hide();
+    $('#optional_incentives_label').css('text-decoration','underline');
   });
 
   $('#db_step_four_optional_incentive').focusout(function () {

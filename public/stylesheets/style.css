@@ -1295,8 +1295,15 @@ div.dbClickOne, div.dbClickTwo, div.dbClickThree,div.dbClickFour{
   font-weight:bold;
 }
 
+div.dbClickDisabled {
+  display:inline;
+  margin-right:10px;
+  font-weight:bold;
+  color:#ccc;
+}
+
 div.dbClickOne:hover, div.dbClickTwo:hover, div.dbClickThree:hover, div.dbClickFour:hover {
-  color:yellow;
+  color:white;
 }
 
 div.leftPublishedDeal {
@@ -1643,4 +1650,25 @@ div#dbThreeStandardRestrictionButton:hover, div#dbOnePhotoInfoButton:hover,
   cursor:pointer;
   display:inline;
 
+}
+
+div.dbShowLabel {
+ font-weight:bold;
+}
+
+div.dbShowLeftContainer {
+ width:225px;
+ height:196px;
+ float:left;
+ vertical-align:middle;
+}
+div.dbShowRightContainer {
+ width:225px;
+ height:196px;
+ display:inline;
+ float:right;
+}
+
+div.dbShowOne, div.dbShowTwo, div.dbShowThree, div.dbShowFour {
+  display:inline;
 }

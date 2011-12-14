@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :bool_finished_step_zero?
   helper_method :checkLiveDeals
   helper_method :same_user?
+  helper_method :deal_live?
   protect_from_forgery
  
   private
@@ -181,6 +182,14 @@ def transferDealInfoToPrevPub(db_publish)
 	    end
 	  end
 	  return true
+  end
+
+  def deal_live?(id)
+     if DealBuilder.find(id).db_publish
+       return true
+     else 
+       return false
+     end 
   end
 
 end

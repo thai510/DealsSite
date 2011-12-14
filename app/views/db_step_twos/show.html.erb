@@ -1,21 +1,16 @@
 <%if  same_user?(@db_step_two.deal_builder_id,'db') %>
-<p id="notice"><%= notice %></p>
 
 <h1>The Where</h1>
 <div>
-  <b>Locations serving Offer</b>
   <% @db_step_two.locations.each do |loc| %>
     <%= render :template => 'locations/show', :object => (@location = loc) %>
   <% end %>
-  <% if @db_step_two.include_all == 'yes' %>
-     Include all locations!
-  <% else %>
-     Do not include all locations!
-  <% end %>
 </div>
+<br />
 
 
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
-  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'Edit', edit_db_step_two_path(@db_step_two, :db_id => @db_step_two.deal_builder_id) %></div> 
+  <div class='blueGreenLink' style='text-align:center;display:inline;'><%= link_to 'Edit', edit_db_step_two_path(@db_step_two,
+       :db_id => @db_step_two.deal_builder_id) %></div> 
 <% end %>
 <% end %>

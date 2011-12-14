@@ -22,7 +22,7 @@
   <tr><td><br /></td></tr>
     <tr>
     <td><div style='display:inline;float:left;'><%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
-    </div><div id='dbFourFBInfoButton' style='padding-left:90px;'>more</div></td>
+    </div><div id='dbFourFBInfoButton' style='margin-left:90px;'>more</div></td>
     </tr>
     <tr>
     <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '60x2',:placeholder => 'Type the incentive here....',:disabled => true %></td>
@@ -51,6 +51,9 @@
   <table class="stepFourTips">
     <tr id="optional_incentives" style='display:none'>
       <td><%=FormTip.find_by_title("optional incentives").description%></td>
+    </td>
+    <tr id="fb_incentive" style='display:none'>
+      <td><%=FormTip.find_by_title("fb incentive").description%></td>
     </td>
   </table>
 </div>

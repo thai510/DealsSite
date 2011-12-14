@@ -1,2 +1,17 @@
-<% same_user?(@db_step_three.deal_builder_id) %>
+<% if deal_live?(@db_step_three.deal_builder_id) %>
+<div id='rightlayout' style='padding-top:80px;'>
+<div class='formHeader' style='padding-bottom:10px;'>
+This Offer is Live
+</div>
+<div id='errorPageLayout'>
+      Please stop this offer if you wish to make changes. You can do that 
+      <div class='blueGreenLink' style='text-align:center;font-weight:bold;display:inline;'>
+      <%= link_to 'here', deal_builder_path(@db_step_three.deal_builder_id) %>.
+      </div>
+		</div>
+		</div>
+</div>
+<% else %>
 <%= render 'form' ,:object => (@edit_page = true)%>
+<% end %>
+

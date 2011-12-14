@@ -30,6 +30,8 @@
     <h4><%= @one.offer_description %></h4>
     <% if(@one.offer_photo.exists? == true) then %>
       <%= image_tag @one.offer_photo.url(:medium) %>
+    <% else %>
+      <%= image_tag 'theme/default_offer_image_300.png' %>
     <% end %>
     <h2>Incentives</h2>
     <% if @four.fb_incentive == 'yes' %>

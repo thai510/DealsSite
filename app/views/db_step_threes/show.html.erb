@@ -1,24 +1,24 @@
 <%if same_user?(@db_step_three.deal_builder_id,'db') %>
-<p id="notice"><%= notice %></p>
 
 <h1>The Fine Print</h1>
+<br />
 <div>
-  <b>Standard Restrictions:</b>
+  <div class='dbShowLabel'>Restrictions</div>
   <% @db_step_three.standard_restrictions.each do |s_r| %>
     <%= s_r.description %>
   <% end %>
+  <%= ' ' + @db_step_three.optional_restriction %>
 </div>
+<br />
 <div>
-  <b>Voucher Length:</b>
-  <%= @db_step_three.voucher_length %> Month(s)
+  <div class='dbShowLabel'>Voucher Length</div>
+  <%= pluralize @db_step_three.voucher_length, 'Month' %> 
 </div>
-<div>
-  <b>Optional restriction:</b>
-  <%= @db_step_three.optional_restriction %>
-</div>
+<br />
 
 
 <% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
- <div class='blueGreenLink' style='text-align:center;'> <%= link_to 'Edit', edit_db_step_three_path(@db_step_three, :db_id => @db_step_three.deal_builder_id) %> </div>
+ <div class='blueGreenLink' style='text-align:center;display:inline;'> <%= link_to 'Edit', edit_db_step_three_path(@db_step_three,
+      :db_id => @db_step_three.deal_builder_id) %> </div>
 <% end %>
 <% end %>

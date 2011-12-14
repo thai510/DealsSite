@@ -18,9 +18,9 @@
         <td class="formTipLink"><%= link_to 'Publish Now!', deal_builder %></td>
         <td class="formTipLink"><%= link_to 'Delete Offer', deal_builder, :method => :delete, :confirm => 'Are you sure?' %></td>
       <% elsif deal_builder.db_step_four  && !deal_builder.db_publish%>
-        <td class="formTipLink"><%= link_to 'Edit', edit_deal_builder_path(deal_builder) %></td>
+        <td class="formTipLink"><%= link_to 'Edit', deal_builder_path(deal_builder) %></td>
       <% elsif !deal_builder.db_step_four%>
-        <td class="formTipLink"><%= link_to 'Finish Offer!', edit_deal_builder_path(deal_builder) %></td>
+        <td class="formTipLink"><%= link_to 'Finish Offer!', deal_builder_path(deal_builder) %></td>
       <% end %>
     <% end %>
   <% end %>
