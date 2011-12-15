@@ -14,7 +14,7 @@
       <% @dealBuilders.delete_if {|d| DbPublish.find_by_deal_builder_id(d.id)} %>
       <% @count = 0 %>
   <% @dealBuilders.reverse.each do |deal_builder| %>
-    <% if @count > 4 then break end %>
+    <% if @count > 5 then break end %>
     <% @count += 1 %>
     <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
       <div id="offerTitleOfferView">
@@ -82,36 +82,55 @@
 <% else %>
   <h1><div class='blueGreenLink' style='text-align:center'> <%= link_to 'Create a New Offer', new_deal_builder_path %> </div></h1>
 <% end %>
-<% @at_least_one_db_publish = false %>
-<% current_user.deal_builders.each do |db| %>
-  <% if db.db_publish then @at_least_one_db_publish = true end%>
-<% end %>
-<%unless current_user.deal_builders.count == 0 || !@at_least_one_db_publish %>
-      <hr />
-      <table>
-       <th><tr><h1> Live Offers</h1></tr></th>
-    <% current_user.deal_builders.each do |deal_builder| %>
-     <% if deal_builder.db_publish %>
-       <tr>
-          <td class="formTipLink"><%= link_to deal_builder.db_step_one.offer_title, deal_builder %></td>
-            <% if deal_builder.db_publish.private_deal == 'yes' %>
-              <td class="formTipLink"><%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%></td>
-            <%end %> 
-       </tr> 
-     <% end %>
-    <% end %>
-      <% if @a_db_publish == 0 %>
-        <tr><td style='text-align:center;'>No live deals at the moment</td></tr>
+</div>
+<div class='rightSideLayout'>
+  <% @liveOffers = DealBuilder.where(:user_id => current_user) %>
+  <% @liveOffers.delete_if {|d| !DbPublish.find_by_deal_builder_id(d.id)} %>
+
+  <%unless @liveOffers.empty? %>
+         <div id="liveOfferViewTitle">Live Offers</div>
+      <% @liveOffers.sort! { |x,y| x.db_publish.created_at <=> y.db_publish.created_at } %>
+      <% @count = 0 %>
+      <% @liveOffers.reverse.each do |deal_builder| %>
+        <% if @count > 5 then break end %>
+        <% @count += 1 %>
+      <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
+        <div id="liveOfferTitleOfferView"><%= deal_builder.db_step_one.offer_title %></div>
+        <div id="liveOfferRightOfferView"><%= deal_builder.db_publish.total_vouchers_sold %> Purchased</div>
+          <% if deal_builder.db_publish.private_deal == 'yes' %>
+            <%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%>
+          <%end %> 
+      </div>
       <% end %>
-      </table>
-<% end %>
+  <% if @count < @liveOffers.length %>
+    <div id='restOfLiveOffers' style='display:none'>
+    <% @restOfLOs = @liveOffers.reverse[@count..@liveOffers.length] %>
+    <% @restOfLOs.each do |deal_builder| %>
+      <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
+        <div id="liveOfferTitleOfferView"><%= deal_builder.db_step_one.offer_title %></div>
+        <div id="liveOfferRightOfferView"><%= deal_builder.db_publish.total_vouchers_sold %> Purchased</div>
+        <% if deal_builder.db_publish.private_deal == 'yes' #code for private deals, will keep just incase%>
+          <%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%>
+        <% end %>
+      </div>
+  <% end %>
+  </div>
+    <div id="moreLiveOfferViewLink">
+    VIEW ALL 
+   </div>
+   <div id="hideLiveOfferViewLink" style="display:none;">
+    HIDE
+   </div>
+  <% end %>
+  <%end %>
+
+  <% if @liveOffers.empty? %>
+    No live deals at the moment
+  <% end %>
 </div>
 
-<div class='rightSideLayout'>
-  Game theory and Deal/Coupon statistics will go here
-</div>
 <% if current_user.prev_publishes.count > 0 %>
-<div class='leftSideLayout'>
+<div class='leftSideLayout' style='display:none;'>
   <div class='blueGreenLink' style='text-align:center;'><%= link_to 'View Your Past Deals', prev_publishes_path %></div>
 </div>
 <% end %>

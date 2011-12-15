@@ -1196,9 +1196,9 @@ td.locationLabel {
 div.rightSideLayout {
   float:right;
   width:350px;
+  margin:25px 10px 15px 20px;
+  padding:20px 10px 30px 10px;
   background:#161616;
-  padding:5px 5px 0px 5px;
-  margin-top:25px;
   color:white;
   -moz-border-radius: 15px;
   border-radius: 15px;
@@ -1678,6 +1678,7 @@ div#oneOfferView {
   font-weight:bold;
   background:black;
 }
+
 div#offerTitleOfferView {
   width:225px;
   float:left;
@@ -1685,14 +1686,28 @@ div#offerTitleOfferView {
   display:inline;
 }
 
-div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover {
+div#liveOfferTitleOfferView {
+  width:175px;
+  float:left;
+  padding-top:15px;
+  display:inline;
+}
+
+div#liveOfferRightOfferView {
+  width:175px;
+  float:right;
+  padding-top:15px;
+  display:inline;
+}
+
+div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover,
+ div#moreLiveOfferViewLink:hover, div#hideLiveOfferViewLink:hover {
  background:#ccc;
  color:black;
  cursor:pointer;
 }
 
 div#stepsOfferViewHolder {
-  display:inline;
   width:225px;
   float:right;
   padding-top:15px;
@@ -1710,7 +1725,7 @@ div#stepsOfferViewNotCompleted {
   display:inline;
 }
 
-div#moreOfferViewLink {
+div#moreOfferViewLink,div#moreLiveOfferViewLink {
   height:30px;
   font-weight:bold;
   padding-top:10px;
@@ -1721,8 +1736,13 @@ div#incompleteOfferHeader {
   padding-bottom:10px;
   font-size:30px;
 }
+div#liveOfferViewTitle {
+  font-weight:bold;
+  padding-bottom:10px;
+  font-size:30px;
+}
 
-div#hideOfferViewLink {
+div#hideOfferViewLink,div#hideLiveOfferViewLink {
   height:30px;
   font-weight:bold;
   padding-top:10px;

@@ -644,6 +644,22 @@ $(document).ready(function () {
       $('div#moreOfferViewLink').show();
     });
 });
+
+$(document).ready(function () {
+    $('div#moreLiveOfferViewLink').live("click", function() {
+      $('div#restOfLiveOffers').slideDown('slow', function() {
+      });
+      $('div#moreLiveOfferViewLink').hide();
+      $('div#hideLiveOfferViewLink').show();
+    });
+
+    $('div#hideLiveOfferViewLink').live("click", function() {
+      $('div#restOfLiveOffers').slideUp('slow', function() {
+      });
+      $('div#hideLiveOfferViewLink').hide();
+      $('div#moreLiveOfferViewLink').show();
+    });
+});
 $(document).ready(function () {
   if($('.show_deal_builder').is(':visible'))
   {
