@@ -148,13 +148,12 @@ def transferDealInfoToPrevPub(db_publish)
       if @current_db.db_step_four.fb_incentive == 'yes'
         pp.fb_incentive = @current_db.db_step_four.fb_incentive_text
       end
-      pp.all_locations = @current_db.db_step_two.include_all
       @current_db.db_step_three.standard_restrictions.each do |s_r|
         @restrictions += s_r.description + ' '
       end
       @restrictions += @current_db.db_step_three.optional_restriction
       pp.restrictions = @restrictions
-      pp.incentive_ideas = @current_db.db_step_four.optional_incentive
+      pp.incentives = @current_db.db_step_four.optional_incentive
       pp.voucher_length = @current_db.db_step_three.voucher_length
 
       pp.user_id = session[:users_id]

@@ -60,7 +60,6 @@ class DbStepFoursController < ApplicationController
   def update
     #accounts for no incentive ideas being checked
     #sends empty array in that case
-    params[:db_step_four][:incentive_idea_ids] ||= []
     @db_step_four = DbStepFour.find(params[:id])
 
     respond_to do |format|

@@ -33,8 +33,6 @@ LocalAdResource::Application.routes.draw do
 
   resources :locations
 
-  resources :industry_restrictions
-
   resources :standard_restrictions
 
   resources :industries

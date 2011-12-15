@@ -630,6 +630,21 @@ $(document).ready(function () {
     });
 });
 $(document).ready(function () {
+    $('div#moreOfferViewLink').live("click", function() {
+      $('div#restOfDealBuilders').slideDown('slow', function() {
+      });
+      $('div#moreOfferViewLink').hide();
+      $('div#hideOfferViewLink').show();
+    });
+
+    $('div#hideOfferViewLink').live("click", function() {
+      $('div#restOfDealBuilders').slideUp('slow', function() {
+      });
+      $('div#hideOfferViewLink').hide();
+      $('div#moreOfferViewLink').show();
+    });
+});
+$(document).ready(function () {
   if($('.show_deal_builder').is(':visible'))
   {
 
@@ -666,6 +681,8 @@ $(document).ready(function () {
     });
   }
 });
+
+
 
 var newWindowSize = 'width=600,height=400,scrollbars=yes'
 function openNewWindow(url,windowName)

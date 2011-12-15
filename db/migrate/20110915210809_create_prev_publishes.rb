@@ -4,7 +4,7 @@ class CreatePrevPublishes < ActiveRecord::Migration
       t.integer :max_number_of_vouchers
       t.integer :total_vouchers_sold
       t.datetime :start_of_deal
-      t.text :incentive_ideas
+      t.text :incentives
       t.string :offer_title
       t.text :offer_description
       t.integer :offer_value
@@ -16,6 +16,10 @@ class CreatePrevPublishes < ActiveRecord::Migration
       t.string :state
       t.integer :zip
       t.string :coupon
+      t.integer :user_id
+      t.text :fb_incentive
+      t.string :private_deal
+      t.integer :db_publish_id
 
       t.timestamps
     end

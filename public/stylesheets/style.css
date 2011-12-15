@@ -1672,3 +1672,60 @@ div.dbShowRightContainer {
 div.dbShowOne, div.dbShowTwo, div.dbShowThree, div.dbShowFour {
   display:inline;
 }
+
+div#oneOfferView {
+  height:50px;
+  font-weight:bold;
+  background:black;
+}
+div#offerTitleOfferView {
+  width:225px;
+  float:left;
+  padding-top:15px;
+  display:inline;
+}
+
+div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover {
+ background:#ccc;
+ color:black;
+ cursor:pointer;
+}
+
+div#stepsOfferViewHolder {
+  display:inline;
+  width:225px;
+  float:right;
+  padding-top:15px;
+  display:inline;
+}
+div#stepsOfferViewCompleted {
+  font-weight:bold;
+  color:#0f75bc;
+  display:inline;
+}
+
+div#stepsOfferViewNotCompleted {
+  font-weight:bold;
+  color:#ccc;
+  display:inline;
+}
+
+div#moreOfferViewLink {
+  height:30px;
+  font-weight:bold;
+  padding-top:10px;
+}
+
+div#incompleteOfferHeader {
+  font-weight:bold;
+  padding-bottom:10px;
+  font-size:30px;
+}
+
+div#hideOfferViewLink {
+  height:30px;
+  font-weight:bold;
+  padding-top:10px;
+  background:black;
+}
+

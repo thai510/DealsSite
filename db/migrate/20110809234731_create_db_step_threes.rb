@@ -2,6 +2,8 @@ class CreateDbStepThrees < ActiveRecord::Migration
   def self.up
     create_table :db_step_threes do |t|
       t.text :optional_restriction
+      t.integer :deal_builder_id
+      t.integer :voucher_length
 
       t.timestamps
     end

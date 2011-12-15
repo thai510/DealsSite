@@ -20,20 +20,20 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
   create_table "db_publishes", :force => true do |t|
     t.integer  "max_vouchers_to_sell"
     t.integer  "length_of_deal"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "deal_builder_id"
     t.integer  "total_vouchers_sold"
     t.string   "private_deal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "db_step_fours", :force => true do |t|
     t.text     "optional_incentive"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "deal_builder_id"
     t.string   "fb_incentive"
     t.text     "fb_incentive_text"
+    t.integer  "deal_builder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "db_step_ones", :force => true do |t|
@@ -41,22 +41,22 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
     t.integer  "offer_value"
     t.integer  "offer_price"
     t.text     "offer_description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer  "deal_builder_id"
+    t.string   "coupon"
     t.string   "offer_photo_file_name"
     t.string   "offer_photo_content_type"
     t.integer  "offer_photo_file_size"
     t.datetime "offer_photo_updated_at"
-    t.string   "coupon"
-    t.integer  "deal_builder_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "db_step_threes", :force => true do |t|
     t.text     "optional_restriction"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "deal_builder_id"
     t.integer  "voucher_length"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "db_step_threes_standard_restrictions", :id => false, :force => true do |t|
@@ -68,10 +68,9 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
   add_index "db_step_threes_standard_restrictions", ["standard_restriction_id", "db_step_three_id"], :name => "standard_restrictions_db_three", :unique => true
 
   create_table "db_step_twos", :force => true do |t|
+    t.integer  "deal_builder_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "deal_builder_id"
-    t.string   "include_all"
   end
 
   create_table "db_step_zeros", :force => true do |t|
@@ -79,20 +78,20 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
     t.text     "business_description"
     t.string   "industry"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "company_logo_file_name"
     t.string   "company_logo_content_type"
     t.integer  "company_logo_file_size"
     t.datetime "company_logo_updated_at"
-    t.string   "website"
     t.string   "phone_number"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "deal_builders", :force => true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "facebook_share_codes", :force => true do |t|
@@ -103,14 +102,6 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
   end
 
   create_table "faqs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "feedbacks", :force => true do |t|
-    t.string   "email"
-    t.string   "name"
-    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,29 +128,21 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
   add_index "industries_users", ["industry_id", "user_id"], :name => "index_industries_users_on_industry_id_and_user_id"
   add_index "industries_users", ["user_id", "industry_id"], :name => "index_industries_users_on_user_id_and_industry_id"
 
-  create_table "industry_restrictions", :force => true do |t|
-    t.string   "title"
-    t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "industry_id"
-  end
-
   create_table "locations", :force => true do |t|
     t.text     "address"
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
+    t.integer  "db_step_two_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "db_step_two_id"
   end
 
   create_table "prev_publishes", :force => true do |t|
     t.integer  "max_number_of_vouchers"
     t.integer  "total_vouchers_sold"
     t.datetime "start_of_deal"
-    t.text     "incentive_ideas"
+    t.text     "incentives"
     t.string   "offer_title"
     t.text     "offer_description"
     t.integer  "offer_value"
@@ -171,13 +154,12 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
     t.string   "state"
     t.integer  "zip"
     t.string   "coupon"
+    t.integer  "user_id"
+    t.text     "fb_incentive"
+    t.string   "private_deal"
+    t.integer  "db_publish_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "all_locations"
-    t.string   "private_deal"
-    t.text     "fb_incentive"
-    t.integer  "db_publish_id"
   end
 
   create_table "private_deal_codes", :force => true do |t|
