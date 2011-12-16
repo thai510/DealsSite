@@ -29,16 +29,12 @@
       <b>This is a coupon</b>
     <% end %>
 
-    <% if @prev_publish.all_locations == 'yes' %>
-       Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucher.user_id).business_name %> locations
-    <% else %>
        <br />
        Offer can only be redeemed at<br />
     <%= @prev_publish.address %>,
     <%= @prev_publish.city %><br />
     <%= @prev_publish.state %>
     <%= @prev_publish.zip %></br />
-    <% end %>
 
     <b>Restrictions:</b>
     <%= @prev_publish.restrictions %>
@@ -69,16 +65,12 @@
       <b>This is a coupon</b>
     <% end %>
 
-    <% if @two.include_all == 'yes' %>
-       Offer can be redeemed at all <%= DbStepZero.find_by_user_id(@voucher.user_id).business_name %> locations
-    <% else %>
        <br />
        Offer can only be redeemed at<br />
     <%= @two.locations[0].address %>,
     <%= @two.locations[0].city %><br />
     <%= @two.locations[0].state %>
     <%= @two.locations[0].zip %></br />
-    <% end %>
 
     <b>Restrictions:</b>
     <% @three.standard_restrictions.each do |s_r| %>

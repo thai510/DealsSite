@@ -611,23 +611,49 @@ $(document).ready(function () {
  }
 });
 $(document).ready(function () {
-      $('div.clicktoShowRedeemed').css('cursor','pointer');
-    $('.clicktoShowRedeemed').live("click", function() {
-      $('.clicktoShowRedeemed').css('text-decoration','none');
-      $('div.clicktoShowRedeemed').css('cursor','auto');
-      $('.clicktoShowUnredeemed').css('cursor','pointer');
-      $('.clicktoShowUnredeemed').css('text-decoration','underline');
-      $('div.unredeemedVouchersTable').hide();
-      $('div.redeemedVouchersTable').show();
+
+    $('div#showRVouchersContainer').live("click", function() {
+      $('div#showRVouchersContainer').removeClass("showRVouchersContainerNotOn");
+      $('div#showRVouchersContainer').addClass("showRVouchersContainerOn");
+      $('div#showUVouchersContainer').removeClass("showUVouchersContainerOn");
+      $('div#showUVouchersContainer').addClass("showUVouchersContainerNotOn");
+      $('div#showAllVouchersContainer').removeClass("showAllVouchersContainerOn");
+      $('div#showAllVouchersContainer').addClass("showAllVouchersContainerNotOn");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemUColor");
+      $('div#voucherRedeemLocContainer').addClass("voucherRedeemRColor");
+      $('div#unredeemedVouchers').hide();
+      $('div#redeemedVouchers').show();
     });
-    $('.clicktoShowUnredeemed').live("click", function() {
-      $('.clicktoShowUnredeemed').css('text-decoration','none');
-      $('div.clicktoShowRedeemed').css('cursor','pointer');
-      $('.clicktoShowUnredeemed').css('cursor','auto');
-      $('.clicktoShowRedeemed').css('text-decoration','underline');
-      $('div.redeemedVouchersTable').hide();
-      $('div.unredeemedVouchersTable').show();
+
+    $('div#showUVouchersContainer').live("click", function() {
+      $('div#showUVouchersContainer').removeClass("showUVouchersContainerNotOn");
+      $('div#showUVouchersContainer').addClass("showUVouchersContainerOn");
+      $('div#showRVouchersContainer').removeClass("showRVouchersContainerOn");
+      $('div#showRVouchersContainer').addClass("showRVouchersContainerNotOn");
+      $('div#showAllVouchersContainer').removeClass("showAllVouchersContainerOn");
+      $('div#showAllVouchersContainer').addClass("showAllVouchersContainerNotOn");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemRColor");
+      $('div#voucherRedeemLocContainer').addClass("voucherRedeemUColor");
+      $('div#redeemedVouchers').hide();
+      $('div#unredeemedVouchers').show();
     });
+
+    $('div#showAllVouchersContainer').live("click", function() {
+      $('div#showAllVouchersContainer').removeClass("showAllVouchersContainerNotOn");
+      $('div#showAllVouchersContainer').addClass("showAllVouchersContainerOn");
+      $('div#showRVouchersContainer').removeClass("showRVouchersContainerOn");
+      $('div#showRVouchersContainer').addClass("showRVouchersContainerNotOn");
+      $('div#showUVouchersContainer').removeClass("showUVouchersContainerOn");
+      $('div#showUVouchersContainer').addClass("showUVouchersContainerNotOn");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
+      $('div#voucherRedeemLocContainer').removeClass("voucherRedeemUColor");
+      $('div#voucherRedeemLocContainer').addClass("voucherRedeemAllColor");
+      $('div#redeemedVouchers').show();
+      $('div#unredeemedVouchers').show();
+    });
+
 });
 $(document).ready(function () {
     $('div#moreOfferViewLink').live("click", function() {

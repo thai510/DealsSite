@@ -1341,10 +1341,37 @@ div.rightPublishedDeal {
 
 }
 
-div.voucherRedeemLoc {
+div#voucherRedeemLocContainer {
+  height:50px;
+  width:85px;
   float:right;
+}
+
+div#voucherRedeemLocText {
+  padding-top:15px;
+  font-weight:bold;
+}
+
+div.voucherRedeemAllColor, div.voucherRedeemRColor, div.voucherRedeemUColor {
   color:white;
-  
+  background:black;
+}
+div.voucherRedeemRColor:hover {
+  background-color:#C67171;
+  color:black;
+  cursor:pointer;
+}
+
+div.voucherRedeemUColor:hover {
+  background-color:#7CCD7C;
+  color:black;
+  cursor:pointer;
+}
+
+div.voucherRedeemAllColor:hover {
+  background:#9B30FF;
+  color:black;
+  cursor:pointer;
 }
 
 #voucherButton input[type="submit"], #voucherButton input[type="reset"] {
@@ -1676,11 +1703,92 @@ div.dbShowOne, div.dbShowTwo, div.dbShowThree, div.dbShowFour {
 div#oneOfferView {
   height:50px;
   font-weight:bold;
-  background:black;
+  background-color:black;
+}
+div#showAllVouchersContainer {
+  float:center;
+  height:50px;
+  width:200px;
+  font-weight:bold;
+}
+
+div.showAllVouchersContainerOn {
+  background-color:#9B30FF;
+  color:black;
+}
+
+div.showAllVouchersContainerNotOn:hover {
+  color:black;
+  cursor:pointer;
+  background-color:#9B30FF;
+}
+
+div.showRVouchersContainerNotOn:hover {
+  color:black;
+  cursor:pointer;
+  background-color:#C67171;
+}
+
+div.showUVouchersContainerNotOn:hover {
+  color:black;
+  cursor:pointer;
+  background-color:#7CCD7C;
+}
+
+div#showRVouchersContainer {
+  height:50px;
+  width:200px;
+  font-weight:bold;
+  float:center;
+}
+
+div.showRVouchersContainerOn {
+  background-color:#C67171;
+  color:black;
+}
+
+
+div#showUVouchersContainer {
+  height:50px;
+  width:200px;
+  font-weight:bold;
+  float:center;
+}
+div.showUVouchersContainerOn {
+  background-color:#7CCD7C;
+  color:black;
+}
+
+ div.showRVouchersContainerNotOn, div.showUVouchersContainerNotOn, div.showAllVouchersContainerNotOn {
+  float:center;
+  height:50px;
+  width:200px;
+  color:white;
+  font-weight:bold;
+  background-color:black;
+}
+
+div#showVText {
+  padding-top:15px;
+}
+
+div#oneVoucherView {
+  display:inline;
+  float:left;
+  height:50px;
+  width:340px;
+  background-color:black;
+  font-weight:bold;
 }
 
 div#offerTitleOfferView {
   width:225px;
+  float:left;
+  padding-top:15px;
+  display:inline;
+}
+div#oneVoucherLeftView {
+  width:210px;
   float:left;
   padding-top:15px;
   display:inline;
@@ -1701,8 +1809,9 @@ div#liveOfferRightOfferView {
 }
 
 div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover,
- div#moreLiveOfferViewLink:hover, div#hideLiveOfferViewLink:hover {
- background:#ccc;
+ div#moreLiveOfferViewLink:hover, div#hideLiveOfferViewLink:hover,
+   div#bigTextClickableContainer:hover, div#oneVoucherView:hover {
+ background-color:#ccc;
  color:black;
  cursor:pointer;
 }
@@ -1711,6 +1820,12 @@ div#stepsOfferViewHolder {
   width:225px;
   float:right;
   padding-top:15px;
+  display:inline;
+}
+div#oneVoucherRightView {
+  width:130px;
+  padding-top:15px;
+  float:right;
   display:inline;
 }
 div#stepsOfferViewCompleted {
@@ -1746,6 +1861,44 @@ div#hideOfferViewLink,div#hideLiveOfferViewLink {
   height:30px;
   font-weight:bold;
   padding-top:10px;
-  background:black;
+  background-color:black;
 }
+
+div#leftFreeLayout {
+  width:425px;
+  float:left;
+  margin-top:250px;
+  display:inline;
+}
+
+div#rightFreeLayout {
+  width:425px;
+  float:right;
+  margin-top:250px;
+  display:inline;
+}
+
+div#bigTextClickableContainer,div#bigTextNonClickableContainer {
+  height:70px;
+  color:#ccc;
+  background-color:black;
+}
+
+div#bigTextClickableText {
+  font-weight:bold;
+  font-size:40px;
+  padding-top:23px;
+
+}
+
+div#centerTopContainer {
+ height:250px;
+}
+
+div#centerTopBigText {
+  color:#ccc;
+  font-size:60px;
+  padding-top:150px;
+}
+
 
