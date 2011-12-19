@@ -1,4 +1,4 @@
-<%= form_for(@voucher) do  |f| %>
+<%= form_for(@voucher,:remote => true) do  |f| %>
    <%= f.hidden_field :redeemed, :value => 'yes' %>
-   <%= f.submit 'Redeem'%>
+   <%= f.submit 'REDEEM'%>
 <% end %>

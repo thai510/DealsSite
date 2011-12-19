@@ -64,6 +64,7 @@ class VouchersController < ApplicationController
       if @voucher.update_attributes(params[:voucher])
         format.html { redirect_to(vouchers_path, :notice => 'Voucher was successfully updated.') }
         format.xml  { head :ok }
+        format.js   
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @voucher.errors, :status => :unprocessable_entity }

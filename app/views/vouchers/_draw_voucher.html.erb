@@ -1,0 +1,25 @@
+<% if @voucher.redeemed == 'yes' %>
+      <div class='<%=@voucher.id%>' id="redeemedVouchers">
+    <% else %>
+      <div class='<%=@voucher.id%>' id="unredeemedVouchers">
+    <% end %>
+    <div id='leftFreeLayout' style='margin-top:20px;'>
+    <div id='oneVoucherView'>
+     <div id="oneVoucherLeftView">
+          <%= @voucher.customer_email %>
+     </div>
+     <div id="oneVoucherRightView">
+        <%= @voucher.code %>
+     </div>
+    </div>
+
+    <div class="voucherRedeemAllColor" id="voucherRedeemLocContainer">
+      <% if @voucher.redeemed == 'yes' %>
+        <%= render 'unredeem', :object => @voucher = @voucher %>
+      <% else %>
+        <%= render 'redeem', :object => @voucher = @voucher %>
+      <% end %>
+      <!-- #render 'redeem', :object => @voucher = voucher -->
+    </div>
+  </div>
+  </div>

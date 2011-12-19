@@ -19,7 +19,7 @@
       </div>
     </div>
 <% else %>
-  <div id='rightFreeLayout' style='margin-top:100px;width:300px;'>
+  <div id='rightFreeLayout' style='margin-top:100px;width:300px;height:500px;'>
   <div class='showAllVouchersContainerOn' id='showAllVouchersContainer'>
      <div id='showVText'>
      Show All
@@ -39,32 +39,7 @@
  
   <div class='formHeader'>Vouchers</div>
   <% current_user.vouchers.each do |voucher| %>
-    <% if voucher.redeemed == 'yes' %>
-      <div id="redeemedVouchers">
-    <% else %>
-      <div id="unredeemedVouchers">
-    <% end %>
-    <div id='leftFreeLayout' style='margin-top:20px;'>
-    <div id='oneVoucherView'>
-     <div id="oneVoucherLeftView">
-          <%= voucher.customer_email %>
-     </div>
-     <div id="oneVoucherRightView">
-        <%= voucher.code %>
-     </div>
-    </div>
-    <div class="voucherRedeemAllColor" id="voucherRedeemLocContainer">
-      <div  id="voucherRedeemLocText" >
-      <% if voucher.redeemed == 'yes' %>
-        UNREDEEM
-      <% else %>
-        REDEEM 
-      <% end %>
-      <!-- #render 'redeem', :object => @voucher = voucher -->
-      </div>
-    </div>
-  </div>
-  </div>
+    <%= render 'draw_voucher' , :object => @voucher = voucher %>
   <% end %>
 <% end %>
 
