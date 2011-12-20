@@ -10,12 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205085743) do
+ActiveRecord::Schema.define(:version => 20111219232837) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "causes", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "causes_non_profits", :id => false, :force => true do |t|
+    t.integer "cause_id"
+    t.integer "non_profit_id"
+  end
+
+  add_index "causes_non_profits", ["cause_id", "non_profit_id"], :name => "index_causes_non_profits_on_cause_id_and_non_profit_id"
 
   create_table "db_publishes", :force => true do |t|
     t.integer  "max_vouchers_to_sell"
@@ -134,6 +148,11 @@ ActiveRecord::Schema.define(:version => 20111205085743) do
     t.string   "state"
     t.integer  "zip"
     t.integer  "db_step_two_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "non_profits", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

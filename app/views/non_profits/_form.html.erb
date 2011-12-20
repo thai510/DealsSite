@@ -1,0 +1,17 @@
+<%= form_for(@non_profit) do |f| %>
+  <% if @non_profit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@non_profit.errors.count, "error") %> prohibited this non_profit from being saved:</h2>
+
+      <ul>
+      <% @non_profit.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

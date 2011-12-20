@@ -1,0 +1,64 @@
+<div class="leftSideLayout">
+  <% if current_user.deal_builders.count > 0 %>
+      <% @dbpcount = 0 %>
+      <% current_user.deal_builders.each do |db| %>
+        <% if db.db_publish then @dbpcount += 1 end %>
+      <% end %>
+      <% if @dbpcount == current_user.deal_builders.count %>
+  <h1><div class='blueGreenLink' style='text-align:center'> <%= link_to 'Create a New Offer', new_deal_builder_path %> </div></h1>
+      <% else %>
+       <h1>Incomplete Offers</h1><br />
+      <% checkLiveDeals('to pass the time', 'db_index') %>
+      <% @dealBuilders = DealBuilder.where(:user_id => current_user) %>
+      <% @dealBuilders.delete_if {|d| DbPublish.find_by_deal_builder_id(d.id)} %>
+      <%= @dealBuilders.first.db_step_one.offer_title %>
+  <% @dealBuilders.second do |deal_builder| %>
+    <div id="oneOfferView">
+        <%= deal_builder.db_step_one.offer_title %>
+      <% if deal_builder.db_step_four %>
+        <%= link_to 'Publish Now!', deal_builder %>
+        <%= link_to 'Delete Offer', deal_builder, :method => :delete, :confirm => 'Are you sure?' %>
+      <% elsif deal_builder.db_step_four  && !deal_builder.db_publish%>
+        <%= link_to 'Edit', deal_builder_path(deal_builder) %>
+      <% elsif !deal_builder.db_step_four%>
+        <%= link_to 'Finish Offer!', deal_builder_path(deal_builder) %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+<% else %>
+  <h1><div class='blueGreenLink' style='text-align:center'> <%= link_to 'Create a New Offer', new_deal_builder_path %> </div></h1>
+<% end %>
+<% @at_least_one_db_publish = false %>
+<% current_user.deal_builders.each do |db| %>
+  <% if db.db_publish then @at_least_one_db_publish = true end%>
+<% end %>
+<%unless current_user.deal_builders.count == 0 || !@at_least_one_db_publish %>
+      <hr />
+      <table>
+       <th><tr><h1> Live Offers</h1></tr></th>
+    <% current_user.deal_builders.each do |deal_builder| %>
+     <% if deal_builder.db_publish %>
+       <tr>
+          <td class="formTipLink"><%= link_to deal_builder.db_step_one.offer_title, deal_builder %></td>
+            <% if deal_builder.db_publish.private_deal == 'yes' %>
+              <td class="formTipLink"><%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%></td>
+            <%end %> 
+       </tr> 
+     <% end %>
+    <% end %>
+      <% if @a_db_publish == 0 %>
+        <tr><td style='text-align:center;'>No live deals at the moment</td></tr>
+      <% end %>
+      </table>
+<% end %>
+</div>
+
+<div class='rightSideLayout'>
+  Game theory and Deal/Coupon statistics will go here
+</div>
+<% if current_user.prev_publishes.count > 0 %>
+<div class='leftSideLayout'>
+  <div class='blueGreenLink' style='text-align:center;'><%= link_to 'View Your Past Deals', prev_publishes_path %></div>
+</div>
+<% end %>

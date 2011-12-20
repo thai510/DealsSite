@@ -1,0 +1,10 @@
+<% if @voucher.prev_publish_id %>
+  <% @deal_builder = DealBuilder.find(PrevPublish.find(@voucher.prev_publish_id).deal_builder_id) %>
+<% else %>
+  <% @deal_builder = DealBuilder.find(DbPublish.find(@voucher.db_publish_id).deal_builder_id) %>
+<% end %>
+  <% @one = @deal_builder.db_step_one %>
+<div id='offerInfoContainer'>
+  <%= @one.offer_title %>
+  <%= @one.offer_description %>
+</div>

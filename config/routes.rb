@@ -1,4 +1,8 @@
 LocalAdResource::Application.routes.draw do
+  resources :non_profits
+
+  resources :causes
+
   get "errors/wander"
 
   resources :facebook_share_codes
@@ -154,6 +158,7 @@ LocalAdResource::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
   LocalAdResource::Application.routes.draw do
+
    match '*a', :to => 'errors#wander' 
   end
 end
