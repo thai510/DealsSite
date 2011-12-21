@@ -4,7 +4,7 @@
 <% @dealBuilders.delete_if {|d| DbPublish.find_by_deal_builder_id(d.id)} %>
 
 <% if current_user.deal_builders.count == 0 || @dealBuilders.empty?#make sure we have at least one deal builder created %>
-<div id="leftFreeLayout">
+<div id="leftMiddleFreeLayout">
     <div id="bigTextClickableContainer" onclick="window.location = '<%= new_deal_builder_path %>'">
       <div id="bigTextClickableText">
       Create New Offer

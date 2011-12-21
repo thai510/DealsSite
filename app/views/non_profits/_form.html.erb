@@ -1,4 +1,4 @@
-<%= form_for(@non_profit) do |f| %>
+<%= form_for(@non_profit,:html => {:multipart => true}) do |f| %>
   <% if @non_profit.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@non_profit.errors.count, "error") %> prohibited this non_profit from being saved:</h2>
@@ -10,6 +10,45 @@
       </ul>
     </div>
   <% end %>
+
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label :description, 'Description' %>
+    <%= f.text_field :description%>
+  </div>
+<% Cause.all.each do |c| %>
+    <div style='display:inline;'>
+    <% if @edit_page %>
+    <%= check_box_tag  'non_profit[cause_ids][]',c.id,@non_profit.causes.include?(c) %>
+    <% else %>
+    <%= check_box_tag  'non_profit[cause_ids][]',c.id,true %>
+    <% end %>
+           <%= c.title %>
+           <% end %>
+           </div>
+  <div>
+    <%= f.label :paypal_email, 'PayPal Email' %>
+    <%= f.text_field :paypal_email %>
+  </div>
+  <div>
+    <%= f.label :contact_email, 'Contact Email' %>
+    <%= f.text_field :contact_email %>
+  </div>
+  <div>
+    <%= f.label :phone_number, 'Phone Number' %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div>
+    <%= f.label :zipcode, 'Zipcode' %>
+    <%= f.text_field :zipcode %>
+  </div>
+  <div>
+    <%= f.label :np_photo, 'Logo' %>
+    <%= f.file_field :np_photo %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

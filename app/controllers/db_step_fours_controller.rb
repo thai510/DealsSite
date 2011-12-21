@@ -1,5 +1,4 @@
 class DbStepFoursController < ApplicationController
-  before_filter :admin_authorize , :except => [:new,:edit,:create,:update,:show]
   helper_method :same_user?
   # GET /db_step_fours
   # GET /db_step_fours.xml
@@ -64,7 +63,7 @@ class DbStepFoursController < ApplicationController
 
     respond_to do |format|
       if @db_step_four.update_attributes(params[:db_step_four])
-        format.html { redirect_to(edit_deal_builder_path(DealBuilder.find(@db_step_four.deal_builder_id))) }
+        format.html { redirect_to(DealBuilder.find(@db_step_four.deal_builder_id)) }
         format.xml  { head :ok }
       else
         format.html { render :action => :edit ,:object => (@deal_builder_id = @db_step_four.deal_builder_id) }

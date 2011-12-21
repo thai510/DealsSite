@@ -1,14 +1,14 @@
 
 //replace old version with new, will just go from redeemed to unredeemed or viceversa
-$('.<%= @voucher.id %>').replaceWith("<%= escape_javascript(render 'draw_voucher', :object => @voucher) %>");
+$('#voucher<%= @voucher.id %>').replaceWith("<%= escape_javascript(render 'draw_voucher', :object => @voucher) %>");
 
 //if only showing redeemed, hide newly unredeemed voucher
 if ($('div#showRVouchersContainer').hasClass('showRVouchersContainerOn')) {   
-  $('div#unredeemedVouchers').hide();
+  $('div.unredeemedVouchers').hide();
 }
 
 //if only showing unredeemed, hide redeemed voucher
 if ($('div#showUVouchersContainer').hasClass('showUVouchersContainerOn')) {
-  $('div#redeemedVouchers').hide();
+  $('div.redeemedVouchers').hide();
 }
 

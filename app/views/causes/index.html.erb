@@ -9,6 +9,7 @@
 
 <% @causes.each do |cause| %>
   <tr>
+    <td><%= cause.title %> </td>
     <td><%= link_to 'Show', cause %></td>
     <td><%= link_to 'Edit', edit_cause_path(cause) %></td>
     <td><%= link_to 'Destroy', cause, :confirm => 'Are you sure?', :method => :delete %></td>

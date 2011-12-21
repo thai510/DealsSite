@@ -19,7 +19,7 @@
       </div>
     </div>
 <% else %>
-  <div id='rightFreeLayout' style='margin-top:100px;width:300px;height:500px;'>
+  <div id='rightFreeLayout' style='margin-top:100px;width:300px;'>
   <div class='showAllVouchersContainerOn' id='showAllVouchersContainer'>
      <div id='showVText'>
      Show All
@@ -38,9 +38,11 @@
   </div>
  
   <div class='formHeader'>Vouchers</div>
+ <div id='leftFreeLayout'>
   <% current_user.vouchers.each do |voucher| %>
     <%= render 'draw_voucher' , :object => @voucher = voucher %>
   <% end %>
+  </div>
 <% end %>
 
 

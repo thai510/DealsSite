@@ -1,4 +1,5 @@
 class CausesController < ApplicationController
+  before_filter :admin_authorize
   # GET /causes
   # GET /causes.xml
   def index

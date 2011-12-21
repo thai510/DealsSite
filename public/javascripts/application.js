@@ -611,7 +611,151 @@ $(document).ready(function () {
  }
 });
 $(document).ready(function () {
+//voucher index javascript
 
+    $('.oneVoucherViewOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfo'+voucher).slideDown("slow");
+      $('div#oneVoucherView'+voucher).removeClass('oneVoucherViewOff');
+      $('div#oneVoucherView'+voucher).addClass('oneVoucherViewOn');
+      console.log(voucher);
+    });
+
+    $('.oneVoucherViewOn').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#oneVoucherView'+voucher).removeClass('oneVoucherViewOn');
+      $('div#oneVoucherView'+voucher).addClass('oneVoucherViewOff');
+      $('div#offerInfo'+voucher).slideUp("slow");
+    });
+
+    $('.twoOfferInfoButtonOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfoOneContainer'+voucher).hide();
+      $('div#offerInfoThreeContainer'+voucher).hide();
+      $('div#offerInfoFourContainer'+voucher).hide();
+      $('div#offerInfoPubContainer'+voucher).hide();
+      $('div#offerInfoTwoContainer'+voucher).show();
+      $('div#oneOfferInfoButton'+voucher).removeClass('oneOfferInfoButtonOn');
+      $('div#oneOfferInfoButton'+voucher).addClass('oneOfferInfoButtonOff');
+
+      $('div#threeOfferInfoButton'+voucher).removeClass('threeOfferInfoButtonOn');
+      $('div#threeOfferInfoButton'+voucher).addClass('threeOfferInfoButtonOff');
+
+      $('div#fourOfferInfoButton'+voucher).removeClass('fourOfferInfoButtonOn');
+      $('div#fourOfferInfoButton'+voucher).addClass('fourOfferInfoButtonOff');
+
+      $('div#pubOfferInfoButton'+voucher).removeClass('pubOfferInfoButtonOn');
+      $('div#pubOfferInfoButton'+voucher).addClass('pubOfferInfoButtonOff');
+
+      $('div#twoOfferInfoButton'+voucher).removeClass('twoOfferInfoButtonOff');
+      $('div#twoOfferInfoButton'+voucher).addClass('twoOfferInfoButtonOn');
+    });
+
+    $('.oneOfferInfoButtonOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfoTwoContainer'+voucher).hide();
+      $('div#offerInfoThreeContainer'+voucher).hide();
+      $('div#offerInfoFourContainer'+voucher).hide();
+      $('div#offerInfoPubContainer'+voucher).hide();
+      $('div#offerInfoOneContainer'+voucher).show();
+      $('div#twoOfferInfoButton'+voucher).removeClass('twoOfferInfoButtonOn');
+      $('div#twoOfferInfoButton'+voucher).addClass('twoOfferInfoButtonOff');
+
+      $('div#threeOfferInfoButton'+voucher).removeClass('threeOfferInfoButtonOn');
+      $('div#threeOfferInfoButton'+voucher).addClass('threeOfferInfoButtonOff');
+
+      $('div#fourOfferInfoButton'+voucher).removeClass('fourOfferInfoButtonOn');
+      $('div#fourOfferInfoButton'+voucher).addClass('fourOfferInfoButtonOff');
+
+      $('div#pubOfferInfoButton'+voucher).removeClass('pubOfferInfoButtonOn');
+      $('div#pubOfferInfoButton'+voucher).addClass('pubOfferInfoButtonOff');
+
+      $('div#oneOfferInfoButton'+voucher).removeClass('oneOfferInfoButtonOff');
+      $('div#oneOfferInfoButton'+voucher).addClass('oneOfferInfoButtonOn');
+    });
+
+    $('.threeOfferInfoButtonOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfoTwoContainer'+voucher).hide();
+      $('div#offerInfoOneContainer'+voucher).hide();
+      $('div#offerInfoFourContainer'+voucher).hide();
+      $('div#offerInfoPubContainer'+voucher).hide();
+      $('div#offerInfoThreeContainer'+voucher).show();
+      $('div#twoOfferInfoButton'+voucher).removeClass('twoOfferInfoButtonOn');
+      $('div#twoOfferInfoButton'+voucher).addClass('twoOfferInfoButtonOff');
+
+      $('div#oneOfferInfoButton'+voucher).removeClass('oneOfferInfoButtonOn');
+      $('div#oneOfferInfoButton'+voucher).addClass('oneOfferInfoButtonOff');
+
+      $('div#fourOfferInfoButton'+voucher).removeClass('fourOfferInfoButtonOn');
+      $('div#fourOfferInfoButton'+voucher).addClass('fourOfferInfoButtonOff');
+
+      $('div#pubOfferInfoButton'+voucher).removeClass('pubOfferInfoButtonOn');
+      $('div#pubOfferInfoButton'+voucher).addClass('pubOfferInfoButtonOff');
+
+      $('div#threeOfferInfoButton'+voucher).removeClass('threeOfferInfoButtonOff');
+      $('div#threeOfferInfoButton'+voucher).addClass('threeOfferInfoButtonOn');
+    });
+
+    $('.fourOfferInfoButtonOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfoTwoContainer'+voucher).hide();
+      $('div#offerInfoOneContainer'+voucher).hide();
+      $('div#offerInfoThreeContainer'+voucher).hide();
+      $('div#offerInfoPubContainer'+voucher).hide();
+      $('div#offerInfoFourContainer'+voucher).show();
+      $('div#twoOfferInfoButton'+voucher).removeClass('twoOfferInfoButtonOn');
+      $('div#twoOfferInfoButton'+voucher).addClass('twoOfferInfoButtonOff');
+
+      $('div#oneOfferInfoButton'+voucher).removeClass('oneOfferInfoButtonOn');
+      $('div#oneOfferInfoButton'+voucher).addClass('oneOfferInfoButtonOff');
+
+      $('div#threeOfferInfoButton'+voucher).removeClass('threeOfferInfoButtonOn');
+      $('div#threeOfferInfoButton'+voucher).addClass('threeOfferInfoButtonOff');
+
+      $('div#pubOfferInfoButton'+voucher).removeClass('pubOfferInfoButtonOn');
+      $('div#pubOfferInfoButton'+voucher).addClass('pubOfferInfoButtonOff');
+
+      $('div#fourOfferInfoButton'+voucher).removeClass('fourOfferInfoButtonOff');
+      $('div#fourOfferInfoButton'+voucher).addClass('fourOfferInfoButtonOn');
+    });
+
+    $('.pubOfferInfoButtonOff').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var voucher = id.match(pattern);
+      $('div#offerInfoTwoContainer'+voucher).hide();
+      $('div#offerInfoOneContainer'+voucher).hide();
+      $('div#offerInfoThreeContainer'+voucher).hide();
+      $('div#offerInfoFourContainer'+voucher).hide();
+      $('div#offerInfoPubContainer'+voucher).show();
+      $('div#twoOfferInfoButton'+voucher).removeClass('twoOfferInfoButtonOn');
+      $('div#twoOfferInfoButton'+voucher).addClass('twoOfferInfoButtonOff');
+
+      $('div#oneOfferInfoButton'+voucher).removeClass('oneOfferInfoButtonOn');
+      $('div#oneOfferInfoButton'+voucher).addClass('oneOfferInfoButtonOff');
+
+      $('div#threeOfferInfoButton'+voucher).removeClass('threeOfferInfoButtonOn');
+      $('div#threeOfferInfoButton'+voucher).addClass('threeOfferInfoButtonOff');
+
+      $('div#fourOfferInfoButton'+voucher).removeClass('fourOfferInfoButtonOn');
+      $('div#fourOfferInfoButton'+voucher).addClass('fourOfferInfoButtonOff');
+
+      $('div#pubOfferInfoButton'+voucher).removeClass('pubOfferInfoButtonOff');
+      $('div#pubOfferInfoButton'+voucher).addClass('pubOfferInfoButtonOn');
+    });
     $('div#showRVouchersContainer').live("click", function() {
       $('div#showRVouchersContainer').removeClass("showRVouchersContainerNotOn");
       $('div#showRVouchersContainer').addClass("showRVouchersContainerOn");
@@ -622,8 +766,8 @@ $(document).ready(function () {
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemUColor");
       $('div#voucherRedeemLocContainer').addClass("voucherRedeemRColor");
-      $('div#unredeemedVouchers').hide();
-      $('div#redeemedVouchers').show();
+      $('div.unredeemedVouchers').hide();
+      $('div.redeemedVouchers').show();
     });
 
     $('div#showUVouchersContainer').live("click", function() {
@@ -636,8 +780,8 @@ $(document).ready(function () {
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemRColor");
       $('div#voucherRedeemLocContainer').addClass("voucherRedeemUColor");
-      $('div#redeemedVouchers').hide();
-      $('div#unredeemedVouchers').show();
+      $('div.redeemedVouchers').hide();
+      $('div.unredeemedVouchers').show();
     });
 
     $('div#showAllVouchersContainer').live("click", function() {
@@ -650,8 +794,8 @@ $(document).ready(function () {
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemAllColor");
       $('div#voucherRedeemLocContainer').removeClass("voucherRedeemUColor");
       $('div#voucherRedeemLocContainer').addClass("voucherRedeemAllColor");
-      $('div#redeemedVouchers').show();
-      $('div#unredeemedVouchers').show();
+      $('div.redeemedVouchers').show();
+      $('div.unredeemedVouchers').show();
     });
 
 });

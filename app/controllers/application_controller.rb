@@ -132,28 +132,29 @@ def transferDealInfoToPrevPub(db_publish)
     @current_db = DealBuilder.find(@db_publish.deal_builder_id)
     @new_past_publish = PrevPublish.new do |pp|
       pp.total_vouchers_sold = @db_publish.total_vouchers_sold
-      pp.max_number_of_vouchers = @db_publish.max_vouchers_to_sell
+      pp.max_vouchers_to_sell = @db_publish.max_vouchers_to_sell
       pp.start_of_deal = @db_publish.created_at
+      pp.length_of_deal = @db_publish.length_of_deal
       pp.offer_title = @current_db.db_step_one.offer_title
       pp.offer_description = @current_db.db_step_one.offer_description
       pp.offer_value = @current_db.db_step_one.offer_value
       pp.offer_price = @current_db.db_step_one.offer_price
-      pp.address = @current_db.db_step_two.locations[0].address
-      pp.city = @current_db.db_step_two.locations[0].city
-      pp.state = @current_db.db_step_two.locations[0].state
-      pp.zip = @current_db.db_step_two.locations[0].zip
+      pp.location_id = @current_db.db_step_two.locations[0].id
       #pp.coupon = @current_db.db_step_one.coupon
       pp.db_publish_id = @db_publish.id
       pp.private_deal = @db_publish.private_deal
-      if @current_db.db_step_four.fb_incentive == 'yes'
-        pp.fb_incentive = @current_db.db_step_four.fb_incentive_text
-      end
+      pp.fb_incentive == @current_db.db_step_four.fb_incentive;
+      pp.fb_incentive_text = @current_db.db_step_four.fb_incentive_text
+      pp.offer_photo_file_name = @current_db.db_step_one.offer_photo_file_name
+      pp.offer_photo_content_type = @current_db.db_step_one.offer_photo_content_type
+      pp.offer_photo_file_size = @current_db.db_step_one.offer_photo_file_size
+      pp.offer_photo_updated_at = @current_db.db_step_one.offer_photo_updated_at
       @current_db.db_step_three.standard_restrictions.each do |s_r|
         @restrictions += s_r.description + ' '
       end
       @restrictions += @current_db.db_step_three.optional_restriction
       pp.restrictions = @restrictions
-      pp.incentives = @current_db.db_step_four.optional_incentive
+      pp.optional_incentive = @current_db.db_step_four.optional_incentive
       pp.voucher_length = @current_db.db_step_three.voucher_length
 
       pp.user_id = session[:users_id]

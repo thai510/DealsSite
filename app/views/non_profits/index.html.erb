@@ -9,8 +9,12 @@
 
 <% @non_profits.each do |non_profit| %>
   <tr>
+    <td><%= non_profit.name %></td>
+       <td><% non_profit.causes.each do |c| %>
+         <%= c.title %></br>
+       <% end %></td>
     <td><%= link_to 'Show', non_profit %></td>
-    <td><%= link_to 'Edit', edit_non_profit_path(non_profit) %></td>
+    <td><%= link_to 'Edit', edit_non_profit_path(non_profit)%></td>
     <td><%= link_to 'Destroy', non_profit, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

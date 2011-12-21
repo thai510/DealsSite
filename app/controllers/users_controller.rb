@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_filter :authorize#, :except => [:create, :new,:check_email]
-  #before_filter :admin_authorize, :except => [:create, :new, :edit, :update, :show]
+  before_filter :admin_authorize, :only => [:index]
   rescue_from ActiveRecord::RecordNotFound, :with => :edit_user_does_not_exist, :only => [:edit]
 
   # GET /users

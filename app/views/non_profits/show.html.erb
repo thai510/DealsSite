@@ -1,5 +1,32 @@
 <p id="notice"><%= notice %></p>
 
 
+<div>
+  NAME:<%= @non_profit.name %>
+</div>
+
+<div>
+  DESCRIPTION:<%= @non_profit.description %>
+</div>
+
+<div>
+  PHONE:<%= @non_profit.phone_number%>
+</div>
+
+<div>
+  PAYPAL:<%= @non_profit.paypal_email%>
+</div>
+
+<div>
+  CONTACT:<%= @non_profit.contact_email%>
+</div>
+
+<div>
+ CAUSES</br>
+ <% @non_profit.causes.each do |c| %>
+   <%= c.title %>
+ <% end %>
+</div>
+
 <%= link_to 'Edit', edit_non_profit_path(@non_profit) %> |
 <%= link_to 'Back', non_profits_path %>

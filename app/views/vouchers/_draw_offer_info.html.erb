@@ -1,10 +1,103 @@
 <% if @voucher.prev_publish_id %>
-  <% @deal_builder = DealBuilder.find(PrevPublish.find(@voucher.prev_publish_id).deal_builder_id) %>
+  <% @deal_builder = PrevPublish.find(@voucher.prev_publish_id) %>
+  <% @one = @deal_builder %>
+  <% @two = @deal_builder %>
+  <% @three = @deal_builder %>
+  <% @four = @deal_builder %>
+  <% @pub = @deal_builder %>
+  <% @pp = true %>
 <% else %>
   <% @deal_builder = DealBuilder.find(DbPublish.find(@voucher.db_publish_id).deal_builder_id) %>
-<% end %>
+  <% @pub = DbPublish.find(@voucher.db_publish_id) %>
   <% @one = @deal_builder.db_step_one %>
-<div id='offerInfoContainer'>
-  <%= @one.offer_title %>
-  <%= @one.offer_description %>
-</div>
+  <% @two = @deal_builder.db_step_two %>
+  <% @three = @deal_builder.db_step_three %>
+  <% @four = @deal_builder.db_step_four %>
+  <% @pp = false %>
+<% end %>
+
+  <div id='offerInfoStepContainer'>
+    <div class='oneOfferInfoButtonOn' id='oneOfferInfoButton<%= @voucher.id %>' >
+      ONE
+    </div>
+    <div class='twoOfferInfoButtonOff' id='twoOfferInfoButton<%= @voucher.id %>'>
+      TWO
+    </div>
+    <div class='threeOfferInfoButtonOff' id='threeOfferInfoButton<%= @voucher.id %>'>
+      THREE
+    </div>
+    <div class='fourOfferInfoButtonOff' id='fourOfferInfoButton<%= @voucher.id %>'>
+      FOUR
+    </div>
+    <div class='pubOfferInfoButtonOff' id='pubOfferInfoButton<%= @voucher.id %>'>
+      PUBLISH 
+    </div>
+  </div>
+  <div class='offerInfoOneContainer'id='offerInfoOneContainer<%= @voucher.id %>'>
+     <div class='offerInfoHeader'> The Basics</div>
+      <div class='offerInfoField' style='display:inline;float:left;'>
+      TITLE <%= @one.offer_title %><br />
+      DESCRIPTION <%= @one.offer_description %><br />
+      OFFER VALUE $<%= @one.offer_value %>
+      OFFER PRICE $<%= @one.offer_price %>
+      </div>
+    <div class='offerInfoField' style='display:inline;'>
+      <% if @one.offer_photo_file_name %>
+        <%= image_tag(@one.offer_photo.url(:thumb)) %> <br />
+      <% else %>
+        <%= image_tag('theme/default_offer_image_100.png') %> <br />
+      <% end %>
+    </div>
+  </div>
+  <div class='offerInfoTwoContainer'id='offerInfoTwoContainer<%= @voucher.id %>' style='display:none;'>
+     <div class='offerInfoHeader'> The Where</div>
+     <% unless @pp %>
+      <% @two.locations.each do |loc| %>
+        <%= render :template => 'locations/show', :object => (@location = loc) %>
+      <% end %>
+      <% else %>
+        <%= render :template => 'locations/show', :object => (@location = Location.find(@two.location_id)) %>
+      <% end %>
+  </div>
+  <div class='offerInfoThreeContainer'id='offerInfoThreeContainer<%= @voucher.id %>' style='display:none;'>
+     <div class='offerInfoHeader'> The Fine Print</div><br />
+     <% unless @pp %>
+       <% @three.standard_restrictions.each do |s_r| %>
+          <%= s_r.description %>.
+       <% end %>
+       <%= ' ' + @three.optional_restriction %>
+     <% else %>
+       <%= @three.restrictions %>
+     <% end %>
+  </div>
+  <div class='offerInfoFourContainer'id='offerInfoFourContainer<%= @voucher.id %>' style='display:none;'>
+     <div class='offerInfoHeader'> The Incentives</div><br />
+  <% if (@four.optional_incentive != '' || @four.fb_incentive == 'yes') %>
+    <% if @four.optional_incentive != '' %>
+      <%= @four.optional_incentive %>
+    <% end %>
+    <% if @four.fb_incentive == 'yes' %>
+      <div class='dbShowLabel'>Facebook Share Incentive</div>
+        <%= @four.fb_incentive_text %>
+    <% end %>
+  <% else %>
+  <div>
+  There are no incentives for this offer.
+  </div>
+  <% end %>
+  </div>
+  <div class='offerInfoPubContainer'id='offerInfoPubContainer<%= @voucher.id %>' style='display:none;'>
+     <div class='offerInfoHeader'> The Finishing Touches</div><br />
+      <div class='dbShowLabel'>Maximum Vouchers to Sell</div>
+     <% unless @pub.max_vouchers_to_sell == 0 %>
+        <%= @pub.max_vouchers_to_sell %> 
+     <% else %>
+       No limit
+     <% end %>
+      <div class='dbShowLabel'>Length of Offer</div>
+        <% unless @pub.length_of_deal == 0 %>
+          <%= @pub.length_of_deal %> Days 
+        <% else %>
+          No limit
+        <% end %>
+  </div>
