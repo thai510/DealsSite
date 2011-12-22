@@ -5,6 +5,6 @@ class DbPublish < ActiveRecord::Base
   has_many :vouchers
   
   
-  validates :max_vouchers_to_sell, :length_of_deal,:presence => true
+  validates :max_vouchers_to_sell, :length_of_deal,:cause_id,:presence => true
   validates :max_vouchers_to_sell, :length_of_deal, :numericality => {:greater_than_or_equal_to => 0}
 end

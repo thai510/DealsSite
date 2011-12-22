@@ -99,7 +99,7 @@ if(code != 'false') {
     <div><%= @two.city %>, <%= @two.state %></div>
     <%= @two.zip %>
     <h4>Contact</h4>
-    <%= link_to @zero.website, @zero.website %>
+    <a href='http://<%=@zero.website%>'>Company Website</a>
     <div><%= number_to_phone @zero.phone_number, :area_code => true %></div>
     <%= User.find(@user_id).email %>
     <hr />

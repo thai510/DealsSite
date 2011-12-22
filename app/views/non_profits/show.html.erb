@@ -14,19 +14,24 @@
 </div>
 
 <div>
-  PAYPAL:<%= @non_profit.paypal_email%>
-</div>
-
-<div>
   CONTACT:<%= @non_profit.contact_email%>
 </div>
 
 <div>
- CAUSES</br>
+<br />
+<br />
+<br />
+<br />
+
+ RUNNING OFFERS</br>
  <% @non_profit.causes.each do |c| %>
-   <%= c.title %>
+   <% DbPublish.all.each do |db| %>
+     <% if db.cause_id == c.id %>
+       <% @one = DealBuilder.find(db.deal_builder_id).db_step_one %>
+       <% @biz = DbStepZero.find_by_user_id(DealBuilder.find(db.deal_builder_id).user_id) %>
+       <%= link_to "#{@one.offer_title}", db_publish_path(db.id) %> by <%= @biz.business_name %> 
+     <% end %>
+   <% end %>
  <% end %>
 </div>
 
-<%= link_to 'Edit', edit_non_profit_path(@non_profit) %> |
-<%= link_to 'Back', non_profits_path %>

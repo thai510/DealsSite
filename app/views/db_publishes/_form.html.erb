@@ -12,12 +12,19 @@
   <% end %>
 
   <table id='dealBuilder'>
+
+  <tr>
+    <td class='dealBuilderLabel' ><%= f.label :cause_id, 'Choose a Cause' %></td>
+    <td class='dealBuilderField' ><%= collection_select :db_publish, :cause_id,Cause.all,:id, :title, :prompt => 'Choose a Cause' %></td>
+  </tr>
+
   <tr>
     <td class='dealBuilderLabel' id='max_vouchers_to_sell_label'><%= f.label :max_vouchers_to_sell %></td>
     <td class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:size=> '10'%></td>
     <td></td>
   </tr>
   <tr><td></td></tr>
+
 
   <tr>
     <td class='dealBuilderLabel' id='length_of_deal_label'><%= f.label :length_of_deal %></td>

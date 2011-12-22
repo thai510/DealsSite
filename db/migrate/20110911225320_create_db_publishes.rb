@@ -4,6 +4,7 @@ class CreateDbPublishes < ActiveRecord::Migration
       t.integer :max_vouchers_to_sell
       t.integer :length_of_deal
       t.integer :deal_builder_id
+      t.integer :cause_id
       t.integer :total_vouchers_sold
       t.string :private_deal
 
