@@ -1128,7 +1128,8 @@ div#footer {
   text-align:center;
   position:relative;
   display:table;
-  color:#ccc;
+  color:black;
+  font-weight:bold;
 }
 
 div.main_links a {
@@ -1502,21 +1503,6 @@ div.headerLinks a:hover {
   color: #0f75bc;
 }
 
-#box {
-	padding:30px 30px 36px 30px;
-	width:560px;
-	margin:0 auto;
-	border-radius: 5px;
-	-moz-border-radius: 5px;
-	-webkit-border-radius: 5px;	
-}
-
-#box div.field {
-	font-size:16px;
-	padding:10px 20px;
-	width:215px;
-}
-
  div.login_fields input[type="text"], div.login_fields input[type="password"] {
   color:white;
   background:black;
@@ -1538,7 +1524,7 @@ div#loginBigText {
   font-weight:bold;
   font-size:40px;
   color:black;
-  margin-bottom:20px;
+  margin-bottom:40px;
 }
 div#loginSubmit input[type="submit"] {
   background:black;
@@ -1576,7 +1562,7 @@ div.signup {
   background:black;
   color:#0f75bc;
   font-weight:bold;
-  width:222px;
+  width:220px;
   padding-top:5px;
   margin-left:31px;
 }

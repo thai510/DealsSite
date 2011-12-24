@@ -1,25 +1,27 @@
-<h1>Listing non_profits</h1>
+<br />
+<h1>ALL PARTICIPATING ORGANIZATIONS</h1>
+   <br />
+   <br />
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
 <% @non_profits.each do |non_profit| %>
-  <tr>
-    <td><%= non_profit.name %></td>
-       <td><% non_profit.causes.each do |c| %>
-         <%= c.title %></br>
-       <% end %></td>
-    <td><%= link_to 'Show', non_profit %></td>
-    <td><%= link_to 'Edit', edit_non_profit_path(non_profit)%></td>
-    <td><%= link_to 'Destroy', non_profit, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <%= non_profit.name %>
+    <br />
+       <% non_profit.causes.each do |c| %>
+         <%= c.title %>
+       <% end %>
+    <%= link_to 'Show', non_profit %>
+   <% if bool_admin_authorize %>
+     <%= link_to 'Edit', edit_non_profit_path(non_profit)%>
+     <%= link_to 'Destroy', non_profit, :confirm => 'Are you sure?', :method => :delete %>
+   <% end %>
+   <br />
+   <br />
+   <br />
 <% end %>
-</table>
 
 <br />
 
+   <% if bool_admin_authorize %>
 <%= link_to 'New Non profit', new_non_profit_path %>
+<% end %>

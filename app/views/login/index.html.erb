@@ -6,12 +6,26 @@
         <div id='largBigLogo'>
         <%= image_tag("theme/croppedlogo.png") %>
         </div>
-      <div id='leftFreeLayout' style='margin-top:150px;margin-left:150px;'>
-      <div id='loginBigText'>
-        BUSINESS LOGIN
-        </div>
-      <%= render :partial => 'sessions/login' %>         
+      <div id='leftFreeLayout' style='margin-top:120px;margin-left:150px;'>
+        <div id='loginBigText'>
+          BUSINESS LOGIN
+          </div>
+        <%= render :partial => 'sessions/login' %>         
       </div>
-    </div>
+      <div id='rightFreeLayout' style='margin-top:120px;margin-right:160px;height:350px;'>
+         <div id='loginBigText'>
+           ORGANIZATION  
+           <br />
+           <br />
+         <div style='font-size:20px;'>
+           For More Information and Sign Up Details 
+           Call 1-510-999-9999
+           </div>
+           </div>
+         <div class="signup" style='width:400px;'onclick="window.location = '<%= non_profits_path %>'">
+          VIEW ALL PARTICPATING ORGANIZATIONS
+         </div>
+      </div>
+      </div>
   </div>
 </body>

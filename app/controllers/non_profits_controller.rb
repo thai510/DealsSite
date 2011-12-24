@@ -1,4 +1,5 @@
 class NonProfitsController < ApplicationController
+ skip_before_filter :authorize
   # GET /non_profits
   # GET /non_profits.xml
   def index
