@@ -33,6 +33,7 @@
          <%= link_to 'Finish Offer!', new_db_step_two_path(:db_id => @deal_builder.id) %>  
        <% end %>
      <% end %>
+            <div> <%= link_to 'DELETE OFFER' , @deal_builder, :method => :delete %></div>
     </div>
     </div>
   <% else %>

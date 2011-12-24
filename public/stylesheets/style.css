@@ -1517,22 +1517,68 @@ div.headerLinks a:hover {
 	width:215px;
 }
 
-#box div.login_fields {
-  text-align:center;
+ div.login_fields input[type="text"], div.login_fields input[type="password"] {
+  color:white;
+  background:black;
+  height:25px;
+  width:200px;
+  border-radius:0px;
+  -moz-border-radius: 0px;
+  
+   display:inline;
 }
 
-div.signup {
+div#loginSubmit input[type="submit"]:hover {
+  cursor:pointer;
+  background:#ccc;
+  color:black;
+
+}
+div#loginBigText {
+  font-weight:bold;
+  font-size:40px;
+  color:black;
+  margin-bottom:20px;
+}
+div#loginSubmit input[type="submit"] {
+  background:black;
+  color:white;
+  width:222px;
+  height:35px;
+  border-radius:0px;
+  -moz-border-radius: 0px;
+  font-weight:bold;
   display:inline;
 }
 
-div.signup a {
-  text-decoration:none;
-  color: #0f75bc;
+div.login_fields {
+   display:inline;
 }
 
-div.signup a:hover {
-  text-decoration:none;
-  color: #8cc63f;
+div.login_box {
+  width:300px;
+  margin-left:80px;
+}
+
+
+ div.login_labels {
+   text-align:right;
+   width:100px;
+   display:inline;
+ }
+
+div.signup:hover {
+  background:#ccc;
+  cursor:pointer;
+}
+div.signup {
+  height:25px;
+  background:black;
+  color:#0f75bc;
+  font-weight:bold;
+  width:222px;
+  padding-top:5px;
+  margin-left:31px;
 }
 
 div #login {
@@ -1709,6 +1755,7 @@ div#oneOfferView {
   height:50px;
   font-weight:bold;
   background-color:black;
+  color:white;
 }
 div#showAllVouchersContainer {
   float:center;
@@ -1802,7 +1849,7 @@ div.oneVoucherViewOn:hover {
 }
 
 div#offerTitleOfferView {
-  width:225px;
+  width:200px;
   float:left;
   padding-top:15px;
   display:inline;
@@ -1815,14 +1862,14 @@ div#oneVoucherLeftView {
 }
 
 div#liveOfferTitleOfferView {
-  width:175px;
+  width:200px;
   float:left;
   padding-top:15px;
   display:inline;
 }
 
 div#liveOfferRightOfferView {
-  width:175px;
+  width:200px;
   float:right;
   padding-top:15px;
   display:inline;
@@ -1839,7 +1886,7 @@ div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover
 
 
 div#stepsOfferViewHolder {
-  width:225px;
+  width:200px;
   float:right;
   padding-top:15px;
   display:inline;

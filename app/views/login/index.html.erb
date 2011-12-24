@@ -1,18 +1,17 @@
 <head>
   <%= stylesheet_link_tag 'style.css' %>
 </head>
-<body style="background-color:black;
-     background-image:url('../images/theme/close.png') repeat;
-       padding:0; margin:0;">
-<div id="line"><!-- --></div>
-<div id="wrapper">
-  <div id="background">
+<body>
     <div id="content">
-      <div id="logo">
-        <%= image_tag("theme/final2_wide.png") %>
-      </div>
+        <div id='largBigLogo'>
+        <%= image_tag("theme/croppedlogo.png") %>
+        </div>
+      <div id='leftFreeLayout' style='margin-top:150px;margin-left:150px;'>
+      <div id='loginBigText'>
+        BUSINESS LOGIN
+        </div>
       <%= render :partial => 'sessions/login' %>         
+      </div>
     </div>
   </div>
-</div>
 </body>

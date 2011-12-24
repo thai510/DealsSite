@@ -13,8 +13,9 @@
   </div>
 <% else %>
 <% @count = 0 %>
-<div class="leftSideLayout" style='margin-top:90px;'>
-       <div id="incompleteOfferHeader">Incomplete Offers</div>
+<% @titleLength = 33 #max length of title%>
+<div id="leftFreeLayout" style='margin-top:90px;'>
+       <div class="formHeader" style='margin-bottom:10px;'>Incomplete</div>
        <% checkLiveDeals('to pass the time', 'db_index') %>
        
 
@@ -23,8 +24,11 @@
          <% @count += 1 %>
          <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
            <div id="offerTitleOfferView">
-             <%= deal_builder.db_step_one.offer_title %>
-             <%= link_to 'd' , deal_builder, :method => :delete %>
+             <% if deal_builder.db_step_one.offer_title.size > @titleLength %>
+                <%= deal_builder.db_step_one.offer_title[0..@titleLength] + '...'%>
+             <% else %>
+               <%= deal_builder.db_step_one.offer_title %>
+             <% end %>
            </div>
            <div id="stepsOfferViewHolder">
             <% unless deal_builder.db_step_four %>
@@ -55,8 +59,11 @@
      <% @restOfDBs.each do |deal_builder| %>
       <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
         <div id="offerTitleOfferView">
-          <%= deal_builder.db_step_one.offer_title %>
-          <%= link_to 'd' , deal_builder, :method => :delete %>
+          <% if deal_builder.db_step_one.offer_title.size > @titleLength %>
+             <%= deal_builder.db_step_one.offer_title[0..@titleLength] + '...'%>
+           <% else %>
+             <%= deal_builder.db_step_one.offer_title %>
+           <% end %>
         </div>
         <div id="stepsOfferViewHolder">
          <% unless deal_builder.db_step_four %>
@@ -95,8 +102,8 @@
   <% @liveOffers.delete_if {|d| !DbPublish.find_by_deal_builder_id(d.id)} %>
 
   <%unless @liveOffers.empty? %>
-<div class='rightSideLayout' style='margin-top:90px;'>
-         <div id="liveOfferViewTitle">Live Offers</div>
+<div id='rightFreeLayout' style='margin-top:90px;'>
+  <div class='formHeader' style='margin-bottom:10px;'>Live Offers</div>
       <% @liveOffers.sort! { |x,y| x.db_publish.created_at <=> y.db_publish.created_at } %>
       <% @count = 0 %>
 
@@ -104,7 +111,13 @@
         <% if @count > 5 then break end %>
         <% @count += 1 %>
         <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
-          <div id="liveOfferTitleOfferView"><%= deal_builder.db_step_one.offer_title %></div>
+          <div id="liveOfferTitleOfferView">
+             <% if deal_builder.db_step_one.offer_title.size > @titleLength %>
+                <%= deal_builder.db_step_one.offer_title[0..@titleLength] + '...'%>
+             <% else %>
+               <%= deal_builder.db_step_one.offer_title %>
+             <% end %>
+           </div>
           <div id="liveOfferRightOfferView"><%= deal_builder.db_publish.total_vouchers_sold %> Purchased</div>
             <% if deal_builder.db_publish.private_deal == 'yes' %>
               <%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%>
@@ -118,7 +131,13 @@
 
     <% @restOfLOs.each do |deal_builder| %>
       <div id="oneOfferView" onclick="window.location = '<%= deal_builder_path(deal_builder) %>'">
-        <div id="liveOfferTitleOfferView"><%= deal_builder.db_step_one.offer_title %></div>
+        <div id="liveOfferTitleOfferView">
+           <% if deal_builder.db_step_one.offer_title.size > @titleLength %>
+              <%= deal_builder.db_step_one.offer_title[0..@titleLength] + '...'%>
+           <% else %>
+             <%= deal_builder.db_step_one.offer_title %>
+           <% end %>
+        </div>
         <div id="liveOfferRightOfferView"><%= deal_builder.db_publish.total_vouchers_sold %> Purchased</div>
         <% if deal_builder.db_publish.private_deal == 'yes' #code for private deals, will keep just incase%>
           <%= link_to 'View/Add Private Deal Codes' , private_deal_codes_path(:id => deal_builder.db_publish.id)%>

@@ -1,19 +1,21 @@
-<% if flash[:alert] %>
-   <p id="notice"><%= flash[:alert] %></p>
-<% end %>
 
 <%= form_tag do %>   
-  <div id="box">
+    <div class='login_box'>
       <div class="login_fields">
-      <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
-      <%= password_field_tag :password, params[:password], :placeholder => "Password" %>
-      <%= submit_tag 'Login' %>      
-<div class="signup">
-       <b><%= link_to 'Sign Up', sign_up_index_path %></b>
+        <%= text_field_tag :email, params[:email], :placeholder => "Email"%>
+      </div>
+      <br />
+      <div class="login_fields">
+         <%= password_field_tag :password, params[:password], :placeholder => "Password" %>
+      </div>
+      <br />
+      <div id='loginSubmit' style='margin-right:3px;'>
+      <%= submit_tag 'LOGIN' %>      
+      </div>
+    <div class="signup" onclick="window.location = '<%= sign_up_index_path %>'">
+      SIGN UP
     </div>
-     <div id="notice" style='text-align:left;padding-left:77px;'><%= notice %></div>
     
-    </div>
   </div>
 <% end %>
 
