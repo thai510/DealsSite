@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def authorize
     unless User.find_by_id(session[:users_id])
-      redirect_to login_index_url, :notice => "Please log in"
+      redirect_to login_index_url
     end
   end
 
@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
       end
        redirect_to home_path
     else 
-       redirect_to login_index_url, :notice => "Please log in"
+       redirect_to login_index_url
     end
   end
  

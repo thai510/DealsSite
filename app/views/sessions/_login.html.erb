@@ -12,9 +12,12 @@
       <div id='loginSubmit' style='margin-right:3px;'>
       <%= submit_tag 'LOGIN' %>      
       </div>
-    <div class="signup" onclick="window.location = '<%= sign_up_index_path %>'">
+      <div style='color:red;'>
+        <%= notice %>
+      </div>
+    <!--<div class="signup" onclick="window.location = '<%= sign_up_index_path %>'">
       SIGN UP
-    </div>
+    </div> -->
     
   </div>
 <% end %>

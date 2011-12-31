@@ -1,29 +1,31 @@
 <%= form_for @user,:html => {:multipart => true}  do |f| %>
-<noscript>
-  <% if @user.errors.any? %>
+ 
+ <div class='signup_box'>
+      <div class="signup_fields"><%= f.text_field :name,:placeholder => "Name" %></div>
+    <div class="signup_fields"><%= f.text_field :email,:placeholder => "Email" %></div>
+    <div class="signup_fields"><%= f.password_field :password, :placeholder => "Password" %></div>
+      <div class="signup_fields"><%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %></div>
+  <div id="signUpSubmit">
+    <% if @edit %>
+      <%= f.submit 'Save' %>
+    <% else %>
+      <%= f.submit 'Sign Up' %>
+    <% end %>
+  </div>
+  </div>
+
+<div style="margin-top:60px;'">
+<% if @user.errors.any? %>
       <h2> Please fix the following errors</h2>
 
-      <ul>
       <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div><%= msg %></div>
       <% end %>
-      </ul>
   <% end %>
-</noscript>
-
-      <div class="signup_text"><%= f.label 'Name:' %></div>
-      <div class="signup_field"><%= f.text_field :name, :size => 22 %></div>
-      <div class='signuperror'></div>
-    <div class="signup_text"><%= f.label 'Email:' %></div>
-    <div class="signup_field"><%= f.text_field :email, :size => 22 %></div>
-      <div class='signuperror'></div>
-    <div class="signup_text"><%= f.label  'Password:'%></div>
-    <div class="signup_field"><%= f.password_field :password, :size => 22 %></div>
-      <div class='signuperror'></div>
-      <div class="signup_text"><%= f.label :password_confirmation, 'Confirm:'%></div>
-      <div class="signup_field"><%= f.password_field :password_confirmation, :size => 22 %></div>
-      <div class='signuperror'></div>
-  <div class="buttonSignup">
-    <%= f.submit 'Sign Up' %>
   </div>
+
+
+
+
+
 <% end %>

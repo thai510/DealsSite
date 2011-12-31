@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:users_id] = nil
-    redirect_to login_index_url, :notice => "Logged out"
+    redirect_to login_index_url
   end
 
 end

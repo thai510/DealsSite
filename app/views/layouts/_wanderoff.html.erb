@@ -22,7 +22,7 @@
         </div>
 			<div class="rightLinks">
            <div class="headerLinks">
-             <%= link_to "Settings", edit_user_path(session[:users_id])%>
+             <%= link_to "Settings", user_path(session[:users_id])%>
              <%= link_to "Logout", logout_path, :method => :delete %>
            </div>
         </div>

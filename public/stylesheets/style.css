@@ -1503,7 +1503,8 @@ div.headerLinks a:hover {
   color: #0f75bc;
 }
 
- div.login_fields input[type="text"], div.login_fields input[type="password"] {
+ div.login_fields input[type="text"], div.login_fields input[type="password"],
+  div.signup_fields input[type="text"], div.signup_fields input[type="password"]{
   color:white;
   background:black;
   height:25px;
@@ -1514,19 +1515,19 @@ div.headerLinks a:hover {
    display:inline;
 }
 
-div#loginSubmit input[type="submit"]:hover {
+div#loginSubmit input[type="submit"]:hover, div#signUpSubmit input[type="submit"]:hover {
   cursor:pointer;
   background:#ccc;
   color:black;
-
 }
+
 div#loginBigText {
   font-weight:bold;
   font-size:40px;
   color:black;
   margin-bottom:40px;
 }
-div#loginSubmit input[type="submit"] {
+div#loginSubmit input[type="submit"],div#signUpSubmit input[type="submit"] {
   background:black;
   color:white;
   width:222px;
@@ -1544,6 +1545,10 @@ div.login_fields {
 div.login_box {
   width:300px;
   margin-left:80px;
+}
+
+div.signup_box {
+  padding-top:100px;
 }
 
 
@@ -1614,28 +1619,6 @@ table.signup {
   font-family: Century Gothic, sans-serif; 
 }
 
-div.signup_text {
-   text-align:right;
-  font-size: 12px;
-  padding-right: 12px;
-  font-weight: normal;
-  color:#8cc63f;
-  padding-top: 15px;
-  width:140px;
-  font-family: Century Gothic, sans-serif;
-  display:inline;
-
-}
-
-div.signup_field {
-  text-align:left;
-  padding-top: 15px;
-  width:250px;
-  display:inline;
-}
-div.signuperror {
-padding-bottom:30px;
-}
 
 div.signUpForm .error {
   text-align:left;
@@ -1643,42 +1626,6 @@ div.signUpForm .error {
 
 div.signUpForm label.error {
  color:#0f75bc;
-}
-
-div.buttonSignup {
-  width:100%;
-  padding-top:65px ;
-  text-align:center;
-}
-
-div.buttonSignup input#user_submit {
-        color:#fff;
-        font-family: Century Gothic, sans-serif;
-        text-decoration:none;
-        font-size:20px;
-        font-weight:normal;
-        text-shadow:0 1px 1px #0c507b;
-        letter-spacing:0px;
-
-        background: #000;
-        /*background: -moz-linear-gradient(top, #87c6ee, #3aa3e6 2%, #028fe8);
-        background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #87c6ee), color-stop(.01, #3aa3e6), to(#028fe8)); 
-*/
-        border:1px solid black;
-
-        border-radius: 5px;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        outline:none;
-}
-
-div.buttonSignup input#user_submit:hover {
-        text-shadow: 0 1px 1px #6f3a02;
-
-        border:1px solid #0F75BC;
-
-        cursor:pointer;
-
 }
 
 div.signUpForm {

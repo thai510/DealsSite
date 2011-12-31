@@ -1,14 +1,7 @@
 <% if !same_user?(@user.id,'user_edit') %>
   <%= render 'layouts/noaccess' %>
 <% else %>
-<div class="leftSideLayout">
-<%= render 'signup' %>
-<% if DbStepZero.find_by_user_id(session[:users_id]) %>
-<table>
-<div class='blueGreenLink'>
-  <%= link_to 'Edit Business Attributes', edit_db_step_zero_path(DbStepZero.find_by_user_id(session[:users_id])) %>
-</div>
-</table>
-<% end %>
-</div>
+ <%= render 'signup' ,:object => @edit = true%> 
+
+
 <% end %>
