@@ -1086,7 +1086,7 @@ p.ServicePage:hover, p.industryBlindDown:hover, p.industryBlindUp:hover {
 div#layoutbanner {
    width:100%;
    height: 30px;
-   background:#ccc;
+   background:#2d2d2d;
    display:table;
 }
 
@@ -1260,7 +1260,8 @@ div.oneVoucher div.blueGreenLink {
   padding:5px 5px 5px 5px;
 }
 
-#layoutbanner div.leftLinks {
+#layoutbanner div.leftLinks a, #layoutbanner div.rightlinks a {
+color:#f1f1f1;
 }
 
 #layoutbanner div.rightLinks {
@@ -1687,8 +1688,9 @@ div.dbShowOne, div.dbShowTwo, div.dbShowThree, div.dbShowFour {
 div#oneOfferView {
   height:50px;
   font-weight:bold;
-  background-color:black;
+  background-color:#2d2d2d;
   color:white;
+  margin-top:10px;
 }
 div#showAllVouchersContainer {
   float:center;
@@ -1781,12 +1783,31 @@ div.oneVoucherViewOn:hover {
   cursor:pointer;
 }
 
-div#offerTitleOfferView {
-  width:200px;
+div#offerIncompleteStatusView {
   float:left;
-  padding-top:15px;
   display:inline;
+  width:25px;
+  background-color:#C67171;
+  height:50px;
 }
+
+div#offerLiveStatusView {
+  float:left;
+  display:inline;
+  font-weight:bold;
+  width:25px;
+  height:50px;
+  background-color:#7ccd7c;
+}
+
+div#offerPublishStatusView {
+  float:left;
+  display:inline;
+  width:25px;
+  height:50px;
+  background-color:#9966FF;
+}
+
 div#oneVoucherLeftView {
   width:210px;
   float:left;
@@ -1794,22 +1815,7 @@ div#oneVoucherLeftView {
   display:inline;
 }
 
-div#liveOfferTitleOfferView {
-  width:200px;
-  float:left;
-  padding-top:15px;
-  display:inline;
-}
-
-div#liveOfferRightOfferView {
-  width:200px;
-  float:right;
-  padding-top:15px;
-  display:inline;
-}
-
 div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover,
- div#moreLiveOfferViewLink:hover, div#hideLiveOfferViewLink:hover,
    div#bigTextClickableContainer:hover, div.oneVoucherViewOff:hover {
  background-color:#ccc;
  color:black;
@@ -1819,7 +1825,7 @@ div#oneOfferView:hover, div#moreOfferViewLink:hover, div#hideOfferViewLink:hover
 
 
 div#stepsOfferViewHolder {
-  width:200px;
+  width:325px;
   float:right;
   padding-top:15px;
   display:inline;
@@ -1853,17 +1859,20 @@ div#incompleteOfferHeader {
   padding-bottom:10px;
   font-size:30px;
 }
-div#liveOfferViewTitle {
-  font-weight:bold;
-  padding-bottom:10px;
-  font-size:30px;
-}
 
-div#hideOfferViewLink,div#hideLiveOfferViewLink {
+div#hideOfferViewLink {
   height:30px;
   font-weight:bold;
   padding-top:10px;
   background-color:black;
+  color:white;
+}
+div#leftMyOfferLayout {
+  width:725px;
+  margin-top:60px;
+  float:left;
+  margin-top:15px;
+  display:inline;
 }
 
 div#leftFreeLayout {

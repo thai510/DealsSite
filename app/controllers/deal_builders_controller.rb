@@ -1,6 +1,7 @@
 class DealBuildersController < ApplicationController
   before_filter :finished_step_zero?
   rescue_from ActiveRecord::RecordNotFound, :with => :deal_does_not_exist
+
   # GET /deal_builders
   # GET /deal_builders.xml
   def index
