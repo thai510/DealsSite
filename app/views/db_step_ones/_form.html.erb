@@ -1,68 +1,42 @@
 <%= form_for (@db_step_one) , :html => {:multipart => true} do |f| %>
-  <noscript>
-  <% if @db_step_one.errors.any? %>
+  
+
+<div class='formHeader'>The Basics</div>
+<br />
+<div id="dealBuilderContainer">
+
+    <div class="dealBuilderField"><%= f.text_field :offer_title, :placeholder => "Offer Title" %></div>
+
+    <div class="dealBuilderField"><%= f.text_area :offer_description, :placeholder => "Offer Description" %></div>
+
+<!--     <div id='dbOnePhotoInfoButton' style='display:inline;'> more</div> -->
+    <!--<td><div style='display:inline;margin-left:20px;' #rubycode check_box(:db_step_one,:coupon,{},'yes','no') # Is this a coupon?</div></td> -->
+
+    <div class="dealBuilderField"><%= f.text_field :offer_price,:placeholder => "Offer Price" %></div>
+
+    <div class="dealBuilderField"><%= f.text_field :offer_value, :placeholder => "Offer Value" %></div>
+    <div class="dealBuilderFileField"><%= f.file_field :offer_photo, :placeholder => "Offer Photo"%></div>
+    <div class='dealBuilderFileMoreDivContainer' id='stepOneFileMoreDiv'><div class='dealBuilderFileMoreDivText'>?</div></div>
+
+  <%= f.hidden_field :coupon, :value => 'no' %>
+    <% if @deal_builder_id %>
+       <%= f.hidden_field :deal_builder_id , :value => @deal_builder_id %>
+    <% end %>
+  <div class="dealBuilderSubmit" >
+    <%= f.submit 'Forward'%>
+  </div>
+<% if @db_step_one.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@db_step_one.errors.count, "error") %> prohibited this db_step_one from being saved:</h2>
-
-      <ul>
+     <ul>
       <% @db_step_one.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
- </noscript>
-
-<div class='formHeader'>The Basics</div>
-<div class ="leftSideLayout">
-<table id="dealBuilder">
-
-
-  <tr>
-    <td class="dealBuilderLabel" id="offer_title_label"><%= f.label :offer_title, "Offer Title*" %></td>
-    <td class="dealBuilderField"><%= f.text_field :offer_title %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-
-  <tr>
-    <td class="dealBuilderLabel" id="offer_description_label"><%= f.label :offer_description, "Offer Description*" %></td>
-    <td class="dealBuilderField"><%= f.text_area :offer_description, :size => '30x3' %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-
-  <tr>
-    <td class="dealBuilderLabel" id="offer_photo_label"><%= f.label :offer_photo, 'Offer Photo' %></td>
-    <td class="dealBuilderField"><%= f.file_field :offer_photo%><div id='dbOnePhotoInfoButton' style='display:inline;'> more</div></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-<table id='dealBuilder'>
-  <tr >
-    <!--<td><div style='display:inline;margin-left:20px;' #rubycode check_box(:db_step_one,:coupon,{},'yes','no') # Is this a coupon?</div></td> -->
-
-    <td class="dealBuilderLabel" id="offer_price_label" style='width:95px'><%= f.label :offer_price, "Offer Price*" %></td>
-    <td class="dealBuilderField"><%= f.text_field :offer_price, "size" => 6 %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-
-  <tr>
-    <td class="dealBuilderLabel" id="offer_value_label"><%= f.label :offer_value, "Offer Value*" %></td>
-    <td class="dealBuilderField"><%= f.text_field :offer_value, "size" => 6 %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-  <%= f.hidden_field :coupon, :value => 'no' %>
-</table>
-    <% if @deal_builder_id %>
-       <%= f.hidden_field :deal_builder_id , :value => @deal_builder_id %>
-    <% end %>
-  <div class="actions" style="float:right;">
-    <%= f.submit 'Forward'%>
-  </div>
 </div>
+
 <div class="rightSideLayout" style='display:none'>
   <table class="stepOneTips">
     <tr id="offer_title" style='display:none'> 

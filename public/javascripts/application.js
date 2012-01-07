@@ -73,7 +73,7 @@ $(document).ready(function () {
     });
     //needed to also add on click because for some reason focus
     // doesn't work click file_fields
-    $('#dbOnePhotoInfoButton').live("click", function ()  {
+    $('#stepOneFileMoreDiv').live("click", function ()  {
       $('#offer_photo').fadeIn();
       $('#offer_photo_label').css('text-decoration','underline');
       $('.rightSideLayout').show();
@@ -137,7 +137,7 @@ $(document).ready(function () {
     return (parseFloat(value) > offerPrice);
   },'');
 
-  $('#new_db_step_one').validate( {
+  /*$('#new_db_step_one').validate( {
      errorPlacement: function(error,element) {
        error.appendTo(element.closest("td").next('td'));
      },
@@ -176,7 +176,7 @@ $(document).ready(function () {
       "db_step_one[offer_description]":{required:""}
     }
   });
-
+*/
   $("#db_step_one_offer_photo").change(function () {
     $("#db_step_one_offer_photo").blur().focus();
   });
@@ -815,21 +815,6 @@ $(document).ready(function () {
     });
 });
 
-$(document).ready(function () {
-    $('div#moreLiveOfferViewLink').live("click", function() {
-      $('div#restOfLiveOffers').slideDown('slow', function() {
-      });
-      $('div#moreLiveOfferViewLink').hide();
-      $('div#hideLiveOfferViewLink').show();
-    });
-
-    $('div#hideLiveOfferViewLink').live("click", function() {
-      $('div#restOfLiveOffers').slideUp('slow', function() {
-      });
-      $('div#hideLiveOfferViewLink').hide();
-      $('div#moreLiveOfferViewLink').show();
-    });
-});
 $(document).ready(function () {
   if($('.show_deal_builder').is(':visible'))
   {
