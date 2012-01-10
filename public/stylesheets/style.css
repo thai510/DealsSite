@@ -199,7 +199,7 @@ div.dealBuilderField {
 
 div.dealBuilderSubmit input[type="submit"] {
   background:black;
-  color:white;
+  color:#8cc63f;
   width:430px;
   height:35px;
   border:0px;
@@ -208,14 +208,44 @@ div.dealBuilderSubmit input[type="submit"] {
   font-weight:bold;
   display:inline;
 }
-div.dealBuilderSubmit input[type="submit"]:hover {
+div.dealBuilderSubmit input[type="submit"]:hover, 
+  div.dealBuilderSubmitWithBack input[type='submit']:hover {
   background:#ccc;
   color:black;
   cursor:pointer;
 }
+div.dealBuilderSubmitWithBack input[type='submit'] {
+  background:black;
+  color:#8cc63f;
+  width:375px;
+  height:35px;
+  border:0px;
+  border-radius:0px;
+  -moz-border-radius: 0px;
+  font-weight:bold;
+  display:inline;
+}
+div.dealBuilderBackContainer:hover {
+  background-color:black;
+  color:white;
+  cursor:pointer;
+}
+div.dealBuilderBackText {
+  padding-top:7px;
+}
+div.dealBuilderBackContainer {
+  background-color:#ccc;
+  color:black;
+  float:left;
+  font-weight:bold;
+  width:55px;
+  height:35px;
+  border:0px;
+  display:inline;
+}
 
 div.dealBuilderField input[type="text"]:focus, div.dealBuilderFileField input[type="file"]:focus,
-  div.dealBuilderField textarea:focus {
+  div.dealBuilderField textarea:focus, div.dealBuilderField select:focus {
   border:0px solid #2d2d2d;
   background:#ccc;
   color:black;
@@ -254,7 +284,7 @@ div.dealBuilderFileMoreDivContainer:hover {
   cursor:pointer;
 }
 
-div.dealBuilderField input[type="text"] {
+div.dealBuilderField input[type="text"], div.dealBuilderField select {
   background-color:#2d2d2d;
   color:white;
   height:30px;
@@ -293,19 +323,13 @@ td.locationLabel {
   text-align:left;
   padding-top:10px;
 }
-div.rightSideLayout {
+div.formTipLayout {
   float:right;
   width:350px;
-  margin:25px 10px 15px 20px;
-  padding:20px 10px 30px 10px;
-  background:#161616;
-  color:white;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-  -moz-box-shadow: 8px 8px 8px black;
-  -webkit-box-shadow: 8px 8px 8px black;
-  box-shadow: 8px 8px 8px black;
-
+  background:#ccc;
+  text-align:center;
+  color:black;
+  padding:10px 15px 10px 15px;
 }
 
 table.stepOneTips td {
@@ -320,10 +344,8 @@ padding-left:1.5em
 }
 
 div.progressBar {
-  width:450px;
-  height:30px;
   padding-top:20px;
-  padding-left:30px;
+  display:inline;
 }
 
 div.currentProgress {
@@ -1069,4 +1091,15 @@ div.offerInfoHeader {
 
 div#redeemedVouchers, div#unredeemedVouchers {
   margin-bottom:10px;
+}
+
+div.dbErrorContainer {
+  background-color:black;
+  color:#ccc;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+div.dbErrorContainer h2 {
+  color:red;
 }

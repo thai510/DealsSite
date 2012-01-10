@@ -52,32 +52,23 @@ $(document).ready(function () {
     $('#db_step_one_offer_title').focus( function ()  {
       $('#offer_photo').hide();
       $('#offer_title').show();
-      $('#offer_title_label').css('text-decoration','underline');
-      $('#offer_photo_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').show();
     });
 
     $('#db_step_one_offer_title').focusout( function ()  {
       $('#offer_title').hide();
-      $('#offer_title_label').css('text-decoration','none');
-      $('.rightSideLayout').hide();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').hide();
     });
 
     $('#db_step_one_offer_photo').focus( function ()  {
       $('#offer_photo').fadeIn();
-      $('#offer_photo_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').show();
     });
     //needed to also add on click because for some reason focus
     // doesn't work click file_fields
     $('#stepOneFileMoreDiv').live("click", function ()  {
       $('#offer_photo').fadeIn();
-      $('#offer_photo_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').show();
     });
 
     
@@ -88,48 +79,31 @@ $(document).ready(function () {
     $('#db_step_one_offer_value').focus( function ()  {
       $('#offer_photo').hide();
       $('#offer_value').show();
-      $('#offer_value_label').css('text-decoration','underline');
-      $('#offer_photo_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').show();
     });
     $('#db_step_one_offer_value').focusout( function ()  {
       $('#offer_value').hide();
-      $('#offer_value_label').css('text-decoration','none');
-      $('.rightSideLayout').hide();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').hide();
     });
 
     $('#db_step_one_offer_price').focus( function ()  {
       $('#offer_photo').hide();
       $('#offer_price').show();
-      $('#offer_price_label').css('text-decoration','underline');
-      $('#offer_photo_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').show();
     });
     $('#db_step_one_offer_price').focusout( function ()  {
       $('#offer_price').hide();
-      $('#offer_price_label').css('text-decoration','none');
-      $('.rightSideLayout').hide();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').hide();
     });
 
     $('#db_step_one_offer_description').focus( function ()  {
       $('#offer_photo').hide();
-      $('#additionalRSL').show();
-      $('.rightSideLayout').show();
+      $('.formTipLayout').show();
       $('#offer_description').show();
-      $('#offer_photo_label').css('text-decoration','none');
-      $('#additional_offer_description').show();
-      $('#offer_description_label').css('text-decoration','underline');
     });
     $('#db_step_one_offer_description').focusout( function ()  {
       $('#offer_description').hide();
-      $('#additional_offer_description').hide();
-      $('#offer_description_label').css('text-decoration','none');
-      $('.rightSideLayout').hide();
-      $('#additionalRSL').hide();
+      $('.formTipLayout').hide();
     });
 
   $.validator.addMethod('greaterThan', function(value) {
@@ -232,45 +206,9 @@ $(document).ready(function () {
   {
 
       
-      $('.rightSideLayout').show();
+      $('.formTipLayout').show();
       $('#locations').show();
 
-		$('#db_step_two_locations_attributes_0_address').focus( function ()  {
-      $('#address_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-    });
-		$('#db_step_two_locations_attributes_0_address').focusout( function ()  {
-      $('#address_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-    });
-
-		$('#db_step_two_locations_attributes_0_city').focus( function ()  {
-      $('#city_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-    });
-
-		$('#db_step_two_locations_attributes_0_city').focusout( function ()  {
-      $('#city_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-    });
-
-		$('#db_step_two_locations_attributes_0_state').focus( function ()  {
-      $('#state_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-    });
-		$('#db_step_two_locations_attributes_0_state').focusout( function ()  {
-      $('#state_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-    });
-
-		$('#db_step_two_locations_attributes_0_zip').focus( function ()  {
-      $('#zip_label').css('text-decoration','underline');
-      $('.rightSideLayout').show();
-    });
-		$('#db_step_two_locations_attributes_0_zip').focusout( function ()  {
-      $('#zip_label').css('text-decoration','none');
-      $('.rightSideLayout').show();
-    });
     //format for calendar
     /*$('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
                                                   showOn:'button',
@@ -278,10 +216,10 @@ $(document).ready(function () {
 			                          buttonImageOnly: true});*/
 
 
-  $('#new_db_step_two').validate( {
+  /*$('#new_db_step_two').validate( {
      /*errorPlacement: function(error,element) {
          error.appendTo($(element).closest('tr').last('td'));
-     }*/
+     }*//*
      rules: {
        'db_step_two[locations_attributes][0][address]':{required:true},
        'db_step_two[locations_attributes][0][city]':{required:true},
@@ -309,7 +247,7 @@ $(document).ready(function () {
        'db_step_two[locations_attributes][0][state]':{required:''},
        'db_step_two[locations_attributes][0][zip]':{required:'', minlength:'',maxlength:'',digits:''}
     }
-  });
+  }); */
   }
 });
 

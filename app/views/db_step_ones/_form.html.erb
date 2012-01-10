@@ -1,7 +1,18 @@
 <%= form_for (@db_step_one) , :html => {:multipart => true} do |f| %>
   
 
-<div class='formHeader'>The Basics</div>
+<div class='formHeader'>The Basics
+<!--<div class="progressBar">
+  <div class="currentProgress">
+     image_tag("/images/theme/blueBorderonlyCircle.png") %>
+  </div>
+  <div class="forwardProgress">
+     image_tag("/images/theme/greenBorderonlyCircle.png") %>
+     image_tag("/images/theme/greenBorderonlyCircle.png") %>
+     image_tag("/images/theme/greenBorderonlyCircle.png") %>
+  </div>
+</div> -->
+</div>
 <br />
 <div id="dealBuilderContainer">
 
@@ -25,9 +36,10 @@
   <div class="dealBuilderSubmit" >
     <%= f.submit 'Forward'%>
   </div>
+<div class='dbErrorContainer'>
 <% if @db_step_one.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@db_step_one.errors.count, "error") %> prohibited this db_step_one from being saved:</h2>
+      <h2><%= pluralize(@db_step_one.errors.count, "Error") %> </h2>
      <ul>
       <% @db_step_one.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -36,41 +48,24 @@
     </div>
   <% end %>
 </div>
+</div>
 
-<div class="rightSideLayout" style='display:none'>
-  <table class="stepOneTips">
-    <tr id="offer_title" style='display:none'> 
-      <td><%=FormTip.find_by_title("offer title").description %></td>
-    </tr>
-    <tr id="offer_photo" style='display:none'> 
-      <td><%=FormTip.find_by_title("offer photo").description %></td>
-    </tr>
-    <tr id="offer_value" style='display:none'> 
-      <td><%=FormTip.find_by_title("offer value").description.gsub("\n",'<br>').html_safe() %></td>
-    </tr>
-    <tr id="offer_price" style='display:none'> 
-      <td><%=FormTip.find_by_title("offer price").description %></td>
-    </tr>
-    <tr id="offer_description" style='display:none'> 
-      <td><%=FormTip.find_by_title("offer description").description.gsub("\n",'<br>').html_safe() %></td>
-    </tr>
-</table>
+<div class="formTipLayout" style='display:none'>
+    <div id="offer_title" style='display:none'> 
+      <%=FormTip.find_by_title("offer title").description %>
+    </div>
+    <div id="offer_photo" style='display:none'> 
+      <%=FormTip.find_by_title("offer photo").description %>
+    </div>
+    <div id="offer_value" style='display:none'> 
+      <%=FormTip.find_by_title("offer value").description.gsub("\n",'<br>').html_safe() %>
+    </div>
+    <div id="offer_price" style='display:none'> 
+      <%=FormTip.find_by_title("offer price").description %>
+    </div>
+    <div id="offer_description" style='display:none'> 
+      <%=FormTip.find_by_title("offer description").description %>
+    </div>
 </div>
-<div class="rightSideLayout" id='additionalRSL' style='display:none'>
-   <table class='stepOneTips'>
-    <tr id="additional_offer_description" style='display:none'> 
-      <td><%=FormTip.find_by_title("additional offer description").description.gsub("\n",'<br>').html_safe() %></td>
-    </tr>
-   </table>
-</div>
-<div class="progressBar">
-  <div class="currentProgress">
-    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
-  </div>
-  <div class="forwardProgress">
-    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
-    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
-    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
-  </div>
-</div>
+
 <% end %>

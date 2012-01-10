@@ -1,53 +1,52 @@
 <%=form_for @db_step_two do |f| %> 
 
 <div class='formHeader'>The Where</div>
-<div class="leftSideLayout">
-<table id="dealBuilder">
-   <th></th>
+<br />
+<div id='dealBuilderContainer'>
         <%= f.fields_for :locations do |locations_form|%>
-          <tr><td class='dealBuilderLabel' id='address_label' style='width:140px;'><%= locations_form.label :address,'Address*' %></td>
-          <td class='dealBuilderField'><%= locations_form.text_field :address,:size => '20' %></td></tr>
-          <tr><td class='dealBuilderLabel' id='city_label'><%= locations_form.label :city, 'City*' %></td>
-          <td class='dealBuilderField' ><%= locations_form.text_field :city,:size=>'20'%></td><td></td></tr>
-					<tr><td class='dealBuilderLabel' id='state_label'><%= locations_form.label :state, 'State*' %></td>
-          <td class='dealBuilderField'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></td><td></td></tr>
-          <tr><td class='dealBuilderLabel' id='zip_label'><%= locations_form.label :zip, 'Zipcode*' %></td>
-          <td class='dealBuilderField'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5'%><td></td></tr>
+
+          <div class='dealBuilderField'><%= locations_form.text_field :address,:placeholder => 'Address' %></div>
+          <div class='dealBuilderField' ><%= locations_form.text_field :city,:placeholder => 'City'%></div>
+          <div class='dealBuilderField'><%= locations_form.select :state,Location::STATES, {:prompt => 'State'} %></div>
+          <div class='dealBuilderField'><%= locations_form.text_field :zip,:size => '6',:maxlength => '5',:placeholder => 'Zipcode'%></div>
         <% end %>
-</table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
-      <div class="blueGreenLink" style="display:inline;float:left;">
-      <%= link_to 'Back', edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(params[:db_id]),:db_id => params[:db_id]) %>
+      <div class='dealBuilderBackContainer' onclick="window.location =
+           '<%= edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(params[:db_id]),:db_id => params[:db_id]) %>'">
+        <div class='dealBuilderBackText'>
+          BACK
+        </div>
       </div>
     <% else %>
       <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
-      <div class="blueGreenLink" style="display:inline;float:left;">
-      <%= link_to 'Back', edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id) %>
+      <div class='dealBuilderBackContainer' onclick="window.location =
+       '<%= edit_db_step_one_path(DbStepOne.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id)%>'">
+        <div class='dealBuilderBackText'>
+          BACK
+        </div>
       </div>
     <% end %>
-  <div class="actions" style="float:right;">
+  <div class='dealBuilderSubmitWithBack'>
     <%= f.submit 'Forward' %>
   </div>
+<div class='dbErrorContainer'>
+<% if @db_step_two.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@db_step_two.errors.count, "Error") %> </h2>
+     <ul>
+      <% @db_step_two.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 </div>
-<div class="rightSideLayout" >
-  <table class="stepTwoTips">
-    <tr id="locations">
-      <td><%=FormTip.find_by_title("locations for deal").description%></td>
-    </tr>
-  </table>
 </div>
-<div class="progressBar">
-  <div class="previousProgress">
-    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
-  </div>
-  <div class="currentProgress">
-    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
-  </div>
-  <div class="forwardProgress">
-    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
-    <%= image_tag("/images/theme/greenBorderonlyCircle.png") %>
-  </div>
-
+    
+<div class="formTipLayout" >
+    <div id="locations">
+      <%=FormTip.find_by_title("locations for deal").description%>
+    </div>
 </div>
 <% end %>
