@@ -294,7 +294,7 @@ $('#dbThreeStandardRestrictionButton').live("click",function () {
     $('.rightSideLayout').hide();
   });
 
-  $('#new_db_step_three').validate( {
+  /*$('#new_db_step_three').validate( {
     errorPlacement: function(error,element) {
       if($(element).is(':checkbox')) {
         error.appendTo(element.closest('tr').prev('tr'));
@@ -329,7 +329,7 @@ $('#dbThreeStandardRestrictionButton').live("click",function () {
      "db_step_three[standard_restriction_ids][]":{required:"",minlength:""}, 
       "db_step_three[voucher_length]":{required:""}
     } 
-  });
+  });*/
   }
 });
 $(document).ready(function () {

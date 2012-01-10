@@ -283,8 +283,11 @@ div.dealBuilderFileMoreDivContainer:hover {
   color: #2d2d2d;
   cursor:pointer;
 }
-
-div.dealBuilderField input[type="text"], div.dealBuilderField select {
+div.dealBuilderField input[type='checkbox'] {
+  padding:0px;
+  display:inline;
+}
+div.dealBuilderField input[type="text"], div.dealBuilderField select, div#checkBox.dealBuilderField {
   background-color:#2d2d2d;
   color:white;
   height:30px;
