@@ -40,11 +40,9 @@
 <% if @db_step_one.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@db_step_one.errors.count, "Error") %> </h2>
-     <ul>
       <% @db_step_one.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div><%= msg %></div>
       <% end %>
-      </ul>
     </div>
   <% end %>
 </div>
