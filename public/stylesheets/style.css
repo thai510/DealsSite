@@ -611,6 +611,10 @@ text-align:left;
 padding-left:13px;
 padding-top:20px;
 }
+div.pageImageTitle {
+ text-align:left;
+ padding-left:13px;
+}
 
 div.headerLinks a {
   text-decoration:none;

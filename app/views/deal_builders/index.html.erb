@@ -13,7 +13,7 @@
 <% @count = 0 %>
 <% @titleLength = 33 #max length of title%>
 <div id="leftMyOfferLayout">
-  <div class='formHeader'>My Offers</div>
+  <div class='pageImageTitle'><%= image_tag "theme/myofferstitle.png" %></div>
        <% checkLiveDeals('to pass the time', 'db_index') %>
 
        <% @dealBuilders.reverse.each do |deal_builder| %>

@@ -27,21 +27,22 @@
         </div>
       </div>
     <% end %>
+
   <div class='dealBuilderSubmitWithBack'>
     <%= f.submit 'Forward' %>
   </div>
-<div class='dbErrorContainer'>
-<% if @db_step_two.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@db_step_two.errors.count, "Error") %> </h2>
-     <ul>
-      <% @db_step_two.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-</div>
+  <div class='dbErrorContainer'>
+  <% if @db_step_two.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@db_step_two.errors.count, "Error") %> </h2>
+       <ul>
+        <% @db_step_two.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
 </div>
     
 <div class="formTipLayout" >

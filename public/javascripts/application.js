@@ -201,14 +201,14 @@ function checkFbShare() {
 
 //deal builder step 2 javascript
 //validations and tool tip generation
-$(document).ready(function () {
+/*$(document).ready(function () {
   if($('#new_db_step_two').is(':visible') || $('.edit_db_step_two').is(':visible'))
   {
 
       
       $('.formTipLayout').show();
       $('#locations').show();
-
+*/
     //format for calendar
     /*$('#db_step_two_offer_launch_date').datepicker({showAnim:'slideDown',
                                                   showOn:'button',
@@ -247,9 +247,9 @@ $(document).ready(function () {
        'db_step_two[locations_attributes][0][state]':{required:''},
        'db_step_two[locations_attributes][0][zip]':{required:'', minlength:'',maxlength:'',digits:''}
     }
-  }); */
+  }); 
   }
-});
+});*/
 
 //validations and tool tips for deal builder step 3
 $(document).ready(function () {
