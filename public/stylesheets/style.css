@@ -287,7 +287,18 @@ div.dealBuilderField input[type='checkbox'] {
   padding:0px;
   display:inline;
 }
-div.dealBuilderField input[type="text"], div.dealBuilderField select, div#checkBox.dealBuilderField {
+div#checkBox.dealBuilderField {
+  background-color:#2d2d2d;
+  color:white;
+  height:120px
+  font-size:13px;
+  margin-bottom:4px;
+  border-radius:0px;
+  -moz-border-radius: 0px;
+  border: 0px;
+  width:430px;
+}
+div.dealBuilderField input[type="text"], div.dealBuilderField select  {
   background-color:#2d2d2d;
   color:white;
   height:30px;

@@ -5,16 +5,18 @@
 <div id="dealBuilderContainer">
 			<div class='dealBuilderField' ><%= select :db_step_three,:voucher_length,
 				['1','2','3','4','5','6','7','8','9','10','11','12'],{:prompt => 'How long is the voucher good for (in months)?'} %></div>
-		 <div id='dbThreeStandardRestrictionButton' style='display:inline;'>more</div>
+				<div class="dealBuilderField" id='checkBox' style='text-align:left;'>
     <% StandardRestriction.all.each do |s_r| %>
+        <div>
         <% if @edit_page %>
-          <div class="dealBuilderField" id='checkBox' style='text-align:left;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',
+          <%= check_box_tag  'db_step_three[standard_restriction_ids][]',
            s_r.id,@db_step_three.standard_restrictions.include?(s_r) %>
         <% else %>
-          <div class="dealBuilderField" id='checkBox' style='text-align:left;'><%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
+          <%= check_box_tag  'db_step_three[standard_restriction_ids][]',s_r.id,true %>
         <% end %>
        <%= s_r.description %></div>
      <% end %>
+     </div>
   
     <div class="dealBuilderField"><%= f.text_area :optional_restriction,:placeholder => 'Additional Restrictions'%></div>
 
@@ -49,11 +51,8 @@
     <% end %>
   </div>
 </div>
-<div class="rightSideLayout" style='display:none'>
+<div class="formTipLayout" style='display:none'>
   <table class="stepThreeTips">
-    <tr id="standard_restrictions" style='display:none'> 
-      <td><%=FormTip.find_by_title("standard restrictions").description%></td>
-    </tr>
     <tr id="voucher_length" style='display:none'> 
       <td><%=FormTip.find_by_title("voucher length").description%></td>
     </tr>

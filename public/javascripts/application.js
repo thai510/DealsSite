@@ -256,42 +256,26 @@ $(document).ready(function () {
   if($('#new_db_step_three').is(':visible') || $('.edit_db_step_three').is(':visible'))
   {
 
-  $('#db_step_three_standard_restriction_ids_').live("click",function () {
-    $('.rightSideLayout').show();
-    $('#standard_restrictions').show();
-    $('#standard_restriction_label').css('text-decoration','underline');
-  });
-
-$('#dbThreeStandardRestrictionButton').live("click",function () {
-    $('.rightSideLayout').show();
-    $('#standard_restrictions').show();
-    $('#standard_restriction_label').css('text-decoration','underline');
-  });
-
   $('#db_step_three_voucher_length').focus(function () {
     $('#standard_restrictions').hide();
     $('#voucher_length').show();
-    $('.rightSideLayout').show();
-    $('#voucher_length_label').css('text-decoration','underline');
+    $('.formTipLayout').show();
   });
 
   $('#db_step_three_voucher_length').focusout(function () {
     $('#voucher_length').hide();
-    $('.rightSideLayout').hide();
-    $('#voucher_length_label').css('text-decoration','none');
+    $('.formTipLayout').hide();
   });
 
   $('#db_step_three_optional_restriction').focus(function () {
     $('#standard_restrictions').hide();
     $('#optional_restrictions').show();
-    $('#optional_restrictions_label').css('text-decoration','underline');
-    $('.rightSideLayout').show();
+    $('.formTipLayout').show();
   });
 
   $('#db_step_three_optional_restriction').focusout(function () {
     $('#optional_restrictions').hide();
-    $('#optional_restrictions_label').css('text-decoration','none');
-    $('.rightSideLayout').hide();
+    $('.formTipLayout').hide();
   });
 
   /*$('#new_db_step_three').validate( {
