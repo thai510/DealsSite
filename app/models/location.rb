@@ -4,7 +4,4 @@ class Location < ActiveRecord::Base
             VT VA WA WV WI WY}
   has_many :db_step_twos
 
-  validates :address, :city, :state, :zip, :presence => true
-  validates :zip, :length => {:minimum => 5, :maximum => 5 } ,:if => :zip
-  validates :zip, :numericality => {:only_integer => true}, :if => :zip
 end

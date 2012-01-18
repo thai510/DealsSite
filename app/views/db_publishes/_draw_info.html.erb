@@ -1,0 +1,18 @@
+<%if same_user?(@db_publish.deal_builder_id,'db') %>
+
+<h1>The Finishing Touches</h1>
+<br />
+<div>
+  <div class='dbShowLabel'>Maximum Vouchers to Sell</div>
+    <% if @db_publish.max_vouchers_to_sell == 0%>
+      No Limit
+    <% else %>
+      <%= @db_publish.max_vouchers_to_sell %>
+    <% end %>
+</div>
+<br />
+
+
+
+<% end %>
+

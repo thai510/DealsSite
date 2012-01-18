@@ -186,15 +186,14 @@ function checkCoupon() {
 }
 
 function checkFbShare() {
+
   if ($('#db_step_four_fb_incentive').prop('checked')) {
-    $('#db_step_four_fb_incentive_text').rules("add",{required:true});
     $('#db_step_four_fb_incentive_text').show();
     $('textarea#db_step_four_fb_incentive_text').removeAttr("disabled"); 
     $("#post_code").removeAttr("disabled");
 
   }
   else {
-    $('#db_step_four_fb_incentive_text').rules("remove");
     $('textarea#db_step_four_fb_incentive_text').attr("disabled","true"); 
   }
 }
@@ -362,25 +361,23 @@ $(document).ready(function () {
     $('#db_step_four_fb_incentive').live("click", function () {
       checkFbShare();
     });
-    $('#dbFourFBInfoButton').live("click", function () {
+    $('#stepFourFBMoreDiv').live("click", function () {
       $('#fb_incentive').show();
-      $('.rightSideLayout').show();
+      $('.formTipLayout').show();
     });
 
   $('#db_step_four_optional_incentive').focus(function () {
     $('#optional_incentives').show();
-    $('.rightSideLayout').show();
+    $('.formTipLayout').show();
     $('#fb_incentive').hide();
-    $('#optional_incentives_label').css('text-decoration','underline');
   });
 
   $('#db_step_four_optional_incentive').focusout(function () {
     $('#optional_incentives').hide();
-    $('#optional_incentives_label').css('text-decoration','none');
-    $('.rightSideLayout').hide();
+    $('.formTipLayout').hide();
   });
  
-  $('#new_db_step_four').validate( {
+  /*$('#new_db_step_four').validate( {
      errorPlacement: function(error,element) {
        error.appendTo(element.closest("td").next('td'));
      },
@@ -404,6 +401,7 @@ $(document).ready(function () {
     }
   });
 
+      */
       checkFbShare();
   }
 });

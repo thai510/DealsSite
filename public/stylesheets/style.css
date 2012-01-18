@@ -278,10 +278,23 @@ div.dealBuilderFileMoreDivText {
   vertical-align:middle;
 }
 
-div.dealBuilderFileMoreDivContainer:hover {
+div.dealBuilderFileMoreDivContainer:hover, div.dealBuilderFBMoreContainer:hover {
   background-color:#ccc;
   color: #2d2d2d;
   cursor:pointer;
+}
+div.dealBuilderFBMoreContainer {
+  color: white;
+  float:left;
+  height:25px;
+  width:60px;
+  background:#2d2d2d;
+}
+div.dealBuilderFBMoreDivText {
+  display:inline;
+  font-size:17px;
+  font-weight:bold;
+  vertical-align: middle;
 }
 div.dealBuilderField input[type='checkbox'] {
   padding:0px;
@@ -308,6 +321,10 @@ div.dealBuilderField input[type="text"], div.dealBuilderField select  {
   -moz-border-radius: 0px;
   border: 0px;
   width:430px;
+}
+div.dealBuilderField textarea[disabled] {
+  background-color:black;
+  color:gray;
 }
 div.dealBuilderField textarea {
   resize:none;
@@ -1070,10 +1087,28 @@ div.oneOfferInfoButtonOff, div.twoOfferInfoButtonOff, div.threeOfferInfoButtonOf
 }
 
 div.oneOfferInfoButtonOff:hover, div.twoOfferInfoButtonOff:hover, div.threeOfferInfoButtonOff:hover,
-  div.fourOfferInfoButtonOff:hover, div.pubOfferInfoButtonOff:hover {
+  div.fourOfferInfoButtonOff:hover, div.pubOfferInfoButtonOff:hover, div.dbOneInfoButtonOff:hover, 
+   div.dbTwoInfoButtonOff:hover, div.dbThreeInfoButtonOff:hover, div.dbFourInfoButtonOff:hover, 
+    div.dbPublishInfoButtonOff:hover {
   background-color:#ccc;
   color:black;
   cursor:pointer;
+}
+div.editOneDiv, div.editTwoDiv, div.editThreeDiv, div.editFourDiv, div.editPublishDiv {
+  width:500px;
+  height:35px;
+  background-color:black;
+  color:#ccc;
+  font-weight:bold;
+  float:left;
+}
+div.editOneDiv:hover, div.editTwoDiv:hover, div.editThreeDiv:hover, div.editFourDiv:hover, div.editPublishDiv:hover {
+  background-color: #ccc;
+  color:black;
+  cursor:pointer;
+}
+div.editOneDivText, div.editTwoDivText, div.editThreeDivText, div.editFourDivText, div.editPublishDivText {
+  padding-top:8px;
 }
 
 div.oneOfferInfoButtonOn, div.twoOfferInfoButtonOn, div.threeOfferInfoButtonOn, div.fourOfferInfoButtonOn, div.pubOfferInfoButtonOn {
@@ -1085,7 +1120,50 @@ div.oneOfferInfoButtonOn, div.twoOfferInfoButtonOn, div.threeOfferInfoButtonOn, 
   background-color:#ccc;
   color:black;
 }
+div#dbShowOfferInfoContainer {
+  margin-top:50px;
+  width:500px;
+  float:left;
+}
+div.dbShowInfoOneContainer, div.dbShowInfoTwoContainer, div.dbShowInfoThreeContainer, div.dbShowInfoFourContainer,
+ div.dbShowInfoPublishContainer {
+  background:#ccc;
+  margin-top:10px;
+  padding:10px;
+  float:left;
+  width:480px;
+}
 
+ div.dbTwoInfoButtonNot, div.dbThreeInfoButtonNot, div.dbFourInfoButtonNot, div.dbPublishInfoButtonNot {
+  display:inline;
+  float:left;
+  width:100px;
+  height:25px;
+  vertical-align:middle;
+  font-weight:bold;
+  background-color:#c67171;
+  color:#ccc;
+}
+div.dbOneInfoButtonOff, div.dbTwoInfoButtonOff, div.dbThreeInfoButtonOff, div.dbFourInfoButtonOff, div.dbPublishInfoButtonOff {
+  display:inline;
+  float:left;
+  width:100px;
+  height:25px;
+  vertical-align:middle;
+  font-weight:bold;
+  color:black;
+  background-color:#7ccd7c;
+}
+div.dbOneInfoButtonOn, div.dbTwoInfoButtonOn, div.dbThreeInfoButtonOn, div.dbFourInfoButtonOn, div.dbPublishInfoButtonOn {
+  display:inline;
+  float:left;
+  width:100px;
+  height:25px;
+  vertical-align:middle;
+  font-weight:bold;
+  background-color:#ccc;
+  color:black;
+}
 
 div.offerInfo {
   margin-bottom:7px;

@@ -1,53 +1,51 @@
 <%= form_for(@db_step_four) do |f| %>
-  <% if @db_step_four.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@db_step_four.errors.count, "error") %> prohibited this db_step_four from being saved:</h2>
 
-      <ul>
-      <% @db_step_four.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 <div class='formHeader'>The Extras </div>
-<div class="leftSideLayout">
-  <table class="dealBuilder">
+<br />
+<div id="dealBuilderContainer">
 
-	<tr>
-   <td class="dealBuilderField" id='optional_incentives_label'> <%= f.label 'Incentives' %></td></tr>
-  <tr>
-    <td class="dealBuilderField"><%= f.text_area :optional_incentive, :size => "60x5"%></td>
-  </tr>
-  <tr><td><br /></td></tr>
-    <tr>
-    <td><div style='display:inline;float:left;'><%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
-    </div><div id='dbFourFBInfoButton' style='margin-left:90px;'>more</div></td>
-    </tr>
-    <tr>
-    <td class="dealBuilderField"><%= f.text_area :fb_incentive_text, :size => '60x2',:placeholder => 'Type the incentive here....',:disabled => true %></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
+    <div class="dealBuilderField"><%= f.text_area :optional_incentive, :placeholder => 'Optional Incentives'%></div>
+    <div class='dealBuilderField' id='checkBox' style='float:left;text-align:left;width:370px;height:25px;'>
+      <%= check_box(:db_step_four,:fb_incentive,{},'yes','no') %>Give an incentive for sharing on facebook?
+    </div>
+    <div class='dealBuilderFBMoreContainer' id='stepFourFBMoreDiv'>
+      <div class='dealBuilderFBMoreDivText'>?</div>
+    </div>
+    <div class="dealBuilderField" style='float:left;'><%= f.text_area :fb_incentive_text,:placeholder => 'Type the incentive here....',:disabled => true %></div>
 
   
-  </table>
     <% unless @deal_builder_id %>
       <%= f.hidden_field :deal_builder_id, :value => params[:db_id]%>
-      <div class="blueGreenLink" style="display:inline;float:left;">
-      <%= link_to 'Back', edit_db_step_three_path(DbStepThree.find_by_deal_builder_id(params[:db_id]),:db_id => params[:db_id]) %>
+      <div class="dealBuilderBackContainer" onclick="window.location =
+       '<%= edit_db_step_three_path(DbStepThree.find_by_deal_builder_id(params[:db_id]),:db_id => params[:db_id])%>'">
+        <div class='dealBuilderBackText'>
+          BACK
+        </div>
       </div>
     <% else %>
       <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id%>
-      <div class="blueGreenLink" style="display:inline;float:left;">
-      <%= link_to 'Back', edit_db_step_three_path(DbStepThree.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id) %>
+      <div class="dealBuilderBackContainer" onclick="window.location =
+       '<%= edit_db_step_three_path(DbStepThree.find_by_deal_builder_id(@deal_builder_id),:db_id => @deal_builder_id)%>'">
+       <div class='dealBuilderBackText'>
+         BACK
+       </div>
       </div>
     <% end %>
-  <div class="actions" style="float:right;">
+  <div class="dealBuilderSubmitWithBack">
     <%= f.submit 'Complete Offer!' %>
   </div>
+  <div class='dbErrorContainer'>
+  <% if @db_step_four.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@db_step_four.errors.count, "Error") %> </h2>
+        <% @db_step_four.errors.full_messages.each do |msg| %>
+          <div><%= msg %></div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div class="rightSideLayout" style='display:none'>
+<div class="formTipLayout" style='display:none'>
   <table class="stepFourTips">
     <tr id="optional_incentives" style='display:none'>
       <td><%=FormTip.find_by_title("optional incentives").description%></td>
@@ -56,15 +54,5 @@
       <td><%=FormTip.find_by_title("fb incentive").description%></td>
     </td>
   </table>
-</div>
-<div class="progressBar">
-  <div class="previousProgress">
-    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
-    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
-    <%= image_tag("/images/theme/bluefilledinCircle.png") %>
-  </div>
-  <div class="currentProgress">
-    <%= image_tag("/images/theme/blueBorderonlyCircle.png") %>
-  </div>
 </div>
 <% end %>

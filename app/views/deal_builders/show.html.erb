@@ -1,24 +1,5 @@
 <% if same_user?(@deal_builder.id,'db') %>
-<div class="leftSideLayout">
-    <div class='dbClickOne'>Basics</div>
-    <% if @deal_builder.db_step_four %>
-      <div class='dbClickTwo'>Location</div>
-      <div class='dbClickThree'>Restrictions</div>
-      <div class='dbClickFour'>Incentives</div>
-    <% elsif @deal_builder.db_step_three %>
-      <div class='dbClickTwo'>Location</div>
-      <div class='dbClickThree'>Restrictions</div>
-      <div class='dbClickDisabled'>Incentives</div>   
-    <% elsif @deal_builder.db_step_two %>
-      <div class='dbClickTwo'>Location</div>
-      <div class='dbClickDisabled'>Restrictions</div>   
-      <div class='dbClickDisabled'>Incentives</div>   
-    <% else %>
-      <div class='dbClickDisabled'>Location</div>   
-      <div class='dbClickDisabled'>Restrictions</div>   
-      <div class='dbClickDisabled'>Incentives</div>   
-    <% end %>
-</div>
+  <%= render 'draw_offer_info', :object => @deal_builder = @deal_builder %>
   <div class="rightSideLayout">
   <% unless @deal_builder.db_publish %>
      <div class='blueGreenLink' style="text-align:center;font-size:30px;padding-top:20px;padding-bottom:20px;">
@@ -76,11 +57,7 @@
 </div>
     <% end %>   
 
-<div class="leftSideLayout">
 <div class='show_deal_builder' >
-<div class='dbShowOne'>
-<%= render :template => 'db_step_ones/show', :object => (@db_step_one = @deal_builder.db_step_one) %>
-</div>
 <% if @deal_builder.db_step_two %>
 <div class='dbShowTwo'>
   <%= render :template => 'db_step_twos/show', :object => (@db_step_two = @deal_builder.db_step_two) %>
@@ -98,7 +75,6 @@
 
 <br />
 </div>
-</div>
     <% if @deal_builder.db_publish && @deal_builder.db_publish.private_deal == 'yes' %>
       <div class='rightSideLayout'>
         <div class='blueGreenLink' style='text-align:center;'>
@@ -115,3 +91,4 @@
 <% else %>
 			  <%= render :partial => 'layouts/noaccess'%>	
 <% end %>
+
