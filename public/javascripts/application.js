@@ -742,8 +742,12 @@ $(document).ready(function () {
   $('div.dbTwoInfoButtonOff').live("click", function() {
       $('div.dbShowInfoOneContainer').hide();
       $('div.editOneDiv').hide();
+      $('div.dbShowInfoThreeContainer').hide();
+      $('div.editThreeDiv').hide();
       $('div.dbShowInfoFourContainer').hide();
+      $('div.editFourDiv').hide();
       $('div.dbShowInfoPublishContainer').hide();
+      $('div.editPublishDiv').hide();
       $('div.dbShowInfoTwoContainer').show();
       $('div.editTwoDiv').show();
 
@@ -752,6 +756,59 @@ $(document).ready(function () {
 
       $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOff');
       $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOn');
+
+      if($('div#dbShowThreeOfferInfoButton').hasClass('dbThreeInfoButtonOn')) {
+        $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOn');
+        $('div#dbShowThreeOfferInfoButton').addClass('dbThreeInfoButtonOff');
+      }
+
+      if($('div#dbShowFourOfferInfoButton').hasClass('dbFourInfoButtonOn')) {
+        $('div#dbShowFourOfferInfoButton').removeClass('dbFourInfoButtonOn');
+        $('div#dbShowFourOfferInfoButton').addClass('dbFourInfoButtonOff');
+      }
+
+      if($('div#dbShowPublishOfferInfoButton').hasClass('dbPublishInfoButtonOn')) {
+        $('div#dbShowPublishOfferInfoButton').removeClass('dbPublishInfoButtonOn');
+        $('div#dbShowPublishOfferInfoButton').addClass('dbPublishInfoButtonOff');
+      }
+    });
+    
+    $('div.dbOneInfoButtonOff').live("click", function() {
+      $('div.dbShowInfoTwoContainer').hide();
+      $('div.editTwoDiv').hide();
+      $('div.dbShowInfoThreeContainer').hide();
+      $('div.editThreeDiv').hide();
+      $('div.dbShowInfoFourContainer').hide();
+      $('div.editFourDiv').hide();
+      $('div.dbShowInfoPublishContainer').hide();
+      $('div.editPublishDiv').hide();
+      $('div.dbShowInfoOneContainer').show();
+      $('div.editOneDiv').show();
+
+
+      $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOff');
+      $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOn');
+
+      if($('div#dbShowTwoOfferInfoButton').hasClass('dbTwoInfoButtonOn')) {
+        $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOn');
+        $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOff');
+      }
+
+
+      if($('div#dbShowThreeOfferInfoButton').hasClass('dbThreeInfoButtonOn')) {
+        $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOn');
+        $('div#dbShowThreeOfferInfoButton').addClass('dbThreeInfoButtonOff');
+      }
+
+      if($('div#dbShowFourOfferInfoButton').hasClass('dbFourInfoButtonOn')) {
+        $('div#dbShowFourOfferInfoButton').removeClass('dbFourInfoButtonOn');
+        $('div#dbShowFourOfferInfoButton').addClass('dbFourInfoButtonOff');
+      }
+
+      if($('div#dbShowPublishOfferInfoButton').hasClass('dbPublishInfoButtonOn')) {
+        $('div#dbShowPublishOfferInfoButton').removeClass('dbPublishInfoButtonOn');
+        $('div#dbShowPublishOfferInfoButton').addClass('dbPublishInfoButtonOff');
+      }
     });
 
     $('div.dbClickOne').live("click",function() {
