@@ -53,14 +53,14 @@
 <% end %>
 
 <% if @deal_builder.db_step_two %>
-  <div class='dbShowInfoTwoContainer'>
+  <div class='dbShowInfoTwoContainer' style='display:none;'>
     <%= render :template => 'db_step_twos/show', :object => (@db_step_two = @deal_builder.db_step_two) %>
   </div>
   <% unless DealBuilder.find(@db_step_two.deal_builder_id).db_publish %>
-  <div class='editTwoDiv' onclick="window.location = 
+  <div class='editTwoDiv' style='display:none;' onclick="window.location = 
     '<%= edit_db_step_two_path(@db_step_two,
              :db_id => @db_step_two.deal_builder_id) %>'">
-    <div class='editTwoDivText'>
+    <div class='editTwoDivText' >
       EDIT
     </div>
   </div>
@@ -68,11 +68,11 @@
 <% end %>
 
 <% if @deal_builder.db_step_three %>
-  <div class='dbShowInfoThreeContainer'>
+  <div class='dbShowInfoThreeContainer' style='display:none;'>
     <%= render :template => 'db_step_threes/show', :object => (@db_step_three = @deal_builder.db_step_three) %>
   </div>
   <% unless DealBuilder.find(@db_step_three.deal_builder_id).db_publish %>
-  <div class='editThreeDiv' onclick="window.location = 
+  <div class='editThreeDiv' style='display:none;' onclick="window.location = 
     '<%= edit_db_step_three_path(@db_step_three,
              :db_id => @db_step_three.deal_builder_id) %>'">
     <div class='editThreeDivText'>
@@ -83,11 +83,11 @@
 <% end %>
 
 <% if @deal_builder.db_step_four %>
-  <div class='dbShowInfoFourContainer'>
+  <div class='dbShowInfoFourContainer' style='display:none;'>
     <%= render :template => 'db_step_fours/show', :object => (@db_step_four = @deal_builder.db_step_four) %>
   </div>
   <% unless DealBuilder.find(@db_step_four.deal_builder_id).db_publish %>
-  <div class='editFourDiv' onclick="window.location = 
+  <div class='editFourDiv'  style='display:none;' onclick="window.location = 
     '<%= edit_db_step_four_path(@db_step_four,
              :db_id => @db_step_four.deal_builder_id) %>'">
     <div class='editFourDivText'>
@@ -98,11 +98,11 @@
 <% end %>
 
 <% if @deal_builder.db_publish %>
-  <div class='dbShowInfoPublishContainer'>
+  <div class='dbShowInfoPublishContainer' style='display:none;'>
     <%= render  'db_publishes/draw_info', :object => (@db_publish = @deal_builder.db_publish) %>
   </div>
   <% unless DealBuilder.find(@db_publish.deal_builder_id).db_publish %>
-  <div class='editPublishDiv' onclick="window.location = 
+  <div class='editPublishDiv'  style='display:none;' onclick="window.location = 
     '<%= edit_db_step_four_path(@db_publish,
              :db_id => @db_publish.deal_builder_id) %>'">
     <div class='editPublishDivText'>

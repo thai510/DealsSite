@@ -1,5 +1,7 @@
 <% if same_user?(@deal_builder.id,'db') %>
-  <%= render 'draw_offer_info', :object => @deal_builder = @deal_builder %>
+  <div class='show_deal_builder' >
+    <%= render 'draw_offer_info', :object => @deal_builder = @deal_builder %>
+  </div>
   <div class="rightSideLayout">
   <% unless @deal_builder.db_publish %>
      <div class='blueGreenLink' style="text-align:center;font-size:30px;padding-top:20px;padding-bottom:20px;">
@@ -55,26 +57,8 @@
     <%= link_to 'Preview',@deal_builder.db_publish %>
   </div>
 </div>
-    <% end %>   
 
-<div class='show_deal_builder' >
-<% if @deal_builder.db_step_two %>
-<div class='dbShowTwo'>
-  <%= render :template => 'db_step_twos/show', :object => (@db_step_two = @deal_builder.db_step_two) %>
-</div>
-   <% if @deal_builder.db_step_three %>
-<div class='dbShowThree'>
-     <%= render :template => 'db_step_threes/show', :object => (@db_step_three = @deal_builder.db_step_three) %>
-</div>
-     <% if @deal_builder.db_step_four %>
-<div class='dbShowFour'>
-       <%= render :template => 'db_step_fours/show', :object => (@db_step_four = @deal_builder.db_step_four) %>
-</div>
-     <% end %>
-   <% end %>
 
-<br />
-</div>
     <% if @deal_builder.db_publish && @deal_builder.db_publish.private_deal == 'yes' %>
       <div class='rightSideLayout'>
         <div class='blueGreenLink' style='text-align:center;'>
