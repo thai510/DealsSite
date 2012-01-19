@@ -1094,7 +1094,8 @@ div.oneOfferInfoButtonOff:hover, div.twoOfferInfoButtonOff:hover, div.threeOffer
   color:black;
   cursor:pointer;
 }
-div.editOneDiv, div.editTwoDiv, div.editThreeDiv, div.editFourDiv, div.editPublishDiv {
+
+div.editOneDiv, div.editTwoDiv, div.editThreeDiv, div.editFourDiv {
   width:500px;
   height:35px;
   background-color:black;
@@ -1102,12 +1103,12 @@ div.editOneDiv, div.editTwoDiv, div.editThreeDiv, div.editFourDiv, div.editPubli
   font-weight:bold;
   float:left;
 }
-div.editOneDiv:hover, div.editTwoDiv:hover, div.editThreeDiv:hover, div.editFourDiv:hover, div.editPublishDiv:hover {
+div.editOneDiv:hover, div.editTwoDiv:hover, div.editThreeDiv:hover, div.editFourDiv:hover {
   background-color: #ccc;
   color:black;
   cursor:pointer;
 }
-div.editOneDivText, div.editTwoDivText, div.editThreeDivText, div.editFourDivText, div.editPublishDivText {
+div.editOneDivText, div.editTwoDivText, div.editThreeDivText, div.editFourDivText {
   padding-top:8px;
 }
 
@@ -1119,6 +1120,37 @@ div.oneOfferInfoButtonOn, div.twoOfferInfoButtonOn, div.threeOfferInfoButtonOn, 
   margin-bottom:10px;
   background-color:#ccc;
   color:black;
+}
+div.dbShowLinksContainer:hover {
+  background-color:#ccc;
+  color:#2d2d2d;
+  cursor:pointer;
+}
+div.dbShowLinksContainer {
+  background-color:#2d2d2d;
+  color:black;
+  width:400px;
+  height:120px;
+  color:#ccc;
+}
+div.dbShowLinksText {
+ font-weight:bold;
+ font-size:40px;
+ padding-top:45px;
+}
+div.dbShowDeleteStopContainer:hover {
+  background-color:#ccc;
+  cursor:pointer;
+}
+div.dbShowDeleteStopContainer {
+  height:35px;
+  width:400px;
+  color:red;
+  background-color:black;
+  font-weight:bold;
+}
+div.dbShowDeleteStopText {
+  padding-top:8px;
 }
 div#dbShowOfferInfoContainer {
   margin-top:50px;
@@ -1132,6 +1164,7 @@ div.dbShowInfoOneContainer, div.dbShowInfoTwoContainer, div.dbShowInfoThreeConta
   padding:10px;
   float:left;
   width:480px;
+  display:inline;
 }
 
  div.dbTwoInfoButtonNot, div.dbThreeInfoButtonNot, div.dbFourInfoButtonNot, div.dbPublishInfoButtonNot {

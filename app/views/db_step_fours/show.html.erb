@@ -1,6 +1,6 @@
 <% if same_user?(@db_step_four.deal_builder_id,'db') %>
 
-<h1> The Incentives </h1>
+<h1> The Extras </h1>
 <br />
 <% if (@db_step_four.optional_incentive != '' || @db_step_four.fb_incentive == 'yes') %>
   <% if @db_step_four.optional_incentive != '' %>
@@ -24,8 +24,4 @@ There are no incentives for this offer.
 <br />
 
 
-<% unless DealBuilder.find(@db_step_one.deal_builder_id).db_publish %>
-  <div class='blueGreenLink' style='text-align:center;display:inline;'><%= link_to 'Edit', edit_db_step_four_path(@db_step_four,
-      :db_id => @db_step_four.deal_builder_id) %></div> 
-<% end %>
 <% end %>

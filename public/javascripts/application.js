@@ -747,15 +747,17 @@ $(document).ready(function () {
       $('div.dbShowInfoFourContainer').hide();
       $('div.editFourDiv').hide();
       $('div.dbShowInfoPublishContainer').hide();
-      $('div.editPublishDiv').hide();
       $('div.dbShowInfoTwoContainer').show();
       $('div.editTwoDiv').show();
 
-      $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOn');
-      $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOff');
 
       $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOff');
       $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOn');
+
+      if($('div#dbShowOneOfferInfoButton').hasClass('dbOneInfoButtonOn')) {
+        $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOn');
+        $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOff');
+      }
 
       if($('div#dbShowThreeOfferInfoButton').hasClass('dbThreeInfoButtonOn')) {
         $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOn');
@@ -781,7 +783,6 @@ $(document).ready(function () {
       $('div.dbShowInfoFourContainer').hide();
       $('div.editFourDiv').hide();
       $('div.dbShowInfoPublishContainer').hide();
-      $('div.editPublishDiv').hide();
       $('div.dbShowInfoOneContainer').show();
       $('div.editOneDiv').show();
 
@@ -811,11 +812,112 @@ $(document).ready(function () {
       }
     });
 
-    $('div.dbClickOne').live("click",function() {
-      $('.dbShowTwo').hide();
-      $('.dbShowThree').hide();
-      $('.dbShowFour').hide();
-      $('.dbShowOne').show();
+    $('div.dbThreeInfoButtonOff').live("click", function() {
+      $('div.dbShowInfoTwoContainer').hide();
+      $('div.editTwoDiv').hide();
+      $('div.dbShowInfoOneContainer').hide();
+      $('div.editOneDiv').hide();
+      $('div.dbShowInfoFourContainer').hide();
+      $('div.editFourDiv').hide();
+      $('div.dbShowInfoPublishContainer').hide();
+      $('div.dbShowInfoThreeContainer').show();
+      $('div.editThreeDiv').show();
+
+
+      $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOff');
+      $('div#dbShowThreeOfferInfoButton').addClass('dbThreeInfoButtonOn');
+
+      if($('div#dbShowTwoOfferInfoButton').hasClass('dbTwoInfoButtonOn')) {
+        $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOn');
+        $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOff');
+      }
+
+      if($('div#dbShowOneOfferInfoButton').hasClass('dbOneInfoButtonOn')) {
+        $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOn');
+        $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOff');
+      }
+
+      if($('div#dbShowFourOfferInfoButton').hasClass('dbFourInfoButtonOn')) {
+        $('div#dbShowFourOfferInfoButton').removeClass('dbFourInfoButtonOn');
+        $('div#dbShowFourOfferInfoButton').addClass('dbFourInfoButtonOff');
+      }
+
+      if($('div#dbShowPublishOfferInfoButton').hasClass('dbPublishInfoButtonOn')) {
+        $('div#dbShowPublishOfferInfoButton').removeClass('dbPublishInfoButtonOn');
+        $('div#dbShowPublishOfferInfoButton').addClass('dbPublishInfoButtonOff');
+      }
+    });
+
+    $('div.dbFourInfoButtonOff').live("click", function() {
+      $('div.dbShowInfoTwoContainer').hide();
+      $('div.editTwoDiv').hide();
+      $('div.dbShowInfoOneContainer').hide();
+      $('div.editOneDiv').hide();
+      $('div.dbShowInfoThreeContainer').hide();
+      $('div.editThreeDiv').hide();
+      $('div.dbShowInfoPublishContainer').hide();
+      $('div.dbShowInfoFourContainer').show();
+      $('div.editFourDiv').show();
+
+
+      $('div#dbShowFourOfferInfoButton').removeClass('dbFourInfoButtonOff');
+      $('div#dbShowFourOfferInfoButton').addClass('dbFourInfoButtonOn');
+
+      if($('div#dbShowTwoOfferInfoButton').hasClass('dbTwoInfoButtonOn')) {
+        $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOn');
+        $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOff');
+      }
+
+      if($('div#dbShowOneOfferInfoButton').hasClass('dbOneInfoButtonOn')) {
+        $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOn');
+        $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOff');
+      }
+
+      if($('div#dbShowThreeOfferInfoButton').hasClass('dbThreeInfoButtonOn')) {
+        $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOn');
+        $('div#dbShowThreeOfferInfoButton').addClass('dbThreeInfoButtonOff');
+      }
+
+      if($('div#dbShowPublishOfferInfoButton').hasClass('dbPublishInfoButtonOn')) {
+        $('div#dbShowPublishOfferInfoButton').removeClass('dbPublishInfoButtonOn');
+        $('div#dbShowPublishOfferInfoButton').addClass('dbPublishInfoButtonOff');
+      }
+    });
+
+    $('div.dbPublishInfoButtonOff').live("click", function() {
+      $('div.dbShowInfoTwoContainer').hide();
+      $('div.editTwoDiv').hide();
+      $('div.dbShowInfoOneContainer').hide();
+      $('div.editOneDiv').hide();
+      $('div.dbShowInfoThreeContainer').hide();
+      $('div.editThreeDiv').hide();
+      $('div.dbShowInfoFourContainer').hide();
+      $('div.editFourDiv').hide();
+      $('div.dbShowInfoPublishContainer').show();
+
+
+      $('div#dbShowPublishOfferInfoButton').removeClass('dbPublishInfoButtonOff');
+      $('div#dbShowPublishOfferInfoButton').addClass('dbPublishInfoButtonOn');
+
+      if($('div#dbShowTwoOfferInfoButton').hasClass('dbTwoInfoButtonOn')) {
+        $('div#dbShowTwoOfferInfoButton').removeClass('dbTwoInfoButtonOn');
+        $('div#dbShowTwoOfferInfoButton').addClass('dbTwoInfoButtonOff');
+      }
+
+      if($('div#dbShowOneOfferInfoButton').hasClass('dbOneInfoButtonOn')) {
+        $('div#dbShowOneOfferInfoButton').removeClass('dbOneInfoButtonOn');
+        $('div#dbShowOneOfferInfoButton').addClass('dbOneInfoButtonOff');
+      }
+
+      if($('div#dbShowThreeOfferInfoButton').hasClass('dbThreeInfoButtonOn')) {
+        $('div#dbShowThreeOfferInfoButton').removeClass('dbThreeInfoButtonOn');
+        $('div#dbShowThreeOfferInfoButton').addClass('dbThreeInfoButtonOff');
+      }
+
+      if($('div#dbShowFourOfferInfoButton').hasClass('dbFourInfoButtonOn')) {
+        $('div#dbShowFourOfferInfoButton').removeClass('dbFourInfoButtonOn');
+        $('div#dbShowFourOfferInfoButton').addClass('dbFourInfoButtonOff');
+      }
     });
 
   }

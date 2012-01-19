@@ -16,7 +16,7 @@
       THREE
     </div>
   <% else %>
-  <div class='dbThreeInfoButtonNot' id='dbShowThreeOfferInfoButton'>
+    <div class='dbThreeInfoButtonNot' id='dbShowThreeOfferInfoButton'>
       THREE
     </div>
   <% end %>
@@ -30,11 +30,11 @@
     </div>
   <% end %>
   <% if @deal_builder.db_publish %>
-    <div class='dbPublishInfoButtonOff' id='dbShowFourOfferInfoButton'>
+    <div class='dbPublishInfoButtonOff' id='dbShowPublishOfferInfoButton'>
       PUBLISH
     </div>
   <% else %>
-    <div class='dbPublishInfoButtonNot' id='dbShowFourOfferInfoButton'>
+    <div class='dbPublishInfoButtonNot' id='dbShowPublishOfferInfoButton'>
       PUBLISH
     </div>
   <% end %>
@@ -101,14 +101,4 @@
   <div class='dbShowInfoPublishContainer' style='display:none;'>
     <%= render  'db_publishes/draw_info', :object => (@db_publish = @deal_builder.db_publish) %>
   </div>
-  <% unless DealBuilder.find(@db_publish.deal_builder_id).db_publish %>
-  <div class='editPublishDiv'  style='display:none;' onclick="window.location = 
-    '<%= edit_db_step_four_path(@db_publish,
-             :db_id => @db_publish.deal_builder_id) %>'">
-    <div class='editPublishDivText'>
-      EDIT
-    </div>
-  </div>
-  <% end %>
 <% end %>
-</div>
