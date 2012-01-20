@@ -10,33 +10,31 @@
        <div class='dbShowLinksContainer' onclick="window.location =
          '<%= new_db_publish_path(:db_id => @deal_builder.id) %>'">
          <div class='dbShowLinksText'>
-           PUBLISH
+           Publish
          </div>
        </div>
-     <% else %>
-       <% if @deal_builder.db_step_three %>
+       <%elsif @deal_builder.db_step_three %>
          <div class='dbShowLinksContainer' onclick="window.location =
            '<%= new_db_step_four_path(:db_id => @deal_builder.id) %>'">
            <div class='dbShowLinksText'>
-             FINISH OFFER 
+            Finish Offer
            </div>
          </div>
        <% elsif @deal_builder.db_step_two %>
          <div class='dbShowLinksContainer' onclick="window.location =
            '<%= new_db_step_three_path(:db_id => @deal_builder.id) %>'">
            <div class='dbShowLinksText'>
-             FINISH OFFER 
+            Finish Offer
            </div>
          </div>
        <% else %>
          <div class='dbShowLinksContainer' onclick="window.location =
            '<%= new_db_step_two_path(:db_id => @deal_builder.id) %>'">
            <div class='dbShowLinksText'>
-             FINISH OFFER 
+            Finish Offer
            </div>
          </div>
        <% end %>
-     <% end %>
      <div class='dbShowDeleteStopContainer'>
        <div class='dbShowDeleteStopText'>
            <%= link_to 'DELETE OFFER' , @deal_builder, :method => :delete, :confirm => 'Are you sure you wish to delete this offer?' %>
@@ -45,41 +43,51 @@
     </div>
   <% else %>
     <% checkLiveDeals(@deal_builder.db_publish.id,'db_show') %>
-    <p id="notice"><%= notice %></p>
+    <div id='rightFreeLayout' style='margin-top:100px;'>
 
-    <h1>OFFER LIVE</h1>
-    <p>
-      <% if @deal_builder.db_publish.max_vouchers_to_sell == 0 %>
-      Unlimited
-    <%else %>
-      <b>Vouchers Left:</b>
-      <%= @deal_builder.db_publish.max_vouchers_to_sell - @deal_builder.db_publish.total_vouchers_sold%>
-    <% end %>
-    </p>
+      <div class='dbShowLiveInfoContainer'>
+        <div class='dbShowLiveInfoText'>
+            Offer Link: http://offerglass.com/live/<%= @deal_builder.db_publish.id %>
+        </div>
+        <div class='dbShowLiveInfoText'>
+          <% if @deal_builder.db_publish.length_of_deal == 0%>
+            No Time Limit
+          <% else %>
+            <% @endTime = @deal_builder.db_publish.created_at %>
+            <% @endTime += @deal_builder.db_publish.length_of_deal.days %>
+            <script>
+              $(document).ready(function() {
+              var endTimeSeconds = <%= @endTime.to_i %>;
+              var endTimeDate = new Date(Number(endTimeSeconds) * 1000);
+              $('#countdown').countdown({until:endTimeDate});
+              });
+            </script>
+            <div id='countdown'></div>
+            <br />
+          <% end %>
+        </div>
+        <div class='dbShowLiveInfoText' >
+          <% if @deal_builder.db_publish.max_vouchers_to_sell == 0 %>
+            No Voucher Limit 
+          <%else %>
+            <%= @deal_builder.db_publish.total_vouchers_sold %> of 
+            <%= @deal_builder.db_publish.max_vouchers_to_sell%> Vouchers Purchased
+          <% end %>
+        </div>
+      </div>
 
-    <p>
-      <% if @deal_builder.db_publish.length_of_deal == 0%>
-        Until Stopped
-      <% else %>
-        <% @endTime = @deal_builder.db_publish.created_at %>
-        <% @endTime += @deal_builder.db_publish.length_of_deal.days %>
-        <b>Time Left</b>
-        <script>
-          $(document).ready(function() {
-          var endTimeSeconds = <%= @endTime.to_i %>;
-          var endTimeDate = new Date(Number(endTimeSeconds) * 1000);
-          $('#countdown').countdown({until:endTimeDate});
-          });
-        </script>
-        <div id='countdown'></div>
-      <% end %>
-    </p>
-
-
-  <div class='blueGreenLink' style='text-align:center;'>
-    <%= link_to 'Stop', @deal_builder.db_publish, :confirm => 'Are you sure you want to stop this promotion?',:method=>:delete %> 
-    <%= link_to 'Preview',@deal_builder.db_publish %>
-  </div>
+      <div class='dbShowLinksContainer' onclick="window.location =
+         '<%= db_publish_path(@deal_builder.db_publish) %>'">
+         <div class='dbShowLinksText'>
+          View Live Offer 
+         </div>
+       </div>
+      <div class='dbShowDeleteStopContainer'>
+       <div class='dbShowDeleteStopText'>
+        <%= link_to 'STOP OFFER', @deal_builder.db_publish, :confirm => 'Are you sure you want to stop this offer?',:method=>:delete %> 
+       </div>
+     </div>
+ </div>
 
 
     <% if @deal_builder.db_publish && @deal_builder.db_publish.private_deal == 'yes' %>
@@ -87,12 +95,7 @@
           <%= link_to 'Private Offer Codes', private_deal_codes_path(:id => @deal_builder.db_publish.id) %>
         </div>
     <% end %>   
-    <% end %>   
- <% if @deal_builder.db_publish %>
- <div class='rightSideLayout'>
-   Offer Link: http://offerglass.com/live/<%= @deal_builder.db_publish.id %>
- </div>
-<% end %>
+  <% end #end of unless @deal_builder.db_publish%>   
 <% else %>
 			  <%= render :partial => 'layouts/noaccess'%>	
 <% end %>

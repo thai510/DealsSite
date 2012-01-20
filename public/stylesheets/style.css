@@ -826,7 +826,6 @@ div.dbShowLabel {
 
 div.dbShowLeftContainer {
  width:225px;
- height:196px;
  float:left;
  vertical-align:middle;
 }
@@ -837,9 +836,6 @@ div.dbShowRightContainer {
  float:right;
 }
 
-div.dbShowOne, div.dbShowTwo, div.dbShowThree, div.dbShowFour {
-  display:inline;
-}
 
 div#oneOfferView {
   height:50px;
@@ -1121,36 +1117,51 @@ div.oneOfferInfoButtonOn, div.twoOfferInfoButtonOn, div.threeOfferInfoButtonOn, 
   background-color:#ccc;
   color:black;
 }
+div.dbShowLiveInfoContainer {
+  background-color:#2d2d2d;
+  width:390px;
+  height:160px;
+  color:#ccc;
+  margin-bottom:8px;
+  padding:5px;
+}
+div.dbShowLiveInfoText {
+ font-weight:bold;
+ padding-top:10px;
+ padding-bottom:20px;
+}
 div.dbShowLinksContainer:hover {
   background-color:#ccc;
-  color:#2d2d2d;
+  color:black;
   cursor:pointer;
 }
 div.dbShowLinksContainer {
   background-color:#2d2d2d;
-  color:black;
   width:400px;
-  height:120px;
+  height:100px;
   color:#ccc;
 }
 div.dbShowLinksText {
  font-weight:bold;
- font-size:40px;
- padding-top:45px;
+ font-size:30px;
+ padding-top:40px;
 }
-div.dbShowDeleteStopContainer:hover {
+div.dbShowDeleteStopContainer:hover a {
   background-color:#ccc;
+  color:black;
   cursor:pointer;
 }
-div.dbShowDeleteStopContainer {
-  height:35px;
+div.dbShowDeleteStopContainer a {
+  height:28px;
   width:400px;
+  text-decoration:none;
   color:red;
+  padding-top:8px;
+  display:block;
   background-color:black;
   font-weight:bold;
 }
 div.dbShowDeleteStopText {
-  padding-top:8px;
 }
 div#dbShowOfferInfoContainer {
   margin-top:50px;
@@ -1164,7 +1175,6 @@ div.dbShowInfoOneContainer, div.dbShowInfoTwoContainer, div.dbShowInfoThreeConta
   padding:10px;
   float:left;
   width:480px;
-  display:inline;
 }
 
  div.dbTwoInfoButtonNot, div.dbThreeInfoButtonNot, div.dbFourInfoButtonNot, div.dbPublishInfoButtonNot {
