@@ -24,14 +24,10 @@
 <br />
 
  RUNNING OFFERS</br>
- <% @non_profit.causes.each do |c| %>
-   <% DbPublish.all.each do |db| %>
-     <% if db.cause_id == c.id %>
+ <% @non_profit.db_publishes.each do |db| %>
        <% @one = DealBuilder.find(db.deal_builder_id).db_step_one %>
        <% @biz = DbStepZero.find_by_user_id(DealBuilder.find(db.deal_builder_id).user_id) %>
        <%= link_to "#{@one.offer_title}", db_publish_path(db.id) %> by <%= @biz.business_name %> 
-     <% end %>
-   <% end %>
  <% end %>
 </div>
 

@@ -9,5 +9,6 @@ class CreateCausesNonProfits < ActiveRecord::Migration
   end
 
   def self.down
+    drop_table :causes_non_profits
   end
 end

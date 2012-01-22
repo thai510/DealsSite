@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219232837) do
+ActiveRecord::Schema.define(:version => 20120122201810) do
 
   create_table "calculator_tools", :force => true do |t|
     t.datetime "created_at"
@@ -41,6 +41,13 @@ ActiveRecord::Schema.define(:version => 20111219232837) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "db_publishes_non_profits", :id => false, :force => true do |t|
+    t.integer "db_publish_id"
+    t.integer "non_profit_id"
+  end
+
+  add_index "db_publishes_non_profits", ["db_publish_id", "non_profit_id"], :name => "db_publishes_nps", :unique => true
 
   create_table "db_step_fours", :force => true do |t|
     t.text     "optional_incentive"

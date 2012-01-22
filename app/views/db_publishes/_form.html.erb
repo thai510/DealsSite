@@ -11,29 +11,18 @@
     </div>
   <% end %>
 
-  <table id='dealBuilder'>
 
-  <tr>
-    <td class='dealBuilderLabel' ><%= f.label :cause_id, 'Choose a Cause' %></td>
-    <td class='dealBuilderField' ><%= collection_select :db_publish, :cause_id,Cause.all,:id, :title, :prompt => 'Choose a Cause' %></td>
-  </tr>
+    <% NonProfit.all.each do |np| %>
+      <%= check_box_tag 'db_publish[non_profit_ids][]',np.id,true %>
+      <%= np.name %>
+    <% end %>
 
-  <tr>
-    <td class='dealBuilderLabel' id='max_vouchers_to_sell_label'><%= f.label :max_vouchers_to_sell %></td>
-    <td class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:size=> '10'%></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
+    <div class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:placeholder => 'Maximum Number of Vouchers to Sell'%></div>
 
 
-  <tr>
-    <td class='dealBuilderLabel' id='length_of_deal_label'><%= f.label :length_of_deal %></td>
-    <td class='dealBuilderField'><%= select :db_publish,:length_of_deal,
-      {'0' => '0','1 Day' => '1','3 Days' => '3','5 Days' => '5','1 Week' => '7','2 Weeks' => '14', '3 Weeks' => '21', '1 Month' => '30'}%></td>
-    <td></td>
-  </tr>
-  <tr><td></td></tr>
-  </table>
+    <div class='dealBuilderField'><%= select :db_publish,:length_of_deal,
+      {'No Time Limit' => '0','1 Day' => '1','3 Days' => '3','5 Days' => '5','1 Week' => '7','2 Weeks' => '14', 
+      '3 Weeks' => '21', '1 Month' => '30'}, :placeholder => 'Length of Offer'%></div>
 
   <table>
   <tr>
