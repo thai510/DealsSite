@@ -318,31 +318,50 @@ $(document).ready(function () {
 $(document).ready(function () {
   if($('#new_db_publish').is(':visible')) {
 
+      
+    $('.nonProfitMoreInfoContainer').live("click", function() {
+      var id = $(this).attr('id');
+      var pattern = (/[0-9]+/);
+      var np = id.match(pattern);
+      var count = 1;
+      while($('div#nonProfitDBDescriptionShow'+count).length){
+        $('div#nonProfitDBDescriptionShow'+count).hide();
+        count++;
+      }
+      $('div#nonProfitDBDescriptionShow'+np).show();
+    });
     $('#db_publish_max_vouchers_to_sell').focusout(function () {
-      $('.rightSideLayout').hide();
+      $('.formTipLayout').hide();
       $('#max_vouchers_to_sell').hide();
-      $('#max_vouchers_to_sell_label').css('text-decoration','none');
     });
 
     $('#db_publish_max_vouchers_to_sell').focus(function () {
-      $('.rightSideLayout').show();
+      var count = 1;
+      while($('div#nonProfitDBDescriptionShow'+count).length){
+        $('div#nonProfitDBDescriptionShow'+count).hide();
+        count++;
+      }
+      $('.formTipLayout').show();
       $('#max_vouchers_to_sell').show();
-      $('#max_vouchers_to_sell_label').css('text-decoration','underline');
+
     });
 
     $('#db_publish_length_of_deal').focus(function () {
-      $('.rightSideLayout').show();
+      var count = 1;
+      while($('div#nonProfitDBDescriptionShow'+count).length){
+        $('div#nonProfitDBDescriptionShow'+count).hide();
+        count++;
+      }
+      $('.formTipLayout').show();
       $('#length_of_deal').show();
-      $('#length_of_deal_label').css('text-decoration','underline');
     });
 
     $('#db_publish_length_of_deal').focusout(function () {
-      $('.rightSideLayout').hide();
+      $('.formTipLayout').hide();
       $('#length_of_deal').hide();
-      $('#length_of_deal_label').css('text-decoration','none');
     });
     
-    $('#new_db_publish').validate( {
+    /*$('#new_db_publish').validate( {
       rules : {
         'db_publish[max_vouchers_to_sell]':{required:true,min:0,digits:true},
         'db_publish[length_of_deal]':{required:true,min:0,digits:true}
@@ -351,7 +370,7 @@ $(document).ready(function () {
         'db_publish[max_vouchers_to_sell]':{required:"",min:"",digits:""},
         'db_publish[length_of_deal]':{required:"",min:"",digits:""}
       }
-    });
+    });*/
   }
 });
 $(document).ready(function () {

@@ -7,7 +7,7 @@ class DbPublish < ActiveRecord::Base
   
   validate do |model|
     model.errors.add_to_base("At least one Non Profit is required") if non_profits.blank?
+    model.errors.add_to_base("Please provide a maximum number of vouchers.") if max_vouchers_to_sell.blank?
   end
-  validates :max_vouchers_to_sell, :length_of_deal,:presence => true
   validates :max_vouchers_to_sell, :length_of_deal, :numericality => {:greater_than_or_equal_to => 0}
 end

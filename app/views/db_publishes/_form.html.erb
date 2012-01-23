@@ -1,54 +1,82 @@
 <%= form_for(@db_publish) do |f| %>
-  <% if @db_publish.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@db_publish.errors.count, "error") %> prohibited this db_publish from being saved:</h2>
 
-      <ul>
-      <% @db_publish.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
-    <% NonProfit.all.each do |np| %>
-      <%= check_box_tag 'db_publish[non_profit_ids][]',np.id,true %>
-      <%= np.name %>
-    <% end %>
-
-    <div class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:placeholder => 'Maximum Number of Vouchers to Sell'%></div>
-
-
-    <div class='dealBuilderField'><%= select :db_publish,:length_of_deal,
-      {'No Time Limit' => '0','1 Day' => '1','3 Days' => '3','5 Days' => '5','1 Week' => '7','2 Weeks' => '14', 
-      '3 Weeks' => '21', '1 Month' => '30'}, :placeholder => 'Length of Offer'%></div>
-
-  <table>
-  <tr>
-    <td><!--<div style='display:inline;margin-left:20px;'>Publish as private offer? #check_box(:db_publish,:private_deal,{},'yes','no') </div>--></td>
-  </tr>
-  </table>
-
-  <% unless @deal_builder_id %>
-  <%= f.hidden_field :deal_builder_id, :value => params[:db_id] %>
-  <% else %>
-  <%= f.hidden_field :deal_builder_id, :value => @deal_builder_id %>
-  <% end %>
-  <%= f.hidden_field :total_vouchers_sold, :value => 0 %>
-  <div class="actions">
-    <%= f.submit 'Publish!' %>
+<div class='formHeader'>Finishing Touches</div>
+</br>
+<div class='nonProfitFormTitle'>
+   <div class='nonProfitFormTitleText'>
+    Which Organizations would you like to support?
   </div>
 </div>
-<div class="rightSideLayout" style="display:none">
-  <table class="stepOneTips">
-    <tr id="max_vouchers_to_sell" style="display:none">
-      <td><%=FormTip.find_by_title("max vouchers to sell").description.gsub("\n",'<br>').html_safe() %></td>
+<div id='dealBuilderContainer'>
+      <% @npCount = 1 %>
+      <% NonProfit.all.each do |np| %>
+        <div class='nonProfitTileView'>
+         <div class='nonProfitImageContainer'> <%= image_tag(np.np_photo.url(:eighty)) %></div> 
+         <div class='nonProfitTitleContainer'>
+          <%= check_box_tag 'db_publish[non_profit_ids][]',np.id,true %><%= np.name %>
+        </div>
+        <div class='nonProfitMoreInfoContainer' id="nonProfitMoreInfo<%= @npCount %>">
+          BIO 
+        </div>
+      </div>
+      <% @npCount += 1 %>
+    <% end %>
+    <% @count = 0 %>
+    <% while (NonProfit.count + @count) % 3 != 0 %>
+      <div class='nonProfitTileView'>
+      <% @count += 1 %>
+      </div>
+    <% end %>
+    <br />
+
+  <div class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:placeholder => 'Maximum Number of Vouchers to Sell'%></div>
+
+
+  <div class='dealBuilderField'><%= select :db_publish,:length_of_deal,
+    {'No Time Limit' => '0','2 Weeks' => '14','4 Weeks' => '28', '6 Weeks' => '42', '8 Weeks' => '56'}, :prompt => 'Length of Offer'%></div>
+
+  <!--<div style='display:inline;margin-left:20px;'>Publish as private offer? #check_box(:db_publish,:private_deal,{},'yes','no') </div>-->
+
+<% unless @deal_builder_id %>
+<%= f.hidden_field :deal_builder_id, :value => params[:db_id] %>
+<% else %>
+<%= f.hidden_field :deal_builder_id, :value => @deal_builder_id %>
+<% end %>
+<%= f.hidden_field :total_vouchers_sold, :value => 0 %>
+<div class="dealBuilderSubmit">
+  <%= f.submit 'Publish!' %>
+</div>
+
+<div class='dbErrorContainer'>
+  <% if @db_publish.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@db_publish.errors.count, "Error") %> </h2>
+        <% @db_publish.errors.full_messages.each do |msg| %>
+          <div><%= msg %></div>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+</div>
+  <% @npShowCount = 1 %>
+  <% NonProfit.all.each do |np| %>
+  <div class='nonProfitDBDescriptionContainer' id="nonProfitDBDescriptionShow<%=@npShowCount%>" style='display:none'>
+    <div class='nonProfitDBDescriptionImage'><%= image_tag(np.np_photo.url(:twohund)) %></div>
+    <div class='nonProfitShowTitle'><%= np.name %></div>
+    <div class='nonProfitShowDescription'><%= np.description %></div>
+  </div>
+  <% @npShowCount += 1%>
+  <% end %>
+<div class="formTipLayout" style="display:none">
+<table class="stepOneTips">
+  <tr id="max_vouchers_to_sell" style="display:none">
+    <td><%=FormTip.find_by_title("max vouchers to sell").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
     <tr id="length_of_deal" style="display:none">
       <td><%=FormTip.find_by_title("length of deal").description.gsub("\n",'<br>').html_safe() %></td>
     </tr>
   </table>
+</div>
 </div>
 
 <% end %>

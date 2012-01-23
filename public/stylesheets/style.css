@@ -182,7 +182,7 @@ div.leftSideLayout {
   box-shadow: 8px 8px 8px black;
 }
 div#dealBuilderContainer {
-  width:430px;
+  width:432px;
   float:left;
 }
 td.dealBuilderLabelCBox {
@@ -193,14 +193,73 @@ td.dealBuilderFieldCBox {
   padding-left:15px;
   color:white;
 }
-
+div.nonProfitFormTitle {
+  width: 432px;
+  height:28px;
+  text-align:left;
+  background-color:#ccc;
+  color:black;
+  font-weight:bold;
+}
+div.nonProfitFormTitleText {
+  padding:4px;
+}
+div.nonProfitTileView {
+  width:142px;
+  height:141px;
+  border:1px solid black;
+  background-color:#2d2d2d;
+  display:inline;
+  margin-bottom:4px;
+  float:left;
+}
+div.nonProfitTitleContainer {
+  width:142px;
+  background-color:#7ccd7c;
+  color:black;
+}
+div.nonProfitImageContainer {
+  margin-top: 13px;
+  height:86px;
+}
+div.nonProfitShowTitle {
+  font-size:14px;
+  margin:5px;
+}
+div.nonProfitShowDescription {
+  margin: 5px;
+}
+div.nonProfitMoreInfoContainer {
+  width:142px;
+  background:black;
+  color:#ccc;
+  font-size:16px;
+  font-weight:bold;
+}
+div.nonProfitMoreInfoContainer:hover {
+  background-color:#ccc;
+  cursor:pointer;
+  color:black;
+}
+div.nonProfitDBDescriptionContainer {
+  background-color:#2d2d2d;
+  float:left;
+  width:470px;
+  margin-left:30px;
+  color:#ccc;
+  font-weight:bold;
+}
+div.nonProfitDBDescriptionImage {
+  float:left;
+  margin: 10px;
+}
 div.dealBuilderField {
 }
 
 div.dealBuilderSubmit input[type="submit"] {
   background:black;
   color:#8cc63f;
-  width:430px;
+  width:432px;
   height:35px;
   border:0px;
   border-radius:0px;
@@ -309,7 +368,7 @@ div#checkBox.dealBuilderField {
   border-radius:0px;
   -moz-border-radius: 0px;
   border: 0px;
-  width:430px;
+  width:432px;
 }
 div.dealBuilderField input[type="text"], div.dealBuilderField select  {
   background-color:#2d2d2d;
@@ -320,7 +379,7 @@ div.dealBuilderField input[type="text"], div.dealBuilderField select  {
   border-radius:0px;
   -moz-border-radius: 0px;
   border: 0px;
-  width:430px;
+  width:432px;
 }
 div.dealBuilderField textarea[disabled] {
   background-color:black;
@@ -337,7 +396,7 @@ div.dealBuilderField textarea {
   border-radius:0px;
   -moz-border-radius: 0px;
   border: 0px;
-  width:430px;
+  width:432px;
 
 }
 
