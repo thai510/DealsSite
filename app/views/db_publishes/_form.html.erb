@@ -4,16 +4,22 @@
 </br>
 <div class='nonProfitFormTitle'>
    <div class='nonProfitFormTitleText'>
-    Which Organizations would you like to support?
+    Which Organizations will this offer support?
   </div>
 </div>
+<% @npNameLength = 19 %>
 <div id='dealBuilderContainer'>
       <% @npCount = 1 %>
       <% NonProfit.all.each do |np| %>
         <div class='nonProfitTileView'>
          <div class='nonProfitImageContainer'> <%= image_tag(np.np_photo.url(:eighty)) %></div> 
          <div class='nonProfitTitleContainer'>
-          <%= check_box_tag 'db_publish[non_profit_ids][]',np.id,true %><%= np.name %>
+          <%= check_box_tag 'db_publish[non_profit_ids][]',np.id,true %>
+          <% if np.name.length > @npNameLength %>
+            <%= np.name[0..@npNameLength] +'..' %>
+          <% else %>
+            <%= np.name %>
+          <% end %>
         </div>
         <div class='nonProfitMoreInfoContainer' id="nonProfitMoreInfo<%= @npCount %>">
           BIO 
@@ -27,7 +33,6 @@
       <% @count += 1 %>
       </div>
     <% end %>
-    <br />
 
   <div class='dealBuilderField'><%= f.text_field :max_vouchers_to_sell ,:placeholder => 'Maximum Number of Vouchers to Sell'%></div>
 

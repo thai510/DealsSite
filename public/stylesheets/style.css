@@ -217,9 +217,10 @@ div.nonProfitTitleContainer {
   width:142px;
   background-color:#7ccd7c;
   color:black;
+  font-size:10px;
 }
 div.nonProfitImageContainer {
-  margin-top: 13px;
+  margin-top: 12px;
   height:86px;
 }
 div.nonProfitShowTitle {
@@ -244,10 +245,34 @@ div.nonProfitMoreInfoContainer:hover {
 div.nonProfitDBDescriptionContainer {
   background-color:#2d2d2d;
   float:left;
+  text-align:left;
   width:470px;
   margin-left:30px;
+  margin-bottom:5px;
   color:#ccc;
   font-weight:bold;
+}
+div.nonProfitIndexContainerLeft {
+  width:340px;
+  float:left;
+  margin: 4px 4px 4px 70px;
+}
+div.nonProfitIndexContainerMiddle, div.nonProfitIndexContainerRight {
+  width:340px;
+  float:left;
+  margin:4px;
+}
+div.nonProfitIndexShowContainer {
+  background-color:#2d2d2d;
+  width:340px;
+  margin:3px;
+  float:left;
+  text-align:left;
+  color:#ccc;
+  font-weight:bold;
+}
+div.nonProfitIndexShowImage {
+  margin: 10px;
 }
 div.nonProfitDBDescriptionImage {
   float:left;

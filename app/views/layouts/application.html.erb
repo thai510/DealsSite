@@ -13,6 +13,7 @@
 <body>
   <% unless current_user then  %>
     <%= yield %>
+    <%= yield :not_right_layout%>
     <%= yield :rightlayout%>
   <% else %>
     <div id="layoutbanner">
