@@ -9,13 +9,14 @@
 </div>
 <div id='content'>
 <% end %>
-<br />
-<h1>ALL PARTICIPATING ORGANIZATIONS</h1>
+<div class='nonProfitIndexHeaderContainer'>
+  <div class='nonProfitIndexHeaderText'>
+     ORGANIZATIONS
+  </div>
+</div>
   <% if bool_admin_authorize %>
 <%= link_to 'New Non profit', new_non_profit_path %>
 <% end %>
-   <br />
-   <br />
   <% @leftContainer = @non_profits.values_at(* @non_profits.each_index.select {|i| i % 3 == 0 }) %>
   <% @middleContainer = @non_profits.values_at(* @non_profits.each_index.select {|i| i % 3 == 1 }) %>
   <% @rightContainer = @non_profits.values_at(* @non_profits.each_index.select {|i| i % 3 == 2 }) %>
@@ -26,7 +27,9 @@
           <div class='nonProfitDBDescriptionImage'><%= image_tag(np.np_photo.url(:thumb)) %></div>
           <div class='nonProfitShowTitle'><%= np.name %></div>
           <div class='nonProfitShowDescription'><%= np.description %></div>
-        <%= link_to 'Show', np %>
+          <div class='nonProfitIndexViewOffersContainer'>
+            <%= link_to 'View Running Offers', np %>
+          </div>
        <% if bool_admin_authorize %>
          <%= link_to 'Edit', edit_non_profit_path(np)%>
          <%= link_to 'Destroy', np, :confirm => 'Are you sure?', :method => :delete %>
@@ -40,7 +43,9 @@
           <div class='nonProfitDBDescriptionImage'><%= image_tag(np.np_photo.url(:thumb)) %></div>
           <div class='nonProfitShowTitle'><%= np.name %></div>
           <div class='nonProfitShowDescription'><%= np.description %></div>
-        <%= link_to 'Show', np %>
+          <div class='nonProfitIndexViewOffersContainer'>
+            <%= link_to 'View Running Offers', np %>
+          </div>
        <% if bool_admin_authorize %>
          <%= link_to 'Edit', edit_non_profit_path(np)%>
          <%= link_to 'Destroy', np, :confirm => 'Are you sure?', :method => :delete %>
@@ -54,7 +59,9 @@
           <div class='nonProfitDBDescriptionImage'><%= image_tag(np.np_photo.url(:thumb)) %></div>
           <div class='nonProfitShowTitle'><%= np.name %></div>
           <div class='nonProfitShowDescription'><%= np.description %></div>
-        <%= link_to 'Show', np %>
+          <div class='nonProfitIndexViewOffersContainer'>
+            <%= link_to 'View Running Offers', np %>
+          </div>
        <% if bool_admin_authorize %>
          <%= link_to 'Edit', edit_non_profit_path(np)%>
          <%= link_to 'Destroy', np, :confirm => 'Are you sure?', :method => :delete %>

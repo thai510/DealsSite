@@ -255,24 +255,58 @@ div.nonProfitDBDescriptionContainer {
 div.nonProfitIndexContainerLeft {
   width:340px;
   float:left;
-  margin: 4px 4px 4px 70px;
+  margin: 1px 1px 1px 70px;
 }
 div.nonProfitIndexContainerMiddle, div.nonProfitIndexContainerRight {
   width:340px;
   float:left;
-  margin:4px;
+  margin:1px;
 }
 div.nonProfitIndexShowContainer {
   background-color:#2d2d2d;
-  width:340px;
-  margin:3px;
+  width:324px;
+  margin:1px;
+  padding:8px 8px 22px 8px;
   float:left;
   text-align:left;
   color:#ccc;
   font-weight:bold;
+  position:relative;
 }
 div.nonProfitIndexShowImage {
   margin: 10px;
+}
+div.nonProfitIndexHeaderContainer {
+  background-color:#ccc;
+  color:#2d2d2d;
+  font-weight:bold;
+  width:1024px;
+  height:100px;
+  margin-left:71px;
+  font-size:70px;
+}
+div.nonProfitIndexHeaderText {
+  padding-top:60px; 
+}
+div.nonProfitIndexViewOffersContainer:hover a {
+  background-color:black;
+  color:#ccc;
+  cursor:pointer;
+}
+div.nonProfitIndexViewOffersContainer a {
+  height:18px;
+  width:137px;
+  text-decoration:none;
+  background-color:#ccc;
+  color:#2d2d2d;
+  float:right;
+  padding:8px 0px 0px 10px;
+  display:block;
+  position:absolute;
+  bottom: 0;
+  font-size:11px;
+  right: 0;
+  font-weight:bold;
 }
 div.nonProfitDBDescriptionImage {
   float:left;
