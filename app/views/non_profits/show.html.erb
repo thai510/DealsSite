@@ -1,33 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-
-<div>
-  NAME:<%= @non_profit.name %>
+<% content_for :not_right_layout do%>
+<% unless current_user %>
+<div id="layoutbanner">
+  <div class="leftLinks">
+     <div class="bannerlogo">
+      <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
+     </div>
+ </div>
 </div>
-
-<div>
-  DESCRIPTION:<%= @non_profit.description %>
+<div id='content'>
+<% end %>
+<div class='nonProfitShowHeaderContainer'>
+  <div class='nonProfitShowHeaderTitleText'>
+    <%= @non_profit.name %>
+  </div>
 </div>
-
-<div>
-  PHONE:<%= @non_profit.phone_number%>
-</div>
-
-<div>
-  CONTACT:<%= @non_profit.contact_email%>
-</div>
-
-<div>
+<% unless @non_profit.db_publishes.any? %>
 <br />
 <br />
 <br />
-<br />
-
- RUNNING OFFERS</br>
- <% @non_profit.db_publishes.each do |db| %>
-       <% @one = DealBuilder.find(db.deal_builder_id).db_step_one %>
-       <% @biz = DbStepZero.find_by_user_id(DealBuilder.find(db.deal_builder_id).user_id) %>
-       <%= link_to "#{@one.offer_title}", db_publish_path(db.id) %> by <%= @biz.business_name %> 
- <% end %>
+  <h1>Currently there are zero running offers for this organization.</h1>
+<% else %>
+  <% @leftContainer = @non_profit.db_publishes.values_at(* @non_profit.db_publishes.each_index.select {|i| i % 3 == 0 }) %>
+  <% @middleContainer = @non_profit.db_publishes.values_at(* @non_profit.db_publishes.each_index.select {|i| i % 3 == 1 }) %>
+  <% @rightContainer = @non_profit.db_publishes.values_at(* @non_profit.db_publishes.each_index.select {|i| i % 3 == 2 }) %>
+  <div class='nonProfitIndexContainerLeft'>
+  <% @leftContainer.each do |db| %>
+          <div class='nonProfitIndexShowContainer'>
+           <%= DealBuilder.find(db.deal_builder_id).db_step_one.offer_title %> 
+           <%= DbStepZero.find_by_user_id(DealBuilder.find(db.deal_builder_id).user_id).business_name %>
+           http://offerglass.com/live/<%= db.id %> 
+          </div>
+          <div class='nonProfitShowViewOfferLinkContainer'>
+            <%= link_to "View Offer", db %>
+          </div>
+  <% end %>
+  </div>
+   <% @non_profit.db_publishes.each do |db| %>
+         <% @one = DealBuilder.find(db.deal_builder_id).db_step_one %>
+         <% @biz = DbStepZero.find_by_user_id(DealBuilder.find(db.deal_builder_id).user_id) %>
+         <%= link_to "#{@one.offer_title}", db_publish_path(db.id) %> by <%= @biz.business_name %> 
+   <% end %>
+<% end %>
 </div>
-
+  <% unless current_user %>
+  </div>
+  <% end %>
+<% end %>

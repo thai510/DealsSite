@@ -288,6 +288,21 @@ div.nonProfitIndexHeaderContainer {
 div.nonProfitIndexHeaderText {
   padding-top:60px; 
 }
+div.nonProfitShowHeaderContainer {
+  background-color:#7ccd7c;
+  color:#2d2d2d;
+  font-weight:bold;
+  width:1024px;
+  height:100px;
+  margin-left:71px;
+}
+div.nonProfitShowHeaderTitleText {
+  font-size:30px;
+  text-align:left;
+  padding-top:55px;
+  padding-left:10px;
+}
+
 div.nonProfitIndexViewOffersContainer:hover a {
   background-color:black;
   color:#ccc;
@@ -307,6 +322,19 @@ div.nonProfitIndexViewOffersContainer a {
   font-size:11px;
   right: 0;
   font-weight:bold;
+}
+div.nonProfitShowViewOfferLinkContainer a {
+  width:324px;
+  background-color:#2d2d2d;
+  color:#ccc;
+  text-decoration:none;
+  padding-top:8px;
+  display:block;
+}
+div.nonProfitShowViewOfferLinkContainer a:hover {
+  background-color:#ccc;
+  color:#2d2d2d;
+  cursor:pointer;
 }
 div.nonProfitDBDescriptionImage {
   float:left;
