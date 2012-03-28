@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+  <h1><%= image_tag @business.logo.url(:thumb) %><%= @business.name %> <%= link_to 'Edit This Business', edit_business_path(@business) %></h1>
+
+  <div>Description: <%= @business.description %></div>
+  <div>Industry: <%= @business.industry %></div>
+  <div>Website: <%= @business.website %></div>
+  <div>Location: <%= @business.location %></div>
+  <div>Phone Number: <%= @business.phone_number %></div>
+  <div>Email: <%= @business.email %> </div>
+  <div>Hashed Password: <%= @business.hashed_password %> </div>
+  <div>Salt: <%= @business.salt %> </div>
+  <div>Initial: <%= @business.initial_password %> 
+     <%= form_tag do %>
+       <%= submit_tag 'Reset Password', :confirm => 'Are you sure you wish to reset
+       this Businesses password?' %>
+     <% end %>
+  </div>
+
+
+<h4><%= link_to "Back to Admin CC" ,admins_path %></h4>
+<hr>
+<h1>This Business has redemmed x number of vouchers for total amount $y of Sales <h1>
+<h2>This Business has generated x total amount of profit for itself <h2>
+<h2>This Business has generated x total amount of profit for non profits<h2>
+<h3> show each non profit and the amount it has earned from this business </h3>
+<h2>This Business has x total vouchers with y different customers </h2>
+<h3> view all vouchers <h3> 
+<h3> view all customers <h3> 
+<h2>This Business has x Total Deals</h2>
+<h3>This Business has x Running Deals</h3>
+<h4>view all running deals </h4>
+<h3>This Business has x Finished Deals</h3>
+<h4>view all finished deals </h4>
+

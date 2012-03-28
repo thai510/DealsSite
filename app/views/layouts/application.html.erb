@@ -1,51 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
 <html>
 <head>
-  <title>OfferGlass</title>
-      <%= stylesheet_link_tag 'style.css',"jquery-ui-1.8.16.custom.css",'jquery.countdown.css'%>
- <%= javascript_include_tag 'jquery','jquery-1.6.2.min','jquery-ui-1.8.16.custom.min',
- 'jquery.validate.min','jquery.validate','jquery_ujs','jquery.countdown','nested_form','application' %>
-
-  <%= csrf_meta_tag %>
+  <title>Offerglass</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
 </head>
-
 <body>
-  <% unless current_user then  %>
-    <%= yield %>
-    <%= yield :not_right_layout%>
-    <%= yield :rightlayout%>
-  <% else %>
-    <div id="layoutbanner">
-                <div class="leftLinks">
-           <div class="bannerlogo">
-            <%= link_to image_tag("theme/smallbannercroppedlogo.png"),home_path %>
-           </div>
-           <div class="headerLinks">
-             <b><%= link_to 'New Offer', new_deal_builder_path %></b>
-             <b><%= link_to 'My Offers', deal_builders_path %></b>
-             <b><%= link_to 'Distribute', '#' %></b>
-             <b><%= link_to 'Track', vouchers_path %></b>
-           </div>
-        </div>
-       <div class="rightLinks">
-           <div class="headerLinks">
-             <%= link_to "Settings", user_path(session[:users_id])%>
-             <%= link_to "Logout", logout_path, :method => :delete %>
-           </div>
-        </div>
 
-    </div>
-    <div id="content">
-      <%= yield :not_right_layout %>
-    <div id="rightlayout">
-    <%= yield %>
-    </div>
-    </div>
-<% end %>
-<div id='footer'>
-  &copy;2011 OfferGlass
-</div>
+<%= yield %>
+
 </body>
-
 </html>

@@ -1,2 +1,0 @@
-module FormTipsHelper
-end

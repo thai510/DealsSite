@@ -1,0 +1,41 @@
+<h1>Listing businesses</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Industry</th>
+    <th>Logo file name</th>
+    <th>Logo file type</th>
+    <th>Logo file size</th>
+    <th>Logo updated at</th>
+    <th>Phone number</th>
+    <th>Website</th>
+    <th>Location</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @businesses.each do |business| %>
+  <tr>
+    <td><%= business.name %></td>
+    <td><%= business.description %></td>
+    <td><%= business.industry %></td>
+    <td><%= business.logo_file_name %></td>
+    <td><%= business.logo_content_type %></td>
+    <td><%= business.logo_file_size %></td>
+    <td><%= business.logo_updated_at %></td>
+    <td><%= business.phone_number %></td>
+    <td><%= business.website %></td>
+    <td><%= business.location %></td>
+    <td><%= link_to 'Show', business %></td>
+    <td><%= link_to 'Edit', edit_business_path(business) %></td>
+    <td><%= link_to 'Destroy', business, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Business', new_business_path %>

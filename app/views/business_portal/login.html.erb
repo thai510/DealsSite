@@ -1,0 +1,11 @@
+<% unless session[:business_id] %>
+ <h1> Business Login </h1>
+  <%= form_tag do %>
+     <%= text_field_tag :name, params[:name], :placeholder => "Name" %>
+     <%= password_field_tag :password, params[:password], :placeholder => "Password"%>
+     <%= submit_tag 'Login'%>
+  <% end %>
+<% else %>
+ Welcome <%= Business.find(session[:business_id]).name %>
+ <%= link_to 'Logout', logout_business_path, :method => :delete %>
+<% end %>

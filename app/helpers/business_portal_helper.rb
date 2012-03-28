@@ -1,0 +1,2 @@
+module BusinessPortalHelper
+end

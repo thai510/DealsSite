@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  max_vouchers_to_sell: 1
-  length_of_deal: 1
-
-two:
-  max_vouchers_to_sell: 1
-  length_of_deal: 1

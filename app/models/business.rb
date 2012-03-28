@@ -1,0 +1,63 @@
+class Business < ActiveRecord::Base
+  attr_accessible :name
+  attr_accessible :description
+  attr_accessible :phone_number
+  attr_accessible :website
+  attr_accessible :location
+  attr_accessible :industry
+  attr_accessible :logo
+  attr_accessible :email
+  has_attached_file :logo, :styles => { :medium => "300x300>",
+                                         :thumb => "100x100>" }
+validates_attachment_content_type :logo, 
+                                    :content_type => ['image/jpeg', 'image/png', 'image/gif'],
+                                    :message => 'Please use a .jpeg, .png, or .gif image'
+  validates_attachment_presence :logo
+  validates_attachment_size :logo, :less_than => 15.megabytes
+  validates :name, :description, :phone_number, :location, :industry, :logo, :email, :presence => true
+  validates :name, :uniqueness => true
+
+ validate :password_must_be_present
+ before_validation :business_strip_whitespace
+ attr_accessor :password_confirmation
+ attr_reader :password
+ attr_accessible :password
+
+  def business_strip_whitespace
+    self.name = self.name.strip unless self.name.blank?
+  end 
+
+  def Business.authenticate(name, password)
+    if business = find_by_name(name)
+      if business.hashed_password == encrypt_password(password, business.salt)
+        return business 
+      end 
+    end 
+    return nil 
+  end 
+
+def Business.encrypt_password(password, salt)
+    Digest::SHA2.hexdigest(password + "drpepperisgoodnotbad" + salt)
+  end 
+
+  def password=(password)
+   @password = password
+   if password.present?
+      generate_salt
+      self.hashed_password = self.class.encrypt_password(password,salt)
+    end
+  end
+
+  private
+
+  def password_must_be_present
+    errors.add(:password,"Missing Password") unless hashed_password.present?
+  end
+
+  def generate_salt
+    self.salt = self.object_id.to_s  + rand.to_s
+  end
+
+  
+end
+

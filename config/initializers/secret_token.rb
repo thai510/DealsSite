@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-LocalAdResource::Application.config.secret_token = '483de4408e59895c68c69446fbac9ab8792525f4cd365b0a1eca70923fafc934b57bac7bc364dfcd251630f387eb7d2cd7914d5aa85247664731732df34e2175'
+Offerglass::Application.config.secret_token = '4cede3a919f2fe9451f228fcd4ad897a0d038f4a0fdc183e325acb826b3d494bde60208a05b782f9cddad8152aa7cb3fd6ad69ae04a0f272e67a448975d183ec'

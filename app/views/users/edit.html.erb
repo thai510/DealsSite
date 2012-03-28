@@ -1,7 +1,0 @@
-<% if !same_user?(@user.id,'user_edit') %>
-  <%= render 'layouts/noaccess' %>
-<% else %>
- <%= render 'signup' ,:object => @edit = true%> 
-
-
-<% end %>

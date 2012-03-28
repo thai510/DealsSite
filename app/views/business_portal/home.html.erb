@@ -1,0 +1,10 @@
+ <% @business = Business.find(session[:business_id]) %>
+ <div><%= notice %></div>
+ Welcome <%= @business.name %>
+ <%= link_to 'Logout', logout_business_path, :method => :delete %>
+
+
+<% if @business.hashed_password == Business.encrypt_password(@business.initial_password,@business.salt) %> 
+  <div> Your password is still the same one we gave you. Please change your password <%=link_to 'here', b_cp_path %>. </div>
+<% end %>
+

@@ -1,104 +1,32 @@
-LocalAdResource::Application.routes.draw do
-  resources :non_profits
-
-  resources :causes
-
-  get "errors/wander"
-
-  resources :facebook_share_codes
-
-  post 'facebook_share_codes/checkAndValidateFBCode'
-
-  get "purchase_session/new"
-
-  get "purchase_session/create"
-
-  get "purchase_session/destroy"
-
-  resources :vouchers
-
-  resources :private_deal_codes
-
-  resources :prev_publishes, :path => 'pd'
-
-  resources :db_publishes, :path => 'live'
-
-  resources :db_step_zeros, :path => 'zero'
-
-  resources :form_tips
-
-  resources :db_step_fours, :path => 'four'
-
-  resources :db_step_threes, :path => 'three'
-
-  resources :db_step_twos, :path => 'two' 
-  
-  resources :db_step_ones, :path => 'one'
-
-  resources :locations
-
-  resources :standard_restrictions
-
-  resources :industries
-
-  get "admin/index"
-
-
-  controller :sessions do
-  #get "login/index" => :new
-  post "login/index" => :create
-  delete "logout" => :destroy
-  end
-  
-  controller :private_deal_session do
-    post "private" => :create
-    delete "private" => :destroy
-  end
-
-  get "login/index"
-
-  match 'users/check_email', :to => 'users#check_email', :as => 'users/check_email'
-  match 'private', :to => 'private#index', :as => 'private'
-  resources :users
-
-  get "sign_up/index"
-
-  get "eula/index"
-
-  get "review_entries/new"
-
-  get "reviews/index"
-
-  resources :deal_builders, {:path => 'db', :except => :edit} 
-
-  get "resources/index"
-
-  get "learning_center/index"
-
-  get "contact/contact_us"
-
-  get "learning_center/run_a_deal"
+Offerglass::Application.routes.draw do
  
-  get "learning_center/getting_started"
+
+
+  controller :business_portal do
+    get "/b/login" => :login
+    post "/b/login" => :login_post
+    get "/b/home" => :home
+    get "/b/cp" => :change_password
+    post "/b/cp" => :change_password
+    delete "logout_business" => :destroy
+  end
+
+  get "/b/cp"
+  resources :businesses
+
   
-  get "learning_center/which_provider"
+  match "businesses/:id" => 'businesses#reset_password', :via => :post
+  get "admin_session/create"
 
-  get "learning_center/profit_drivers"
+  get "admin_session/destroy"
 
-  get "learning_center/offer_structure"
+  controller :admin_session do
+    post 'ogadmin' => :create
+    delete 'logout_admin' => :destroy
+  end
 
-  get "learning_center/before_and_during"
-
-  get "learning_center/ask_a_question"
-
-  get "learning_center/follow_up"
-
-  get "home/index"
-
-  get "contact/about_us"
-
-  get "contact/blog"
-
+  resources :admins, :path => '/ogadmin'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -149,16 +77,11 @@ LocalAdResource::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
-    root :to => "home#index", :as => 'home'
+  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  LocalAdResource::Application.routes.draw do
-
-   match '*a', :to => 'errors#wander' 
-  end
 end
