@@ -16,9 +16,6 @@ class BusinessPortalController < ApplicationController
   def home
   end
 
-  def change_password
-  end
-
   def destroy
     session[:business_id] = nil
     redirect_to b_login_path

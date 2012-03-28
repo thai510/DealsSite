@@ -96,4 +96,7 @@ class BusinessesController < ApplicationController
     #email will be sent to user as well
     redirect_to @business
   end
+
+  def business_change_password
+  end
 end

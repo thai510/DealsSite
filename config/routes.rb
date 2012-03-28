@@ -6,16 +6,20 @@ Offerglass::Application.routes.draw do
     get "/b/login" => :login
     post "/b/login" => :login_post
     get "/b/home" => :home
-    get "/b/cp" => :change_password
-    post "/b/cp" => :change_password
     delete "logout_business" => :destroy
   end
 
-  get "/b/cp"
-  resources :businesses
 
+  resources :businesses
+  controller :businesses do
+    get "/b/cp" => :business_change_password
+    post "/b/cp" => :business_change_password
+  end
   
+  get "/b/cp"
+
   match "businesses/:id" => 'businesses#reset_password', :via => :post
+
   get "admin_session/create"
 
   get "admin_session/destroy"
