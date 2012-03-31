@@ -2,6 +2,7 @@ Offerglass::Application.routes.draw do
  
 
 
+
   controller :business_portal do
     get "/b/login" => :login
     post "/b/login" => :login_post
@@ -10,14 +11,11 @@ Offerglass::Application.routes.draw do
   end
 
 
-  resources :businesses
   controller :businesses do
-    get "/b/cp" => :business_change_password
-    post "/b/cp" => :business_change_password
+    get "/b/cp" => :business_change_password_view
+    put "/b/cp" => :business_change_password_save
   end
   
-  get "/b/cp"
-
   match "businesses/:id" => 'businesses#reset_password', :via => :post
 
   get "admin_session/create"
@@ -30,6 +28,8 @@ Offerglass::Application.routes.draw do
   end
 
   resources :admins, :path => '/ogadmin'
+  resources :businesses
+
   
 
   # The priority is based upon order of creation:

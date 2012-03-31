@@ -1,4 +1,5 @@
 class Admin < ActiveRecord::Base
+ attr_accessible :password, :username, :password_confirmation
  validates :username, :presence => true  
  validates :password, 
             :confirmation => true, 

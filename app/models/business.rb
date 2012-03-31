@@ -7,9 +7,17 @@ class Business < ActiveRecord::Base
   attr_accessible :industry
   attr_accessible :logo
   attr_accessible :email
+  attr_accessible :password
+  attr_accessible :old_password
+  attr_accessible :password_confirmation
+  attr_accessor :password_confirmation
+  attr_reader :password
+  attr_reader :old_password
+
   has_attached_file :logo, :styles => { :medium => "300x300>",
                                          :thumb => "100x100>" }
-validates_attachment_content_type :logo, 
+  before_validation :business_strip_whitespace
+  validates_attachment_content_type :logo, 
                                     :content_type => ['image/jpeg', 'image/png', 'image/gif'],
                                     :message => 'Please use a .jpeg, .png, or .gif image'
   validates_attachment_presence :logo
@@ -18,10 +26,9 @@ validates_attachment_content_type :logo,
   validates :name, :uniqueness => true
 
  validate :password_must_be_present
- before_validation :business_strip_whitespace
- attr_accessor :password_confirmation
- attr_reader :password
- attr_accessible :password
+ validates :password, 
+            :confirmation => true 
+ validates_length_of :password, :minimum => 6, :maximum => 20, :allow_blank => true 
 
   def business_strip_whitespace
     self.name = self.name.strip unless self.name.blank?
@@ -36,7 +43,7 @@ validates_attachment_content_type :logo,
     return nil 
   end 
 
-def Business.encrypt_password(password, salt)
+  def Business.encrypt_password(password, salt)
     Digest::SHA2.hexdigest(password + "drpepperisgoodnotbad" + salt)
   end 
 
@@ -48,11 +55,21 @@ def Business.encrypt_password(password, salt)
     end
   end
 
+  def old_password_check(old_password)
+     unless !old_password.blank? && self.hashed_password == self.class.encrypt_password(old_password,self.salt)
+       return false
+     end
+     return true
+  end
+
   private
 
   def password_must_be_present
     errors.add(:password,"Missing Password") unless hashed_password.present?
   end
+
+
+  
 
   def generate_salt
     self.salt = self.object_id.to_s  + rand.to_s
