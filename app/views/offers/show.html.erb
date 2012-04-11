@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <%= image_tag @offer.photo.url(:thumb) %>
+</div>
+<div>
+  Headline: <%= @offer.headline %>
+</div>
+<div>
+  Description: <%= @offer.description %>
+</div>
+<div>
+  Fine Print: <%= @offer.fine_print %>
+</div>
+<div>
+  Address: <%= @offer.address %>
+</div>
+<div>
+  City: <%= @offer.city %>
+</div>
+<div>
+  State: <%= @offer.state %>
+</div>
+<div>
+  Zip: <%= @offer.zip %>
+</div>
+<div>
+  Live values:
+  0 - created, but not live, can be edited at this point
+</div>
+<div>
+  1 - is live, cannot be edited, accepting customers
+</div>
+<div>
+  2 - finished, not accepting customers, cannot be edited
+</div>
+<div>
+  Live: <%= @offer.live %>
+</div>
+<div>
+  Should be blank if live = 0
+</div>
+<div>
+  Expiration Date: <%= @offer.expiration_date %>
+</div>
+
+
+<%= link_to 'Edit', edit_offer_path(@offer) %> |
+<%= link_to 'Back', @offer.business %>

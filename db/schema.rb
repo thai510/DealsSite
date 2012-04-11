@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323202531) do
+ActiveRecord::Schema.define(:version => 20120406202449) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -36,6 +36,25 @@ ActiveRecord::Schema.define(:version => 20120323202531) do
     t.string   "hashed_password"
     t.string   "salt"
     t.string   "initial_password"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "offers", :force => true do |t|
+    t.integer  "business_id"
+    t.string   "headline"
+    t.text     "description"
+    t.integer  "live"
+    t.text     "fine_print"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "expiration_date"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

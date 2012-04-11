@@ -20,6 +20,13 @@
 
 <h4><%= link_to "Back to Admin CC" ,admins_path %></h4>
 <hr>
+<h3> Created Deals for this Business (<%= @business.offers.count %>) </h3>
+<% @business.offers.each do |o| %>
+  <div>
+  <%= link_to o.headline, o %>
+  </div>
+<% end %>
+<hr>
 <h1>This Business has redemmed x number of vouchers for total amount $y of Sales <h1>
 <h2>This Business has generated x total amount of profit for itself <h2>
 <h2>This Business has generated x total amount of profit for non profits<h2>

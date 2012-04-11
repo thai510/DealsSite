@@ -3,6 +3,8 @@ Offerglass::Application.routes.draw do
 
 
 
+  resources :offers
+
   controller :business_portal do
     get "/b/login" => :login
     post "/b/login" => :login_post

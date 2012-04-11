@@ -1,4 +1,5 @@
 class Business < ActiveRecord::Base
+  has_many :offers
   attr_accessible :name
   attr_accessible :description
   attr_accessible :phone_number
