@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div>
-  <%= image_tag @offer.photo.url(:thumb) %>
+  <%=  image_tag @offer.photo.url(:thumb)%>
+  <%=  image_tag @offer.photo.url(:medium)%>
+  <%=  image_tag @offer.photo.url(:large)%>
 </div>
 <div>
   Headline: <%= @offer.headline %>

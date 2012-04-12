@@ -8,6 +8,7 @@ class Offer < ActiveRecord::Base
   attr_accessible :state
   attr_accessible :zip
   attr_accessible :exipiration_date
+  attr_accessible :photo
   #live values
   # 0: offer just created, not live, can be edited
   # 1: offer is live and accepting customers, can't be edited
@@ -18,7 +19,7 @@ class Offer < ActiveRecord::Base
   validates :headline, :description, :fine_print, :address, 
     :city, :state, :zip, :live, :presence => true
 
-  has_attached_file :photo, :styles => { :large => "500x500",
+  has_attached_file :photo, :styles => { :large => "500x500>",
                                          :medium => "300x300>",
                                          :thumb => "100x100>" }
   validates_attachment_content_type :photo, 
