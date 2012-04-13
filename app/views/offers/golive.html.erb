@@ -1,0 +1,17 @@
+
+<%= form_for(@offer) do |f| %>
+  <div>
+    <%= f.label 'Would you like to start this offer now?' %>
+    <%= f.check_box :start_offer_now %>
+  <div>
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date,  :start_year => Time.now.year, :start_day => Time.now.day %>
+  <div>
+  <div>
+    <%= f.label :exipiration_date %>
+    <%= f.date_select :expiration_date, :start_year => Time.now.year %>
+  <div>
+
+  <%= f.submit 'Update this offer.'%>
+<% end %>

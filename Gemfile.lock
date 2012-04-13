@@ -40,6 +40,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.2.0)
+    date_validator (0.6.3)
+      activemodel (~> 3.0)
     erubis (2.7.0)
     execjs (1.3.0)
       multi_json (~> 1.0)
@@ -116,6 +118,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 3.1.1)
+  date_validator
   jquery-rails
   paperclip
   rails (= 3.1.1)

@@ -3,7 +3,12 @@ Offerglass::Application.routes.draw do
 
 
 
-  resources :offers
+  resources :offers do
+    member do
+      get  'golive'
+      put 'golive_update'
+    end
+  end
 
   controller :business_portal do
     get "/b/login" => :login
@@ -23,6 +28,8 @@ Offerglass::Application.routes.draw do
   get "admin_session/create"
 
   get "admin_session/destroy"
+
+
 
   controller :admin_session do
     post 'ogadmin' => :create

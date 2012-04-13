@@ -15,6 +15,7 @@ class Offer < ActiveRecord::Base
   # 2: offer has finished and is not accepting customers, can't be edited 
   attr_accessible :live
   attr_accessible :business_id
+  attr_reader :start_offer_now
 
   validates :headline, :description, :fine_print, :address, 
     :city, :state, :zip, :live, :presence => true
@@ -25,4 +26,7 @@ class Offer < ActiveRecord::Base
   validates_attachment_content_type :photo, 
                                     :content_type => ['image/jpeg', 'image/png', 'image/gif'],
                                     :message => 'Please use a .jpeg, .png, or .gif image'
+  validates :expiration_date,
+    :date => {:after => Proc.new { Time.now},:message => 'must be after today'}, :on => :golive_update
+
 end

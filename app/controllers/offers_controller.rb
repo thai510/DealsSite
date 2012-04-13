@@ -82,4 +82,23 @@ before_filter :adminCheck
       format.json { head :ok }
     end
   end
+
+  def golive
+    @offer = Offer.find(params[:id])
+  end
+
+  def golive_update
+    @offer = Offer.find(params[:id])
+
+    respond_to do |format|
+      if @offer.update_attributes(params[:offer])
+        format.html { redirect_to @offer, notice: 'Offer was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render :golive }
+        format.json { render json: @offer.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 end

@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20120406202449) do
     t.string   "state"
     t.string   "zip"
     t.datetime "expiration_date"
+    t.datetime "start_date"
     t.string   "photo_file_name"
     t.string   "photo_content_type"
     t.integer  "photo_file_size"

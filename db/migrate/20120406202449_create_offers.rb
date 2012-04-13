@@ -11,11 +11,11 @@ class CreateOffers < ActiveRecord::Migration
       t.string :state
       t.string :zip
       t.datetime :expiration_date
+      t.datetime :start_date
       t.string   :photo_file_name
       t.string   :photo_content_type
       t.integer  :photo_file_size
       t.datetime :photo_updated_at
-      #photo
 
       t.timestamps
     end
