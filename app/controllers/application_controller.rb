@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def adminCheck
-    unless isAdmin? then redirect_to admins_path end
+    unless isAdmin? then redirect_to enter_path end
   end
 
   def isBusiness?

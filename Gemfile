@@ -7,6 +7,7 @@ gem 'rails', '3.1.1'
 
 gem 'sqlite3'
 gem 'date_validator'
+gem 'therubyracer'
 
 
 # Gems used only for assets and not required

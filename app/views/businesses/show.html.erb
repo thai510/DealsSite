@@ -31,7 +31,6 @@
 <% @business.offers.each do |o| %>
   <div>
   <%= link_to o.headline, o %>
-  <%= link_to 'Go Live', golive_offer_path(o) %>
   </div>
 <% end %>
 <hr>

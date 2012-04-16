@@ -1,0 +1,7 @@
+<% unless session[:admin] %>
+  <%= form_tag do %>
+     <%= text_field_tag :username, params[:username], :placeholder => "Username" %>
+     <%= password_field_tag :password, params[:password], :placeholder => "Password"%>
+     <%= submit_tag 'Login'%>
+  <% end %>
+<% end %>

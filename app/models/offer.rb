@@ -27,6 +27,9 @@ class Offer < ActiveRecord::Base
                                     :content_type => ['image/jpeg', 'image/png', 'image/gif'],
                                     :message => 'Please use a .jpeg, .png, or .gif image'
   validates :expiration_date,
-    :date => {:after => Proc.new { Time.now},:message => 'must be after today'}, :on => :golive_update
+    :date => {:after => Proc.new { Time.now},:message => 'must be after today'}
+
+  validates :start_date,
+    :date => {:before => :expiration_date  }
 
 end

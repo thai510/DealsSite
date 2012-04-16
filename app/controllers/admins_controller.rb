@@ -1,7 +1,10 @@
 class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
-  before_filter :adminCheck, :except => [:index]
+  if Admin.all.count > 0 
+    before_filter :adminCheck
+  end
+
   def index
     respond_to do |format|
       format.html # index.html.erb

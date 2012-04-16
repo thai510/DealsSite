@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <h2> Offer Details </h2>
   <div class="field">
     <%= f.label :business %>
     <%= f.collection_select(:business_id, Business.all,:id,:name) %>
@@ -46,6 +46,22 @@
   <div class="field">
     <%= f.label :zip %>
     <%= f.text_field :zip %>
+  </div>
+  <hr>
+  <h2> When Offer Begins and Ends </h3>
+  <div>
+    <%=  f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+  <h3> OR </h3>
+  <div>
+    <%= f.label "Start Offer Immediately" %>
+    <%= f.check_box :start_offer_now %>
+  </div>
+  <h4> Note: Selection of Start Offer Immediately overrides selection of start date!</h4>
+  <div>
+    <%=  f.label :expiration_date %>
+    <%= f.date_select :expiration_date %>
   </div>
   <div class="actions">
     <%= f.submit %>
