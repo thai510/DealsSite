@@ -7,8 +7,9 @@ class AdminSessionController < ApplicationController
    if admin = Admin.authenticate(params[:username],params[:password])
      session[:admin] = admin.username 
      redirect_to admins_path
-   end
+   else
      redirect_to enter_path 
+   end
   end
 
   def destroy

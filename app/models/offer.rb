@@ -7,7 +7,8 @@ class Offer < ActiveRecord::Base
   attr_accessible :city
   attr_accessible :state
   attr_accessible :zip
-  attr_accessible :exipiration_date
+  attr_accessible :expiration_date
+  attr_accessible :start_date
   attr_accessible :photo
   #live values
   # 0: offer just created, not live, can be edited
@@ -15,6 +16,7 @@ class Offer < ActiveRecord::Base
   # 2: offer has finished and is not accepting customers, can't be edited 
   attr_accessible :live
   attr_accessible :business_id
+  attr_accessible :start_offer_now
   attr_reader :start_offer_now
 
   validates :headline, :description, :fine_print, :address, 
@@ -26,10 +28,21 @@ class Offer < ActiveRecord::Base
   validates_attachment_content_type :photo, 
                                     :content_type => ['image/jpeg', 'image/png', 'image/gif'],
                                     :message => 'Please use a .jpeg, .png, or .gif image'
-  validates :expiration_date,
-    :date => {:after => Proc.new { Time.now},:message => 'must be after today'}
+  validate :expiration_date_after_today
+  validate :start_date_before_expiration_date
+  validate :start_date_at_least_today
 
-  validates :start_date,
-    :date => {:before => :expiration_date  }
+  def expiration_date_after_today
+    errors.add(:expiration_date, 'must be after today') if expiration_date <= Time.now
+  end
+
+  def start_date_before_expiration_date
+    errors.add(:start_date, 'must be before the expiration date') if start_date >= expiration_date 
+  end
+
+  def start_date_at_least_today
+    errors.add(:start_date, 'must be after today, choose start immediately if you wish to start today!') if start_date < Time.now 
+  end
+
 
 end
