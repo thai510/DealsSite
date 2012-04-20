@@ -44,6 +44,10 @@ before_filter :adminCheck
     @offer = Offer.new(params[:offer])
     #for live value meanings see offer model
     @offer.live = 0;
+    if params[:start_offer_now] == 'yes'
+      @offer.live = 1; #this offer is live now
+      @offer.start_date = Time.now
+    end
     respond_to do |format|
       if @offer.save
         format.html { redirect_to @offer, notice: 'Offer was successfully created.' }

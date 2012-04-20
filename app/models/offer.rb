@@ -30,7 +30,7 @@ class Offer < ActiveRecord::Base
                                     :message => 'Please use a .jpeg, .png, or .gif image'
   validate :expiration_date_after_today
   validate :start_date_before_expiration_date
-  validate :start_date_at_least_today
+  validate :start_date_after_today 
 
   def expiration_date_after_today
     errors.add(:expiration_date, 'must be after today') if expiration_date <= Time.now
@@ -40,8 +40,10 @@ class Offer < ActiveRecord::Base
     errors.add(:start_date, 'must be before the expiration date') if start_date >= expiration_date 
   end
 
-  def start_date_at_least_today
-    errors.add(:start_date, 'must be after today, choose start immediately if you wish to start today!') if start_date < Time.now 
+  def start_date_after_today
+  if start_date < Time.now && live == 0 
+    errors.add(:start_date, 'must be after today, choose start immediately if you wish to start today!') 
+  end
   end
 
 
