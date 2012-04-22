@@ -27,8 +27,8 @@
   </div>
 <% end %>
 <hr>
-<h3> Created Deals for this Business (<%= @business.offers.count %>) </h3>
-<% @business.offers.each do |o| %>
+<h3> Created Deals for this Business (<%= @createdOffers.count %>) </h3>
+<% @createdOffers.each do |o| %>
   <div>
   <%= link_to o.headline, o %>
   </div>

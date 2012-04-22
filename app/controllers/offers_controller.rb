@@ -46,7 +46,7 @@ before_filter :adminCheck
     @offer.live = 0;
     if params[:start_offer_now] == 'yes'
       @offer.live = 1; #this offer is live now
-      @offer.start_date = Time.now
+      @offer.start_date = Time.at(Time.now.utc + Time.zone_offset('PDT'))
     end
     respond_to do |format|
       if @offer.save

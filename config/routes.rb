@@ -4,6 +4,8 @@ Offerglass::Application.routes.draw do
 
 
 
+  get "store/index"
+
   controller :golive do
     get "golive/:id" => :new, :as => "golive"
     put "golive/:id" => :update

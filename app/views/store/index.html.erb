@@ -1,0 +1,8 @@
+
+<h1> Live Offers </h1>
+<% @liveOffers.each do |l| %>
+  <div>
+      <%= image_tag l.photo.url(:thumb) %>
+      <%= link_to l.headline, l %>
+  </div>
+<% end %>
