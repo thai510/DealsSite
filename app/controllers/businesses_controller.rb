@@ -16,8 +16,9 @@ class BusinessesController < ApplicationController
   # GET /businesses/1.json
   def show
     @business = Business.find(params[:id])
-    @liveOffers = @business.offers.where(:live => 1)
     @createdOffers = @business.offers.where(:live => 0)
+    @liveOffers = @business.offers.where(:live => 1)
+    @finishedOffers = @business.offers.where(:live => 2)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @business }

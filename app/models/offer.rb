@@ -7,8 +7,8 @@ class Offer < ActiveRecord::Base
   attr_accessible :city
   attr_accessible :state
   attr_accessible :zip
-  attr_accessible :expiration_date
-  attr_accessible :start_date
+  #attr_accessible :expiration_date
+  #attr_accessible :start_date
   attr_accessible :photo
   #live values
   # 0: offer just created, not live, can be edited
@@ -28,9 +28,9 @@ class Offer < ActiveRecord::Base
   validates_attachment_content_type :photo, 
                                     :content_type => ['image/jpeg', 'image/png', 'image/gif'],
                                     :message => 'Please use a .jpeg, .png, or .gif image'
-  validate :expiration_date_after_today
-  validate :start_date_before_expiration_date
-  validate :start_date_after_today 
+  #validate :expiration_date_after_today
+  #validate :start_date_before_expiration_date
+  #validate :start_date_after_today 
 
   def expiration_date_after_today
     errors.add(:expiration_date, 'must be after today') if expiration_date <= Time.now

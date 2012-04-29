@@ -12,6 +12,10 @@ Offerglass::Application.routes.draw do
   end
 
   resources :offers 
+  controller :offers do
+    delete "stop_offer" => :stop_offer
+    delete "start_offer" => :start_offer
+  end
 
   controller :business_portal do
     get "/b/login" => :login

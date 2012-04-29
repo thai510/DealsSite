@@ -87,4 +87,28 @@ before_filter :adminCheck
     end
   end
 
+  def stop_offer
+    @offer = Offer.find(params[:id])
+    @offer.live = 2
+    #for now
+    @offer.expiration_date = Time.at(Time.now.utc + Time.zone_offset('PDT'))
+    @offer.save
+    respond_to do |format|
+      format.html { redirect_to Business.find(@offer.business_id) }
+      format.json { head :ok }
+    end
+  end
+
+  def start_offer
+    @offer = Offer.find(params[:id])
+    @offer.live = 1
+    #for now
+    @offer.start_date = Time.at(Time.now.utc + Time.zone_offset('PDT'))
+    @offer.save
+    respond_to do |format|
+      format.html { redirect_to Business.find(@offer.business_id) }
+      format.json { head :ok }
+    end
+  end
+
 end

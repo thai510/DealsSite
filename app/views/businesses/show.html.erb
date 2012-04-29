@@ -20,17 +20,24 @@
 
 <h4><%= link_to "Back to Admin CC" ,admins_path %></h4>
 <hr>
-<h3> Live Offers for this Business (<%= @liveOffers.count %>) </h3>
-<% @liveOffers.each do |o| %>
-  <div>
-  <%= link_to o.headline, o %>
-  </div>
-<% end %>
-<hr>
 <h3> Created Deals for this Business (<%= @createdOffers.count %>) </h3>
 <% @createdOffers.each do |o| %>
   <div>
-  <%= link_to o.headline, o %>
+  <%= link_to o.headline, o %> <%= link_to 'Start Offer', start_offer_path(:id => o), :method => :delete %>
+  </div>
+<% end %>
+<hr>
+<h3> Live Offers for this Business (<%= @liveOffers.count %>) </h3>
+<% @liveOffers.each do |o| %>
+  <div>
+  <%= link_to o.headline, o %> <%= link_to 'Stop Offer', stop_offer_path(:id => o), :method => :delete %>
+  </div>
+<% end %>
+<hr>
+<h3> Finished Offers for this Business (<%= @finishedOffers.count %>) </h3>
+<% @finishedOffers.each do |o| %>
+  <div>
+  <%= link_to o.headline, o %> 
   </div>
 <% end %>
 <hr>

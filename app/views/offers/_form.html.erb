@@ -48,20 +48,9 @@
     <%= f.text_field :zip %>
   </div>
   <hr>
-  <h2> When Offer Begins and Ends </h3>
-  <div>
-    <%=  f.label :start_date %>
-    <%= f.date_select :start_date %>
-  </div>
-  <h3> OR </h3>
   <div>
     <%= f.label "Start Offer Immediately" %>
     <%= check_box_tag :start_offer_now, 'yes',false %>
-  </div>
-  <h4> Note: Selection of Start Offer Immediately overrides selection of start date!</h4>
-  <div>
-    <%=  f.label :expiration_date %>
-    <%= f.date_select :expiration_date %>
   </div>
   <div class="actions">
     <%= f.submit %>
