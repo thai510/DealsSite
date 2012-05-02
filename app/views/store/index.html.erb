@@ -3,6 +3,6 @@
 <% @liveOffers.each do |l| %>
   <div>
       <%= image_tag l.photo.url(:thumb) %>
-      <%= link_to l.headline, l %>
+      <%= link_to l.headline, live_offer_path(l) %>
   </div>
 <% end %>

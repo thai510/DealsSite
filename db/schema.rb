@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406202449) do
+ActiveRecord::Schema.define(:version => 20120502005400) do
 
   create_table "admins", :force => true do |t|
     t.string   "username"
@@ -40,6 +40,13 @@ ActiveRecord::Schema.define(:version => 20120406202449) do
     t.datetime "updated_at"
   end
 
+  create_table "non_profits", :force => true do |t|
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "offers", :force => true do |t|
     t.integer  "business_id"
     t.string   "headline"
@@ -56,6 +63,17 @@ ActiveRecord::Schema.define(:version => 20120406202449) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "vouchers", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.string   "non_profit_id"
+    t.string   "offer_id"
+    t.string   "business_id"
+    t.integer  "redeemed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+<div style ='display:inline;float:left;padding:20px;'>
+  <div>
+    <%=  image_tag @offer.photo.url(:large)%>
+  </div>
+  <div>
+    Headline: <%= @offer.headline %>
+  </div>
+  <div>
+    Description: <%= @offer.description %>
+  </div>
+  <div>
+    Fine Print: <%= @offer.fine_print %>
+  </div>
+  <div>
+    Address: <%= @offer.address %>
+  </div>
+  <div>
+    City: <%= @offer.city %>
+  </div>
+  <div>
+    State: <%= @offer.state %>
+  </div>
+  <div>
+    Zip: <%= @offer.zip %>
+  </div>
+</div>
+<div style='padding:10px;'>
+<h2> Get This Offer </h2>
+ <%= render '/vouchers/form', :object => @offer%> 
+</div>
+
+

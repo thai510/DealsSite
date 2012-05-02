@@ -17,6 +17,7 @@ class Offer < ActiveRecord::Base
   attr_accessible :live
   attr_accessible :business_id
   attr_accessible :start_offer_now
+  has_many :vouchers
   attr_reader :start_offer_now
 
   validates :headline, :description, :fine_print, :address, 

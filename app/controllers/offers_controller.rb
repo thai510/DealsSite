@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-before_filter :adminCheck
+before_filter :adminCheck, :except => [:live]
   # GET /offers
   # GET /offers.json
   def index
@@ -108,6 +108,16 @@ before_filter :adminCheck
     respond_to do |format|
       format.html { redirect_to Business.find(@offer.business_id) }
       format.json { head :ok }
+    end
+  end
+
+  def live
+    @offer = Offer.find(params[:id])
+    @voucher = Voucher.new
+
+    respond_to do |format|
+      format.html # live.html.erb
+      format.json { render json: @offer }
     end
   end
 

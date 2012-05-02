@@ -4,18 +4,21 @@ Offerglass::Application.routes.draw do
 
 
 
+  resources :vouchers
+
+  resources :non_profits
+
   get "store/index"
 
-  controller :golive do
-    get "golive/:id" => :new, :as => "golive"
-    put "golive/:id" => :update
+  
+  resources :offers do 
+    member do
+      get 'live'
+      delete "stop_offer"
+      delete "start_offer"
+    end
   end
 
-  resources :offers 
-  controller :offers do
-    delete "stop_offer" => :stop_offer
-    delete "start_offer" => :start_offer
-  end
 
   controller :business_portal do
     get "/b/login" => :login
