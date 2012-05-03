@@ -5,6 +5,7 @@ class Voucher < ActiveRecord::Base
   attr_accessible :email, :name, :non_profit_id, :email_confirmation,
      :offer_id
   validates :email, :name, :non_profit_id , :business_id, :offer_id,
-     :presence => true
+     :code, :redeemed, :presence => true
   validates :email, :confirmation => true
+  validates :code, :uniqueness => true
 end

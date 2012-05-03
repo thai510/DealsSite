@@ -1,10 +1,18 @@
- <% @business = Business.find(session[:business_id]) %>
  <div><%= notice %></div>
  Welcome <%= @business.name %>
  <%= link_to 'Logout', logout_business_path, :method => :delete %>
-
+<h2> <%= link_to 'Redeem Vouchers', b_redeem_path %> </h2>
 
 <% if @business.hashed_password == Business.encrypt_password(@business.initial_password,@business.salt) %> 
   <div> Your password is still the same one we gave you. Please change your password <%=link_to 'here', b_cp_path %>. </div>
+<% end %>
+
+<h2><%= @liveOffers.count %> Live Offers </h2>
+<% @liveOffers.each do |l| %>
+  <h3> <%= l.headline %> <%= link_to 'View', live_offer_path(l) %> 
+  <br/>
+  <%= l.vouchers.count %> Total Customers For This Offer 
+  <br/>
+  <%= l.vouchers.where(:redeemed => 1).count %> Paying Customers
 <% end %>
 

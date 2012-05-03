@@ -1,0 +1,9 @@
+<h1> Redeem Here</h1>
+ <%= notice %>
+<%= form_tag do %>
+  <%= text_field_tag :code, params[:code], :placeholder => 'Code' %>
+  <br />
+  <%= text_field_tag :amount, params[:amount], :placeholder => 'Amount Purchased' %>
+  <br />
+  <%= submit_tag 'Redeem!' %>
+<% end %>

@@ -9,6 +9,10 @@
 
 <% @vouchers.each do |voucher| %>
   <tr>
+    <td><%= voucher.name %></td>
+    <td><%= voucher.email %></td>
+    <td><%= voucher.code%></td>
+    <td><%= voucher.redeemed%></td>
     <td><%= link_to 'Show', voucher %></td>
     <td><%= link_to 'Edit', edit_voucher_path(voucher) %></td>
     <td><%= link_to 'Destroy', voucher, confirm: 'Are you sure?', method: :delete %></td>

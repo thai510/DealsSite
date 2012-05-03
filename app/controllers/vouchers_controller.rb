@@ -1,4 +1,5 @@
 class VouchersController < ApplicationController
+  VOUCHER_LIMIT = 100000
   # GET /vouchers
   # GET /vouchers.json
   def index
@@ -41,10 +42,13 @@ class VouchersController < ApplicationController
   # POST /vouchers.json
   def create
     @voucher = Voucher.new(params[:voucher])
-
+    @voucher.business_id = Offer.find(@voucher.offer_id).business_id
+    #redeemed 0 for not redeemed, 1 for redeemed
+    @voucher.redeemed = 0
+    @voucher.code = genCode(@voucher.offer_id) 
     respond_to do |format|
       if @voucher.save
-        format.html { redirect_to @voucher, notice: 'Voucher was successfully created.' }
+        format.html { redirect_to thankyou_offer_path(@voucher.offer_id), notice: 'Voucher was successfully created.' }
         format.json { render json: @voucher, status: :created, location: @voucher }
       else
         format.html { render action: "../offers/live", 
@@ -80,5 +84,20 @@ class VouchersController < ApplicationController
       format.html { redirect_to vouchers_url }
       format.json { head :ok }
     end
+  end
+
+  def genCode(offer_id)
+    #this will probably never happen, but it's worth
+    #checking
+    count = Offer.find(offer_id).vouchers.count 
+    if count == VOUCHER_LIMIT 
+     return nil
+    end
+    #convert to hex with 4 bits of padding
+    count = (count + 1)
+    #pad with 
+    code = offer_id.to_s + count.to_s
+    #get our Randoms
+    return code
   end
 end

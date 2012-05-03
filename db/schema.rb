@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(:version => 20120502005400) do
     t.string   "non_profit_id"
     t.string   "offer_id"
     t.string   "business_id"
+    t.string   "code"
     t.integer  "redeemed"
     t.datetime "created_at"
     t.datetime "updated_at"

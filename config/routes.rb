@@ -14,6 +14,7 @@ Offerglass::Application.routes.draw do
   resources :offers do 
     member do
       get 'live'
+      get 'thankyou'
       delete "stop_offer"
       delete "start_offer"
     end
@@ -24,15 +25,13 @@ Offerglass::Application.routes.draw do
     get "/b/login" => :login
     post "/b/login" => :login_post
     get "/b/home" => :home
+    get "/b/redeem" => :redeem
+    post "/b/redeem" => :redeem_create
+    get "/b/cp" => :business_change_password_view
+    put "/b/cp" => :business_change_password_save
     delete "logout_business" => :destroy
   end
 
-
-  controller :businesses do
-    get "/b/cp" => :business_change_password_view
-    put "/b/cp" => :business_change_password_save
-  end
-  
   match "businesses/:id" => 'businesses#reset_password', :via => :post
 
   get "admin_session/create"
