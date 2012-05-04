@@ -8,4 +8,11 @@ class Voucher < ActiveRecord::Base
      :code, :redeemed, :presence => true
   validates :email, :confirmation => true
   validates :code, :uniqueness => true
+  validates :name, :length {:maximum => 30}
+  validates :email, :length {:maximum => 30}
+  validates :purchase, :numericality => true, :on => :update
+  validate :validate_purchase, :on => :update
+  def validate_purchase 
+    errors.add(:purchase, "should be at least 0.01") if purchase.nil? || purchase < 0.01 
+  end
 end

@@ -95,8 +95,9 @@ class VouchersController < ApplicationController
     end
     #convert to hex with 4 bits of padding
     count = (count + 1)
+    hex = "%04x" % count.to_s
     #pad with 
-    code = offer_id.to_s + count.to_s
+    code = offer_id.to_s + hex
     #get our Randoms
     return code
   end

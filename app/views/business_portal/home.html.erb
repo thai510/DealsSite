@@ -13,6 +13,11 @@
   <br/>
   <%= l.vouchers.count %> Total Customers For This Offer 
   <br/>
-  <%= l.vouchers.where(:redeemed => 1).count %> Paying Customers
 <% end %>
+
+<% earned = 0 %>
+<% @business.vouchers.where(:redeemed => 1).each do |v| %>
+  <% earned += v.purchase %>
+<% end %>
+You have earned <%= number_to_currency(earned) %> from <%= @business.vouchers.where(:redeemed => 1).count %> Customers
 

@@ -5,5 +5,5 @@
   <br />
   <%= text_field_tag :amount, params[:amount], :placeholder => 'Amount Purchased' %>
   <br />
-  <%= submit_tag 'Redeem!' %>
+  <%= submit_tag 'Redeem!',:confirm => "Are you sure you wish to redeem this code?"%>
 <% end %>

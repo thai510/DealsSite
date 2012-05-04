@@ -32,9 +32,13 @@ class BusinessPortalController < ApplicationController
    @business = Business.find(session[:business_id])
    @voucher = @business.vouchers.find_by_code(params[:code])
    if @voucher && @voucher.redeemed == 0 
+     @voucher.purchase = params[:amount]
      @voucher.redeemed = 1
-     @voucher.save
-     redirect_to b_redeem_path,:notice => 'Code Successfully Redeemed!' 
+     if @voucher.save
+       redirect_to b_redeem_path,:notice => 'Code Successfully Redeemed!' 
+     else
+       redirect_to b_redeem_path,:notice => 'Amount Purchased must be at least 0.01' 
+     end
    elsif !@voucher
      redirect_to b_redeem_path,:notice => 'Incorrect Code!' 
    else 

@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20120502005400) do
     t.string   "business_id"
     t.string   "code"
     t.integer  "redeemed"
+    t.decimal  "purchase",      :precision => 8, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end
