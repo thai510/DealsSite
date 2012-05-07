@@ -5,16 +5,6 @@
   <%= @admin.username %>
 </p>
 
-<p>
-  <b>Hashed password:</b>
-  <%= @admin.hashed_password %>
-</p>
-
-<p>
-  <b>Salt:</b>
-  <%= @admin.salt %>
-</p>
-
 
 <%= link_to 'Edit', edit_admin_path(@admin) %> |
 <%= link_to 'Back', admins_path %>

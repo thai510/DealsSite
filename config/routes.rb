@@ -24,7 +24,6 @@ Offerglass::Application.routes.draw do
   controller :business_portal do
     get "/b/login" => :login
     post "/b/login" => :login_post
-    get "/b/home" => :home
     get "/b/redeem" => :redeem
     post "/b/redeem" => :redeem_create
     get "/b/cp" => :business_change_password_view

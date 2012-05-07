@@ -15,6 +15,18 @@ Offerglass::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.smtp_settings = { 
+    :address  => "smtp.gmail.com",
+    :port  => 587,
+    :authentication => "plain",
+    :user_name  => "noreply@offerglass.com",
+    :password  => "8{e638J?]WRs",
+    :enable_starttls_auto => true
+  }
+
+  config.action_mailer.delivery_method = :smtp
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

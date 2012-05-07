@@ -2,22 +2,20 @@ class BusinessPortalController < ApplicationController
   before_filter :businessCheck, :except => [:login,:login_post]  
 
   def login
-     end
+    if session[:business_id] 
+      redirect_to b_redeem_path
+    end
+  end
 
   def login_post
    if business = Business.authenticate(params[:name],params[:password])
      session[:business_id] = business.id 
-     redirect_to b_home_path 
+     redirect_to b_redeem_path 
    else
      redirect_to b_login_path
    end
   end
 
-  def home
-    @business = Business.find(session[:business_id]) 
-    @liveOffers = @business.offers.where(:live => 1)
-    @finishedOffers = @business.offers.where(:live => 2)
-  end
 
   def destroy
     session[:business_id] = nil
@@ -26,6 +24,7 @@ class BusinessPortalController < ApplicationController
 
   def redeem
    @business = Business.find(session[:business_id])
+   @liveOffers = @business.offers.where(:live => 1)
   end
 
   def redeem_create

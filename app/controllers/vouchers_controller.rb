@@ -1,7 +1,10 @@
 class VouchersController < ApplicationController
-  VOUCHER_LIMIT = 100000
+  VOUCHER_LIMIT = 65535 #16 ^4 - 1 
+  #customer uses voucher create, genCode
   # GET /vouchers
   # GET /vouchers.json
+  before_filter :adminCheck, :except => [:create,:genCode,:update]
+  before_filter :businessCheck, :only => [:update]
   def index
     @vouchers = Voucher.all
 

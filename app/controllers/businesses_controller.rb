@@ -1,6 +1,5 @@
 class BusinessesController < ApplicationController
   before_filter :adminCheck
-  before_filter :businessCheck, :only => [:business_change_password_view, :business_change_password_save]
   # GET /businesses
   # GET /businesses.json
   def index
