@@ -4,6 +4,15 @@ Offerglass::Application.routes.draw do
 
 
 
+  get "home/index"
+
+  resources :organizations
+
+  match "/apply", :to => 'organizations#new'
+  match "/thankyou", :to => 'home#index'
+
+  resources :customers
+
   resources :vouchers
 
   resources :non_profits
@@ -47,7 +56,7 @@ Offerglass::Application.routes.draw do
   end
 
   resources :businesses
-
+  root :to => 'customers#new'
   
 
   # The priority is based upon order of creation:

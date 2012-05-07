@@ -1,0 +1,94 @@
+<%= form_for(@organization) do |f| %>
+  <% if @organization.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@organization.errors.count, "error") %> prohibited this organization from being saved:</h2>
+
+      <ul>
+      <% @organization.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= f.label "Organization Name" %>
+    <%= f.text_field :name %>
+  </div>
+  <div>
+    <%= f.label "Brief Description" %>
+    <%= f.text_area :description %>
+  </div>
+  <div>
+    <%= f.label "Organization Website" %>
+    <%= f.text_field :website %>
+  </div>
+  <div>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
+  </div>
+  <div>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div>
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+  <div>
+    <%= f.label "Zipcode" %>
+    <%= f.text_field :zip %>
+  </div>
+  <div>
+    <%= f.label "First Name" %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div>
+    <%= f.label "Last Name" %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+  </div>
+  <div>
+    <%= f.label :email_confirmation %>
+    <%= f.text_field :email_confirmation %>
+  </div>
+  <div>
+    <%= f.label "Phone Number" %>
+    <%= f.text_field :phone_number %>
+  </div>
+  <div style="width: 450px; height: 250px;overflow:auto;overflow-x:hidden;">
+     <br />
+        <p style='text-align:center;'><b>OfferGlass Terms of Use</b></p>
+  <br />
+    <p>1. OG Local inc., OfferGlass.com, OfferGlass (hereinafter
+    collectively referred to as OfferGlass or We)
+    are a for profit social enterprise that arranges fundraisers for local nonprofits.</p>
+    <p>2. You (applicant) are a non-profit organization with tax-exempt status under IRS
+    code section 501c3 and must retain such status.</p>
+    <p>3. You desire to join the OfferGlass non-profit network to receive donations from
+    OfferGlass fundraisers.</p>
+    <p>4. You certify that all information contained in your application is correct.</p>
+    <p>5. OfferGlass processes donations from local businesses or individuals that are then
+    distributed to several different nonprofits. Funds designated to be donated to each
+    nonprofit will be held by OfferGlass, and distributed monthly, less a 7% processing fee. </p>
+    <p>6. We can cancel service and/or remove a nonprofit from our network at any time for any reason. </p>
+    <p>7. By submitting this application you agree to the above terms. These terms of use are
+    subject to change at any time. By continuing to use the service, you agree to any changes
+    in the terms of use. Such changes will apply when they are posted on our website. </p>
+  </div>
+  <div>
+    <%= f.check_box :terms_of_use, {}, 'yes','no'%>
+    Accept Terms of Use
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
