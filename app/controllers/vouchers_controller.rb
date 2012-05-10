@@ -51,6 +51,13 @@ class VouchersController < ApplicationController
     @voucher.code = genCode(@voucher.offer_id) 
     respond_to do |format|
       if @voucher.save
+        if params[:email_list] == 'yes' && Customer.where(:email => @voucher.email).count == 0 
+          @customer = Customer.new
+          @customer.email = @voucher.email
+          @customer.zip = '00000'
+          @customer.cause = NonProfit.find(@voucher.non_profit_id).title
+          @customer.save
+        end
         format.html { redirect_to thankyou_offer_path(@voucher.offer_id), notice: 'Voucher was successfully created.' }
         format.json { render json: @voucher, status: :created, location: @voucher }
       else

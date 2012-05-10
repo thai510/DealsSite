@@ -2,8 +2,9 @@ class Voucher < ActiveRecord::Base
   belongs_to :non_profit
   belongs_to :offer
   belongs_to :business
+  attr_reader :email_list
   attr_accessible :email, :name, :non_profit_id, :email_confirmation,
-     :offer_id
+     :offer_id, :email_list
   validates :email, :name, :non_profit_id , :business_id, :offer_id,
      :code, :redeemed, :presence => true
   validates :email, :confirmation => true

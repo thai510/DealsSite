@@ -25,6 +25,10 @@
     <%= f.label :non_profit %>
     <%= f.collection_select(:non_profit_id, NonProfit.all,:id,:title) %>
   </div>
+  <div class="field">
+    <%= check_box_tag :email_list,'yes','yes' %>
+    <%= f.label "Receive emails about future offers?" %>
+  </div>
    <%= f.hidden_field :offer_id, :value =>  @offer.id %>
   <div class="actions">
     <%= f.submit "Get This Offer"%>

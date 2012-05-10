@@ -1,5 +1,13 @@
-<p id="notice"><%= notice %></p>
+<br />
+Email: <%= @customer.email %>
+<br />
+Zip: <%= @customer.zip %>
+<br />
+Cause: <%= @customer.cause %>
 
+<br />
+Note: If zip is 00000, this customer was pulled from an offer,
+not the sign up form. 
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<br />
 <%= link_to 'Back', customers_path %>
