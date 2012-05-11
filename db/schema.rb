@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "username"
     t.string   "hashed_password"
     t.string   "salt"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "businesses", :force => true do |t|
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "hashed_password"
     t.string   "salt"
     t.string   "initial_password"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "customers", :force => true do |t|
@@ -45,15 +45,15 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "zip"
     t.string   "cause"
     t.string   "ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "non_profits", :force => true do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "offers", :force => true do |t|
@@ -72,8 +72,8 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "photo_content_type"
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "organizations", :force => true do |t|
@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "terms_of_use"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "vouchers", :force => true do |t|
@@ -103,8 +103,8 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
     t.string   "code"
     t.integer  "redeemed"
     t.decimal  "purchase",      :precision => 8, :scale => 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
 end

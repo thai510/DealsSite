@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base
+  attr_accessible :email, :name, :first_name, :last_name, :address, :description, :city, :state, :zip, :title, :phone_number, :terms_of_use
 
  validates :email, :confirmation => true
  validates :name, :description, :address, :city, :state, :zip,

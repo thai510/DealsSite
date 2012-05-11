@@ -1,15 +1,47 @@
+<div class="span6">
+  <div class="row-fluid">
+    <br />
+    <h2 align="center">
+      Launching soon in the Bay Area. <br />Sign up to support your cause.
+      <br />
+      <%= link_to image_tag('glyphicons/glyphicons_390_facebook.png'), 'http://www.facebook.com/offerglass', :target => 'blank' %>
+      <%= link_to image_tag('glyphicons/glyphicons_392_twitter.png'), 'http://www.twitter.com/offerglass', :target => 'blank' %>
+    </h2>
+  </div>
+  <br />
+  <br />
+  <div class="row-fluid" style="text-align:center;">
+    <h2><a data-toggle="modal" href="#myModal">How it works</a></h2>
+    <br />
+    <div class="modal hide fade" id="myModal">
+      <div class="modal-body-changed">
+        <%= image_tag "Presentation.png" %> 
+      </div>
+      <div class="modal-footer">
+        <a class="btn" data-dismiss="modal">Close</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="span6" style="text-align:center;">
+ <div class='row-fluid'> 
+    </div>
 <%= form_for(@customer) do |f| %>
   <% if @customer.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+      <h2>Please fix the following errors:</h2>
 
       <ul>
       <% @customer.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <div>
+        <%= msg %>
+        </div>
       <% end %>
       </ul>
     </div>
   <% end %>
+
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -23,6 +55,10 @@
     <%= f.text_field :cause %>
   </div>
   <div class="actions">
-    <%= f.submit 'Sign Up'%>
+    <%= f.submit 'Sign Up', :class => "btn-large btn-primary" %>
   </div>
+  <h4>Non-Profit? Apply&nbsp;<%= link_to 'here', apply_path %></h4>
+</div>
+</div>
+
 <% end %>
