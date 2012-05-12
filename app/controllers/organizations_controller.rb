@@ -45,6 +45,8 @@ class OrganizationsController < ApplicationController
 
     respond_to do |format|
       if @organization.save
+        Notifier.org_app_received(@organization).deliver
+        Notifier.forward_org_app(@organization).deliver
         format.html { redirect_to thankyou_path, notice: 'Organization was successfully created.' }
         format.json { render json: @organization, status: :created, location: @organization }
       else

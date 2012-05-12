@@ -3,17 +3,18 @@
 <head>
   <title>OfferGlass | Purchase with a Purpose</title>
   <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
-  <%= javascript_include_tag "bootstrap" %>
   <%= javascript_include_tag "jquery-1.7.2" %>
+  <%= javascript_include_tag "bootstrap" %>
   <%= javascript_include_tag "bootstrap-modal" %>
+  <%= javascript_include_tag "application" %>
 
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Cabin+Condensed:400,500,600,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
 <div class="container">
-  <div class="row-fluid" style="padding-top:20px;margin-left:auto; margin-right:auto;text-align:center;">
-    <%= image_tag 'croppedlogo.png', :style => 'padding-bottom:8px;' %>
+  <div class="row-fluid" style="padding-top:20px;padding-bottom:8px;margin-left:auto; margin-right:auto;text-align:center;">
+    <%= link_to (image_tag 'croppedlogo.png') , root_path %>
     <h1 style="color:#0A69BC;">Purchase with a Purpose</h1>
     <br />
     <hr />

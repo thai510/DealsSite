@@ -6,9 +6,24 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.voucher_created.subject
   #
-  def voucher_created(voucher)
-    @voucher = voucher
-    mail :to => voucher.email, :subject =>  "Latest Offer Information"
+  
+
+  def signup_received(customer)
+    @customer = customer
+
+    mail :to => customer.email, :subject => "Thank you"
+  end
+
+  def org_app_received (organization)
+    @organization = organization
+
+    mail :to => organization.email, :subject => "Thank you for your application"
+  end
+
+  def forward_org_app (organization)
+    @organization = organization
+
+    mail :to => "noahfarb@gmail.com", :subject => "Another Non-Profit Application!"
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -16,6 +31,12 @@ class Notifier < ActionMailer::Base
   #
   #   en.notifier.voucher_redeemed.subject
   #
+
+  def voucher_created(voucher)
+    @voucher = voucher
+    mail :to => voucher.email, :subject =>  "Latest Offer Information"
+  end
+
   def voucher_redeemed_customer(voucher)
     @voucher = voucher
     mail :to => voucher.email, :subject => "Thank you for your purchase!"  
