@@ -3,6 +3,8 @@ class AdminsController < ApplicationController
   # GET /admins.json
   if Admin.all.count > 0 
     before_filter :adminCheck
+  else
+    before_filter :adminCheck , :except => [:new, :create]
   end
 
   def index

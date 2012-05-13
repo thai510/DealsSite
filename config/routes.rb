@@ -41,18 +41,18 @@ Offerglass::Application.routes.draw do
 
   match "businesses/:id" => 'businesses#reset_password', :via => :post
 
-  #get "admin_session/create"
+  get "admin_session/create"
 
-  #get "admin_session/destroy"
+  get "admin_session/destroy"
 
 
 
-  #resources :admins, :path => '/ogadmin'
-  #controller :admin_session do
-  #  get 'enter' => :enter 
-  #  post 'enter' => :create
-  #  delete 'logout_admin' => :destroy
-  # end
+  resources :admins, :path => '/ogadmin'
+  controller :admin_session do
+    get 'enter' => :enter 
+    post 'enter' => :create
+    delete 'logout_admin' => :destroy
+   end
 
   resources :businesses
   root :to => 'customers#new'
