@@ -1,20 +1,40 @@
 <h1>Mailing List (<%=@customers.count%>)</h1>
+<div class='row-fluid'>
+  <div class='span6'>
+  <br />
+  <table>
+    <tr>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @customers.each do |customer| %>
-  <tr>
-    <td><%= customer.email %></td>
-    <td><%= link_to 'Details', customer %></td>
-    <td><%= link_to 'Remove From Mailing List', customer, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
+  <% @customers.each do |customer| %>
+    <tr>
+      <td><%= customer.email %>    </td>
+      <td></td>
+      <td></td>
+      <td><%= link_to 'Details', customer %></td>
+      <td></td>
+      <td><%= link_to 'Remove', customer, confirm: 'Are you sure?', method: :delete %></td>
+    </tr>
+  <% end %>
+  </table>
+  </div>
+  <div class='span6 offset6'>
+    <h2>Copy Me</h2>
+    <div class='well'>
+    <% count = 0%>
+    <% @customers.each do |customer| %>
+      <%= customer.email %>
+      <% if count != @customers.count - 1 %>
+       ,
+      <% end %>
+      <% count += 1 %>
+    <% end %>
+    </div>
+  </div>
+</div>
 
 <br />
 <%= link_to 'Back to Admin CC', admins_path %>
