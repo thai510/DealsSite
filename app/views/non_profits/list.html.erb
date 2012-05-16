@@ -1,0 +1,28 @@
+<h1>Participating Non-Profits</h1>
+<br />
+<% i = 0 %>
+<% @non_profits.each do |np| %>
+  <%if i % 3 == 0 %>
+    <div class='row-fluid'>
+  <% end %> 
+  <div class='span4'>
+  <div class='well' style='padding:7px;' >
+    <%= image_tag np.photo.url(:list) %>
+    <h3><%= np.title %></h3>
+    <%=np.description %>
+    <br />
+    <br />
+    <% if np.website %>
+    For more information visit <a href="http://<%= np.website %>">their website.</a>
+    <% end %>
+  </div>
+  </div>
+  <%if i % 3 == 2 %>
+  </div>
+  <% end %>
+  <% i += 1 %>
+<% end %>
+
+<br />
+<br />
+<h3><%= link_to 'Back to Offers' , store_index_path %></h3>

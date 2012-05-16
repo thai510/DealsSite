@@ -15,7 +15,10 @@ Offerglass::Application.routes.draw do
 
   resources :vouchers
 
-  resources :non_profits
+  resources :non_profits, :path => "/np" 
+  controller :non_profits do
+    get "/list" => :list
+  end
 
   get "store/index"
 

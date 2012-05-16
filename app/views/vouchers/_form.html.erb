@@ -1,6 +1,6 @@
 <%= form_for(@voucher) do |f| %>
   <% if @voucher.errors.any? %>
-      <h2><%= pluralize(@voucher.errors.count, "error") %> prohibited this voucher from being saved:</h2>
+      <h2><%= pluralize(@voucher.errors.count, "error") %> </h2>
 
       <ul>
       <% @voucher.errors.full_messages.each do |msg| %>

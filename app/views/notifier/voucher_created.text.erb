@@ -1,3 +1,9 @@
-Notifier#voucher_created
+Thank you for registering for this offer! 20% of your (food) purchase will support <%= NonProfit.find(@voucher.non_profit_id).title %>. 
 
-<%= @greeting %>, find me in app/views/app/views/notifier/voucher_created.text.erb
+To initiate the donation, you must submit the following voucher code: <%= @voucher.code %> to your server when you pay.
+
+When the business records your donation you will receive a confirmation email with the donation information. (This may take a day a two to be  recorded). If you do not receive this email within 48 hours please contact us at support@offerglass.com.
+
+Thank you,
+
+The OfferGlass Team

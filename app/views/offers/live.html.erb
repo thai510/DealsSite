@@ -1,35 +1,45 @@
+
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div> 
 <% end %>
-<div style ='display:inline;float:left;padding:20px;'>
-  <div>
-    <%=  image_tag @offer.photo.url(:large)%>
-  </div>
-  <div>
-    Headline: <%= @offer.headline %>
-  </div>
-  <div>
-    Description: <%= @offer.description %>
-  </div>
-  <div>
-    Fine Print: <%= @offer.fine_print %>
-  </div>
-  <div>
-    Address: <%= @offer.address %>
-  </div>
-  <div>
-    City: <%= @offer.city %>
-  </div>
-  <div>
-    State: <%= @offer.state %>
-  </div>
-  <div>
-    Zip: <%= @offer.zip %>
+  <h2 style='padding:5px;'><%= @offer.headline %> (offer headline)</h2>
+<div class='row-fluid'>
+    <div class='span4'>
+     <div>
+      <%=  image_tag @offer.photo.url(:medium)%>
+     </div>
+     <div id="fb-root"></div>
+     <script>(function(d, s, id) {
+       var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script> 
+      <br />
+      <div class="fb-like"   data-href="http://www.offerglass.com/offer/<%=@offer.id%>/live" data-send="true"   data-width="70" data-show-faces="false"></div>
+      <a href="https://twitter.com/share" class="twitter-share-button"   data-url="http://www.offerglass.com/offer/<%=@offer.id%>/live" data-text="Check out this awesome local offer!" data-via="OfferGlass">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+    <div class='span4 offset4'>
+        <% @business = Business.find(@offer.business_id) %>
+      <div>
+        <h4><%= @offer.description %> (offer description)</h4>
+         <%= @offer.fine_print %> (offer fine print)
+      </div>
+      <div>
+         <%= @offer.address %>
+      </div>
+      <div>
+         <%= @offer.city %>, <%= @offer.state %>, <%= @offer.zip %>
+      </div>
+      <br />
+        <%= @business.description %> (business description)
+    </div>
+  <div class='span4'>
+   <%= render '/vouchers/form', :object => @offer%> 
   </div>
 </div>
-<div style='padding:10px;'>
-<h2> Get This Offer </h2>
- <%= render '/vouchers/form', :object => @offer%> 
-</div>
+
 
 

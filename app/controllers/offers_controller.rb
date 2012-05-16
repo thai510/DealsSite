@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-before_filter :adminCheck, :except => [:live,:thankyou]
+before_filter :adminCheck, :except => [:thankyou] #live will go here
   # GET /offers
   # GET /offers.json
   def index

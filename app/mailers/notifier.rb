@@ -34,7 +34,7 @@ class Notifier < ActionMailer::Base
 
   def voucher_created(voucher)
     @voucher = voucher
-    mail :to => voucher.email, :subject =>  "Latest Offer Information"
+    mail :to => voucher.email, :subject =>  "Your Offer Code and Information"
   end
 
   def voucher_redeemed_customer(voucher)

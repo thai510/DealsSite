@@ -81,4 +81,8 @@ class NonProfitsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def list 
+    @non_profits = NonProfit.all
+  end
 end

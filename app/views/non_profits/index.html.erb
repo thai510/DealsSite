@@ -1,5 +1,5 @@
 <h1>Listing non_profits</h1>
-
+<br />
 <table>
   <tr>
     <th></th>
@@ -9,6 +9,9 @@
 
 <% @non_profits.each do |non_profit| %>
   <tr>
+    <td><%= non_profit.title %></td>
+    <td></td>
+    <td></td>
     <td><%= link_to 'Show', non_profit %></td>
     <td><%= link_to 'Edit', edit_non_profit_path(non_profit) %></td>
     <td><%= link_to 'Destroy', non_profit, confirm: 'Are you sure?', method: :delete %></td>
