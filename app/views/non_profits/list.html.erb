@@ -22,7 +22,9 @@
   <% end %>
   <% i += 1 %>
 <% end %>
-
+<% if i % 3 != 0 %>
+  </div>
+<% end %>
 <br />
 <br />
 <h3><%= link_to 'Back to Offers' , store_index_path %></h3>
