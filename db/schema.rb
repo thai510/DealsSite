@@ -102,14 +102,15 @@ ActiveRecord::Schema.define(:version => 20120507231830) do
   create_table "vouchers", :force => true do |t|
     t.string   "email"
     t.string   "name"
+    t.string   "note"
     t.string   "non_profit_id"
     t.string   "offer_id"
     t.string   "business_id"
     t.string   "code"
     t.integer  "redeemed"
     t.decimal  "purchase",      :precision => 8, :scale => 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
 end

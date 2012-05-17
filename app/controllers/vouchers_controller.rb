@@ -59,8 +59,7 @@ class VouchersController < ApplicationController
           @customer.save
         end
         Notifier.voucher_created(@voucher).deliver
-        flash[:success] = 'Thanks! An Offer Code has been sent to your email!' 
-        format.html { redirect_to live_offer_path(@voucher.offer_id) }
+        format.html { redirect_to thankyou_offer_path(@voucher.offer_id, :v => @voucher) }
         format.json { render json: @voucher, status: :created, location: @voucher }
       else
         format.html { render action: "../offers/live", 

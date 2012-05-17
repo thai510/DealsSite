@@ -2,7 +2,7 @@
 <% flash.each do |key, value| %>
   <div class="alert alert-<%= key %>"><%= value %></div> 
 <% end %>
-  <h2 style='padding:5px;'><%= @offer.headline %> (offer headline)</h2>
+  <h2 style='padding:5px;'><%= @offer.headline %></h2>
 <div class='row-fluid'>
     <div class='span4'>
      <div>
@@ -24,8 +24,8 @@
     <div class='span4 offset4'>
         <% @business = Business.find(@offer.business_id) %>
       <div>
-        <h4><%= @offer.description %> (offer description)</h4>
-         <%= @offer.fine_print %> (offer fine print)
+        <h4><%= @offer.description %></h4>
+         <%= @offer.fine_print %> 
       </div>
       <div>
          <%= @offer.address %>
@@ -34,7 +34,7 @@
          <%= @offer.city %>, <%= @offer.state %>, <%= @offer.zip %>
       </div>
       <br />
-        <%= @business.description %> (business description)
+        <%= @business.description %> 
     </div>
   <div class='span4'>
    <%= render '/vouchers/form', :object => @offer%> 

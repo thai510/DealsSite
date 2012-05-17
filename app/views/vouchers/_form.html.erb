@@ -10,27 +10,36 @@
   <% end %>
 
   <div>
-    <%= f.label :name %>
+    Name*
+    <br />
     <%= f.text_field :name%>
   </div>
   <div>
-    <%= f.label :email %>
+    Email*
+    <br />
     <%= f.text_field :email%>
   </div>
   <div>
-    <%= f.label :confirm_email %>
+    Confirm Email*
     <%= f.text_field :email_confirmation%>
   </div>
   <div class="field">
-    <%= f.label :non_profit %>
+    Select a Non-Profit* 
     <%= f.collection_select(:non_profit_id, NonProfit.all,:id,:title) %>
   </div>
   <div class="field">
-    <%= check_box_tag :email_list,'yes','yes' %>
-    <%= f.label "Receive emails about future offers?" %>
+    Note to Non-Profit
+    <%= f.text_field :note, :placeholder => "Maximum 65 Characters" %>
+  </div>
+  <div class="field" style='padding-bottom:3px;'>
+    <%= check_box_tag :email_list,'yes','yes' %> Receive Emails about future offers?
   </div>
    <%= f.hidden_field :offer_id, :value =>  @offer.id %>
   <div class="actions">
     <%= f.submit "Get Your Donation Code"%>
   </div>
+<div style='font-size:10px;'>
+* = Required Field.
+</div>
 <% end %>
+

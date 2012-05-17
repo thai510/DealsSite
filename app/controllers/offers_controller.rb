@@ -120,5 +120,11 @@ before_filter :adminCheck #except live will go here
       format.json { render json: @offer }
     end
   end
+  def thankyou
+    @offer = Offer.find(params[:id])
+    if params[:v]
+      @voucher = Voucher.find(params[:v])
+    end
+  end
 
 end

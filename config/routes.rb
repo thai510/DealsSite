@@ -26,6 +26,7 @@ Offerglass::Application.routes.draw do
   resources :offers do 
     member do
       get 'live'
+      get 'thankyou'
       delete "stop_offer"
       delete "start_offer"
     end
