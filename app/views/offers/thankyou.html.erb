@@ -1,0 +1,17 @@
+<h2 style='text-align:center;'>
+Thank you for participating in this offer. OfferGlass community offers make a great social outing. 
+</h2>
+<h2 style='text-align:center;'>
+<% if @voucher %>
+<%= mail_to "#{@voucher.email}", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%>  invite your friends to join.
+<% else %>
+<%= mail_to "me@domain.com", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%>  invite your friends to join.
+<% end %>
+</h2>
+<br />
+<br />
+<br />
+<br />
+<h3>
+  <%= link_to "Back To Offers" , store_index_path %>
+</h3>
