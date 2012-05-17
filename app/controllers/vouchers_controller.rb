@@ -102,15 +102,17 @@ class VouchersController < ApplicationController
     #this will probably never happen, but it's worth
     #checking
     count = Offer.find(offer_id).vouchers.count 
-    if count == VOUCHER_LIMIT 
+    if count >= VOUCHER_LIMIT 
      return nil
     end
     #convert to hex with 4 bits of padding
-    count = (count + 1)
-    hex = "%04x" % count.to_s
+    begin
+      code = rand(VOUCHER_LIMIT) 
+      hex = "%04x" % code.to_s
+      finalcode = offer_id.to_s + hex
+    end while(Voucher.find_by_code(finalcode))
     #pad with 
-    code = offer_id.to_s + hex
     #get our Randoms
-    return code
+    return finalcode
   end
 end

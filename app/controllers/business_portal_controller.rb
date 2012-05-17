@@ -29,7 +29,7 @@ class BusinessPortalController < ApplicationController
 
   def redeem_create
    @business = Business.find(session[:business_id])
-   @voucher = @business.vouchers.find_by_code(params[:code])
+   @voucher = @business.vouchers.find_by_code(params[:code].downcase!)
    if @voucher && @voucher.redeemed == 0 
      @voucher.purchase = params[:amount]
      @voucher.redeemed = 1
