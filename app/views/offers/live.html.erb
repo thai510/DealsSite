@@ -1,7 +1,4 @@
 
-<% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>"><%= value %></div> 
-<% end %>
   <h2 style='padding:5px;'><%= @offer.headline %></h2>
 <div class='row-fluid'>
     <div class='span4'>
@@ -20,6 +17,10 @@
       <div class="fb-like"   data-href="http://www.offerglass.com/offer/<%=@offer.id%>/live" data-send="true"   data-width="70" data-show-faces="false"></div>
       <a href="https://twitter.com/share" class="twitter-share-button"   data-url="http://www.offerglass.com/offer/<%=@offer.id%>/live" data-text="Check out this awesome local offer!" data-via="OfferGlass">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+       <div> 
+        <%= mail_to "me@domain.com", image_tag('glyphicons/glyphicons_010_envelope.png') + " Email" ,:body => "Awesome offer at http://www.offerglass.com/offers/#{@offer.id}/live", 
+           :class => "btn btn-small" %> 
+           </div>
     </div>
     <div class='span4 offset4'>
         <% @business = Business.find(@offer.business_id) %>

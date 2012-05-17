@@ -1,18 +1,25 @@
 
 <div class='row-fluid'>
 <div class='span8'>
-<h1> Live Offers </h1>
+<h1>Community Offers </h1>
 </div>
 <h2> <%= link_to 'View The Non-Profits', list_path%> </h2>
 </div>
 <br />
 <% @liveOffers.each do |l| %>
   <div class='row-fluid'>
-  <div class='span10'>
-  <div class='well'>
-      <%= image_tag l.photo.url(:thumb) %>
-      <h3 style='display:inline'><%= link_to l.headline, live_offer_path(l) %></h3>
-      <h5>Provided by <%= Business.find(l.business_id).name %></h5>
+  <div class='span12'>
+  <div class='well' style ='height:110px;'>
+      <div class='span2'>
+        <%= image_tag l.photo.url(:thumb) %>
+        <h5>Provided by <%= Business.find(l.business_id).name %></h5>
+      </div>
+      <div class='span9'>
+        <h2 style='display:inline'><%= link_to l.headline, live_offer_path(l) %></h2>
+        <% if l.date_string %>
+          <h4> Offer Running <%= l.date_string %> </h4>
+        <% end %>
+      </div>
   </div>
   </div>
   </div>

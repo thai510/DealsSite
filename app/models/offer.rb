@@ -17,6 +17,7 @@ class Offer < ActiveRecord::Base
   attr_accessible :live
   attr_accessible :business_id
   attr_accessible :start_offer_now
+  attr_accessible :date_string
   has_many :vouchers
   attr_reader :start_offer_now
 
