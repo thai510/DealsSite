@@ -2,7 +2,7 @@
 <div class='row-fluid'>
   <div class='span5'>
   <div>
-    <%=  image_tag @offer.photo.url(:large)%>
+    <%=  image_tag @offer.photo.url(:medium)%>
   </div>
   <div>
     Headline: <%= @offer.headline %>
@@ -31,7 +31,7 @@
 </div>
 <div class='span6'>
 <% if @offer.live == 0 %>
- <h1> Offer Not Started Yet </h1>
+ <h1> Offer Not Started Yet <br /> <%= link_to 'Preview', live_offer_path(@offer) %></h1>
 <% elsif @offer.live == 1 %>
  <h1> Offer Is Live! <%= link_to 'Find Here', live_offer_path(@offer)%> </h1>
 <% else %>

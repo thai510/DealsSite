@@ -114,7 +114,9 @@ before_filter :adminCheck #except live will go here
   def live
     @offer = Offer.find(params[:id])
     @voucher = Voucher.new
-
+    if @offer.live != 1 && !isAdmin? 
+      redirect_to root_path
+    end
     respond_to do |format|
       format.html # live.html.erb
       format.json { render json: @offer }
