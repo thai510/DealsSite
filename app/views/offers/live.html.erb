@@ -1,5 +1,5 @@
 
-  <h1 style='padding-bottom:5px;'><%= @offer.headline %></h1>
+  <h2 style='padding-bottom:5px;font-size:38px;'><%= @offer.headline %></h2>
 <div class='row-fluid'>
     <div class='span4'>
      <div>
@@ -27,8 +27,9 @@
     <div class='span4 offset4'>
         <% @business = Business.find(@offer.business_id) %>
       <div>
-        <h3><%= @offer.description %></h3>
+        <h3 style='font-size:23px;'><%= @offer.description %></h3>
       </div>
+      
       <br />
       <div>
          <%= @offer.date_string %>
@@ -41,9 +42,10 @@
         <%= @business.description %> 
       <br />
       <br />
-       <div style='font-size:10px'>
+      <div>
          <%= @offer.fine_print %> 
-         </div>
+      </div>
+      
     </div>
   <div class='span4'>
    <%= render '/vouchers/form', :object => @offer%> 
