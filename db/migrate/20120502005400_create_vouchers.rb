@@ -8,6 +8,7 @@ class CreateVouchers < ActiveRecord::Migration
       t.string :offer_id
       t.string :business_id
       t.string :code
+      t.string :share_email_np
       t.integer :redeemed
       t.decimal :purchase, :precision => 8, :scale => 2
       t.timestamps

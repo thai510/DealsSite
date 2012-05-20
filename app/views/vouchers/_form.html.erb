@@ -32,14 +32,19 @@
     <%= f.text_field :note, :placeholder => "Maximum 65 Characters" %>
   </div>
   <div class="field" style='padding-bottom:3px;'>
-    <%= check_box_tag :email_list,'yes','yes' %> Receive Emails about future offers?
+    <%= check_box_tag :email_list,'yes','yes' %> Receive Emails about future offers? **
+  </div>
+  <div class="field" style='padding-bottom:3px;'>
+    <%= check_box :voucher,:share_email_np,{:checked => true},"yes","no"%> Share My Email with Non-Profit? **
   </div>
    <%= f.hidden_field :offer_id, :value =>  @offer.id %>
   <div class="actions">
     <%= f.submit "Get Your Donation Code", :class => "btn-large btn-primary"%>
   </div>
 <div style='font-size:10px;'>
-* = Required Field.
+* = Required Field.<br />
+** We don't like spam, and we know you don't like spam. We promise not to use
+your email for anything without your explicit permission.
 </div>
 <% end %>
 

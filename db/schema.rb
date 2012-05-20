@@ -108,10 +108,11 @@ ActiveRecord::Schema.define(:version => 20120517042233) do
     t.string   "offer_id"
     t.string   "business_id"
     t.string   "code"
+    t.string   "share_email_np"
     t.integer  "redeemed"
-    t.decimal  "purchase",      :precision => 8, :scale => 2
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
+    t.decimal  "purchase",       :precision => 8, :scale => 2
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
   end
 
 end

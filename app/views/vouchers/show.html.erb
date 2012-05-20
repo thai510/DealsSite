@@ -1,5 +1,7 @@
-<p id="notice"><%= notice %></p>
 
+Share email with Non-Profit? <%= @voucher.share_email_np %>
+<br />
+Voucher for <%= link_to Offer.find(@voucher.offer_id).headline, Offer.find(@voucher.offer_id) %>
+<br />
 
-<%= link_to 'Edit', edit_voucher_path(@voucher) %> |
 <%= link_to 'Back', vouchers_path %>

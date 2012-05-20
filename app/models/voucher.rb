@@ -4,9 +4,9 @@ class Voucher < ActiveRecord::Base
   belongs_to :business
   attr_reader :email_list
   attr_accessible :email, :name, :non_profit_id, :email_confirmation,
-     :offer_id, :email_list, :note
+     :offer_id, :email_list, :note, :share_email_np
   validates :email, :name, :non_profit_id , :business_id, :offer_id,
-     :code, :redeemed, :presence => true
+     :code, :redeemed,:share_email_np, :presence => true
   validates :email, :confirmation => true
   validates :code, :uniqueness => true
   validates :name, :length => {:maximum => 30}

@@ -1,53 +1,53 @@
 <p id="notice"><%= notice %></p>
-<div>
-  <%=  image_tag @offer.photo.url(:thumb)%>
-  <%=  image_tag @offer.photo.url(:medium)%>
-  <%=  image_tag @offer.photo.url(:large)%>
+<div class='row-fluid'>
+  <div class='span5'>
+  <div>
+    <%=  image_tag @offer.photo.url(:large)%>
+  </div>
+  <div>
+    Headline: <%= @offer.headline %>
+  </div>
+  <div>
+    Description: <%= @offer.description %>
+  </div>
+  <div>
+    Fine Print: <%= @offer.fine_print %>
+  </div>
+  <div>
+    Address: <%= @offer.address %>
+  </div>
+  <div>
+    City: <%= @offer.city %>
+  </div>
+  <div>
+    State: <%= @offer.state %>
+  </div>
+  <div>
+    Zip: <%= @offer.zip %>
+  </div>
+  <div>
+    Start Date: <%= @offer.start_date %>
+  </div>
 </div>
-<div>
-  Headline: <%= @offer.headline %>
+<div class='span6'>
+<% if @offer.live == 0 %>
+ <h1> Offer Not Started Yet </h1>
+<% elsif @offer.live == 1 %>
+ <h1> Offer Is Live! <%= link_to 'Find Here', live_offer_path(@offer)%> </h1>
+<% else %>
+ <h1> Offer is over. </h1>
+<%end %>
+ <div class='well'>
+ <h2><%= @offer.vouchers.count %> Total Vouchers</h2>
+  <% @offer.vouchers.each do |v| %>
+ <h4><%= v.name%> for <%= NonProfit.find(v.non_profit_id).title %><br /><%= v.email %>     <%= link_to 'View' , v %></h4>
+ <br />
+ <% end %>
 </div>
-<div>
-  Description: <%= @offer.description %>
 </div>
-<div>
-  Fine Print: <%= @offer.fine_print %>
-</div>
-<div>
-  Address: <%= @offer.address %>
-</div>
-<div>
-  City: <%= @offer.city %>
-</div>
-<div>
-  State: <%= @offer.state %>
-</div>
-<div>
-  Zip: <%= @offer.zip %>
-</div>
-<div>
-  Live values:
-  0 - created, but not live, can be edited at this point
-</div>
-<div>
-  1 - is live, cannot be edited, accepting customers
-</div>
-<div>
-  2 - finished, not accepting customers, cannot be edited
-</div>
-<div>
-  Live: <%= @offer.live %>
-</div>
-<div>
-  Should be blank if live = 0
-</div>
-<div>
-  Expiration Date: <%= @offer.expiration_date %>
-</div>
-<div>
-  Start Date: <%= @offer.start_date %>
 </div>
 
-
+<% unless @offer.live == 1 %>
 <%= link_to 'Edit', edit_offer_path(@offer) %> |
+<% end %>
 <%= link_to 'Back', @offer.business %>

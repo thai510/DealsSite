@@ -1,11 +1,11 @@
 <h2 style='text-align:center;'>
-Thank you for participating in this offer. OfferGlass community offers make a great social outing. 
-</h2>
+Thank you for participating in this offer. 
+<u>Check your email for your unique donation code. You need this to process your donation.</u> OfferGlass community offers make a great social outing</h2>
 <h2 style='text-align:center;'>
 <% if @voucher %>
-<%= mail_to "#{@voucher.email}", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%>  invite your friends to join.
+<%= mail_to "#{@voucher.email}", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%> to invite your friends to join.
 <% else %>
-<%= mail_to "me@domain.com", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%>  invite your friends to join.
+<%= mail_to "me@domain.com", "Click here", :body => "Awesome offer at www.offerglass.com/offers/#{@offer.id}/live"%> to invite your friends to join.
 <% end %>
 </h2>
 <br />

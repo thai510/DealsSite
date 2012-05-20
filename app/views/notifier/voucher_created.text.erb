@@ -1,3 +1,10 @@
+<% @offer = Offer.find(@voucher.offer_id) %>
+Your Donation Code: <%= @voucher.code %> 
+<%= @offer.headline %> @ <%= Business.find(@offer.business_id).name %>
+<%= @offer.date_string %> 
+<%= @offer.address %> 
+<%= @offer.city %>, <%= @offer.state%> <%= @offer.zip %> 
+
 Thank you for registering for this offer! 20% of your (food) purchase will support <%= NonProfit.find(@voucher.non_profit_id).title %>. 
 
 To initiate the donation, you must submit the following voucher code: <%= @voucher.code %> to your server when you pay.

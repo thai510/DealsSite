@@ -3,7 +3,7 @@
 <div class='span8'>
 <h1>Community Offers </h1>
 </div>
-<h2> <%= link_to 'View The Non-Profits', list_path%> </h2>
+<h2> <%= link_to 'About Our Non-Profit Partners', list_path%> </h2>
 </div>
 <br />
 <% @liveOffers.each do |l| %>
@@ -15,10 +15,14 @@
         <h5>Provided by <%= Business.find(l.business_id).name %></h5>
       </div>
       <div class='span9'>
-        <h2 style='display:inline'><%= link_to l.headline, live_offer_path(l) %></h2>
+        <h2 style='display:inline'><%= l.headline%></h2>
         <% if l.date_string %>
           <h4> Offer Running <%= l.date_string %> </h4>
         <% end %>
+        <br />
+      </div>
+      <div class='span3 offset6'>
+      <%= link_to 'Get Your Donation Code Now!', live_offer_path(l), :class => 'btn btn-success'%>
       </div>
   </div>
   </div>

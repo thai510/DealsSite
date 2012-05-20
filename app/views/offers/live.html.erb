@@ -1,5 +1,5 @@
 
-  <h2 style='padding:5px;'><%= @offer.headline %></h2>
+  <h1 style='padding-bottom:5px;'><%= @offer.headline %></h1>
 <div class='row-fluid'>
     <div class='span4'>
      <div>
@@ -21,14 +21,17 @@
         <%= mail_to "me@domain.com", image_tag('glyphicons/glyphicons_010_envelope.png') + " Email" ,:body => "Awesome offer at http://www.offerglass.com/offers/#{@offer.id}/live", 
            :class => "btn btn-small" %> 
            </div>
+       <br />
+       <h3><%= link_to 'Back To Offers', store_index_path %></h3>
     </div>
     <div class='span4 offset4'>
         <% @business = Business.find(@offer.business_id) %>
       <div>
-        <h4><%= @offer.description %></h4>
-         <%= @offer.fine_print %> 
+        <h3><%= @offer.description %></h3>
       </div>
+      <br />
       <div>
+         <%= @offer.date_string %>
          <%= @offer.address %>
       </div>
       <div>
@@ -36,6 +39,11 @@
       </div>
       <br />
         <%= @business.description %> 
+      <br />
+      <br />
+       <div style='font-size:10px'>
+         <%= @offer.fine_print %> 
+         </div>
     </div>
   <div class='span4'>
    <%= render '/vouchers/form', :object => @offer%> 
