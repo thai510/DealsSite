@@ -1,7 +1,7 @@
 class NonProfitsController < ApplicationController
   # GET /non_profits
   # GET /non_profits.json
-  before_filter :adminCheck
+  before_filter :adminCheck, :except => :list
   def index
     @non_profits = NonProfit.all
 

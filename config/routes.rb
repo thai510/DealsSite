@@ -59,7 +59,7 @@ Offerglass::Application.routes.draw do
    end
 
   resources :businesses
-  root :to => 'customers#new'
+  root :to => 'store#index'
   
 
   # The priority is based upon order of creation:

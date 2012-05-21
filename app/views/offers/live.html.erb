@@ -22,7 +22,7 @@
            :class => "btn btn-small" %> 
            </div>
        <br />
-       <h3><%= link_to 'Back To Offers', store_index_path %></h3>
+       <h3><%= link_to 'Back To Offers', root_path %></h3>
     </div>
     <div class='span4 offset4'>
         <% @business = Business.find(@offer.business_id) %>
@@ -32,7 +32,7 @@
       
       <br />
       <div>
-         <%= @offer.date_string %>
+         <b><%= @offer.date_string %></b>
       </div>
       <div>
          <%= @offer.address %>
