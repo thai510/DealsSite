@@ -12,7 +12,6 @@
   <div class='well' style ='height:110px;'>
       <div class='span2'>
         <%= image_tag l.photo.url(:thumb) %>
-        <h5>Provided by <%= Business.find(l.business_id).name %></h5>
       </div>
       <div class='span9'>
         <h2 style='display:inline'><%= l.headline%></h2>
@@ -20,6 +19,7 @@
           <h4> Offer Running <%= l.date_string %> </h4>
         <% end %>
         <br />
+        <h5>Provided by <%= Business.find(l.business_id).name %></h5>
       </div>
       <div class='span3 offset6'>
       <%= link_to 'Get Your Donation Code Now!', live_offer_path(l), :class => 'btn btn-success'%>
