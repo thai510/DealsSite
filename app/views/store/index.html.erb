@@ -11,10 +11,10 @@
   <div class='span12'>
   <div class='well' style ='height:110px;'>
       <div class='span2'>
-        <%= image_tag l.photo.url(:thumb) %>
+        <%= link_to image_tag(l.photo.url(:thumb)),live_offer_path(l) %>
       </div>
       <div class='span9'>
-        <h2 style='display:inline'><%= l.headline%></h2>
+        <h2 style='display:inline'><%= link_to l.headline,live_offer_path(l)%></h2>
           <h4> 20% of your food purchase will be donated to your cause.</h4>
         <% if l.date_string %>
           <h4> Offer Running <%= l.date_string %> </h4>
