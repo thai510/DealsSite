@@ -43,14 +43,12 @@
   <div class='well'>
     <h4>Vouchers to be Redeemed</h4>
     <% o.vouchers.where(:redeemed => 0).each do |p| %> 
-      <div>
         <div class='span1'>
           <%= p.code %>
         </div>
-        <div class='span2' style='font-size:10px;'>
+        <div class='span3' style='font-size:10px;'>
           <%= NonProfit.find(p.non_profit_id).title %>
         </div>
-      </div>
       <br />
     <% end %>
     </div>
@@ -59,7 +57,6 @@
   <div class='well'>
     <h4>Redeemed Vouchers</h4>
     <% o.vouchers.where(:redeemed => 1).each do |p| %> 
-      <div>
         <div class='span1'>
           <%= p.code %>
         </div>
@@ -69,7 +66,6 @@
         <div class='span2' style='font-size:10px;'>
           <%= NonProfit.find(p.non_profit_id).title %>
         </div>
-      </div>
       <br />
     <% end %>
     </div>
