@@ -1,28 +1,76 @@
- Welcome <%= @business.name %>
- <%= link_to 'Logout', logout_business_path, :method => :delete %>
-<% if @business.hashed_password == Business.encrypt_password(@business.initial_password,@business.salt) %> 
-  <div> Your password is still the same one we gave you. Please change your password <%=link_to 'here', b_cp_path %>. </div>
-<% else %>
-  <%= link_to 'Change Password', b_cp_path %> 
-<% end %>
-<h1> Redeem Here</h1>
- <%= notice %>
-<%= form_tag do %>
-  <%= text_field_tag :code, params[:code], :placeholder => 'Code' %>
-  <br />
-  <%= text_field_tag :amount, params[:amount], :placeholder => 'Amount Purchased' %>
-  <br />
-  <%= submit_tag 'Redeem!',:confirm => "Are you sure you wish to redeem this code?"%>
-<% end %>
+<div class='row-fluid'>
+ <div class='span8'>
+   Welcome <%= @business.name %>
+ </div>
+ <div class='pull-right'>
+   <%= link_to 'Change Password', b_cp_path %> 
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+   <%= link_to 'Logout', logout_business_path, :method => :delete %>
+ </div>
+</div>
+<br/>
+<div class='row-fluid'>
+ <div class='span6'>
+  <h2> Redeem </h2>
+   <%= notice %>
+  <%= form_tag do %>
+    <%= text_field_tag :code, params[:code], :placeholder => 'Code' %>
+    <br />
+    <%= text_field_tag :amount, params[:amount], :placeholder => 'Amount Purchased (ex. 23.57)' %>
+    <br />
+    <%= submit_tag 'Redeem!',:confirm => "Are you sure you wish to redeem this code?"%>
+  <% end %>
+  </div>
+ <div class='pull-right'>
+ <% @total = 0 %>
+ Total Earned
+    <% @business.vouchers.where(:redeemed => 1).each do |v| %> 
+      <% @total += v.purchase %> 
+    <% end %>
+    <%= number_to_currency @total - @total * 0.2 %>
+ Total Donated 
+    <%= number_to_currency @total * 0.2 %>
+ </div>
+</div>
 
 
 <hr >
+<h2>Running Community Offers</h2>
 <% @liveOffers.each do |o|%>
-  <h3><%= link_to o.headline, live_offer_path(o) %></h3> 
-  <%= @business.vouchers.count %>  Total Voucher(s)
-  <br />
-  <%= @business.vouchers.where(:redeemed => 0).count %> Unredeemed Voucher(s)
-  <br />
-  <%= @business.vouchers.where(:redeemed => 1).count %> Redeemed Voucher(s)
+  <div class='row-fluid'>
+    <h3><%= link_to o.headline, live_offer_path(o) %></h3> 
+    <div class='span5'>
+  <div class='well'>
+    <h4>Vouchers to be Redeemed</h4>
+    <% o.vouchers.where(:redeemed => 0).each do |p| %> 
+      <div class='span1'>
+        <%= p.code %>
+      </div>
+      <div class='span2'>
+        <%= NonProfit.find(p.non_profit_id).title %>
+      </div>
+      <br />
+    <% end %>
+    </div>
+    </div>
+    <div class='span5 offset6'>
+  <div class='well'>
+    <h4>Redeemed Vouchers</h4>
+    <% o.vouchers.where(:redeemed => 1).each do |p| %> 
+      <div class='span1'>
+        <%= p.code %>
+      </div>
+      <div class='span1'>
+        <%= number_to_currency p.purchase %>
+      </div>
+      <div class='span2'>
+        <%= NonProfit.find(p.non_profit_id).title %>
+      </div>
+      <br />
+    <% end %>
+    </div>
+    </div>
+  </div>
+</div>
 <% end %>
 

@@ -29,11 +29,14 @@ class BusinessPortalController < ApplicationController
 
   def redeem_create
    @business = Business.find(session[:business_id])
-   @voucher = @business.vouchers.find_by_code(params[:code].downcase!)
+   @voucher = @business.vouchers.find_by_code(params[:code])
+   puts params[:code]
+   puts @voucher
    if @voucher && @voucher.redeemed == 0 
      @voucher.purchase = params[:amount]
      @voucher.redeemed = 1
      if @voucher.save
+       Notifier.voucher_redeemed_customer(@voucher).deliver
        redirect_to b_redeem_path,:notice => 'Code Successfully Redeemed!' 
      else
        redirect_to b_redeem_path,:notice => 'Amount Purchased must be at least 0.01' 

@@ -1,3 +1,7 @@
-Notifier#voucher_redeemed_customer
 
-<%= @greeting %>, find me in app/views/app/views/notifier/voucher_redeemed.text.erb
+Thank you for visiting <%= Business.find(@voucher.business_id).name %>. You spent <%= number_to_currency @voucher.purchase %>, of which 20% is being donated to <%= NonProfit.find(@voucher.non_profit_id).title %>! 
+
+If this information is incorrect, please contact us at support@offerglass.com.
+
+Thank you,
+The OfferGlass Robot
