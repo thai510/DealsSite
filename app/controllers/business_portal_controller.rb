@@ -8,7 +8,7 @@ class BusinessPortalController < ApplicationController
   end
 
   def login_post
-   if business = Business.authenticate(params[:name],params[:password])
+   if business = Business.authenticate(params[:email],params[:password])
      session[:business_id] = business.id 
      redirect_to b_redeem_path 
    else

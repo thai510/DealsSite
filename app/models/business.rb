@@ -36,8 +36,8 @@ class Business < ActiveRecord::Base
     self.name = self.name.strip unless self.name.blank?
   end 
 
-  def Business.authenticate(name, password)
-    if business = find_by_name(name)
+  def Business.authenticate(email, password)
+    if business = find_by_email(email)
       if business.hashed_password == encrypt_password(password, business.salt)
         return business 
       end 
