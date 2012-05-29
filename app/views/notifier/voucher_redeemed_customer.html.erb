@@ -1,0 +1,12 @@
+<html>
+<body>
+Thank you for visiting <h4 style='display:inline;'><%= Business.find(@voucher.business_id).name %></h4>. You spent <h4 style='display:inline;'><%= number_to_currency @voucher.purchase %></h4>, of which 20% is being donated to <h4 style='display:inline;'><%= NonProfit.find(@voucher.non_profit_id).title %></h4>! 
+<br />
+<br />
+If this information is incorrect, please contact us at support@offerglass.com.
+<br />
+<br />
+Thank you,<br />
+The OfferGlass Robot
+</body>
+<html>
