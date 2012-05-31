@@ -95,7 +95,7 @@ class BusinessesController < ApplicationController
     @business.initial_password = gen_random_password
     @business.hashed_password = Business.encrypt_password(@business.initial_password,@business.salt)
     @business.save
-    puts @business.initial_password
+    #puts @business.initial_password
     #email will be sent to user as well
     redirect_to @business
   end

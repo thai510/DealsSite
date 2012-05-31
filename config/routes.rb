@@ -38,6 +38,7 @@ Offerglass::Application.routes.draw do
     post "/b/login" => :login_post
     get "/b/redeem" => :redeem
     post "/b/redeem" => :redeem_create
+    delete "/b/redeem" => :redeem_undo
     get "/b/cp" => :business_change_password_view
     put "/b/cp" => :business_change_password_save
     delete "logout_business" => :destroy

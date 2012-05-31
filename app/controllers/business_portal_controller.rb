@@ -36,7 +36,9 @@ class BusinessPortalController < ApplicationController
      @voucher.purchase = params[:amount]
      @voucher.redeemed = 1
      if @voucher.save
-       Notifier.voucher_redeemed_customer(@voucher).deliver
+       if(params[:send_email] == 'yes')  
+         Notifier.voucher_redeemed_customer(@voucher).deliver
+       end 
        redirect_to b_redeem_path,:notice => 'Code Successfully Redeemed!' 
      else
        redirect_to b_redeem_path,:notice => 'Amount Purchased must be at least 0.01' 
@@ -46,6 +48,13 @@ class BusinessPortalController < ApplicationController
    else 
      redirect_to b_redeem_path,:notice => 'Code has already been Redeemed!' 
    end
+  end
+
+  def redeem_undo
+    @voucher = Voucher.find(params[:v]) 
+    @voucher.redeemed = 0;
+    @voucher.save
+    redirect_to b_redeem_path
   end
 
   def business_change_password_view

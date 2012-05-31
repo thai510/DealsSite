@@ -18,6 +18,9 @@
     <br />
     <%= text_field_tag :amount, params[:amount], :placeholder => 'Amount Purchased (ex. 23.57)' %>
     <br />
+    Send Receipt Email
+    <%= check_box_tag :send_email, 'yes','yes'%>
+    <br />
     <%= submit_tag 'Redeem!',:confirm => "Are you sure you wish to redeem this code?"%>
   <% end %>
   </div>
@@ -67,7 +70,14 @@
         </div>
         <div class='span3' style='font-size:10px;'>
           <%= NonProfit.find(p.non_profit_id).title %>
+          
         </div>
+      <br />
+        <div class='span3'>
+<%= link_to 'Cancel This Redemption', b_redeem_path(:v => p), 
+            :confirm => 'Are you sure you wish to cancel this redemption?' , :method => :delete%>
+        </div>
+      <br />
       <br />
     <% end %>
     </div>
